@@ -9,12 +9,15 @@ const Projects = () => {
       {
         id: 1,
         img: 'http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg',
-        name: 'Proj 1',
+        name: '5-Story Shopping Mall',
+        location: 'Bucharest, RO',
+        countryFlagImg:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/23px-Flag_of_Romania.svg.png',
         shortDescription: '',
         longDescription: '',
-        deadline: '',
+        deadline: 1723194593000,
         crowdfundingDeadline: '',
-        projectOwner: 'MegaConstruct', // constructor
+        projectOwner: 'EuFacMalluri S.R.L.', // constructor
         crowdfundingTarget: 1000000,
         progress: 0.66,
         forecastedAPR: 12.13,
@@ -29,16 +32,19 @@ const Projects = () => {
         ]
       },
       {
-        id: 1,
+        id: 2,
         img: 'http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg',
-        name: 'Proj 1',
+        name: 'Office Building',
+        location: 'Wien, AU',
+        countryFlagImg:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/23px-Flag_of_Austria.svg.png',
         shortDescription: '',
         longDescription: '',
-        deadline: '',
+        deadline: 1723194593000,
         crowdfundingDeadline: '',
-        projectOwner: 'MegaConstruct', // constructor
+        projectOwner: 'RandomSRLHere S.R.L.', // constructor
         crowdfundingTarget: 1000000,
-        progress: 0.66,
+        progress: 0.89,
         forecastedAPR: 12.13,
         riskScore: 1,
         galleryImages: ['', '', ''],
@@ -50,16 +56,19 @@ const Projects = () => {
         ]
       },
       {
-        id: 1,
+        id: 3,
         img: 'http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg',
-        name: 'Proj 1',
+        name: 'Residential Complex',
+        location: 'Budapest, HU',
+        countryFlagImg:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/23px-Flag_of_Hungary.svg.png',
         shortDescription: '',
         longDescription: '',
-        deadline: '',
+        deadline: 1723194593000,
         crowdfundingDeadline: '',
-        projectOwner: 'MegaConstruct', // constructor
+        projectOwner: 'Foreign Constructor Ltd.', // constructor
         crowdfundingTarget: 1000000,
-        progress: 0.66,
+        progress: 0.1,
         forecastedAPR: 12.13,
         riskScore: 1,
         galleryImages: ['', '', ''],
@@ -75,7 +84,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className='container py-4'>
+    <div className='container'>
       <div className='row mb-5'>
         <div className='col d-flex justify-content-center'>
           <h1>Open projects</h1>

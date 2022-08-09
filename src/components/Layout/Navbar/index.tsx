@@ -34,11 +34,11 @@ const Navbar = () => {
               Projects
             </Link>
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <Link to={routeNames.marketplace} className='btn btn-link'>
               Marketplace
             </Link>
-          </NavItem>
+          </NavItem> */}
           {isLoggedIn && (
             <>
               <NavItem>

@@ -1,4 +1,10 @@
+import { useGetAccountInfo } from '@elrondnetwork/dapp-core/hooks';
+import { NUMBER_OF_SHARES_PER_PROJECT } from 'config';
+import moment from 'moment';
 import React from 'react';
+import Slider from 'react-input-slider';
+import InvestModalInput from './InvestModalInput';
+import InvestModalPaperwork from './InvestModalPaperwork';
 
 const InvestModal = ({
   projectDetails,
@@ -7,27 +13,58 @@ const InvestModal = ({
   projectDetails: any;
   closeModal: () => void;
 }) => {
-  return (
-    <div className='container'>
-      <div className='row'>
-        <div className='col'>
-          <h3>Invest in {projectDetails.name}</h3>
-        </div>
-      </div>
-      <div className='row' style={{ width: '100%' }}>
-        <div className='col-lg-6'>
-          <h5>Remaining shares: {(123456).toLocaleString()}</h5>
-        </div>
-        <div className='col-lg-6'></div>
-      </div>
-      <div className='row'>
-        <div className='col'>
-          <button className='btn btn-primary' onClick={closeModal}>
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
+  const { address } = useGetAccountInfo();
+  const loggedIn = Boolean(address);
+  const [didMount, setDidMount] = React.useState(false);
+  const [displayPaperwork, setDisplayPaperwork] = React.useState(false);
+  const [pricePerShare, setPricePerShare] = React.useState(0);
+  const [remainingShares, setRemainingShares] = React.useState(0);
+  const [investmentAmount, setInvestmentAmount] = React.useState(0);
+
+  React.useEffect(() => {
+    setPricePerShare(
+      projectDetails.crowdfundingTarget / NUMBER_OF_SHARES_PER_PROJECT
+    );
+    setRemainingShares(
+      (1 - projectDetails.progress) * NUMBER_OF_SHARES_PER_PROJECT
+    );
+    setDidMount(true);
+  }, []);
+
+  const handleNavigateForward = (inputInvestAmount: number) => {
+    setInvestmentAmount(inputInvestAmount);
+    console.log(inputInvestAmount);
+    setDisplayPaperwork(true);
+  };
+
+  const handleNavigateBack = () => {
+    setDisplayPaperwork(false);
+  };
+
+  const handleUserAgreement = () => {
+    window.alert('user agreed to buy');
+  };
+
+  return !didMount ? null : displayPaperwork ? (
+    <InvestModalPaperwork
+      projectDetails={projectDetails}
+      closeModal={closeModal}
+      canProceed={loggedIn}
+      onNavigateBack={handleNavigateBack}
+      onUserAgreement={handleUserAgreement}
+      pricePerShare={pricePerShare}
+      sharesToReceive={investmentAmount / pricePerShare}
+      investmentAmount={investmentAmount}
+    />
+  ) : (
+    <InvestModalInput
+      projectDetails={projectDetails}
+      closeModal={closeModal}
+      canProceed={loggedIn}
+      onProceed={handleNavigateForward}
+      pricePerShare={pricePerShare}
+      remainingShares={remainingShares}
+    />
   );
 };
 
