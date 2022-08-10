@@ -6,6 +6,7 @@ import { ProgressBar } from 'react-bootstrap';
 import ReactTooltip from 'react-tooltip';
 import { useNavigate } from 'react-router-dom';
 import { routeNames } from 'routes';
+import InvestmentProgressBar from 'components/InvestmentProgressBar';
 
 const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -47,6 +48,17 @@ const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
     navigate(`${routeNames.projects}/${projectDetails.id}`);
   };
 
+  const getProjectDetailsRoute = () => {
+    // return `${routeNames.projectPage}/${projectDetails.id}`;
+    return routeNames.projectPage.replace(':id', projectDetails.id);
+  };
+
+  const getRiskScoreCssClass = () => {
+    if (projectDetails.riskScore < 3) return 'bg-success';
+    if (projectDetails.riskScore < 6) return 'bg-warning';
+    return 'bg-danger';
+  };
+
   return (
     <>
       <div className='row mb-1' style={projInfoStyle}>
@@ -54,6 +66,22 @@ const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
           className='col-lg-1 d-flex justify-content-center align-items-center'
           onClick={handleNavigateToProject}
         >
+          {/* <div>
+            <a
+              href={getProjectDetailsRoute()}
+              className='ml-3'
+              target='_blank'
+              rel='noreferrer'
+            >
+              #{projectDetails.id}
+            </a>
+            <img
+              src={projectDetails.img}
+              height='100px'
+              width='100px'
+              style={{ padding: '10px' }}
+            />
+          </div> */}
           <img
             src={projectDetails.img}
             height='100px'
@@ -61,7 +89,7 @@ const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
             style={{ padding: '10px' }}
           />
         </div>
-        <div className='col-lg-3 d-flex justify-content-left align-items-center mb-3'>
+        <div className='col-lg-2 d-flex justify-content-left align-items-center mb-3'>
           <div className='ml-2'>
             <h6 className='mt-2'>
               {projectDetails.location}{' '}
@@ -73,21 +101,27 @@ const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
             </a>
           </div>
         </div>
+        <div className='col-lg-1 d-flex justify-content-center align-items-center'>
+          <div>
+            <h6>Risk Score</h6>
+            <div
+              className={
+                getRiskScoreCssClass() +
+                ' d-flex justify-content-center align-items-center'
+              }
+            >
+              <h3>{projectDetails.riskScore}</h3>
+            </div>
+          </div>
+        </div>
         <div className='col-lg-2 d-flex justify-content-center align-items-center'>
           <div>
             <h6>Crowdfunding target</h6>
             <h3>{projectDetails.crowdfundingTarget.toLocaleString()}$</h3>
-            <ProgressBar
-              data-tip={`${getRemainingCrowdfundingAmount().toLocaleString()}$ more needed`}
-            >
-              <ProgressBar
-                now={projectDetails.progress * 100}
-                variant='success'
-                animated
-                // label={`${projectDetails.progress * 100}%`}
-              />
-              <ProgressBar now={getRemainingPercentage()} variant='danger' />
-            </ProgressBar>
+            <InvestmentProgressBar
+              crowdfundingTarget={projectDetails.crowdfundingTarget}
+              crowdfundingProgress={projectDetails.progress}
+            />
           </div>
         </div>
         <div className='col-lg-2 d-flex justify-content-center align-items-center'>

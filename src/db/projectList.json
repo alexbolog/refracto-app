@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "img": "http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg",
+      "name": "5-Story Shopping Mall",
+      "location": "Bucharest, RO",
+      "fullAddress": "Bulevardul Mircea Vodă, București 030167",
+      "geolocation": "44.427766762840804, 26.112151401379148",
+      "countryFlagImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/23px-Flag_of_Romania.svg.png",
+      "shortDescription": "",
+      "longDescription": "",
+      "deadline": 1723194593000,
+      "crowdfundingDeadline": "",
+      "projectOwner": "EuFacMalluri S.R.L.",
+      "projectOwnerId": 1,
+      "crowdfundingTarget": 1000000,
+      "progress": 0.66,
+      "forecastedAPR": 12.13,
+      "riskScore": 4,
+      "isLive": true,
+      "galleryImages": ["", "", ""],
+      "attributes": [
+        {
+          "key": "",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "img": "http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg",
+      "name": "Office Building",
+      "location": "Wien, AU",
+      "countryFlagImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/23px-Flag_of_Austria.svg.png",
+      "shortDescription": "",
+      "longDescription": "",
+      "deadline": 1723194593000,
+      "crowdfundingDeadline": "",
+      "projectOwner": "RandomSRLHere S.R.L.",
+      "crowdfundingTarget": 1000000,
+      "progress": 0.89,
+      "forecastedAPR": 12.13,
+      "riskScore": 1,
+      "galleryImages": ["", "", ""],
+      "attributes": [
+        {
+          "key": "",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "img": "http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg",
+      "name": "Residential Complex",
+      "location": "Budapest, HU",
+      "countryFlagImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/23px-Flag_of_Hungary.svg.png",
+      "shortDescription": "",
+      "longDescription": "",
+      "deadline": 1723194593000,
+      "crowdfundingDeadline": "",
+      "projectOwner": "Foreign Constructor Ltd.",
+      "crowdfundingTarget": 1000000,
+      "progress": 0.1,
+      "forecastedAPR": 12.13,
+      "riskScore": 6,
+      "galleryImages": ["", "", ""],
+      "attributes": [
+        {
+          "key": "",
+          "value": 1
+        }
+      ]
+    }
+  ]

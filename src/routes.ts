@@ -1,6 +1,7 @@
 import { dAppName } from 'config';
 import Account from 'pages/Account';
 import Marketplace from 'pages/Marketplace';
+import ProjectDetails from 'pages/ProjectDetails';
 import Projects from 'pages/Projects';
 import withPageTitle from './components/PageTitle';
 import Dashboard from './pages/Dashboard';
@@ -17,7 +18,7 @@ export const routeNames = {
   account: '/account',
   marketplace: '/marketplace',
   projects: '/projects',
-  projectPage: '/project'
+  projectPage: '/projects/:id'
 };
 
 const routes: Array<any> = [
@@ -51,6 +52,11 @@ const routes: Array<any> = [
     path: routeNames.projects,
     title: 'Projects',
     component: Projects
+  },
+  {
+    path: routeNames.projectPage,
+    title: 'Project Details',
+    component: ProjectDetails
   }
 ];
 
