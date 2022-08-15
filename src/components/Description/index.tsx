@@ -2,10 +2,12 @@ import React from 'react';
 
 const Description = ({
   shortDescription,
-  longDescription
+  longDescription,
+  targetId
 }: {
   shortDescription: string;
   longDescription: string;
+  targetId?: string;
 }) => {
   const [displayFullDescription, setDisplayFullDescription] =
     React.useState(false);
@@ -15,7 +17,7 @@ const Description = ({
       <br />
       {/* TODO: replace <a> with <span> or <p> and give the block the looks of a link */}
       {/* this is because with href='#', on mobile, on Read More/Less the page snaps to top */}
-      <a href='#' onClick={() => setDisplayFullDescription(false)}>
+      <a href={`#${targetId}`} onClick={() => setDisplayFullDescription(false)}>
         Read Less
       </a>
     </div>
@@ -23,8 +25,8 @@ const Description = ({
     <div className='col'>
       <span>{shortDescription}..</span>
       {/* TODO: replace <a> with <span> or <p> and give the block the looks of a link */}
-      {/* this is because with href='#', on mobile, on Read More/Less the page snaps to top */}
-      <a href='#' onClick={() => setDisplayFullDescription(true)}>
+      {/* this is because with href='#', on Read More/Less the page snaps to top */}
+      <a href={`#${targetId}`} onClick={() => setDisplayFullDescription(true)}>
         {' '}
         Read More
       </a>

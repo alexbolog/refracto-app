@@ -197,7 +197,7 @@ const ProjectDetails = () => {
         </div>
       </div>
       {/* Description Row */}
-      <div className='row mt-5'>
+      <div className='row mt-5' id='about-project-description'>
         <div className='col-lg-12'>
           <h2>About the project</h2>
         </div>
@@ -205,11 +205,12 @@ const ProjectDetails = () => {
           <Description
             shortDescription={projectInfo.shortDescription}
             longDescription={projectInfo.longDescription}
+            targetId={'about-project-description'}
           />
         </div>
       </div>
       {/* Project developer details */}
-      <div className='row mt-5'>
+      <div className='row mt-5' id='about-developer-description'>
         <div className='col-lg-12'>
           <h2>About the project developer</h2>
         </div>
@@ -217,6 +218,7 @@ const ProjectDetails = () => {
           <Description
             shortDescription={projectInfo.shortDescription}
             longDescription={projectInfo.longDescription}
+            targetId={'about-developer-description'}
           />
         </div>
       </div>

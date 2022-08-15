@@ -148,7 +148,9 @@ const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
           {!projectDetails.isLive && (
             <button className='btn btn-success mr-2 disabled'>Invest</button>
           )}
-          <button className='btn btn-primary'>Read more</button>
+          <button className='btn btn-primary' onClick={handleNavigateToProject}>
+            Read more
+          </button>
         </div>
       </div>
       <Modal isOpen={isModalOpen} style={modalStyles}>
