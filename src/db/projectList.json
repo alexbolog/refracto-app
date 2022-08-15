@@ -1,75 +1,182 @@
 [
-    {
-      "id": 1,
-      "img": "http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg",
-      "name": "5-Story Shopping Mall",
-      "location": "Bucharest, RO",
-      "fullAddress": "Bulevardul Mircea Vodă, București 030167",
-      "geolocation": "44.427766762840804, 26.112151401379148",
-      "countryFlagImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/23px-Flag_of_Romania.svg.png",
-      "shortDescription": "",
-      "longDescription": "",
-      "deadline": 1723194593000,
-      "crowdfundingDeadline": "",
-      "projectOwner": "EuFacMalluri S.R.L.",
-      "projectOwnerId": 1,
-      "crowdfundingTarget": 1000000,
-      "progress": 0.66,
-      "forecastedAPR": 12.13,
-      "riskScore": 4,
-      "isLive": true,
-      "galleryImages": ["", "", ""],
-      "attributes": [
-        {
-          "key": "",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "img": "http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg",
-      "name": "Office Building",
-      "location": "Wien, AU",
-      "countryFlagImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/23px-Flag_of_Austria.svg.png",
-      "shortDescription": "",
-      "longDescription": "",
-      "deadline": 1723194593000,
-      "crowdfundingDeadline": "",
-      "projectOwner": "RandomSRLHere S.R.L.",
-      "crowdfundingTarget": 1000000,
-      "progress": 0.89,
-      "forecastedAPR": 12.13,
-      "riskScore": 1,
-      "galleryImages": ["", "", ""],
-      "attributes": [
-        {
-          "key": "",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "img": "http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg",
-      "name": "Residential Complex",
-      "location": "Budapest, HU",
-      "countryFlagImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/23px-Flag_of_Hungary.svg.png",
-      "shortDescription": "",
-      "longDescription": "",
-      "deadline": 1723194593000,
-      "crowdfundingDeadline": "",
-      "projectOwner": "Foreign Constructor Ltd.",
-      "crowdfundingTarget": 1000000,
-      "progress": 0.1,
-      "forecastedAPR": 12.13,
-      "riskScore": 6,
-      "galleryImages": ["", "", ""],
-      "attributes": [
-        {
-          "key": "",
-          "value": 1
-        }
-      ]
-    }
-  ]
+  {
+    "id": 1,
+    "img": "http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg",
+    "name": "5-Story Shopping Mall",
+    "location": "Bucharest, RO",
+    "locationMapSs": "/map-ss.png",
+    "fullAddress": "Bulevardul Mircea Vodă, București 030167",
+    "geolocation": "44.427766762840804, 26.112151401379148",
+    "countryFlagImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/23px-Flag_of_Romania.svg.png",
+    "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae ultrices nibh. Suspendisse potenti. Fusce sed lectus eu velit cursus condimentum quis in sem. Proin tempus, turpis id facilisis aliquam, ligula mauris commodo lorem, eget iaculis dui",
+    "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae ultrices nibh. Suspendisse potenti. Fusce sed lectus eu velit cursus condimentum quis in sem. Proin tempus, turpis id facilisis aliquam, ligula mauris commodo lorem, eget iaculis dui justo ut odio. Aenean vitae viverra tellus. Mauris eu elit pharetra, suscipit est eget, semper dolor. Suspendisse potenti. Vestibulum vel sapien mattis, vehicula nibh in, varius augue. Donec egestas laoreet orci eu porta. Integer tristique ligula purus, at imperdiet eros placerat in. Vivamus egestas non purus sit amet suscipit. Nullam pellentesque cursus vehicula. Proin tempus justo nec vulputate fringilla. Integer id massa vitae ante mattis vehicula ac ut velit. Vivamus feugiat velit et velit laoreet, nec cursus risus facilisis. Mauris faucibus nunc eu sapien scelerisque, id commodo nunc porttitor.\r\n\r\nVestibulum congue est dolor, pellentesque iaculis turpis dignissim vitae. Nullam blandit odio at lacus tincidunt cursus. Curabitur pharetra ultrices justo vitae imperdiet. Etiam sit amet felis vestibulum turpis finibus consequat. Nullam et tortor a nunc vulputate fermentum et a velit. Praesent ut fermentum risus, quis pellentesque justo. Quisque bibendum scelerisque dolor, ac sollicitudin nibh pellentesque quis. Vivamus ac nisi efficitur, tincidunt mauris quis, rutrum nibh. Integer nec eros gravida, efficitur lacus sit amet, iaculis libero. In neque tellus, scelerisque vitae congue ut, varius fringilla ipsum. Vestibulum augue mi, consequat eu varius sit amet, aliquam et magna.\r\n\r\nPraesent quis varius ipsum. Vivamus nisi magna, finibus in mattis gravida, consequat ut est. Cras cursus porta enim et tincidunt. Mauris eu purus dapibus, vehicula magna a, rutrum dolor. Quisque molestie, nibh quis vulputate volutpat, nisi est faucibus nisl, ut finibus urna lacus finibus elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id erat venenatis, vestibulum nulla ac, ultricies ex. Nulla ut magna lacinia, tristique lectus nec, faucibus leo.\r\n\r\nMorbi euismod odio in dui lacinia pretium. Etiam consequat est a ex commodo finibus. Quisque mollis, ipsum faucibus dignissim ornare, metus eros gravida velit, in scelerisque nisl mauris in nisi. Cras quam enim, tincidunt aliquet diam sed, accumsan vehicula ligula. Aliquam erat volutpat. Phasellus nisi ipsum, fringilla id viverra nec, gravida quis erat. Quisque semper, risus vel molestie posuere, turpis velit lobortis urna, in dignissim lacus ante in velit. Donec id dolor elit. Proin cursus eros sit amet nisl condimentum dictum. In non dui a dolor vestibulum cursus. Morbi consequat nibh sem, ac euismod nibh semper sed. Aliquam lobortis tincidunt mauris non ullamcorper. Phasellus sit amet viverra arcu. Sed sed tellus lacus.\r\n\r\nNam pellentesque purus elit, eu elementum lorem lobortis et. Sed ut molestie urna. Sed vitae tincidunt risus. Duis rutrum elit ut leo elementum consectetur. Cras ornare, libero eu placerat faucibus, odio augue semper nisl, id egestas metus diam sit amet nisi. Curabitur enim sem, volutpat eu augue quis, varius varius risus. Proin a commodo libero, non ullamcorper leo. Donec nibh sapien, tristique sed blandit et, sollicitudin eget elit. Maecenas ultrices dictum leo, a mattis dui. In ipsum augue, sollicitudin sed scelerisque sit amet, interdum vitae turpis. Morbi ac nisl eget nisl accumsan euismod quis in mauris. Curabitur id elementum lacus. Donec sodales diam in ante efficitur, vel bibendum erat sollicitudin. Mauris lobortis ut mi eu venenatis. Curabitur tempor vulputate varius.",
+    "deadline": 1723194593000,
+    "crowdfundingDeadline": "",
+    "projectOwner": "EuFacMalluri S.R.L.",
+    "shortProjectOwnerDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae ultrices nibh. Suspendisse potenti. Fusce sed lectus eu velit cursus condimentum quis in sem. Proin tempus, turpis id facilisis aliquam, ligula mauris commodo lorem, eget iaculis dui",
+    "longProjectOwnerDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae ultrices nibh. Suspendisse potenti. Fusce sed lectus eu velit cursus condimentum quis in sem. Proin tempus, turpis id facilisis aliquam, ligula mauris commodo lorem, eget iaculis dui justo ut odio. Aenean vitae viverra tellus. Mauris eu elit pharetra, suscipit est eget, semper dolor. Suspendisse potenti. Vestibulum vel sapien mattis, vehicula nibh in, varius augue. Donec egestas laoreet orci eu porta. Integer tristique ligula purus, at imperdiet eros placerat in. Vivamus egestas non purus sit amet suscipit. Nullam pellentesque cursus vehicula. Proin tempus justo nec vulputate fringilla. Integer id massa vitae ante mattis vehicula ac ut velit. Vivamus feugiat velit et velit laoreet, nec cursus risus facilisis. Mauris faucibus nunc eu sapien scelerisque, id commodo nunc porttitor.\r\n\r\nVestibulum congue est dolor, pellentesque iaculis turpis dignissim vitae. Nullam blandit odio at lacus tincidunt cursus. Curabitur pharetra ultrices justo vitae imperdiet. Etiam sit amet felis vestibulum turpis finibus consequat. Nullam et tortor a nunc vulputate fermentum et a velit. Praesent ut fermentum risus, quis pellentesque justo. Quisque bibendum scelerisque dolor, ac sollicitudin nibh pellentesque quis. Vivamus ac nisi efficitur, tincidunt mauris quis, rutrum nibh. Integer nec eros gravida, efficitur lacus sit amet, iaculis libero. In neque tellus, scelerisque vitae congue ut, varius fringilla ipsum. Vestibulum augue mi, consequat eu varius sit amet, aliquam et magna.\r\n\r\nPraesent quis varius ipsum. Vivamus nisi magna, finibus in mattis gravida, consequat ut est. Cras cursus porta enim et tincidunt. Mauris eu purus dapibus, vehicula magna a, rutrum dolor. Quisque molestie, nibh quis vulputate volutpat, nisi est faucibus nisl, ut finibus urna lacus finibus elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id erat venenatis, vestibulum nulla ac, ultricies ex. Nulla ut magna lacinia, tristique lectus nec, faucibus leo.\r\n\r\nMorbi euismod odio in dui lacinia pretium. Etiam consequat est a ex commodo finibus. Quisque mollis, ipsum faucibus dignissim ornare, metus eros gravida velit, in scelerisque nisl mauris in nisi. Cras quam enim, tincidunt aliquet diam sed, accumsan vehicula ligula. Aliquam erat volutpat. Phasellus nisi ipsum, fringilla id viverra nec, gravida quis erat. Quisque semper, risus vel molestie posuere, turpis velit lobortis urna, in dignissim lacus ante in velit. Donec id dolor elit. Proin cursus eros sit amet nisl condimentum dictum. In non dui a dolor vestibulum cursus. Morbi consequat nibh sem, ac euismod nibh semper sed. Aliquam lobortis tincidunt mauris non ullamcorper. Phasellus sit amet viverra arcu. Sed sed tellus lacus.\r\n\r\nNam pellentesque purus elit, eu elementum lorem lobortis et. Sed ut molestie urna. Sed vitae tincidunt risus. Duis rutrum elit ut leo elementum consectetur. Cras ornare, libero eu placerat faucibus, odio augue semper nisl, id egestas metus diam sit amet nisi. Curabitur enim sem, volutpat eu augue quis, varius varius risus. Proin a commodo libero, non ullamcorper leo. Donec nibh sapien, tristique sed blandit et, sollicitudin eget elit. Maecenas ultrices dictum leo, a mattis dui. In ipsum augue, sollicitudin sed scelerisque sit amet, interdum vitae turpis. Morbi ac nisl eget nisl accumsan euismod quis in mauris. Curabitur id elementum lacus. Donec sodales diam in ante efficitur, vel bibendum erat sollicitudin. Mauris lobortis ut mi eu venenatis. Curabitur tempor vulputate varius.",
+    "projectOwnerId": 1,
+    "crowdfundingTarget": 1000000,
+    "progress": 0.66,
+    "forecastedAPR": 12.13,
+    "riskScore": 4,
+    "isLive": true,
+    "galleryImages": [
+      "",
+      "",
+      ""
+    ],
+    "attributes": [
+      {
+        "key": "Area real estate price appreciation",
+        "value": "12.14% YoY"
+      },
+      {
+        "key": "Contractual APR",
+        "value": "12.13%"
+      },
+      {
+        "key": "Repayment method",
+        "value": "Monthly"
+      },
+      {
+        "key": "Cash flow",
+        "value": "Vacant"
+      },
+      {
+        "key": "Development phase",
+        "value": "Ground-up"
+      },
+      {
+        "key": "Developer experience",
+        "value": "10+ years"
+      },
+      {
+        "key": "Project development deadline",
+        "value": "24.05.2026"
+      },
+      {
+        "key": "Opportunity assessment",
+        "value": "Excellent"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "img": "http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg",
+    "name": "Office Building",
+    "location": "Wien, AU",
+    "locationMapSs": "/map-ss.png",
+    "countryFlagImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/23px-Flag_of_Austria.svg.png",
+    "shortDescription": "",
+    "longDescription": "",
+    "deadline": 1723194593000,
+    "crowdfundingDeadline": "",
+    "projectOwner": "RandomSRLHere S.R.L.",
+    "shortProjectOwnerDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae ultrices nibh. Suspendisse potenti. Fusce sed lectus eu velit cursus condimentum quis in sem. Proin tempus, turpis id facilisis aliquam, ligula mauris commodo lorem, eget iaculis dui",
+    "longProjectOwnerDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae ultrices nibh. Suspendisse potenti. Fusce sed lectus eu velit cursus condimentum quis in sem. Proin tempus, turpis id facilisis aliquam, ligula mauris commodo lorem, eget iaculis dui justo ut odio. Aenean vitae viverra tellus. Mauris eu elit pharetra, suscipit est eget, semper dolor. Suspendisse potenti. Vestibulum vel sapien mattis, vehicula nibh in, varius augue. Donec egestas laoreet orci eu porta. Integer tristique ligula purus, at imperdiet eros placerat in. Vivamus egestas non purus sit amet suscipit. Nullam pellentesque cursus vehicula. Proin tempus justo nec vulputate fringilla. Integer id massa vitae ante mattis vehicula ac ut velit. Vivamus feugiat velit et velit laoreet, nec cursus risus facilisis. Mauris faucibus nunc eu sapien scelerisque, id commodo nunc porttitor.\r\n\r\nVestibulum congue est dolor, pellentesque iaculis turpis dignissim vitae. Nullam blandit odio at lacus tincidunt cursus. Curabitur pharetra ultrices justo vitae imperdiet. Etiam sit amet felis vestibulum turpis finibus consequat. Nullam et tortor a nunc vulputate fermentum et a velit. Praesent ut fermentum risus, quis pellentesque justo. Quisque bibendum scelerisque dolor, ac sollicitudin nibh pellentesque quis. Vivamus ac nisi efficitur, tincidunt mauris quis, rutrum nibh. Integer nec eros gravida, efficitur lacus sit amet, iaculis libero. In neque tellus, scelerisque vitae congue ut, varius fringilla ipsum. Vestibulum augue mi, consequat eu varius sit amet, aliquam et magna.\r\n\r\nPraesent quis varius ipsum. Vivamus nisi magna, finibus in mattis gravida, consequat ut est. Cras cursus porta enim et tincidunt. Mauris eu purus dapibus, vehicula magna a, rutrum dolor. Quisque molestie, nibh quis vulputate volutpat, nisi est faucibus nisl, ut finibus urna lacus finibus elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id erat venenatis, vestibulum nulla ac, ultricies ex. Nulla ut magna lacinia, tristique lectus nec, faucibus leo.\r\n\r\nMorbi euismod odio in dui lacinia pretium. Etiam consequat est a ex commodo finibus. Quisque mollis, ipsum faucibus dignissim ornare, metus eros gravida velit, in scelerisque nisl mauris in nisi. Cras quam enim, tincidunt aliquet diam sed, accumsan vehicula ligula. Aliquam erat volutpat. Phasellus nisi ipsum, fringilla id viverra nec, gravida quis erat. Quisque semper, risus vel molestie posuere, turpis velit lobortis urna, in dignissim lacus ante in velit. Donec id dolor elit. Proin cursus eros sit amet nisl condimentum dictum. In non dui a dolor vestibulum cursus. Morbi consequat nibh sem, ac euismod nibh semper sed. Aliquam lobortis tincidunt mauris non ullamcorper. Phasellus sit amet viverra arcu. Sed sed tellus lacus.\r\n\r\nNam pellentesque purus elit, eu elementum lorem lobortis et. Sed ut molestie urna. Sed vitae tincidunt risus. Duis rutrum elit ut leo elementum consectetur. Cras ornare, libero eu placerat faucibus, odio augue semper nisl, id egestas metus diam sit amet nisi. Curabitur enim sem, volutpat eu augue quis, varius varius risus. Proin a commodo libero, non ullamcorper leo. Donec nibh sapien, tristique sed blandit et, sollicitudin eget elit. Maecenas ultrices dictum leo, a mattis dui. In ipsum augue, sollicitudin sed scelerisque sit amet, interdum vitae turpis. Morbi ac nisl eget nisl accumsan euismod quis in mauris. Curabitur id elementum lacus. Donec sodales diam in ante efficitur, vel bibendum erat sollicitudin. Mauris lobortis ut mi eu venenatis. Curabitur tempor vulputate varius.",
+    "projectOwnerId": 2,
+    "crowdfundingTarget": 1000000,
+    "progress": 0.89,
+    "forecastedAPR": 12.13,
+    "riskScore": 1,
+    "galleryImages": [
+      "",
+      "",
+      ""
+    ],
+    "attributes": [
+      {
+        "key": "Area real estate price appreciation",
+        "value": "12.14% YoY"
+      },
+      {
+        "key": "Contractual APR",
+        "value": "12.13%"
+      },
+      {
+        "key": "Repayment method",
+        "value": "Monthly"
+      },
+      {
+        "key": "Cash flow",
+        "value": "Vacant"
+      },
+      {
+        "key": "Development phase",
+        "value": "Ground-up"
+      },
+      {
+        "key": "Developer experience",
+        "value": "10+ years"
+      },
+      {
+        "key": "Project development deadline",
+        "value": "24.05.2026"
+      },
+      {
+        "key": "Opportunity assessment",
+        "value": "Excellent"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "img": "http://tysonibele.com/Main/BuildingGenerator/buildingGen_14_09.jpg",
+    "name": "Residential Complex",
+    "location": "Budapest, HU",
+    "locationMapSs": "/map-ss.png",
+    "countryFlagImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/23px-Flag_of_Hungary.svg.png",
+    "shortDescription": "",
+    "longDescription": "",
+    "deadline": 1723194593000,
+    "crowdfundingDeadline": "",
+    "projectOwner": "Foreign Constructor Ltd.",
+    "shortProjectOwnerDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae ultrices nibh. Suspendisse potenti. Fusce sed lectus eu velit cursus condimentum quis in sem. Proin tempus, turpis id facilisis aliquam, ligula mauris commodo lorem, eget iaculis dui",
+    "longProjectOwnerDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae ultrices nibh. Suspendisse potenti. Fusce sed lectus eu velit cursus condimentum quis in sem. Proin tempus, turpis id facilisis aliquam, ligula mauris commodo lorem, eget iaculis dui justo ut odio. Aenean vitae viverra tellus. Mauris eu elit pharetra, suscipit est eget, semper dolor. Suspendisse potenti. Vestibulum vel sapien mattis, vehicula nibh in, varius augue. Donec egestas laoreet orci eu porta. Integer tristique ligula purus, at imperdiet eros placerat in. Vivamus egestas non purus sit amet suscipit. Nullam pellentesque cursus vehicula. Proin tempus justo nec vulputate fringilla. Integer id massa vitae ante mattis vehicula ac ut velit. Vivamus feugiat velit et velit laoreet, nec cursus risus facilisis. Mauris faucibus nunc eu sapien scelerisque, id commodo nunc porttitor.\r\n\r\nVestibulum congue est dolor, pellentesque iaculis turpis dignissim vitae. Nullam blandit odio at lacus tincidunt cursus. Curabitur pharetra ultrices justo vitae imperdiet. Etiam sit amet felis vestibulum turpis finibus consequat. Nullam et tortor a nunc vulputate fermentum et a velit. Praesent ut fermentum risus, quis pellentesque justo. Quisque bibendum scelerisque dolor, ac sollicitudin nibh pellentesque quis. Vivamus ac nisi efficitur, tincidunt mauris quis, rutrum nibh. Integer nec eros gravida, efficitur lacus sit amet, iaculis libero. In neque tellus, scelerisque vitae congue ut, varius fringilla ipsum. Vestibulum augue mi, consequat eu varius sit amet, aliquam et magna.\r\n\r\nPraesent quis varius ipsum. Vivamus nisi magna, finibus in mattis gravida, consequat ut est. Cras cursus porta enim et tincidunt. Mauris eu purus dapibus, vehicula magna a, rutrum dolor. Quisque molestie, nibh quis vulputate volutpat, nisi est faucibus nisl, ut finibus urna lacus finibus elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id erat venenatis, vestibulum nulla ac, ultricies ex. Nulla ut magna lacinia, tristique lectus nec, faucibus leo.\r\n\r\nMorbi euismod odio in dui lacinia pretium. Etiam consequat est a ex commodo finibus. Quisque mollis, ipsum faucibus dignissim ornare, metus eros gravida velit, in scelerisque nisl mauris in nisi. Cras quam enim, tincidunt aliquet diam sed, accumsan vehicula ligula. Aliquam erat volutpat. Phasellus nisi ipsum, fringilla id viverra nec, gravida quis erat. Quisque semper, risus vel molestie posuere, turpis velit lobortis urna, in dignissim lacus ante in velit. Donec id dolor elit. Proin cursus eros sit amet nisl condimentum dictum. In non dui a dolor vestibulum cursus. Morbi consequat nibh sem, ac euismod nibh semper sed. Aliquam lobortis tincidunt mauris non ullamcorper. Phasellus sit amet viverra arcu. Sed sed tellus lacus.\r\n\r\nNam pellentesque purus elit, eu elementum lorem lobortis et. Sed ut molestie urna. Sed vitae tincidunt risus. Duis rutrum elit ut leo elementum consectetur. Cras ornare, libero eu placerat faucibus, odio augue semper nisl, id egestas metus diam sit amet nisi. Curabitur enim sem, volutpat eu augue quis, varius varius risus. Proin a commodo libero, non ullamcorper leo. Donec nibh sapien, tristique sed blandit et, sollicitudin eget elit. Maecenas ultrices dictum leo, a mattis dui. In ipsum augue, sollicitudin sed scelerisque sit amet, interdum vitae turpis. Morbi ac nisl eget nisl accumsan euismod quis in mauris. Curabitur id elementum lacus. Donec sodales diam in ante efficitur, vel bibendum erat sollicitudin. Mauris lobortis ut mi eu venenatis. Curabitur tempor vulputate varius.",
+    "projectOwnerId": 3,
+    "crowdfundingTarget": 1000000,
+    "progress": 0.1,
+    "forecastedAPR": 12.13,
+    "riskScore": 6,
+    "galleryImages": [
+      "",
+      "",
+      ""
+    ],
+    "attributes": [
+      {
+        "key": "Area real estate price appreciation",
+        "value": "12.14% YoY"
+      },
+      {
+        "key": "Contractual APR",
+        "value": "12.13%"
+      },
+      {
+        "key": "Repayment method",
+        "value": "Monthly"
+      },
+      {
+        "key": "Cash flow",
+        "value": "Vacant"
+      },
+      {
+        "key": "Development phase",
+        "value": "Ground-up"
+      },
+      {
+        "key": "Developer experience",
+        "value": "10+ years"
+      },
+      {
+        "key": "Project development deadline",
+        "value": "24.05.2026"
+      },
+      {
+        "key": "Opportunity assessment",
+        "value": "Excellent"
+      }
+    ]
+  }
+]
