@@ -1,9 +1,7 @@
 import React from 'react';
-import { NUMBER_OF_SHARES_PER_PROJECT } from 'config';
-import moment from 'moment';
-import Slider from 'react-input-slider';
 import { routeNames } from 'routes';
 import { Link } from 'react-router-dom';
+import InvestmentCalculator from 'components/InvestmentCalculator';
 
 const InvestModalInput = ({
   projectDetails,
@@ -21,15 +19,6 @@ const InvestModalInput = ({
   remainingShares: number;
 }) => {
   const [investAmount, setInvestAmount] = React.useState(0);
-
-  const forecastEarnings = () => {
-    const monthsUntilDeadline =
-      (projectDetails.deadline - moment.now()) / (30 * 24 * 3600 * 1000); // 30 days of 24 hrs, each made of 3600 * 1000 ms
-    const monthlyEarnings =
-      (investAmount * projectDetails.forecastedAPR) / 100 / 12;
-    return investAmount + monthlyEarnings * monthsUntilDeadline;
-  };
-
   const handleProceed = () => {
     onProceed(investAmount);
   };
@@ -71,33 +60,11 @@ const InvestModalInput = ({
           </div>
         </div>
       </div>
-      <div className='row mb-1'>
-        <div className='col-lg-12 d-flex justify-content-center'>
-          Shares to receive: {investAmount / pricePerShare}
-        </div>
-      </div>
-      <div className='row mb-1'>
-        <div className='col-lg-12 d-flex justify-content-center'>
-          Amount to receive when contract is over:{' '}
-          {forecastEarnings().toLocaleString()} $
-        </div>
-      </div>
-      <div className='row mb-1'>
-        <div className='col-lg-12 d-flex justify-content-center'>
-          <Slider
-            axis='x'
-            x={investAmount}
-            xmin={0}
-            xmax={1000}
-            onChange={(v) => setInvestAmount(v.x)}
-          />
-        </div>
-      </div>
-      <div className='row mb-3'>
-        <div className='col-lg-12 d-flex justify-content-center'>
-          Amount to invest: {investAmount} $
-        </div>
-      </div>
+      <InvestmentCalculator
+        projectDetails={projectDetails}
+        onInvestmentAmountChange={(amount) => setInvestAmount(amount)}
+        pricePerShare={pricePerShare}
+      />
       <div className='row'>
         {canProceed && (
           <div className='col d-flex justify-content-center'>

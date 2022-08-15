@@ -2,11 +2,12 @@ import InvestmentProgressBar from 'components/InvestmentProgressBar';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import { routeNames } from 'routes';
 import projectList from '../../db/projectList.json';
 import InvestModal from 'components/InvestModal';
 import Modal from 'react-modal';
 import Description from 'components/Description';
+import InvestmentCalculator from 'components/InvestmentCalculator';
+import { NUMBER_OF_SHARES_PER_PROJECT } from 'config';
 
 const ProjectDetails = () => {
   const navigate = useNavigate();
@@ -14,6 +15,8 @@ const ProjectDetails = () => {
   const [projectInfo, setProjectInfo] = React.useState<any>();
   const [mounted, setMounted] = React.useState(false);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [pricePerShare, setPricePerShare] = React.useState(0);
+  const [monthlyIncome, setMonthlyIncome] = React.useState(0);
 
   React.useEffect(() => {
     const existingProjectFilter = projectList.filter(
@@ -23,6 +26,13 @@ const ProjectDetails = () => {
       navigate('404');
     }
     setProjectInfo(existingProjectFilter[0]);
+    setPricePerShare(
+      existingProjectFilter[0].crowdfundingTarget / NUMBER_OF_SHARES_PER_PROJECT
+    );
+    // * 10 because it's * 1000 / 100
+    // 1000 because 1000$ simulation investment amount
+    // div 100 because forecastedApr is * 100
+    setMonthlyIncome((existingProjectFilter[0].forecastedAPR * 10) / 12);
     setMounted(true);
   }, []);
 
@@ -143,25 +153,7 @@ const ProjectDetails = () => {
             </div>
             <div className='row'>
               <div className='col-lg-12'>
-                {/* <div>
-                  <h4>Historical price appreciation of area (YoY): 12.14%</h4>
-                  <h4>Price appreciation: 123.14%</h4>
-                  <h4>Price appreciation: 123.14%</h4>
-                  <h4>Price appreciation: 123.14%</h4>
-                  <h4>Price appreciation: 123.14%</h4>
-                  <h4>Price appreciation: 123.14%</h4>
-                </div> */}
                 <ul>
-                  {/* 
-                  <li>Area real estate price appreciation: 12.14% YoY</li>
-                  <li>Contractual APR: {projectInfo.forecastedAPR}%</li>
-                  <li>Repayment method: Monthly</li>
-                  <li>Cash flow: Vacant</li>
-                  <li>Development phase: Ground-up</li>
-                  <li>Developer experience: 10+ years</li>
-                  <li>Project development deadline: 24.05.2026</li>
-                  <li>Opportunity assessment: Excellent</li>
-                  */}
                   {projectInfo.attributes.map((a: any, index: number) => (
                     <li key={index}>
                       {a.key}: {a.value}
@@ -172,8 +164,36 @@ const ProjectDetails = () => {
             </div>
           </div>
         </div>
+        {/* <div className='col-lg-6 d-flex justify-content-center'> */}
         <div className='col-lg-6 d-flex justify-content-center'>
           <img src={projectInfo.locationMapSs} style={imgStyle} />
+        </div>
+      </div>
+      <div className='row mt-5'>
+        <div className='col'>
+          <h2>Simulation</h2>
+        </div>
+      </div>
+      <div className='row'>
+        <div className='col'>
+          <div className='row'>
+            <div className='col'>
+              {/* TODO: check the math and extract the contract duration */}
+              <h5>
+                Investing 1000$ at the current {pricePerShare.toLocaleString()}$
+                price per share would yield a monthly passive income of{' '}
+                {monthlyIncome.toLocaleString()}$ for the next 32 months.
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='row'>
+        <div className='col'>
+          <InvestmentCalculator
+            projectDetails={projectInfo}
+            pricePerShare={pricePerShare}
+          />
         </div>
       </div>
       {/* Description Row */}
