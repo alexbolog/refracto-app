@@ -94,9 +94,13 @@ const ProjectDeveloperDetails = () => {
               </div>
               <div className='col-lg-12 col-md-12 mt-2'>
                 <span>Website: </span>
-                <Link to={developerInfo.companyWebsite} target='_blank'>
+                <a
+                  href={developerInfo.companyWebsite}
+                  target='_blank'
+                  rel='noreferrer'
+                >
                   {developerInfo.companyWebsite}
-                </Link>
+                </a>
               </div>
               <div className='col-lg-12 col-md-12 mt-2'>
                 <span>Phone number: {developerInfo.companyMobilePhone}</span>
