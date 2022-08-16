@@ -43,7 +43,10 @@ const ProjectDeveloperDetails = () => {
         'https://www.logodesign.net/logo-new/under-construction-buildings-inside-shield-emblem-729ld.png',
       allProjects: [],
       allProjectsOnRefracto: [],
-      companyCapital: 1500000
+      companyCapital: 1500000,
+      companyContactEmail: 'info@eufacmalluri.srl',
+      companyWebsite: 'https://noifacemmalluri.ro',
+      companyMobilePhone: '+40769696969'
     };
     setDeveloperInfo(devInfo);
   }, []);
@@ -77,6 +80,29 @@ const ProjectDeveloperDetails = () => {
               </div>
               <div className='col-lg-12 col-md-12 mt-2'>
                 <span>Headquarters: {developerInfo.companyLocation}</span>
+              </div>
+              <div className='col-lg-12 col-md-12 mt-2'>
+                <span>
+                  Net worth: {developerInfo.companyCapital.toLocaleString()}$
+                </span>
+              </div>
+              <div className='col-lg-12 col-md-12 mt-2'>
+                <span>Email: </span>
+                <a href={`mailto:${developerInfo.companyContactEmail}`}>
+                  {developerInfo.companyContactEmail}
+                </a>
+              </div>
+              <div className='col-lg-12 col-md-12 mt-2'>
+                <span>Website: </span>
+                <Link to={developerInfo.companyWebsite} target='_blank'>
+                  {developerInfo.companyWebsite}
+                </Link>
+              </div>
+              <div className='col-lg-12 col-md-12 mt-2'>
+                <span>Phone number: {developerInfo.companyMobilePhone}</span>
+              </div>
+              <div className='col-lg-12 col-md-12 mt-2'>
+                <span>Social: TODO (add social logos)</span>
               </div>
               <div className='col-lg-12 col-md-12 mt-2'>
                 <span>
@@ -190,4 +216,7 @@ interface ProjectDeveloperInfo {
   companyLocation: string;
   companyLogoImgSrc: string;
   companyCapital: number;
+  companyContactEmail: string;
+  companyWebsite: string;
+  companyMobilePhone: string;
 }
