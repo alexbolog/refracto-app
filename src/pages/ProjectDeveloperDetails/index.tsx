@@ -10,15 +10,20 @@ import InvestmentCalculator from 'components/InvestmentCalculator';
 import { NUMBER_OF_SHARES_PER_PROJECT } from 'config';
 import { Link } from 'react-router-dom';
 import { routeNames } from 'routes';
+import ProjectCard from 'components/ProjectCard';
 
 const ProjectDeveloperDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [projectInfo, setProjectInfo] = React.useState<any>();
-  const [mounted, setMounted] = React.useState(false);
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-  const [pricePerShare, setPricePerShare] = React.useState(0);
-  const [monthlyIncome, setMonthlyIncome] = React.useState(0);
+  const [developerInfo, setDeveloperInfo] =
+    React.useState<ProjectDeveloperInfo>();
+  const [projectsCompletedCount, setProjectsCompletedCount] =
+    React.useState(12);
+  const [
+    projectsCompletedOnRefractoCount,
+    setProjectsCompletedOnRefractoCount
+  ] = React.useState(5);
+  const [activeProjects, setActiveProjects] = React.useState<any[]>([]);
 
   React.useEffect(() => {
     const existingProjectFilter = projectList.filter(
@@ -27,15 +32,24 @@ const ProjectDeveloperDetails = () => {
     if (existingProjectFilter.length === 0) {
       navigate('404');
     }
-    setProjectInfo(existingProjectFilter[0]);
-    setPricePerShare(
-      existingProjectFilter[0].crowdfundingTarget / NUMBER_OF_SHARES_PER_PROJECT
-    );
-    // * 10 because it's * 1000 / 100
-    // 1000 because 1000$ simulation investment amount
-    // div 100 because forecastedApr is * 100
-    setMonthlyIncome((existingProjectFilter[0].forecastedAPR * 10) / 12);
-    setMounted(true);
+    const devInfo: ProjectDeveloperInfo = {
+      name: existingProjectFilter[0].projectOwner,
+      shortDescription: existingProjectFilter[0].shortProjectOwnerDetails,
+      longDescription: existingProjectFilter[0].longProjectOwnerDetails,
+      registrationDate: '21 Nov 2001',
+      companyLocation: 'Random address, Random, RA',
+      registrationNumber: '12315124',
+      companyLogoImgSrc:
+        'https://www.logodesign.net/logo-new/under-construction-buildings-inside-shield-emblem-729ld.png',
+      allProjects: [],
+      allProjectsOnRefracto: [],
+      companyCapital: 1500000
+    };
+    setDeveloperInfo(devInfo);
+  }, []);
+
+  React.useEffect(() => {
+    setActiveProjects(projectList);
   }, []);
 
   const imgStyle = {
@@ -43,200 +57,137 @@ const ProjectDeveloperDetails = () => {
     maxHeight: '90%'
   };
 
-  const modalStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)'
-    }
-  };
-
-  return !mounted ? null : (
+  return !developerInfo ? null : (
     <div className='container'>
+      {/* Top row,  */}
       <div className='row mt-2'>
         <div className='col-lg-6 col-md-12 mb-5'>
-          <h1>{projectInfo.name}</h1>
-          <h6>
-            <a href='#'>{projectInfo.fullAddress}</a>
-          </h6>
+          {/* top row, left column */}
+          <div className='container-fluid mt-4'>
+            <div className='row'>
+              <div className='col-lg-12 col-md-12'>
+                <div>
+                  <h1>{developerInfo.name}</h1>
+                </div>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col-lg-12 col-md-12 mt-2'>
+                <span>Established: {developerInfo.registrationDate}</span>
+              </div>
+              <div className='col-lg-12 col-md-12 mt-2'>
+                <span>Headquarters: {developerInfo.companyLocation}</span>
+              </div>
+              <div className='col-lg-12 col-md-12 mt-2'>
+                <span>
+                  Net worth: {developerInfo.companyCapital.toLocaleString()}$
+                </span>
+              </div>
+              <div className='col-lg-12 col-md-12 mt-2'>
+                <span>Projects completed:</span>{' '}
+                <Link to='#' target={'_blank'}>
+                  {projectsCompletedCount}
+                </Link>
+              </div>
+              <div className='col-lg-12 col-md-12 mt-2'>
+                <span>
+                  Projects completed on Refracto:{' '}
+                  <Link to='#' target={'_blank'}>
+                    {projectsCompletedOnRefractoCount}
+                  </Link>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* top row, right column */}
+        <div className='col-lg-6 d-flex justify-content-right'>
+          <img src={developerInfo.companyLogoImgSrc} style={imgStyle} />
         </div>
       </div>
       {/* Gallery and key info row */}
       <div className='row'>
-        {/* Gallery */}
-        {/* TODO: rename img to mainImage in db */}
-        {/* TODO: add array of images to each project */}
-        {/* TODO: replace following img block with a gallery, zoom in/out, that shows all the array images */}
-        <div className='col-lg-6 d-flex align-items-center'>
-          <img src={projectInfo.img} style={imgStyle} />
-        </div>
-        {/* Key info, right col */}
-        <div className='col-lg-6'>
-          <div className='container-fluid'>
-            <div className='row'>
-              <div className='col-lg-12 col-md-12 d-flex justify-content-center mb-5'>
-                <div>
-                  <h2>
-                    Project developer:{' '}
-                    <Link
-                      to={`${routeNames.projectDevelopers}/${projectInfo.projectOwnerId}`}
-                    >
-                      {projectInfo.projectOwner}
-                    </Link>
-                  </h2>
-                  <h6>
-                    Developer&apos;s 1st project; {projectInfo.progress * 100}%
-                    through reaching the{' '}
-                    {projectInfo.crowdfundingTarget.toLocaleString()}$ goal
-                  </h6>
-                  <InvestmentProgressBar
-                    crowdfundingTarget={projectInfo.crowdfundingTarget}
-                    crowdfundingProgress={projectInfo.progress}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className='row mt-2'>
-              <div className='col-lg-4 col-md-6 col-sm-6 d-flex justify-content-left align-items-center'>
-                <div>
-                  <h6>Risk Score</h6>
-                  <h3>{projectInfo.riskScore}</h3>
-                </div>
-              </div>
-              <div className='col-lg-4 col-md-6 col-sm-6 d-flex justify-content-left align-items-center'>
-                <div>
-                  <h6>LTV</h6>
-                  <h3>{projectInfo.ltv ?? 0}%</h3>
-                </div>
-              </div>
-              <div className='col-lg-4 col-md-6 col-sm-6 d-flex justify-content-left align-items-center'>
-                <div>
-                  <h6>Forecasted APR</h6>
-                  <h3>{projectInfo.forecastedAPR ?? 0}%</h3>
-                </div>
-              </div>
-              <div className='col-lg-4 col-md-6 col-sm-6 d-flex justify-content-left align-items-center'>
-                <div>
-                  <h6>Asset class</h6>
-                  <h3>{projectInfo.assetClass ?? 'Mall'}</h3>
-                </div>
-              </div>
-              <div className='col-lg-4 col-md-6 col-sm-6 d-flex justify-content-left align-items-center'>
-                <div>
-                  <h6>Investors</h6>
-                  <h3>{projectInfo.investorsCount ?? 123}</h3>
-                </div>
-              </div>
-              <div className='col-lg-4 col-md-6 col-sm-6 d-flex justify-content-left align-items-center'>
-                <div>
-                  <h6>Crowdfunding deadline</h6>
-                  <h3>{projectInfo.deadlineDate ?? '31 Nov 2022'}</h3>
-                </div>
-              </div>
-              <div className='col-lg-12 d-flex justify-content-left align-items-center mt-4'>
-                <button
-                  className='btn btn-success btn-lg w-100'
-                  onClick={() => setIsModalOpen(true)}
-                >
-                  Invest now!
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Key stats & map image */}
-      <div className='row mt-5'>
-        <div className='col-lg-6'>
-          <div className='container'>
-            <div className='row'>
-              <div className='col'>
-                <h2>Project metrics</h2>
-              </div>
-            </div>
-            <div className='row'>
-              <div className='col-lg-12'>
-                <ul>
-                  {projectInfo.attributes.map((a: any, index: number) => (
-                    <li key={index}>
-                      {a.key}: {a.value}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* <div className='col-lg-6 d-flex justify-content-center'> */}
-        <div className='col-lg-6 d-flex justify-content-center'>
-          <img src={projectInfo.locationMapSs} style={imgStyle} />
-        </div>
-      </div>
-      <div className='row mt-5'>
-        <div className='col'>
-          <h2>Simulation</h2>
-        </div>
-      </div>
-      <div className='row'>
-        <div className='col'>
-          <div className='row'>
-            <div className='col'>
-              {/* TODO: check the math and extract the contract duration */}
-              <h5>
-                Investing 1000$ at the current {pricePerShare.toLocaleString()}$
-                price per share would yield a monthly passive income of{' '}
-                {monthlyIncome.toLocaleString()}$ for the next 32 months.
-              </h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className='row'>
-        <div className='col'>
-          <InvestmentCalculator
-            projectDetails={projectInfo}
-            pricePerShare={pricePerShare}
-          />
-        </div>
-      </div>
-      {/* Description Row */}
-      <div className='row mt-5' id='about-project-description'>
-        <div className='col-lg-12'>
-          <h2>About the project</h2>
-        </div>
-        <div className='col-lg-12'>
-          <Description
-            shortDescription={projectInfo.shortDescription}
-            longDescription={projectInfo.longDescription}
-            targetId={'about-project-description'}
-          />
-        </div>
-      </div>
-      {/* Project developer details */}
-      <div className='row mt-5' id='about-developer-description'>
-        <div className='col-lg-12'>
+        <div className='col-lg-12 col-md-12' id='description'>
           <h2>About the project developer</h2>
         </div>
-        <div className='col-lg-12'>
+        <div className='col-lg-12 col-md-12'>
           <Description
-            shortDescription={projectInfo.shortDescription}
-            longDescription={projectInfo.longDescription}
-            targetId={'about-developer-description'}
+            shortDescription={developerInfo.shortDescription}
+            longDescription={developerInfo.longDescription}
+            targetId={'description'}
           />
         </div>
       </div>
-      <Modal isOpen={isModalOpen} style={modalStyles}>
-        <InvestModal
-          projectDetails={projectInfo}
-          closeModal={() => setIsModalOpen(false)}
-        />
-      </Modal>
+      <div className='row mt-5'>
+        <div className='col-lg-12 col-md-12'>
+          <h2>Projects open for investing</h2>
+        </div>
+        <div className='row mt-2'>
+          {activeProjects.map((ap: any, index: number) => (
+            <div className='col-lg-3 col-md-4 col-sm-6' key={index}>
+              <ProjectCard
+                projectId={ap.id}
+                imgSrc={ap.img}
+                projectTitle={ap.name}
+                projectFundingCrowdfunding={ap.crowdfundingTarget}
+                progress={ap.progress}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className='row mt-5'>
+        <div className='col-lg-12 col-md-12'>
+          <h2>Funded projects</h2>
+        </div>
+      </div>
+      <div className='row mt-2'>
+        {activeProjects.map((ap: any, index: number) => (
+          <div className='col-lg-3 col-md-4 col-sm-6' key={index}>
+            <ProjectCard
+              projectId={ap.id}
+              imgSrc={ap.img}
+              projectTitle={ap.name}
+              projectFundingCrowdfunding={ap.crowdfundingTarget}
+              progress={1}
+            />
+          </div>
+        ))}
+      </div>
+      <div className='row mt-5'>
+        <div className='col-lg-12 col-md-12'>
+          <h2>Past completed projects</h2>
+        </div>
+      </div>
+      <div className='row mt-2'>
+        {activeProjects.map((ap: any, index: number) => (
+          <div className='col-lg-3 col-md-4 col-sm-6' key={index}>
+            <ProjectCard
+              projectId={ap.id}
+              imgSrc={ap.img}
+              projectTitle={ap.name}
+              projectFundingCrowdfunding={ap.crowdfundingTarget}
+              progress={1}
+            />
+          </div>
+        ))}
+      </div>
       <ReactTooltip />
     </div>
   );
 };
 
 export default ProjectDeveloperDetails;
+
+interface ProjectDeveloperInfo {
+  name: string;
+  shortDescription: string;
+  longDescription: string;
+  registrationDate: string;
+  registrationNumber: string;
+  allProjects: any[];
+  allProjectsOnRefracto: any[];
+  companyLocation: string;
+  companyLogoImgSrc: string;
+  companyCapital: number;
+}
