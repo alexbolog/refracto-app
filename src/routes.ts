@@ -2,6 +2,7 @@ import { dAppName } from 'config';
 import Account from 'pages/Account';
 import Marketplace from 'pages/Marketplace';
 import ProjectDetails from 'pages/ProjectDetails';
+import ProjectDeveloperDetails from 'pages/ProjectDeveloperDetails';
 import Projects from 'pages/Projects';
 import withPageTitle from './components/PageTitle';
 import Dashboard from './pages/Dashboard';
@@ -18,7 +19,9 @@ export const routeNames = {
   account: '/account',
   marketplace: '/marketplace',
   projects: '/projects',
-  projectPage: '/projects/:id'
+  projectPage: '/projects/:id',
+  projectDevelopers: '/developers',
+  projectDeveloperPage: '/developers/:id'
 };
 
 const routes: Array<any> = [
@@ -57,6 +60,16 @@ const routes: Array<any> = [
     path: routeNames.projectPage,
     title: 'Project Details',
     component: ProjectDetails
+  },
+  // {
+  //   path: routeNames.projectDevelopers,
+  //   title: 'Project Developers',
+  //   component: Projects
+  // },
+  {
+    path: routeNames.projectDeveloperPage,
+    title: 'Project Developer',
+    component: ProjectDeveloperDetails
   }
 ];
 

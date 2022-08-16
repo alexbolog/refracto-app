@@ -11,7 +11,7 @@ import { NUMBER_OF_SHARES_PER_PROJECT } from 'config';
 import { Link } from 'react-router-dom';
 import { routeNames } from 'routes';
 
-const ProjectDetails = () => {
+const ProjectDeveloperDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [projectInfo, setProjectInfo] = React.useState<any>();
@@ -22,7 +22,7 @@ const ProjectDetails = () => {
 
   React.useEffect(() => {
     const existingProjectFilter = projectList.filter(
-      (pl) => pl.id === parseInt(id || '-1')
+      (pl) => pl.projectOwnerId === parseInt(id || '-1')
     );
     if (existingProjectFilter.length === 0) {
       navigate('404');
@@ -239,4 +239,4 @@ const ProjectDetails = () => {
   );
 };
 
-export default ProjectDetails;
+export default ProjectDeveloperDetails;

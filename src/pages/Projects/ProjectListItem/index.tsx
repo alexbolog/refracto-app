@@ -2,9 +2,8 @@ import InvestModal from 'components/InvestModal';
 import moment from 'moment';
 import React from 'react';
 import Modal from 'react-modal';
-import { ProgressBar } from 'react-bootstrap';
 import ReactTooltip from 'react-tooltip';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { routeNames } from 'routes';
 import InvestmentProgressBar from 'components/InvestmentProgressBar';
 
@@ -27,16 +26,17 @@ const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
       transform: 'translate(-50%, -50%)'
     }
   };
+
+  const imgStyle = {
+    width: 'auto',
+    height: 'auto',
+    maxWidth: '100%',
+    maxHeight: '100%',
+    padding: '10px'
+  };
+
   const getExpectedDeadlineMonths = () => {
     return (projectDetails.deadline - moment.now()) / (30 * 24 * 3600 * 1000); // 30 days of 24 hrs, each made of 3600 * 1000 ms
-  };
-
-  const getRemainingPercentage = () => {
-    return (1 - projectDetails.progress) * 100;
-  };
-
-  const getRemainingCrowdfundingAmount = () => {
-    return (getRemainingPercentage() / 100) * projectDetails.crowdfundingTarget;
   };
 
   const handleOpenModal = async (e: any) => {
@@ -46,11 +46,6 @@ const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
 
   const handleNavigateToProject = () => {
     navigate(`${routeNames.projects}/${projectDetails.id}`);
-  };
-
-  const getProjectDetailsRoute = () => {
-    // return `${routeNames.projectPage}/${projectDetails.id}`;
-    return routeNames.projectPage.replace(':id', projectDetails.id);
   };
 
   const getRiskScoreCssClass = () => {
@@ -66,28 +61,7 @@ const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
           className='col-lg-1 d-flex justify-content-center align-items-center'
           onClick={handleNavigateToProject}
         >
-          {/* <div>
-            <a
-              href={getProjectDetailsRoute()}
-              className='ml-3'
-              target='_blank'
-              rel='noreferrer'
-            >
-              #{projectDetails.id}
-            </a>
-            <img
-              src={projectDetails.img}
-              height='100px'
-              width='100px'
-              style={{ padding: '10px' }}
-            />
-          </div> */}
-          <img
-            src={projectDetails.img}
-            height='100px'
-            width='100px'
-            style={{ padding: '10px' }}
-          />
+          <img src={projectDetails.img} style={imgStyle} />
         </div>
         <div className='col-lg-2 d-flex justify-content-left align-items-center mb-3'>
           <div className='ml-2'>
@@ -96,9 +70,11 @@ const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
               <img src={projectDetails.countryFlagImg} />
             </h6>
             <h3 onClick={handleNavigateToProject}>{projectDetails.name}</h3>
-            <a href='#'>
+            <Link
+              to={`${routeNames.projectDevelopers}/${projectDetails.projectOwnerId}`}
+            >
               <h6>{projectDetails.projectOwner}</h6>
-            </a>
+            </Link>
           </div>
         </div>
         <div className='col-lg-1 d-flex justify-content-center align-items-center'>
