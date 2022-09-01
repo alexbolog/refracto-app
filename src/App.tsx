@@ -18,6 +18,7 @@ const environment = 'devnet';
 
 const TRACKING_ID = 'G-M4H6XH3NSB';
 ReactGA.initialize(TRACKING_ID);
+ReactGA.set({ appVersion: "0.2.0"});
 
 const App = () => {
   useEffect(() => {
