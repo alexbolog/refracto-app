@@ -16,6 +16,9 @@ import ReactGA from 'react-ga';
 
 const environment = 'devnet';
 
+const TRACKING_ID = 'G-M4H6XH3NSB';
+ReactGA.initialize(TRACKING_ID);
+
 const App = () => {
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
