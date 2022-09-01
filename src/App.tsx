@@ -12,17 +12,16 @@ import PageNotFound from 'pages/PageNotFound';
 import { routeNames } from 'routes';
 import routes from 'routes';
 import UnlockPage from './pages/UnlockPage';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 
 const environment = 'devnet';
 
-const TRACKING_ID = 'GT-PBGXX52';
+const TRACKING_ID = 'G-M4H6XH3NSB';
 ReactGA.initialize(TRACKING_ID);
-ReactGA.set({ appVersion: "0.2.0"});
 
 const App = () => {
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.send('pageview');
   }, []);
 
   return (

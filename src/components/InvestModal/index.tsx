@@ -1,11 +1,9 @@
 import { useGetAccountInfo } from '@elrondnetwork/dapp-core/hooks';
 import { NUMBER_OF_SHARES_PER_PROJECT } from 'config';
-import moment from 'moment';
 import React from 'react';
-import Slider from 'react-input-slider';
 import InvestModalInput from './InvestModalInput';
 import InvestModalPaperwork from './InvestModalPaperwork';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 
 const InvestModal = ({
   projectDetails,
