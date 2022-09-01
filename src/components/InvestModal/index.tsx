@@ -5,6 +5,7 @@ import React from 'react';
 import Slider from 'react-input-slider';
 import InvestModalInput from './InvestModalInput';
 import InvestModalPaperwork from './InvestModalPaperwork';
+import ReactGA from 'react-ga';
 
 const InvestModal = ({
   projectDetails,
@@ -43,6 +44,11 @@ const InvestModal = ({
 
   const handleUserAgreement = () => {
     window.alert('user agreed to buy');
+    ReactGA.event({
+      category: 'conversion',
+      action: 'invest',
+      label: 'User clicked on investing action'
+    });
   };
 
   return !didMount ? null : displayPaperwork ? (
