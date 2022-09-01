@@ -16,7 +16,7 @@ import ReactGA from 'react-ga';
 
 const environment = 'devnet';
 
-const TRACKING_ID = 'G-M4H6XH3NSB';
+const TRACKING_ID = 'GT-PBGXX52';
 ReactGA.initialize(TRACKING_ID);
 ReactGA.set({ appVersion: "0.2.0"});
 
