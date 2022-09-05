@@ -34,6 +34,11 @@ const InvestModal = ({
     setInvestmentAmount(inputInvestAmount);
     console.log(inputInvestAmount);
     setDisplayPaperwork(true);
+    ReactGA.event({
+      category: 'engagement',
+      action: 'invest_1',
+      label: 'User tried to invest'
+    });
   };
 
   const handleNavigateBack = () => {
@@ -43,9 +48,9 @@ const InvestModal = ({
   const handleUserAgreement = () => {
     window.alert('user agreed to buy');
     ReactGA.event({
-      category: 'conversion',
-      action: 'invest',
-      label: 'User clicked on investing action'
+      category: 'engagement',
+      action: 'invest_2',
+      label: 'User agreed to paperwork and invested'
     });
   };
 

@@ -7,6 +7,7 @@ import {
   WalletConnectLoginButton
 } from '@elrondnetwork/dapp-core/UI';
 import { routeNames } from 'routes';
+import ReactGA from 'react-ga4';
 
 export const UnlockRoute: () => JSX.Element = () => {
   const { isLoggedIn } = useGetLoginInfo();
@@ -14,6 +15,13 @@ export const UnlockRoute: () => JSX.Element = () => {
   React.useEffect(() => {
     if (isLoggedIn) {
       window.location.href = routeNames.dashboard;
+    } else {
+      console.log('User went to login page');
+      ReactGA.event({
+        category: 'engagement',
+        action: 'login_1',
+        label: 'User went to login page'
+      });
     }
   }, [isLoggedIn]);
 
