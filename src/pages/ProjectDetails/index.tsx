@@ -1,6 +1,6 @@
 import InvestmentProgressBar from 'components/InvestmentProgressBar';
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
 import projectList from '../../db/projectList.json';
 import InvestModal from 'components/InvestModal';
@@ -8,7 +8,6 @@ import Modal from 'react-modal';
 import Description from 'components/Description';
 import InvestmentCalculator from 'components/InvestmentCalculator';
 import { NUMBER_OF_SHARES_PER_PROJECT } from 'config';
-import { Link } from 'react-router-dom';
 import { routeNames } from 'routes';
 
 const ProjectDetails = () => {

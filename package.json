@@ -1,20 +1,36 @@
 {
-  "name": "@elrondnetwork/dapp-template",
+  "name": "refracto-app",
   "description": "Elrond Dapp Template",
   "version": "0.2.0",
   "author": "ElrondNetwork",
   "license": "GPL-3.0-or-later",
-  "repository": "@elrondnetwork/dapp-template",
+  "repository": {
+    "type": "git",
+    "url": "@elrondnetwork/dapp-template"
+  },
   "dependencies": {
     "@elrondnetwork/dapp-core": "2.0.0-alpha.10",
     "@elrondnetwork/erdjs": "10.2.5",
     "@elrondnetwork/erdjs-network-providers": "0.1.5",
-    "@fortawesome/fontawesome-svg-core": "6.1.0",
-    "@fortawesome/free-solid-svg-icons": "6.1.0",
-    "@fortawesome/react-fontawesome": "0.1.18",
+    "@fortawesome/fontawesome-svg-core": "^6.1.0",
+    "@fortawesome/free-solid-svg-icons": "^6.1.0",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "animate.css": "^4.1.1",
+    "aos": "^3.0.0-beta.6",
+    "apexcharts": "^3.35.5",
     "axios": "0.21.1",
-    "bootstrap": "4.6.0",
-    "moment": "2.29.1",
+    "bootstrap": "^4.6.0",
+    "bootstrap-select": "^1.13.18",
+    "bootstrap4-notify": "^4.0.3",
+    "chart.js": "^3.9.1",
+    "chartist": "^1.2.1",
+    "datatables.net": "^1.12.1",
+    "datatables.net-dt": "^1.12.1",
+    "dropzone": "^6.0.0-beta.2",
+    "lightgallery": "^2.6.1",
+    "metismenu": "^3.0.7",
+    "moment": "^2.29.1",
+    "node-sass": "^6.0.1",
     "react": "18.1.0",
     "react-bootstrap": "2.1.2",
     "react-dom": "18.1.0",
@@ -25,7 +41,10 @@
     "react-scripts": "4.0.3",
     "react-tooltip": "^4.2.21",
     "sass": "1.52.1",
+    "sweetalert2": "^11.4.37",
+    "toastr": "^2.1.4",
     "typescript": "4.1.2",
+    "vivus": "^0.4.6",
     "web-vitals": "1.0.1"
   },
   "scripts": {
@@ -39,7 +58,8 @@
     "copy-testnet-config": "cp ./src/config.testnet.tsx ./src/config.tsx",
     "copy-devnet-config": "cp ./src/config.devnet.tsx ./src/config.tsx",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext js,ts,tsx src"
+    "lint": "eslint --ext js,ts,tsx src",
+    "sass": "node-sass --watch scss/main.scss css/style.css"
   },
   "eslintConfig": {
     "extends": [
