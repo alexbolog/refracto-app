@@ -1,4 +1,3 @@
-import { dAppName } from 'config';
 import Account from 'pages/Account';
 import Marketplace from 'pages/Marketplace';
 import ProjectDetails from 'pages/ProjectDetails';
@@ -74,9 +73,11 @@ const routes: Array<any> = [
 ];
 
 const mappedRoutes = routes.map((route) => {
+  const envString =
+    process.env.NODE_ENV === 'production' ? '' : process.env.NODE_ENV;
   const title = route.title
-    ? `${route.title} • Elrond ${dAppName}`
-    : `Elrond ${dAppName}`;
+    ? `${route.title} • ${envString} Refracto`
+    : `${envString} Refracto`;
 
   const requiresAuth = Boolean(route.authenticatedRoute);
   const wrappedComponent = withPageTitle(title, route.component);
