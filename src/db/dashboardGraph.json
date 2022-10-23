@@ -1,0 +1,684 @@
+[
+    {
+      "date": "2020-10-10",
+      "availableBalance": 0,
+      "committedBalance": 0,
+      "total": 0
+    },
+    {
+      "date": "2020-10-17",
+      "availableBalance": 0,
+      "committedBalance": 0,
+      "total": 0
+    },
+    {
+      "date": "2020-10-24",
+      "availableBalance": 0,
+      "committedBalance": 0,
+      "total": 0
+    },
+    {
+      "date": "2020-10-31",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000,
+      "eventType": "DEPOSIT",
+      "availableDifference": 1000
+    },
+    {
+      "date": "2020-11-07",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2020-11-14",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2020-11-21",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2020-11-28",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2020-12-05",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2020-12-12",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2020-12-19",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2020-12-26",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2021-01-02",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2021-01-09",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2021-01-16",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2021-01-23",
+      "availableBalance": 1000,
+      "committedBalance": 0,
+      "total": 1000
+    },
+    {
+      "date": "2021-01-30",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000,
+      "eventType": "INVEST",
+      "availableDifference": -300,
+      "committedDifference": 300
+    },
+    {
+      "date": "2021-02-06",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-02-13",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-02-20",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-02-27",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-03-06",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-03-13",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-03-20",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-03-27",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-04-03",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-04-10",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-04-17",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-04-24",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-05-01",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-05-08",
+      "availableBalance": 700,
+      "committedBalance": 300,
+      "total": 1000
+    },
+    {
+      "date": "2021-05-15",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050,
+      "eventType": "PAYOUT",
+      "availableDifference": 350,
+      "committedDifference": -300
+    },
+    {
+      "date": "2021-05-22",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050
+    },
+    {
+      "date": "2021-05-29",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050
+    },
+    {
+      "date": "2021-06-05",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050
+    },
+    {
+      "date": "2021-06-12",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050
+    },
+    {
+      "date": "2021-06-19",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050
+    },
+    {
+      "date": "2021-06-26",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050
+    },
+    {
+      "date": "2021-07-03",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050
+    },
+    {
+      "date": "2021-07-10",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050
+    },
+    {
+      "date": "2021-07-17",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050
+    },
+    {
+      "date": "2021-07-24",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050
+    },
+    {
+      "date": "2021-07-31",
+      "availableBalance": 1050,
+      "committedBalance": 0,
+      "total": 1050
+    },
+    {
+      "date": "2021-08-07",
+      "availableBalance": 550,
+      "committedBalance": 500,
+      "total": 1050,
+      "eventType": "INVEST",
+      "availableDifference": -500,
+      "committedDifference": 500
+    },
+    {
+      "date": "2021-08-14",
+      "availableBalance": 550,
+      "committedBalance": 500,
+      "total": 1050
+    },
+    {
+      "date": "2021-08-21",
+      "availableBalance": 550,
+      "committedBalance": 500,
+      "total": 1050
+    },
+    {
+      "date": "2021-08-28",
+      "availableBalance": 550,
+      "committedBalance": 500,
+      "total": 1050
+    },
+    {
+      "date": "2021-09-04",
+      "availableBalance": 230,
+      "committedBalance": 820,
+      "total": 1050,
+      "eventType": "INVEST",
+      "availableDifference": -320,
+      "committedDifference": 320
+    },
+    {
+      "date": "2021-09-11",
+      "availableBalance": 230,
+      "committedBalance": 820,
+      "total": 1050
+    },
+    {
+      "date": "2021-09-18",
+      "availableBalance": 230,
+      "committedBalance": 820,
+      "total": 1050
+    },
+    {
+      "date": "2021-09-25",
+      "availableBalance": 230,
+      "committedBalance": 820,
+      "total": 1050
+    },
+    {
+      "date": "2021-10-02",
+      "availableBalance": 230,
+      "committedBalance": 820,
+      "total": 1050
+    },
+    {
+      "date": "2021-10-09",
+      "availableBalance": 230,
+      "committedBalance": 820,
+      "total": 1050
+    },
+    {
+      "date": "2021-10-16",
+      "availableBalance": 230,
+      "committedBalance": 820,
+      "total": 1050
+    },
+    {
+      "date": "2021-10-23",
+      "availableBalance": 0,
+      "committedBalance": 1050,
+      "total": 1050,
+      "eventType": "INVEST",
+      "availableDifference": -230,
+      "committedDifference": 230
+    },
+    {
+      "date": "2021-10-30",
+      "availableBalance": 0,
+      "committedBalance": 1050,
+      "total": 1050
+    },
+    {
+      "date": "2021-11-06",
+      "availableBalance": 0,
+      "committedBalance": 1050,
+      "total": 1050
+    },
+    {
+      "date": "2021-11-13",
+      "availableBalance": 0,
+      "committedBalance": 1050,
+      "total": 1050
+    },
+    {
+      "date": "2021-11-20",
+      "availableBalance": 0,
+      "committedBalance": 1050,
+      "total": 1050
+    },
+    {
+      "date": "2021-11-27",
+      "availableBalance": 1000,
+      "committedBalance": 1050,
+      "total": 2050,
+      "eventType": "DEPOSIT",
+      "availableDifference": 1000
+    },
+    {
+      "date": "2021-12-04",
+      "availableBalance": 1000,
+      "committedBalance": 1050,
+      "total": 2050
+    },
+    {
+      "date": "2021-12-11",
+      "availableBalance": 1000,
+      "committedBalance": 1050,
+      "total": 2050
+    },
+    {
+      "date": "2021-12-18",
+      "availableBalance": 1000,
+      "committedBalance": 1050,
+      "total": 2050
+    },
+    {
+      "date": "2021-12-25",
+      "availableBalance": 1000,
+      "committedBalance": 1050,
+      "total": 2050
+    },
+    {
+      "date": "2022-01-01",
+      "availableBalance": 1000,
+      "committedBalance": 1050,
+      "total": 2050
+    },
+    {
+      "date": "2022-01-08",
+      "availableBalance": 700,
+      "committedBalance": 1350,
+      "total": 2050,
+      "eventType": "INVEST",
+      "availableDifference": -300,
+      "committedDifference": 300
+    },
+    {
+      "date": "2022-01-15",
+      "availableBalance": 700,
+      "committedBalance": 1350,
+      "total": 2050
+    },
+    {
+      "date": "2022-01-22",
+      "availableBalance": 700,
+      "committedBalance": 1350,
+      "total": 2050
+    },
+    {
+      "date": "2022-01-29",
+      "availableBalance": 700,
+      "committedBalance": 1350,
+      "total": 2050
+    },
+    {
+      "date": "2022-02-05",
+      "availableBalance": 700,
+      "committedBalance": 1350,
+      "total": 2050
+    },
+    {
+      "date": "2022-02-12",
+      "availableBalance": 1300,
+      "committedBalance": 850,
+      "total": 2150,
+      "eventType": "PAYOUT",
+      "availableDifference": 600,
+      "committedDifference": -500
+    },
+    {
+      "date": "2022-02-19",
+      "availableBalance": 800,
+      "committedBalance": 850,
+      "total": 1650,
+      "eventType": "WITHDRAW",
+      "availableDifference": -500
+    },
+    {
+      "date": "2022-02-26",
+      "availableBalance": 800,
+      "committedBalance": 850,
+      "total": 1650
+    },
+    {
+      "date": "2022-03-05",
+      "availableBalance": 800,
+      "committedBalance": 850,
+      "total": 1650
+    },
+    {
+      "date": "2022-03-12",
+      "availableBalance": 800,
+      "committedBalance": 850,
+      "total": 1650
+    },
+    {
+      "date": "2022-03-19",
+      "availableBalance": 1170,
+      "committedBalance": 530,
+      "total": 1700,
+      "eventType": "PAYOUT",
+      "availableDifference": 370,
+      "committedDifference": -320
+    },
+    {
+      "date": "2022-03-26",
+      "availableBalance": 1170,
+      "committedBalance": 530,
+      "total": 1700
+    },
+    {
+      "date": "2022-04-02",
+      "availableBalance": 1170,
+      "committedBalance": 530,
+      "total": 1700
+    },
+    {
+      "date": "2022-04-09",
+      "availableBalance": 1170,
+      "committedBalance": 530,
+      "total": 1700
+    },
+    {
+      "date": "2022-04-16",
+      "availableBalance": 1170,
+      "committedBalance": 530,
+      "total": 1700
+    },
+    {
+      "date": "2022-04-23",
+      "availableBalance": 1170,
+      "committedBalance": 530,
+      "total": 1700
+    },
+    {
+      "date": "2022-04-30",
+      "availableBalance": 1170,
+      "committedBalance": 530,
+      "total": 1700
+    },
+    {
+      "date": "2022-05-07",
+      "availableBalance": 1420,
+      "committedBalance": 300,
+      "total": 1720,
+      "eventType": "PAYOUT",
+      "availableDifference": 250,
+      "committedDifference": -230
+    },
+    {
+      "date": "2022-05-14",
+      "availableBalance": 1420,
+      "committedBalance": 300,
+      "total": 1720
+    },
+    {
+      "date": "2022-05-21",
+      "availableBalance": 1420,
+      "committedBalance": 300,
+      "total": 1720
+    },
+    {
+      "date": "2022-05-28",
+      "availableBalance": 720,
+      "committedBalance": 300,
+      "total": 1020,
+      "eventType": "WITHDRAW",
+      "availableDifference": -700
+    },
+    {
+      "date": "2022-06-04",
+      "availableBalance": 720,
+      "committedBalance": 300,
+      "total": 1020
+    },
+    {
+      "date": "2022-06-11",
+      "availableBalance": 720,
+      "committedBalance": 300,
+      "total": 1020
+    },
+    {
+      "date": "2022-06-18",
+      "availableBalance": 720,
+      "committedBalance": 300,
+      "total": 1020
+    },
+    {
+      "date": "2022-06-25",
+      "availableBalance": 720,
+      "committedBalance": 300,
+      "total": 1020
+    },
+    {
+      "date": "2022-07-02",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060,
+      "eventType": "PAYOUT",
+      "availableDifference": 340,
+      "committedDifference": -300
+    },
+    {
+      "date": "2022-07-09",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-07-16",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-07-23",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-07-30",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-08-06",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-08-13",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-08-20",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-08-27",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-09-03",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-09-10",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-09-17",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-09-24",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060
+    },
+    {
+      "date": "2022-10-01",
+      "availableBalance": 1060,
+      "committedBalance": 0,
+      "total": 1060,
+      "eventType": "WITHDRAW",
+      "availableDifference": -1000
+    },
+    {
+      "date": "2022-10-08",
+      "availableBalance": 60,
+      "committedBalance": 0,
+      "total": 60
+    },
+    {
+      "date": "2022-10-15",
+      "availableBalance": 60,
+      "committedBalance": 0,
+      "total": 60
+    },
+    {
+      "date": "2022-10-22",
+      "availableBalance": 60,
+      "committedBalance": 0,
+      "total": 60
+    }
+  ]
