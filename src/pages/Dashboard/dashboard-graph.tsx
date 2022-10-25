@@ -9,9 +9,9 @@ const DashboardGraph = () => {
       id: 'area-datetime',
       type: 'area',
       zoom: {
-        // autoScaleYaxis: true
+        autoScaleYaxis: true
       },
-      stacked: true,
+      stacked: true
     },
     // annotations: {
     //   yaxis: [
@@ -40,12 +40,13 @@ const DashboardGraph = () => {
     //   ]
     // },
     dataLabels: {
-      enabled: false // do not display number on each point of graph
+      enabled: false,
+      // formatter: (val, opts) => {
+      //   return dashboardGraph[opts.dataPointIndex].total;
+      // },
+      // enabledOnSeries: [1], // display label only on cash, at top of graph
+      //TODO: if we want to display total as label, needs to account for filtering to only invested
     },
-    // markers: {
-    //   size: 3,
-    //   shape: 'circle'
-    // },
     xaxis: {
       type: 'datetime',
       categories: dashboardGraph.map((el) => el.date)
@@ -60,8 +61,8 @@ const DashboardGraph = () => {
       type: 'gradient',
       gradient: {
         shadeIntensity: 1,
-        opacityFrom: 0.7,
-        opacityTo: 0.9,
+        opacityFrom: 0.2,
+        opacityTo: 1,
         stops: [0, 100]
       }
     }
@@ -69,16 +70,15 @@ const DashboardGraph = () => {
 
   const series: ApexOptions['series'] = [
     {
-      name: 'availableBalance',
+      name: 'Available',
+      color: '#9ccb38',
       data: dashboardGraph.map((el) => el.availableBalance)
     },
     {
-      name: 'committedBalance',
+      name: 'Invested',
+      color: '#38c1cb',
+      // color: '#de415b',
       data: dashboardGraph.map((el) => el.committedBalance)
-    },
-    {
-      name: 'total',
-      data: dashboardGraph.map((el) => el.total)
     }
   ];
 
