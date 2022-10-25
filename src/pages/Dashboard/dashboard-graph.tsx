@@ -2,38 +2,39 @@ import { ApexOptions } from 'apexcharts';
 import ReactApexChart from 'react-apexcharts';
 import * as React from 'react';
 import dashboardGraph from '../../db/dashboardGraph.json';
+import { Button } from 'react-bootstrap';
+import dayjs from 'dayjs';
 
 const DashboardGraph = () => {
-  const getLabelForEvent = (
-    el:
-      | {
-          date: string;
-          availableBalance: number;
-          committedBalance: number;
-          total: number;
-          eventType?: undefined;
-          availableDifference?: undefined;
-          committedDifference?: undefined;
-        }
-      | {
-          date: string;
-          availableBalance: number;
-          committedBalance: number;
-          total: number;
-          eventType: string;
-          availableDifference: number;
-          committedDifference?: undefined;
-        }
-      | {
-          date: string;
-          availableBalance: number;
-          committedBalance: number;
-          total: number;
-          eventType: string;
-          availableDifference: number;
-          committedDifference: number;
-        }
-  ) => {
+  const [activeFilter, setActiveFilter] = React.useState('');
+  const [endDate, setEndDate] = React.useState(dayjs());
+
+  const resetEndDate = () => {
+    setEndDate(dayjs());
+  };
+
+  const setZoomInterval = (years: number, months?: number, weeks?: number) => {
+    let stDate = endDate.subtract(years, 'year');
+    if (months) {
+      stDate = stDate.subtract(months, 'month');
+    }
+    if (weeks) {
+      stDate.subtract(weeks, 'week');
+    }
+    setStartDate(stDate);
+  };
+
+  const [startDate, setStartDate] = React.useState(dayjs().subtract(2, 'year'));
+
+  const getLabelForEvent = (el: {
+    date: string;
+    availableBalance: number;
+    committedBalance: number;
+    total: number;
+    eventType?: string;
+    availableDifference?: number;
+    committedDifference?: number;
+  }) => {
     // TODO: we can group this in an 'event' nested field
     switch (el.eventType) {
       case 'INVEST': {
@@ -46,7 +47,11 @@ const DashboardGraph = () => {
         return 'Deposited ' + el.availableDifference + '$';
       }
       case 'WITHDRAW': {
-        return 'Withdrew ' + (-el.availableDifference) + '$';
+        return (
+          'Withdrew ' +
+          (el.availableDifference ? -el.availableDifference : -1) +
+          '$'
+        );
       }
 
       default: {
@@ -60,7 +65,7 @@ const DashboardGraph = () => {
     .map(
       (el) =>
         new Object({
-          x: new Date(el.date).getTime(),
+          x: dayjs(el.date).valueOf(),
           label: {
             text: getLabelForEvent(el)
           }
@@ -81,6 +86,9 @@ const DashboardGraph = () => {
     }
   ];
 
+  // const minDate = new Date();
+  // minDate.setFullYear(2022);
+
   const optionsArea: ApexOptions = {
     chart: {
       id: 'area-datetime',
@@ -89,6 +97,11 @@ const DashboardGraph = () => {
         autoScaleYaxis: true
       },
       stacked: true
+      // selection: {
+      //   xaxis: {
+      //     min: minDate.getTime()
+      //   }
+      // }
     },
     annotations: {
       // yaxis: [
@@ -114,7 +127,9 @@ const DashboardGraph = () => {
     },
     xaxis: {
       type: 'datetime',
-      categories: dashboardGraph.map((el) => el.date)
+      categories: dashboardGraph.map((el) => el.date),
+      min: startDate.valueOf(),
+      max: endDate.valueOf()
       // tickAmount: 6
     },
     tooltip: {
@@ -133,14 +148,45 @@ const DashboardGraph = () => {
     }
   };
 
+  const handleOneYearFilter = () => {
+    resetEndDate();
+    setZoomInterval(1);
+    setActiveFilter('year');
+  };
+  const handleOneMonthFilter = () => {
+    resetEndDate();
+    setZoomInterval(0, 1);
+    setActiveFilter('month');
+  };
+  const handleOneWeekFilter = () => {
+    resetEndDate();
+    setZoomInterval(0, 0, 1);
+    setActiveFilter('week');
+  };
+  // TODO: autoScaleYaxis when zooming using buttons
+
   return (
-    <ReactApexChart
-      options={optionsArea}
-      series={series}
-      type='area'
-      height='421px'
-      width='1000px'
-    ></ReactApexChart>
+    <>
+      <Button onClick={handleOneYearFilter} disabled={activeFilter === 'year'}>
+        Last Year
+      </Button>
+      <Button
+        onClick={handleOneMonthFilter}
+        disabled={activeFilter === 'month'}
+      >
+        Last Month
+      </Button>
+      <Button onClick={handleOneWeekFilter} disabled={activeFilter === 'week'}>
+        Last Week
+      </Button>
+      <ReactApexChart
+        options={optionsArea}
+        series={series}
+        type='area'
+        height='421px'
+        width='1000px'
+      ></ReactApexChart>
+    </>
   );
 };
 
