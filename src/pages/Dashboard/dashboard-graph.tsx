@@ -4,6 +4,83 @@ import * as React from 'react';
 import dashboardGraph from '../../db/dashboardGraph.json';
 
 const DashboardGraph = () => {
+  const getLabelForEvent = (
+    el:
+      | {
+          date: string;
+          availableBalance: number;
+          committedBalance: number;
+          total: number;
+          eventType?: undefined;
+          availableDifference?: undefined;
+          committedDifference?: undefined;
+        }
+      | {
+          date: string;
+          availableBalance: number;
+          committedBalance: number;
+          total: number;
+          eventType: string;
+          availableDifference: number;
+          committedDifference?: undefined;
+        }
+      | {
+          date: string;
+          availableBalance: number;
+          committedBalance: number;
+          total: number;
+          eventType: string;
+          availableDifference: number;
+          committedDifference: number;
+        }
+  ) => {
+    // TODO: we can group this in an 'event' nested field
+    switch (el.eventType) {
+      case 'INVEST': {
+        return 'Invested ' + el.committedDifference + '$';
+      }
+      case 'PAYOUT': {
+        return 'Payout ' + el.availableDifference + '$';
+      }
+      case 'DEPOSIT': {
+        return 'Deposited ' + el.availableDifference + '$';
+      }
+      case 'WITHDRAW': {
+        return 'Withdrew ' + (-el.availableDifference) + '$';
+      }
+
+      default: {
+        return el.eventType;
+      }
+    }
+  };
+
+  const events: XAxisAnnotations[] = dashboardGraph
+    .filter((el) => el.eventType)
+    .map(
+      (el) =>
+        new Object({
+          x: new Date(el.date).getTime(),
+          label: {
+            text: getLabelForEvent(el)
+          }
+        })
+    );
+
+  const series: ApexOptions['series'] = [
+    {
+      name: 'Available',
+      color: '#9ccb38',
+      data: dashboardGraph.map((el) => el.availableBalance)
+    },
+    {
+      name: 'Invested',
+      color: '#38c1cb',
+      // color: '#de415b',
+      data: dashboardGraph.map((el) => el.committedBalance)
+    }
+  ];
+
   const optionsArea: ApexOptions = {
     chart: {
       id: 'area-datetime',
@@ -13,34 +90,22 @@ const DashboardGraph = () => {
       },
       stacked: true
     },
-    // annotations: {
-    //   yaxis: [
-    //     {
-    //       borderColor: '#999',
-    //       label: {
-    //         style: {
-    //           color: '#fff',
-    //           background: '#00E396'
-    //         }
-    //       }
-    //     }
-    //   ],
-    //   xaxis: [
-    //     {
-    //       x: new Date().getTime(),
-    //       borderColor: '#999',
-    //       // yAxisIndex: 0,
-    //       // label: {
-    //       //   style: {
-    //       //     color: '#fff',
-    //       //     background: '#775DD0'
-    //       //   }
-    //       // }
-    //     }
-    //   ]
-    // },
+    annotations: {
+      // yaxis: [
+      //   {
+      //     borderColor: '#999',
+      //     label: {
+      //       style: {
+      //         color: '#fff',
+      //         background: '#00E396'
+      //       }
+      //     }
+      //   }
+      // ],
+      xaxis: events
+    },
     dataLabels: {
-      enabled: false,
+      enabled: false
       // formatter: (val, opts) => {
       //   return dashboardGraph[opts.dataPointIndex].total;
       // },
@@ -67,20 +132,6 @@ const DashboardGraph = () => {
       }
     }
   };
-
-  const series: ApexOptions['series'] = [
-    {
-      name: 'Available',
-      color: '#9ccb38',
-      data: dashboardGraph.map((el) => el.availableBalance)
-    },
-    {
-      name: 'Invested',
-      color: '#38c1cb',
-      // color: '#de415b',
-      data: dashboardGraph.map((el) => el.committedBalance)
-    }
-  ];
 
   return (
     <ReactApexChart
