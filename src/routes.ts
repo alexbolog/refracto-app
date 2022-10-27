@@ -7,10 +7,12 @@ import withPageTitle from './components/PageTitle';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import Transaction from './pages/Transaction';
+import Portfolio from './pages/Portfolio';
 
 export const routeNames = {
   home: '/',
   dashboard: '/dashboard',
+  portfolio: '/portfolio',
   transaction: '/transaction',
   unlock: '/unlock',
   ledger: '/ledger',
@@ -33,6 +35,12 @@ const routes: Array<any> = [
     path: routeNames.dashboard,
     title: 'Dashboard',
     component: Dashboard,
+    authenticatedRoute: true
+  },
+  {
+    path: routeNames.portfolio,
+    title: 'Portfolio',
+    component: Portfolio,
     authenticatedRoute: true
   },
   {
