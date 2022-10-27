@@ -13,13 +13,10 @@ const DashboardGraph = () => {
     setEndDate(dayjs());
   };
 
-  const setZoomInterval = (years: number, months?: number, weeks?: number) => {
+  const setZoomInterval = (years: number, months?: number) => {
     let stDate = endDate.subtract(years, 'year');
     if (months) {
       stDate = stDate.subtract(months, 'month');
-    }
-    if (weeks) {
-      stDate.subtract(weeks, 'week');
     }
     setStartDate(stDate);
   };
@@ -153,15 +150,15 @@ const DashboardGraph = () => {
     setZoomInterval(1);
     setActiveFilter('year');
   };
+  const handleOneQuarterFilter = () => {
+    resetEndDate();
+    setZoomInterval(0, 3);
+    setActiveFilter('quarter');
+  };
   const handleOneMonthFilter = () => {
     resetEndDate();
     setZoomInterval(0, 1);
     setActiveFilter('month');
-  };
-  const handleOneWeekFilter = () => {
-    resetEndDate();
-    setZoomInterval(0, 0, 1);
-    setActiveFilter('week');
   };
   // TODO: autoScaleYaxis when zooming using buttons
 
@@ -170,14 +167,14 @@ const DashboardGraph = () => {
       <Button onClick={handleOneYearFilter} disabled={activeFilter === 'year'}>
         Last Year
       </Button>
+      <Button onClick={handleOneQuarterFilter} disabled={activeFilter === 'quarter'}>
+        Last Quarter
+      </Button>
       <Button
         onClick={handleOneMonthFilter}
         disabled={activeFilter === 'month'}
       >
         Last Month
-      </Button>
-      <Button onClick={handleOneWeekFilter} disabled={activeFilter === 'week'}>
-        Last Week
       </Button>
       <ReactApexChart
         options={optionsArea}
