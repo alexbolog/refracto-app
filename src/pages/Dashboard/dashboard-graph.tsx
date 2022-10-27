@@ -1,3 +1,5 @@
+import './style.scss';
+
 import { ApexOptions } from 'apexcharts';
 import ReactApexChart from 'react-apexcharts';
 import * as React from 'react';
@@ -8,6 +10,8 @@ import dayjs from 'dayjs';
 const DashboardGraph = () => {
   const [activeFilter, setActiveFilter] = React.useState('');
   const [endDate, setEndDate] = React.useState(dayjs());
+  const [isAvailableVisible, setAvailableVisible] = React.useState(true);
+  const [isInvestedVisible, setInvestedVisible] = React.useState(true);
 
   const resetEndDate = () => {
     setEndDate(dayjs());
@@ -57,12 +61,27 @@ const DashboardGraph = () => {
     }
   };
 
-  const events: XAxisAnnotations[] = dashboardGraph
+  const computeMarkerHeight = (available: number, invested: number) => {
+    if (!isAvailableVisible && !isInvestedVisible) {
+      return undefined;
+    }
+    let y = 0;
+    if (isAvailableVisible) {
+      y += available;
+    }
+    if (isInvestedVisible) {
+      y += invested;
+    }
+    return y;
+  };
+
+  const events: PointAnnotations[] = dashboardGraph
     .filter((el) => el.eventType)
     .map(
       (el) =>
         new Object({
           x: dayjs(el.date).valueOf(),
+          y: computeMarkerHeight(el.availableBalance, el.committedBalance),
           label: {
             text: getLabelForEvent(el)
           }
@@ -78,13 +97,9 @@ const DashboardGraph = () => {
     {
       name: 'Invested',
       color: '#38c1cb',
-      // color: '#de415b',
       data: dashboardGraph.map((el) => el.committedBalance)
     }
   ];
-
-  // const minDate = new Date();
-  // minDate.setFullYear(2022);
 
   const optionsArea: ApexOptions = {
     chart: {
@@ -93,46 +108,54 @@ const DashboardGraph = () => {
       zoom: {
         autoScaleYaxis: true
       },
-      stacked: true
-      // selection: {
-      //   xaxis: {
-      //     min: minDate.getTime()
-      //   }
-      // }
+      stacked: true,
+      events: {
+        legendClick: (event: any, chartContext: number) => {
+          if (chartContext === 0) {
+            setAvailableVisible(!isAvailableVisible);
+          }
+          if (chartContext === 1) {
+            setInvestedVisible(!isInvestedVisible);
+          }
+        },
+        beforeZoom: () => {
+          setActiveFilter('');
+        },
+        scrolled: () => {
+          setActiveFilter(''); // Does not work
+        },
+      },
+      toolbar: {
+        tools: {
+          reset: false,
+          pan: false,
+        }
+      },
+    },
+    grid: {
+      xaxis: {
+        lines: {
+          show: true
+        }
+      }
     },
     annotations: {
-      // yaxis: [
-      //   {
-      //     borderColor: '#999',
-      //     label: {
-      //       style: {
-      //         color: '#fff',
-      //         background: '#00E396'
-      //       }
-      //     }
-      //   }
-      // ],
-      xaxis: events
+      points: events
     },
     dataLabels: {
       enabled: false
-      // formatter: (val, opts) => {
-      //   return dashboardGraph[opts.dataPointIndex].total;
-      // },
-      // enabledOnSeries: [1], // display label only on cash, at top of graph
-      //TODO: if we want to display total as label, needs to account for filtering to only invested
     },
     xaxis: {
       type: 'datetime',
       categories: dashboardGraph.map((el) => el.date),
       min: startDate.valueOf(),
       max: endDate.valueOf()
-      // tickAmount: 6
     },
     tooltip: {
       x: {
-        format: 'dd MMM yyyy'
-      }
+        show: false
+        // format: 'dd MMM yyyy'
+      },
     },
     fill: {
       type: 'gradient',
@@ -167,7 +190,10 @@ const DashboardGraph = () => {
       <Button onClick={handleOneYearFilter} disabled={activeFilter === 'year'}>
         Last Year
       </Button>
-      <Button onClick={handleOneQuarterFilter} disabled={activeFilter === 'quarter'}>
+      <Button
+        onClick={handleOneQuarterFilter}
+        disabled={activeFilter === 'quarter'}
+      >
         Last Quarter
       </Button>
       <Button
