@@ -97,4 +97,15 @@ const mappedRoutes = routes.map((route) => {
   };
 });
 
+export const NAVBAR_MENU_ITEMS = routes
+  .filter((r) => r.displayInNavbar)
+  .map((r) => {
+    return {
+      route: r.path,
+      display: r.title,
+      protectedRoute: r.authenticatedRoute,
+      icon: r.icon
+    };
+  });
+
 export default mappedRoutes;
