@@ -93,14 +93,13 @@ const DashboardGraph2 = () => {
       (el) =>
         new Object({
           type: 'point',
+          radius: 4,
           xValue: el.date,
-          // yScaleID: 0,
           yValue: computeMarkerHeight(el.availableBalance, el.committedBalance),
           label: {
             enabled: true,
             content: getLabelForEvent(el)
           }
-          // content: ['This is my text'],
         })
     );
 
@@ -133,11 +132,9 @@ const DashboardGraph2 = () => {
       legend: {
         position: 'bottom' as const,
         labels: {
-          usePointStyle: true
         }
       },
       tooltip: {
-        // enabled: false
         callbacks: {
           title: (a: any) => {
             const date = a[0].label;
@@ -149,21 +146,18 @@ const DashboardGraph2 = () => {
         }
       }
     },
+    elements: {
+      point: {
+        radius: 0,
+        hitRadius: 4,
+      }
+    },
     scales: {
       y: {
         stacked: true
       }
     },
-    annotations:
-      // [
-      // {
-      //   type: 'point',
-      //   xValue: '2020-10-24',
-      //   yValue: '2020-10-24',
-      //   // backgroundColor: 'rgba(255, 99,  132, 0.25)'
-      // }
-      events
-    // ]
+    annotations: events
   };
 
   const data = () => {
@@ -173,7 +167,6 @@ const DashboardGraph2 = () => {
         {
           label: 'Available',
           borderColor: '#9ccb38',
-          // backgroundColor: '#9ccb38',
           backgroundColor: (context: ScriptableContext<'line'>) => {
             const ctx = context.chart.ctx;
             const gradient = ctx.createLinearGradient(0, 0, 0, 400);
@@ -187,7 +180,6 @@ const DashboardGraph2 = () => {
         {
           label: 'Invested',
           borderColor: '#38c1cb',
-          // backgroundColor: '#38c1cb',
           backgroundColor: (context: ScriptableContext<'line'>) => {
             const ctx = context.chart.ctx;
             const gradient = ctx.createLinearGradient(0, 0, 0, 400);
@@ -201,14 +193,6 @@ const DashboardGraph2 = () => {
       ]
     };
   };
-
-  // useEffect(() => {
-  //   const ctx = chartRef.current.getContext('2d')
-  //   const gradientBg = ctx.createLinearGradient(0, 0, 0, 500);
-  //   gradientBg.addColorStop(0, 'red')
-  //   gradientBg.addColorStop(1, 'black')
-  //
-  // }, [])
 
   return (
     <>
