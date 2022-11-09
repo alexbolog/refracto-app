@@ -3,11 +3,20 @@ import { useGetAccountInfo } from '@elrondnetwork/dapp-core/hooks';
 import { logout } from '@elrondnetwork/dapp-core/utils';
 import { Link } from 'react-router-dom';
 import { NAVBAR_MENU_ITEMS, routeNames } from 'routes';
-import { faBars, faBoltLightning } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faBell,
+  faBoltLightning,
+  faQuestionCircle
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ReactComponent as Logo } from './../../../assets/images/svg/btc.svg';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import ReactTooltip from 'react-tooltip';
+import SearchBar from 'components/SearchBar';
+import NotificationDropDownContent from './NotificationDropDownContent';
+import CurrencyPicker from 'components/CurrencyPicker';
+import AccountInfo from './AccountInfo';
 
 const Sidenav = () => {
   const { address } = useGetAccountInfo();
@@ -85,18 +94,38 @@ const Sidenav = () => {
         <div className='header-content'>
           <nav className='navbar navbar-expand'>
             <div className='collapse navbar-collapse justify-content-between'>
-              <div className='header-left'>{/* <SearchBar /> */}</div>
+              <div className='header-left'>
+                <SearchBar />
+              </div>
+              <ul className='navbar-nav header-right'>
+                <li className='nav-item'>
+                  <CurrencyPicker />
+                </li>
+                <li className='nav-item dropdown notification_dropdown'>
+                  <a
+                    className='nav-link '
+                    href='#'
+                    role='button'
+                    data-bs-toggle='dropdown'
+                  >
+                    <FontAwesomeIcon icon={faBell} />
+                  </a>
+                  <NotificationDropDownContent />
+                </li>
+
+                <li className='nav-item dropdown notification_dropdown'>
+                  <a className='nav-link ' href='#'>
+                    <FontAwesomeIcon icon={faQuestionCircle} />
+                  </a>
+                </li>
+                <li className='nav-item'>
+                  <AccountInfo />
+                </li>
+              </ul>
             </div>
           </nav>
         </div>
       </div>
-      {/* <div
-        className='side-nav-collapse'
-        onClick={handleCollapse}
-        style={{ fontSize: '30px', position: 'absolute', zIndex: '25' }}
-      >
-        <FontAwesomeIcon icon={faArrowLeft} />
-      </div> */}
       <div className='dlabnav'>
         <div className='dlabnav-scroll'>
           <ul className='metismenu' id='menu' style={{ height: '100%' }}>
