@@ -10,7 +10,7 @@ import { ReactComponent as Logo } from './../../assets/images/svg/btc.svg';
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { search } = useLocation();
   React.useEffect(() => {
-    setDarkModeJs();
+    // setDarkModeJs();
     fadePreloader();
   }, []);
 
@@ -39,7 +39,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className='row' style={{ marginTop: '25%' }}>
             <div className='col-lg-12 col-sm-12 d-flex justify-content-center'>
               <Logo style={{ maxWidth: '35%', maxHeight: '35%' }} />
-              Logo
             </div>
             <div className='col-lg-12 col-sm-12 d-flex justify-content-center'>
               <h2>Loading..</h2>
