@@ -6,11 +6,18 @@ import Dashboard from './pages/Dashboard';
 import Transaction from './pages/Transaction';
 import Portfolio from './pages/Portfolio';
 import {
-  faBook,
-  faCheckDouble,
-  faDashboard,
-  faShop
+  faBookOpen,
+  faFileContract,
+  faHandshakeAlt,
+  faIdBadge,
+  faListCheck,
+  faSackDollar,
+  faShop,
+  faWandSparkles
 } from '@fortawesome/free-solid-svg-icons';
+import Reports from 'pages/Reports';
+import Transactions from 'pages/Account/Transactions';
+import Agreements from 'pages/Agreements';
 
 export const routeNames = {
   dashboard: '/dashboard',
@@ -40,7 +47,7 @@ const routes: Array<any> = [
     component: Dashboard,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faDashboard
+    icon: faWandSparkles
   },
   {
     path: routeNames.portfolio,
@@ -48,7 +55,7 @@ const routes: Array<any> = [
     component: Portfolio,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faBook
+    icon: faBookOpen
   },
   {
     path: routeNames.home,
@@ -56,7 +63,7 @@ const routes: Array<any> = [
     component: Projects,
     authenticatedRoute: false,
     displayInNavbar: true,
-    icon: faCheckDouble
+    icon: faListCheck
   },
   {
     path: routeNames.marketplace,
@@ -69,28 +76,27 @@ const routes: Array<any> = [
   {
     path: routeNames.reports,
     title: 'Reports',
-    component: Account, //TODO: add reports page
+    component: Reports,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faBook
+    icon: faFileContract
   },
   {
     path: routeNames.transactions,
-    title: 'Transactions', //TODO: add transactions page
-    component: Account,
+    title: 'Transactions',
+    component: Transactions,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faBook
+    icon: faSackDollar
   },
   {
     path: routeNames.agreements,
     title: 'Agreements',
-    component: Account, // TODO: add agreements page
+    component: Agreements,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faBook
+    icon: faHandshakeAlt
   },
-
 
   {
     path: routeNames.account,
@@ -98,7 +104,7 @@ const routes: Array<any> = [
     component: Account,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faBook
+    icon: faIdBadge
   },
   // required
   {
