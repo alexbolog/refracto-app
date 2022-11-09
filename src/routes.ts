@@ -1,62 +1,42 @@
 import Account from 'pages/Account';
 import Marketplace from 'pages/Marketplace';
-import ProjectDetails from 'pages/ProjectDetails';
-import ProjectDeveloperDetails from 'pages/ProjectDeveloperDetails';
 import Projects from 'pages/Projects';
 import withPageTitle from './components/PageTitle';
 import Dashboard from './pages/Dashboard';
-import Home from './pages/Home';
 import Transaction from './pages/Transaction';
 import Portfolio from './pages/Portfolio';
 import {
+  faBook,
   faCheckDouble,
   faDashboard,
   faShop
 } from '@fortawesome/free-solid-svg-icons';
 
 export const routeNames = {
-  home: '/',
   dashboard: '/dashboard',
   portfolio: '/portfolio',
+
+  home: '/projects',
+  marketplace: '/marketplace',
+
+  reports: '/reports',
+  transactions: '/transactions',
+  agreements: '/agreements',
+  account: '/profile',
+
   transaction: '/transaction',
   unlock: '/unlock',
   ledger: '/ledger',
-  walletconnect: '/walletconnect',
-  account: '/account',
-  marketplace: '/marketplace',
-  projects: '/projects',
-  projectPage: '/projects/:id',
-  projectDevelopers: '/developers',
-  projectDeveloperPage: '/developers/:id'
+  walletconnect: '/walletconnect'
+  // projectPage: '/projects/:id',
+  // projectDevelopers: '/developers',
+  // projectDeveloperPage: '/developers/:id'
 };
 
 const routes: Array<any> = [
   {
-    path: routeNames.home,
-    title: 'Home',
-    component: Home
-  },
-  // unprotected routes
-  {
-    path: routeNames.marketplace,
-    title: 'Market',
-    component: Marketplace,
-    authenticatedRoute: false,
-    displayInNavbar: true,
-    icon: faShop
-  },
-  {
-    path: routeNames.projects,
-    title: 'Projects',
-    component: Projects,
-    authenticatedRoute: false,
-    displayInNavbar: true,
-    icon: faCheckDouble
-  },
-  // protected routes
-  {
     path: routeNames.dashboard,
-    title: 'Dashboard',
+    title: 'Overview',
     component: Dashboard,
     authenticatedRoute: true,
     displayInNavbar: true,
@@ -66,43 +46,66 @@ const routes: Array<any> = [
     path: routeNames.portfolio,
     title: 'Portfolio',
     component: Portfolio,
-    authenticatedRoute: true
+    authenticatedRoute: true,
+    displayInNavbar: true,
+    icon: faBook
   },
+  {
+    path: routeNames.home,
+    title: 'Available Projects',
+    component: Projects,
+    authenticatedRoute: false,
+    displayInNavbar: true,
+    icon: faCheckDouble
+  },
+  {
+    path: routeNames.marketplace,
+    title: 'Market',
+    component: Marketplace,
+    authenticatedRoute: false,
+    displayInNavbar: true,
+    icon: faShop
+  },
+  {
+    path: routeNames.reports,
+    title: 'Reports',
+    component: Account, //TODO: add reports page
+    authenticatedRoute: true,
+    displayInNavbar: true,
+    icon: faBook
+  },
+  {
+    path: routeNames.transactions,
+    title: 'Transactions', //TODO: add transactions page
+    component: Account,
+    authenticatedRoute: true,
+    displayInNavbar: true,
+    icon: faBook
+  },
+  {
+    path: routeNames.agreements,
+    title: 'Agreements',
+    component: Account, // TODO: add agreements page
+    authenticatedRoute: true,
+    displayInNavbar: true,
+    icon: faBook
+  },
+
+
+  {
+    path: routeNames.account,
+    title: 'Account',
+    component: Account,
+    authenticatedRoute: true,
+    displayInNavbar: true,
+    icon: faBook
+  },
+  // required
   {
     path: routeNames.transaction,
     title: 'Transaction',
     component: Transaction
-  },
-  {
-    path: routeNames.account,
-    title: 'Account',
-    component: Account
   }
-  // {
-  //   path: routeNames.marketplace,
-  //   title: 'Marketplace',
-  //   component: Marketplace
-  // },
-  // {
-  //   path: routeNames.projects,
-  //   title: 'Projects',
-  //   component: Projects
-  // },
-  // {
-  //   path: routeNames.projectPage,
-  //   title: 'Project Details',
-  //   component: ProjectDetails
-  // },
-  // {
-  //   path: routeNames.projectDevelopers,
-  //   title: 'Project Developers',
-  //   component: Projects
-  // },
-  // {
-  //   path: routeNames.projectDeveloperPage,
-  //   title: 'Project Developer',
-  //   component: ProjectDeveloperDetails
-  // }
 ];
 
 const mappedRoutes = routes.map((route) => {
