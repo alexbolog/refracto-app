@@ -45,7 +45,7 @@ const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
   };
 
   const handleNavigateToProject = () => {
-    navigate(`${routeNames.projects}/${projectDetails.id}`);
+    // navigate(`${routeNames.projects}/${projectDetails.id}`);
   };
 
   const getRiskScoreCssClass = () => {
@@ -71,7 +71,7 @@ const ProjectListItem = ({ projectDetails }: { projectDetails: any }) => {
             </h6>
             <h3 onClick={handleNavigateToProject}>{projectDetails.name}</h3>
             <Link
-              to={`${routeNames.projectDevelopers}/${projectDetails.projectOwnerId}`}
+              to={`${routeNames.home}/${projectDetails.projectOwnerId}`}
             >
               <h6>{projectDetails.projectOwner}</h6>
             </Link>
