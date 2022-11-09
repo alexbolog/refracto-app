@@ -2,8 +2,6 @@ import React from 'react';
 import { AuthenticatedRoutesWrapper } from '@elrondnetwork/dapp-core/wrappers';
 import { useLocation } from 'react-router-dom';
 import routes, { routeNames } from 'routes';
-import Footer from './Footer';
-import Navbar from './Navbar';
 import Sidenav from './Sidenav';
 import { ReactComponent as Logo } from './../../assets/images/svg/btc.svg';
 
