@@ -17,13 +17,10 @@ import {
   Tooltip
 } from 'chart.js';
 import Annotation from 'chartjs-plugin-annotation';
+import Zoom from 'chartjs-plugin-zoom';
+import { Button } from 'react-bootstrap';
 
 const DashboardGraph2 = () => {
-  // const handleOneYearFilter = () => {
-  //   resetEndDate();
-  //   setZoomInterval(1);
-  //   setActiveFilter('year');
-  // };
   // const handleOneQuarterFilter = () => {
   //   resetEndDate();
   //   setZoomInterval(0, 3);
@@ -35,6 +32,18 @@ const DashboardGraph2 = () => {
   //   setActiveFilter('month');
   // };
   // TODO: autoScaleYaxis when zooming using buttons
+
+  const chartRef = React.useRef(null);
+
+  const handleOneYearFilter = () => {
+    const a = chartRef;
+    debugger;
+    // resetEndDate();
+    // setZoomInterval(1);
+    // setActiveFilter('year');
+  };
+
+  const [activeFilter, setActiveFilter] = React.useState('');
 
   const [isAvailableVisible, setAvailableVisible] = React.useState(true);
   const [isInvestedVisible, setInvestedVisible] = React.useState(true);
@@ -118,8 +127,6 @@ const DashboardGraph2 = () => {
 
   events.forEach((el) => (eventTooltips[el.xValue] = el.annotation.label));
 
-  const chartRef = useRef(null);
-
   Chart.register(
     CategoryScale,
     LinearScale,
@@ -130,7 +137,8 @@ const DashboardGraph2 = () => {
     Legend,
     Filler,
     gradient,
-    Annotation
+    Annotation,
+    Zoom
   );
 
   const options = {
@@ -141,7 +149,7 @@ const DashboardGraph2 = () => {
         align: 'start' as const
       },
       legend: {
-        position: 'bottom' as const,
+        position: 'bottom' as const
       },
       tooltip: {
         callbacks: {
@@ -152,6 +160,28 @@ const DashboardGraph2 = () => {
               return label;
             }
           }
+        }
+      },
+      zoom: {
+        // pan: {
+        //   enabled: true,
+        //   mode: 'x' as const
+        // },
+        zoom: {
+          wheel: {
+            enabled: true
+          },
+          pinch: {
+            enabled: true
+          },
+          drag: {
+            enabled: true,
+            backgroundColor: 'rgba(144, 202, 249, 0.4)',
+            borderColor: 'rgba(13, 71, 161, 0.4)',
+            borderWidth: 1,
+          },
+          // drag: true,
+          mode: 'x' as const
         }
       }
     },
@@ -205,9 +235,9 @@ const DashboardGraph2 = () => {
 
   return (
     <>
-      {/*<Button onClick={handleOneYearFilter} disabled={activeFilter === 'year'}>*/}
-      {/*  Last Year*/}
-      {/*</Button>*/}
+      <Button onClick={handleOneYearFilter} disabled={activeFilter === 'year'}>
+        Last Year
+      </Button>
       {/*<Button*/}
       {/*  onClick={handleOneQuarterFilter}*/}
       {/*  disabled={activeFilter === 'quarter'}*/}
