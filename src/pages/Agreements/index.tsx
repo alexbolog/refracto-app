@@ -1,13 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 
-const Dashboard = () => {
+const Agreements = () => {
   return (
     <div className='row'>
       <div className='col-lg-12 col-sm-12 d-flex justify-content-center'>
-        <h2>Portfolio page coming soon</h2>
+        <h2>Agreements page coming soon</h2>
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default Agreements;
