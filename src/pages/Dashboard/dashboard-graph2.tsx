@@ -39,11 +39,9 @@ const DashboardGraph2 = () => {
   const [isAvailableVisible, setAvailableVisible] = React.useState(true);
   const [isInvestedVisible, setInvestedVisible] = React.useState(true);
 
-  const getLabelForEvent = (el: {
-    date: string;
+  const getAnnotationForEvent = (el: {
     availableBalance: number;
     committedBalance: number;
-    total: number;
     eventType?: string;
     availableDifference?: number;
     committedDifference?: number;
@@ -51,24 +49,38 @@ const DashboardGraph2 = () => {
     // TODO: we can group this in an 'event' nested field
     switch (el.eventType) {
       case 'INVEST': {
-        return 'Invested ' + el.committedDifference + '$';
+        return {
+          label: 'Invested ' + el.committedDifference + '$',
+          color: '#38c1cb'
+        };
       }
       case 'PAYOUT': {
-        return 'Payout ' + el.availableDifference + '$';
+        return {
+          label: 'Payout ' + el.availableDifference + '$',
+          color: '#38c1cb'
+        };
       }
       case 'DEPOSIT': {
-        return 'Deposited ' + el.availableDifference + '$';
+        return {
+          label: 'Deposited ' + el.availableDifference + '$',
+          color: '#9ccb38'
+        };
       }
       case 'WITHDRAW': {
-        return (
-          'Withdrew ' +
-          (el.availableDifference ? -el.availableDifference : -1) +
-          '$'
-        );
+        return {
+          label:
+            'Withdrew ' +
+            (el.availableDifference ? -el.availableDifference : -1) +
+            '$',
+          color: '#de415c'
+        };
       }
 
       default: {
-        return el.eventType;
+        return {
+          label: el.eventType,
+          color: 'black'
+        };
       }
     }
   };
@@ -89,23 +101,22 @@ const DashboardGraph2 = () => {
 
   const events: any[] = dashboardGraph
     .filter((el) => el.eventType)
-    .map(
-      (el) =>
-        new Object({
-          type: 'point',
-          radius: 4,
-          xValue: el.date,
-          yValue: computeMarkerHeight(el.availableBalance, el.committedBalance),
-          label: {
-            enabled: true,
-            content: getLabelForEvent(el)
-          }
-        })
-    );
+    .map((el) => {
+      const annotationForEvent = getAnnotationForEvent(el);
+      return {
+        type: 'point',
+        radius: 4,
+        xValue: el.date,
+        yValue: computeMarkerHeight(el.availableBalance, el.committedBalance),
+        annotation: annotationForEvent,
+        backgroundColor: annotationForEvent?.color,
+        borderColor: 'white'
+      };
+    });
 
   const eventTooltips: any = {};
 
-  events.forEach((el) => (eventTooltips[el.xValue] = el.label.content));
+  events.forEach((el) => (eventTooltips[el.xValue] = el.annotation.label));
 
   const chartRef = useRef(null);
 
@@ -131,8 +142,6 @@ const DashboardGraph2 = () => {
       },
       legend: {
         position: 'bottom' as const,
-        labels: {
-        }
       },
       tooltip: {
         callbacks: {
@@ -149,7 +158,7 @@ const DashboardGraph2 = () => {
     elements: {
       point: {
         radius: 0,
-        hitRadius: 4,
+        hitRadius: 4
       }
     },
     scales: {
