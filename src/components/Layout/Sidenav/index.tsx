@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { NAVBAR_MENU_ITEMS, routeNames } from 'routes';
 import { faBars, faBoltLightning } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ReactComponent as Logo } from './../../../assets/images/svg/btc.svg';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import ReactTooltip from 'react-tooltip';
 
@@ -63,57 +64,12 @@ const Sidenav = () => {
     <>
       <div className='nav-header'>
         <Link to={routeNames.home} className='brand-logo'>
-          Logo
-          {/* <Logo width={40} height={40} className='logo-abbr' /> */}
-          {/* <svg
-            className='logo-abbr'
-            width='40'
-            height='40'
-            viewBox='0 0 64 61'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              d='M7.0188 22.6571H56.1512L49.1323 33.9857H28.0756L38.6039 49.6714L31.585 61L7.0188 22.6571Z'
-              fill='var(--primary)'
-            />
-            <path
-              d='M7.01891 0H56.1513L63.1702 12.2H0L7.01891 0Z'
-              fill='var(--primary)'
-            />
-          </svg> */}
+          <Logo width={40} height={40} className='logo-abbr' />
           <div className='brand-title'>
-            {/* <Logo width={40} height={40} className='logo-abbr' /> */}
-            <img
-              src='images/aoz/logoaoz.png'
-              alt='brand-logo'
-              style={{ maxHeight: 50 }}
-            />
+            <img src='./logo.png' alt='brand-logo' style={{ maxHeight: 50 }} />
           </div>
         </Link>
         <div className='nav-control' onClick={handleCollapse}>
-          {/* <div className='hamburger'>
-            <span className='line'></span>
-            <span className='line'></span>
-            <span className='line'></span>
-            <svg
-              width='26'
-              height='26'
-              viewBox='0 0 26 26'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <rect x='22' y='11' width='4' height='4' rx='2' fill='#2A353A' />
-              <rect x='11' width='4' height='4' rx='2' fill='#2A353A' />
-              <rect x='22' width='4' height='4' rx='2' fill='#2A353A' />
-              <rect x='11' y='11' width='4' height='4' rx='2' fill='#2A353A' />
-              <rect x='11' y='22' width='4' height='4' rx='2' fill='#2A353A' />
-              <rect width='4' height='4' rx='2' fill='#2A353A' />
-              <rect y='11' width='4' height='4' rx='2' fill='#2A353A' />
-              <rect x='22' y='22' width='4' height='4' rx='2' fill='#2A353A' />
-              <rect y='22' width='4' height='4' rx='2' fill='#2A353A' />
-            </svg>
-          </div> */}
           <FontAwesomeIcon icon={faBars} className='hamburger' />
         </div>
       </div>
