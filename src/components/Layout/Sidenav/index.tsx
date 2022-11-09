@@ -63,17 +63,25 @@ const Sidenav = () => {
   return (
     <>
       <div className='nav-header'>
-        <Link to={routeNames.home} className='brand-logo'>
+        <Link
+          to={routeNames.home}
+          className='brand-logo'
+          style={{ backgroundColor: '#6853E8' }}
+        >
           <Logo width={40} height={40} className='logo-abbr' />
           <div className='brand-title'>
             <img src='./logo.png' alt='brand-logo' style={{ maxHeight: 50 }} />
           </div>
         </Link>
         <div className='nav-control' onClick={handleCollapse}>
-          <FontAwesomeIcon icon={faBars} className='hamburger' />
+          <FontAwesomeIcon
+            icon={faBars}
+            className='hamburger'
+            style={{ color: 'white' }}
+          />
         </div>
       </div>
-      <div className='header'>
+      <div className='header' style={{ backgroundColor: '#4e37cb' }}>
         <div className='header-content'>
           <nav className='navbar navbar-expand'>
             <div className='collapse navbar-collapse justify-content-between'>

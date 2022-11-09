@@ -74,28 +74,28 @@
 @import url(./../vendor/metismenu/css/metisMenu.min.css);
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -290,8 +290,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     --bs-gray-700: #495057;
     --bs-gray-800: #343a40;
     --bs-gray-900: #212529;
-    --bs-primary: #01A3FF;
-    --bs-secondary: #9568FF;
+    --bs-primary: #6853E8;
+    --bs-secondary: #01A3FF;
     --bs-success: #1EBA62;
     --bs-info: #00ADA3;
     --bs-warning: #FFAB2D;
@@ -489,7 +489,7 @@ sup {
 }
 
 a {
-    color: #01A3FF;
+    color: #6853E8;
     text-decoration: underline;
 }
 
@@ -2517,7 +2517,7 @@ progress {
     background-color: #E6EBEE;
     border-color: #80d1ff;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(104,83,232, 0.25);
 }
 
 .form-control::-webkit-date-and-time-value {
@@ -2706,7 +2706,7 @@ textarea.form-control-lg {
 .form-select:focus {
     border-color: #80d1ff;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(104,83,232, 0.25);
 }
 
 .form-select[multiple], .form-select[size]:not([size="1"]) {
@@ -2786,12 +2786,12 @@ textarea.form-control-lg {
 .form-check-input:focus {
     border-color: #80d1ff;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(104,83,232, 0.25);
 }
 
 .form-check-input:checked {
-    background-color: #01A3FF;
-    border-color: #01A3FF;
+    background-color: #6853E8;
+    border-color: #6853E8;
 }
 
 .form-check-input:checked[type="checkbox"] {
@@ -2803,8 +2803,8 @@ textarea.form-control-lg {
 }
 
 .form-check-input[type="checkbox"]:indeterminate {
-    background-color: #01A3FF;
-    border-color: #01A3FF;
+    background-color: #6853E8;
+    border-color: #6853E8;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
 
@@ -2876,11 +2876,11 @@ textarea.form-control-lg {
 }
 
 .form-range:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 0 1px #E6EBEE, 0 0 0 0.25rem rgba(1, 163, 255, 0.25);
+    box-shadow: 0 0 0 1px #E6EBEE, 0 0 0 0.25rem rgba(104,83,232, 0.25);
 }
 
 .form-range:focus::-moz-range-thumb {
-    box-shadow: 0 0 0 1px #E6EBEE, 0 0 0 0.25rem rgba(1, 163, 255, 0.25);
+    box-shadow: 0 0 0 1px #E6EBEE, 0 0 0 0.25rem rgba(104,83,232, 0.25);
 }
 
 .form-range::-moz-focus-outer {
@@ -2891,7 +2891,7 @@ textarea.form-control-lg {
     width: 1rem;
     height: 1rem;
     margin-top: -0.25rem;
-    background-color: #01A3FF;
+    background-color: #6853E8;
     border: 0;
     border-radius: 1rem;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2921,7 +2921,7 @@ textarea.form-control-lg {
 .form-range::-moz-range-thumb {
     width: 1rem;
     height: 1rem;
-    background-color: #01A3FF;
+    background-color: #6853E8;
     border: 0;
     border-radius: 1rem;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3349,7 +3349,7 @@ textarea.form-control-lg {
 
 .btn-check:focus+.btn, .btn:focus {
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(104,83,232, 0.25);
 }
 
 .btn:disabled, .btn.disabled,
@@ -3360,8 +3360,8 @@ fieldset:disabled .btn {
 
 .btn-primary {
     color: #000;
-    background-color: #01A3FF;
-    border-color: #01A3FF;
+    background-color: #6853E8;
+    border-color: #6853E8;
 }
 
 .btn-primary:hover {
@@ -3393,14 +3393,14 @@ fieldset:disabled .btn {
 
 .btn-primary:disabled, .btn-primary.disabled {
     color: #000;
-    background-color: #01A3FF;
-    border-color: #01A3FF;
+    background-color: #6853E8;
+    border-color: #6853E8;
 }
 
 .btn-secondary {
     color: #000;
-    background-color: #9568FF;
-    border-color: #9568FF;
+    background-color: #01A3FF;
+    border-color: #01A3FF;
 }
 
 .btn-secondary:hover {
@@ -3432,8 +3432,8 @@ fieldset:disabled .btn {
 
 .btn-secondary:disabled, .btn-secondary.disabled {
     color: #000;
-    background-color: #9568FF;
-    border-color: #9568FF;
+    background-color: #01A3FF;
+    border-color: #01A3FF;
 }
 
 .btn-success {
@@ -3671,66 +3671,66 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-primary {
-    color: #01A3FF;
-    border-color: #01A3FF;
+    color: #6853E8;
+    border-color: #6853E8;
 }
 
 .btn-outline-primary:hover {
     color: #000;
-    background-color: #01A3FF;
-    border-color: #01A3FF;
+    background-color: #6853E8;
+    border-color: #6853E8;
 }
 
 .btn-check:focus+.btn-outline-primary, .btn-outline-primary:focus {
-    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba(104,83,232, 0.5);
 }
 
 .btn-check:checked+.btn-outline-primary,
 .btn-check:active+.btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
     color: #000;
-    background-color: #01A3FF;
-    border-color: #01A3FF;
+    background-color: #6853E8;
+    border-color: #6853E8;
 }
 
 .btn-check:checked+.btn-outline-primary:focus,
 .btn-check:active+.btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
-    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba(104,83,232, 0.5);
 }
 
 .btn-outline-primary:disabled, .btn-outline-primary.disabled {
-    color: #01A3FF;
+    color: #6853E8;
     background-color: transparent;
 }
 
 .btn-outline-secondary {
-    color: #9568FF;
-    border-color: #9568FF;
+    color: #01A3FF;
+    border-color: #01A3FF;
 }
 
 .btn-outline-secondary:hover {
     color: #000;
-    background-color: #9568FF;
-    border-color: #9568FF;
+    background-color: #01A3FF;
+    border-color: #01A3FF;
 }
 
 .btn-check:focus+.btn-outline-secondary, .btn-outline-secondary:focus {
-    box-shadow: 0 0 0 0.25rem rgba(149, 104, 255, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.5);
 }
 
 .btn-check:checked+.btn-outline-secondary,
 .btn-check:active+.btn-outline-secondary, .btn-outline-secondary:active, .btn-outline-secondary.active, .btn-outline-secondary.dropdown-toggle.show {
     color: #000;
-    background-color: #9568FF;
-    border-color: #9568FF;
+    background-color: #01A3FF;
+    border-color: #01A3FF;
 }
 
 .btn-check:checked+.btn-outline-secondary:focus,
 .btn-check:active+.btn-outline-secondary:focus, .btn-outline-secondary:active:focus, .btn-outline-secondary.active:focus, .btn-outline-secondary.dropdown-toggle.show:focus {
-    box-shadow: 0 0 0 0.25rem rgba(149, 104, 255, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.5);
 }
 
 .btn-outline-secondary:disabled, .btn-outline-secondary.disabled {
-    color: #9568FF;
+    color: #01A3FF;
     background-color: transparent;
 }
 
@@ -3928,7 +3928,7 @@ fieldset:disabled .btn {
 
 .btn-link {
     font-weight: 400;
-    color: #01A3FF;
+    color: #6853E8;
     text-decoration: underline;
 }
 
@@ -4282,7 +4282,7 @@ fieldset:disabled .btn {
 .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #01A3FF;
+    background-color: #6853E8;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -4333,7 +4333,7 @@ fieldset:disabled .btn {
 
 .dropdown-menu-dark .dropdown-item.active, .dropdown-menu-dark .dropdown-item:active {
     color: #fff;
-    background-color: #01A3FF;
+    background-color: #6853E8;
 }
 
 .dropdown-menu-dark .dropdown-item.disabled, .dropdown-menu-dark .dropdown-item:disabled {
@@ -4472,7 +4472,7 @@ fieldset:disabled .btn {
 .nav-link {
     display: block;
     padding: 0.5rem 1rem;
-    color: #01A3FF;
+    color: #6853E8;
     text-decoration: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -4538,7 +4538,7 @@ fieldset:disabled .btn {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #fff;
-    background-color: #01A3FF;
+    background-color: #6853E8;
 }
 
 .nav-fill>.nav-link,
@@ -5370,7 +5370,7 @@ fieldset:disabled .btn {
     z-index: 3;
     border-color: #80d1ff;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(104,83,232, 0.25);
 }
 
 .accordion-header {
@@ -5471,7 +5471,7 @@ fieldset:disabled .btn {
 .page-link {
     position: relative;
     display: block;
-    color: #01A3FF;
+    color: #6853E8;
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #dee2e6;
@@ -5496,7 +5496,7 @@ fieldset:disabled .btn {
     color: #0182cc;
     background-color: #e9ecef;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(104,83,232, 0.25);
 }
 
 .page-item:not(:first-child) .page-link {
@@ -5506,8 +5506,8 @@ fieldset:disabled .btn {
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #01A3FF;
-    border-color: #01A3FF;
+    background-color: #6853E8;
+    border-color: #6853E8;
 }
 
 .page-item.disabled .page-link {
@@ -5720,7 +5720,7 @@ fieldset:disabled .btn {
     color: #fff;
     text-align: center;
     white-space: nowrap;
-    background-color: #01A3FF;
+    background-color: #6853E8;
     transition: width 0.6s ease;
 }
 
@@ -5810,8 +5810,8 @@ fieldset:disabled .btn {
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #01A3FF;
-    border-color: #01A3FF;
+    background-color: #6853E8;
+    border-color: #6853E8;
 }
 
 .list-group-item+.list-group-item {
@@ -6161,7 +6161,7 @@ fieldset:disabled .btn {
 
 .btn-close:focus {
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(104,83,232, 0.25);
     opacity: 1;
 }
 
@@ -7257,7 +7257,7 @@ fieldset:disabled .btn {
 }
 
 .link-primary {
-    color: #01A3FF;
+    color: #6853E8;
 }
 
 .link-primary:hover, .link-primary:focus {
@@ -7265,7 +7265,7 @@ fieldset:disabled .btn {
 }
 
 .link-secondary {
-    color: #9568FF;
+    color: #01A3FF;
 }
 
 .link-secondary:hover, .link-secondary:focus {
@@ -7718,11 +7718,11 @@ fieldset:disabled .btn {
 }
 
 .border-primary {
-    border-color: #01A3FF !important;
+    border-color: #6853E8 !important;
 }
 
 .border-secondary {
-    border-color: #9568FF !important;
+    border-color: #01A3FF !important;
 }
 
 .border-success {
@@ -14904,7 +14904,7 @@ svg.pulse-svg .third-circle {
 }
 
 .header-profile .profile_title {
-    background: #01A3FF;
+    background: #6853E8;
     color: #fff;
     padding: 0.625rem 1.25rem;
 }
@@ -16075,28 +16075,28 @@ svg.pulse-svg .third-circle {
 }
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -16433,28 +16433,28 @@ The smaller device rules always should write below the bigger device rules
 Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Component
 */
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -16847,28 +16847,28 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -18573,7 +18573,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #header_color_3+label,
 .sidebar-right #sidebar_color_3+label,
 .sidebar-right #primary_color_3+label {
-    background-color: #01A3FF;
+    background-color: #6853E8;
 }
 
 .sidebar-right #nav_header_color_4+label,
@@ -19325,7 +19325,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 .dlab-demo-panel .dlab-demo-bx.demo-active {
-    border-color: #9568FF;
+    border-color: #01A3FF;
 }
 
 .dlab-demo-panel .dlab-demo-bx.demo-active .overlay-layer {
@@ -19529,7 +19529,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-nav-headerbg="color_3"][data-theme-version="dark"],
 [data-nav-headerbg="color_3"] {
-    --nav-headbg: #01A3FF;
+    --nav-headbg: #6853E8;
 }
 
 [data-nav-headerbg="color_3"][data-theme-version="dark"] .nav-header .brand-logo .logo-abbr path,
@@ -19952,7 +19952,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-sidebarbg="color_3"][data-theme-version="dark"],
 [data-sidebarbg="color_3"] {
-    --sidebar-bg: #01A3FF;
+    --sidebar-bg: #6853E8;
     /* &[data-sidebar-style="full"][data-layout="vertical"]{
 				.dlabnav .metismenu > li.mm-active > a,
 				.dlabnav .metismenu > li:hover > a{
@@ -19963,7 +19963,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-sidebarbg="color_3"][data-theme-version="dark"] .dlabnav,
 [data-sidebarbg="color_3"] .dlabnav {
-    border-color: #01A3FF;
+    border-color: #6853E8;
 }
 
 [data-sidebarbg="color_3"][data-theme-version="dark"] .dlabnav .metismenu>li:after,
@@ -19973,7 +19973,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-sidebarbg="color_3"][data-theme-version="dark"] .menu-toggle .dlabnav .metismenu li>ul,
 [data-sidebarbg="color_3"] .menu-toggle .dlabnav .metismenu li>ul {
-    background: #01A3FF !important;
+    background: #6853E8 !important;
 }
 
 [data-sidebarbg="color_3"][data-theme-version="dark"] .dlabnav .metismenu ul a:before,
@@ -22189,7 +22189,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-headerbg="color_3"][data-theme-version="dark"],
 [data-headerbg="color_3"] {
-    --headerbg: #01A3FF;
+    --headerbg: #6853E8;
 }
 
 [data-headerbg="color_3"][data-theme-version="dark"] .header.is-fixed,
@@ -24000,7 +24000,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_2"] {
     --primary: #6610f2;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #510bc4;
     --primary-dark: #290564;
     --rgba-primary-1: rgba(102, 16, 242, 0.1);
@@ -24015,24 +24015,24 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 [data-primary="color_3"] {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
 }
 
 [data-primary="color_4"] {
     --primary: #4d06a5;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #360474;
     --primary-dark: #080111;
     --rgba-primary-1: rgba(77, 6, 165, 0.1);
@@ -24048,7 +24048,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_5"] {
     --primary: #dc3545;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #bd2130;
     --primary-dark: #66121a;
     --rgba-primary-1: rgba(220, 53, 69, 0.1);
@@ -24064,7 +24064,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_6"] {
     --primary: #fd7e14;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #dc6502;
     --primary-dark: #773701;
     --rgba-primary-1: rgba(253, 126, 20, 0.1);
@@ -24080,7 +24080,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_7"] {
     --primary: #5155C3;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #3a3ea7;
     --primary-dark: #20225b;
     --rgba-primary-1: rgba(81, 85, 195, 0.1);
@@ -24096,7 +24096,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_8"] {
     --primary: #854df3;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #641df0;
     --primary-dark: #3c0b9c;
     --rgba-primary-1: rgba(133, 77, 243, 0.1);
@@ -24112,7 +24112,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_9"] {
     --primary: #20c997;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #199d76;
     --primary-dark: #0b4534;
     --rgba-primary-1: rgba(32, 201, 151, 0.1);
@@ -24128,7 +24128,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_10"] {
     --primary: #17a2b8;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #117a8b;
     --primary-dark: #062a30;
     --rgba-primary-1: rgba(23, 162, 184, 0.1);
@@ -24144,7 +24144,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_11"] {
     --primary: #94618E;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #754d70;
     --primary-dark: #382435;
     --rgba-primary-1: rgba(148, 97, 142, 0.1);
@@ -24160,7 +24160,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_12"] {
     --primary: #00273a;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #000507;
     --primary-dark: black;
     --rgba-primary-1: rgba(0, 39, 58, 0.1);
@@ -24176,7 +24176,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_13"] {
     --primary: #432d29;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #231816;
     --primary-dark: black;
     --rgba-primary-1: rgba(67, 45, 41, 0.1);
@@ -24192,7 +24192,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_14"] {
     --primary: #4885ed;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #1a66e8;
     --primary-dark: #0e3d8e;
     --rgba-primary-1: rgba(72, 133, 237, 0.1);
@@ -24208,7 +24208,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_15"] {
     --primary: #4cb32b;
-    --secondary: #9568FF;
+    --secondary: #01A3FF;
     --primary-hover: #3b8a21;
     --primary-dark: #18380d;
     --rgba-primary-1: rgba(76, 179, 43, 0.1);
@@ -24243,28 +24243,28 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -24453,28 +24453,28 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -26515,7 +26515,7 @@ pre code.hljs {
 }
 
 #external-events [data-class="bg-secondary"]::before {
-    background: #9568FF;
+    background: #01A3FF;
 }
 
 .fc .fc-row .fc-content-skeleton table,
@@ -26622,7 +26622,7 @@ pre code.hljs {
 }
 
 .email-left-box .mail-list .list-group-item.active {
-    color: #9568FF;
+    color: #01A3FF;
     background-color: var(--rgba-secondary-1);
 }
 
@@ -27821,7 +27821,7 @@ input#checkAll.form-check-input:checked {
 
 .ct-series-a .ct-area,
 .ct-series-a .ct-slice-pie {
-    fill: #9568FF;
+    fill: #01A3FF;
 }
 
 .ct-series-b .ct-area,
@@ -28681,28 +28681,28 @@ input#checkAll.form-check-input:checked {
 }
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -28910,14 +28910,14 @@ input#checkAll.form-check-input:checked {
 }
 
 .checkbox-secondary .form-check-input:focus {
-    border-color: #9568FF;
+    border-color: #01A3FF;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(149, 104, 255, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(1, 163, 255, 0.25);
 }
 
 .checkbox-secondary .form-check-input:checked {
-    background-color: #9568FF;
-    border-color: #9568FF;
+    background-color: #01A3FF;
+    border-color: #01A3FF;
 }
 
 .check-switch {
@@ -29061,7 +29061,7 @@ input#checkAll.form-check-input:checked {
 }
 
 .checkbox-secondary .form-check-input[type="radio"] {
-    border-color: #9568FF;
+    border-color: #01A3FF;
 }
 
 .checkbox-secondary .form-check-input:checked[type="radio"] {
@@ -29069,7 +29069,7 @@ input#checkAll.form-check-input:checked {
 }
 
 .checkbox-secondary .form-check-input:checked[type="radio"]:after {
-    background-color: #9568FF;
+    background-color: #01A3FF;
 }
 
 .js-switch+.switchery {
@@ -29513,28 +29513,28 @@ input#checkAll.form-check-input:checked {
 }
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -29886,28 +29886,28 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -29925,28 +29925,28 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -29984,28 +29984,28 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -30067,28 +30067,28 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -31410,7 +31410,7 @@ button.ck.ck-button.ck-off:hover {
 .alert-secondary {
     background: #ddceff;
     border-color: #ddceff;
-    color: #9568FF;
+    color: #01A3FF;
 }
 
 .alert-success {
@@ -31454,7 +31454,7 @@ button.ck.ck-button.ck-off:hover {
 }
 
 .alert-alt.alert-secondary {
-    border-left: 0.25rem solid #9568FF;
+    border-left: 0.25rem solid #01A3FF;
 }
 
 .alert-alt.alert-success {
@@ -31525,9 +31525,9 @@ button.ck.ck-button.ck-off:hover {
 }
 
 .alert.alert-secondary.solid {
-    background: #9568FF;
+    background: #01A3FF;
     color: #fff;
-    border-color: #9568FF;
+    border-color: #01A3FF;
 }
 
 .alert.alert-success.solid {
@@ -31589,7 +31589,7 @@ button.ck.ck-button.ck-off:hover {
 .alert.alert-outline-secondary {
     background: transparent;
     color: #717579;
-    border-color: #9568FF;
+    border-color: #01A3FF;
 }
 
 .alert.alert-outline-success {
@@ -31718,8 +31718,8 @@ button.ck.ck-button.ck-off:hover {
 }
 
 .badge-outline-secondary {
-    border: 0.0625rem solid #9568FF;
-    color: #9568FF;
+    border: 0.0625rem solid #01A3FF;
+    color: #01A3FF;
 }
 
 [data-theme-version="dark"] .badge-outline-secondary {
@@ -31807,7 +31807,7 @@ button.ck.ck-button.ck-off:hover {
 }
 
 .badge-secondary {
-    background-color: #9568FF;
+    background-color: #01A3FF;
 }
 
 .badge-secondary:hover {
@@ -31895,11 +31895,11 @@ button.ck.ck-button.ck-off:hover {
 
 .light.badge-secondary {
     background-color: #eaebf1;
-    color: #9568FF;
+    color: #01A3FF;
 }
 
 [data-theme-version="dark"] .light.badge-secondary {
-    background-color: rgba(149, 104, 255, 0.5);
+    background-color: rgba(1, 163, 255, 0.5);
     color: #fff;
 }
 
@@ -32391,24 +32391,24 @@ button:focus {
 }
 
 .light.btn-secondary {
-    background: rgba(149, 104, 255, 0.2);
-    border-color: rgba(149, 104, 255, 0.1);
-    color: #9568FF !important;
+    background: rgba(1, 163, 255, 0.2);
+    border-color: rgba(1, 163, 255, 0.1);
+    color: #01A3FF !important;
 }
 
 .light.btn-secondary g [fill] {
-    fill: #9568FF;
+    fill: #01A3FF;
 }
 
 [data-theme-version="dark"] .light.btn-secondary {
-    background-color: rgba(149, 104, 255, 0.5);
+    background-color: rgba(1, 163, 255, 0.5);
     border-color: transparent;
     color: #fff;
 }
 
 .light.btn-secondary:hover {
-    background-color: #9568FF;
-    border-color: #9568FF;
+    background-color: #01A3FF;
+    border-color: #01A3FF;
     color: #fff !important;
 }
 
@@ -32565,8 +32565,8 @@ button:focus {
 }
 
 .btn.tp-btn.btn-secondary:hover {
-    background-color: #9568FF;
-    border-color: #9568FF;
+    background-color: #01A3FF;
+    border-color: #01A3FF;
     color: #fff;
 }
 
@@ -32783,8 +32783,8 @@ button:focus {
 }
 
 .shadow.btn-secondary {
-    -webkit-box-shadow: 0 0.3125rem 0.9375rem 0 rgba(149, 104, 255, 0.2) !important;
-    box-shadow: 0 0.3125rem 0.9375rem 0 rgba(149, 104, 255, 0.2) !important;
+    -webkit-box-shadow: 0 0.3125rem 0.9375rem 0 rgba(1, 163, 255, 0.2) !important;
+    box-shadow: 0 0.3125rem 0.9375rem 0 rgba(1, 163, 255, 0.2) !important;
 }
 
 .shadow.btn-warning {
@@ -33886,7 +33886,7 @@ div#bs-select-1 {
 }
 
 .label-secondary {
-    background: #9568FF;
+    background: #01A3FF;
     color: #fff;
 }
 
@@ -33993,8 +33993,8 @@ code {
 
 .list-group-item.disabled, .list-group-item:disabled {
     color: #fff;
-    background-color: #9568FF;
-    border-color: #9568FF;
+    background-color: #01A3FF;
+    border-color: #01A3FF;
 }
 
 [class*="bg-"] .list-group-item {
@@ -34500,7 +34500,7 @@ code {
 }
 
 .popover {
-    border: 0.125rem solid #9568FF;
+    border: 0.125rem solid #01A3FF;
     min-width: 13.125rem;
     box-shadow: 0 0 1.875rem 0 rgba(0, 0, 0, 0.1);
 }
@@ -34510,7 +34510,7 @@ code {
 }
 
 .popover-header {
-    background: #9568FF;
+    background: #01A3FF;
     color: #fff;
     font-weight: 300;
 }
@@ -34549,22 +34549,22 @@ code {
 
 .bs-popover-top .arrow::after, .bs-popover-auto[data-popper-placement^="top"] .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
     bottom: 0rem;
-    border-top-color: #9568FF;
+    border-top-color: #01A3FF;
 }
 
 .bs-popover-left .arrow::after, .bs-popover-auto[x-placement^="left"] .arrow::after {
     right: 0rem;
-    border-left-color: #9568FF;
+    border-left-color: #01A3FF;
 }
 
 .bs-popover-right .arrow::after, .bs-popover-auto[x-placement^="right"] .arrow::after {
     left: 0rem;
-    border-right-color: #9568FF;
+    border-right-color: #01A3FF;
 }
 
 .bs-popover-bottom .arrow::after, .bs-popover-auto[data-popper-placement^="bottom"] .arrow::after, .bs-popover-auto[x-placement^="bottom"] .arrow::after {
     top: 0rem;
-    border-bottom-color: #9568FF;
+    border-bottom-color: #01A3FF;
 }
 
 .note-popover {
@@ -35659,8 +35659,8 @@ code {
 }
 
 [data-theme-version="dark"] .bgl-secondary {
-    background-color: rgba(149, 104, 255, 0.5);
-    border-color: rgba(149, 104, 255, 0.5);
+    background-color: rgba(1, 163, 255, 0.5);
+    border-color: rgba(1, 163, 255, 0.5);
 }
 
 .bgl-success {
@@ -35716,7 +35716,7 @@ code {
 }
 
 [data-theme-version="dark"] .bg-secondary-light {
-    background-color: rgba(149, 104, 255, 0.05);
+    background-color: rgba(1, 163, 255, 0.05);
 }
 
 .bg-success-light {
@@ -36277,7 +36277,7 @@ code {
 }
 
 .table.bg-secondary-hover th {
-    color: #9568FF !important;
+    color: #01A3FF !important;
 }
 
 [data-theme-version="dark"] .table.bg-secondary-hover th {
@@ -36285,7 +36285,7 @@ code {
 }
 
 .table.bg-secondary-hover tr:hover td, .table.bg-secondary-hover tr:hover th {
-    background: #9568FF;
+    background: #01A3FF;
     color: #fff;
     box-shadow: 10px 0 30px rgba(65, 63, 187, 0.3);
 }
@@ -37565,7 +37565,7 @@ body>* {
 }
 
 .message-box .input-group.search-area .input-group-text a svg path {
-    fill: #01A3FF;
+    fill: #6853E8;
 }
 
 .message-box img {
@@ -37588,7 +37588,7 @@ body>* {
 }
 
 .message-box .chat-hamburger .videos-btn {
-    background-color: #9568FF;
+    background-color: #01A3FF;
     margin-right: 0.625rem;
     width: 2.5rem;
     height: 2.5rem;
@@ -37771,7 +37771,7 @@ body>* {
     width: 1rem;
     border: 0.125rem solid #fff;
     border-radius: 0.25rem;
-    background: #9568FF;
+    background: #01A3FF;
     position: absolute;
     bottom: -0.0625rem;
     right: 1rem;
@@ -39521,11 +39521,11 @@ a.btn.dlab-load-more {
 }
 
 .server-content .progress-bar.bg-secondary::before {
-    background-color: #9568FF;
+    background-color: #01A3FF;
 }
 
 .server-content .progress-bar.bg-secondary::after {
-    background-color: #9568FF;
+    background-color: #01A3FF;
 }
 
 .server-content .progress-bar.bg-success::before {
@@ -39847,7 +39847,7 @@ tr a.tb-mail svg {
     border-radius: 0.75rem;
     display: block;
     background-color: var(--rgba-primary-1);
-    color: #01A3FF;
+    color: #6853E8;
     padding: 0.625rem;
     margin-right: 0.625rem;
     display: inline-flex;
@@ -39906,15 +39906,15 @@ tr a.tb-mail svg path {
 }
 
 .card-box.secondary .card-box-icon {
-    background-color: #9568FF;
+    background-color: #01A3FF;
 }
 
 .card-box.secondary .back-image svg g path {
-    stroke: #9568FF;
+    stroke: #01A3FF;
 }
 
 .card-box.secondary .back-image svg g circle {
-    stroke: #9568FF;
+    stroke: #01A3FF;
 }
 
 .page-titles .input-group.search-area {
@@ -40011,7 +40011,7 @@ div#example5_wrapper .form-check-input {
 }
 
 .ticket.secondary {
-    background-color: #9568FF !important;
+    background-color: #01A3FF !important;
 }
 
 .ticket.pink {
@@ -40033,7 +40033,7 @@ div#example5_wrapper .form-check-input {
 }
 
 .event-agenda .add-icon .add {
-    background-color: #9568FF;
+    background-color: #01A3FF;
     display: block;
     width: 2.5rem;
     height: 2.5rem;
@@ -40055,7 +40055,7 @@ div#example5_wrapper .form-check-input {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #9568FF;
+    background-color: #01A3FF;
     margin-right: 0.625rem;
 }
 
@@ -40084,7 +40084,7 @@ div#example5_wrapper .form-check-input {
 }
 
 .coin-card {
-    background-color: #9568FF;
+    background-color: #01A3FF;
     overflow: hidden;
     z-index: 1;
 }
@@ -40164,7 +40164,7 @@ div#example5_wrapper .form-check-input {
 }
 
 .coin-card.secondary {
-    background-color: #9568FF !important;
+    background-color: #01A3FF !important;
 }
 
 .coin-card.blue {
@@ -42827,28 +42827,28 @@ div#example5_wrapper .form-check-input {
 }
 
 :root {
-    --primary: #01A3FF;
-    --secondary: #9568FF;
+    --primary: #6853E8;
+    --secondary: #01A3FF;
     --primary-hover: #0083cd;
     --primary-dark: #004267;
-    --rgba-primary-1: rgba(1, 163, 255, 0.1);
-    --rgba-primary-2: rgba(1, 163, 255, 0.2);
-    --rgba-primary-3: rgba(1, 163, 255, 0.3);
-    --rgba-primary-4: rgba(1, 163, 255, 0.4);
-    --rgba-primary-5: rgba(1, 163, 255, 0.5);
-    --rgba-primary-6: rgba(1, 163, 255, 0.6);
-    --rgba-primary-7: rgba(1, 163, 255, 0.7);
-    --rgba-primary-8: rgba(1, 163, 255, 0.8);
-    --rgba-primary-9: rgba(1, 163, 255, 0.9);
-    --rgba-secondary-1: rgba(149, 104, 255, 0.1);
-    --rgba-secondary-2: rgba(149, 104, 255, 0.2);
-    --rgba-secondary-3: rgba(149, 104, 255, 0.3);
-    --rgba-secondary-4: rgba(149, 104, 255, 0.4);
-    --rgba-secondary-5: rgba(149, 104, 255, 0.5);
-    --rgba-secondary-6: rgba(149, 104, 255, 0.6);
-    --rgba-secondary-7: rgba(149, 104, 255, 0.7);
-    --rgba-secondary-8: rgba(149, 104, 255, 0.8);
-    --rgba-secondary-9: rgba(149, 104, 255, 0.9);
+    --rgba-primary-1: rgba(104,83,232, 0.1);
+    --rgba-primary-2: rgba(104,83,232, 0.2);
+    --rgba-primary-3: rgba(104,83,232, 0.3);
+    --rgba-primary-4: rgba(104,83,232, 0.4);
+    --rgba-primary-5: rgba(104,83,232, 0.5);
+    --rgba-primary-6: rgba(104,83,232, 0.6);
+    --rgba-primary-7: rgba(104,83,232, 0.7);
+    --rgba-primary-8: rgba(104,83,232, 0.8);
+    --rgba-primary-9: rgba(104,83,232, 0.9);
+    --rgba-secondary-1: rgba(1, 163, 255, 0.1);
+    --rgba-secondary-2: rgba(1, 163, 255, 0.2);
+    --rgba-secondary-3: rgba(1, 163, 255, 0.3);
+    --rgba-secondary-4: rgba(1, 163, 255, 0.4);
+    --rgba-secondary-5: rgba(1, 163, 255, 0.5);
+    --rgba-secondary-6: rgba(1, 163, 255, 0.6);
+    --rgba-secondary-7: rgba(1, 163, 255, 0.7);
+    --rgba-secondary-8: rgba(1, 163, 255, 0.8);
+    --rgba-secondary-9: rgba(1, 163, 255, 0.9);
     --font-family-base: Poppins, sans-serif;
     --font-family-title: Poppins, sans-serif;
     --font-family-base: Poppins, sans-serif;
@@ -44618,15 +44618,15 @@ div#example5_wrapper .form-check-input {
 }
 
 .selectable:hover {
-    border: 2px rgba(149, 104, 255, 0.9) solid;
+    border: 2px rgba(1, 163, 255, 0.9) solid;
 }
 
 .selected {
-    border: 2px rgba(149, 104, 255, 0.2) solid;
+    border: 2px rgba(1, 163, 255, 0.2) solid;
 }
 
 .selected:hover {
-    border: 2px rgba(149, 104, 255, 0.9) solid;
+    border: 2px rgba(1, 163, 255, 0.9) solid;
 }
 
 /*# sourceMappingURL=style.css.map */
