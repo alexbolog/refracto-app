@@ -191,6 +191,10 @@ const DashboardGraph2 = () => {
         hitRadius: 4
       }
     },
+    interaction: {
+      intersect: false,
+      mode: 'index' as const,
+    },
     scales: {
       y: {
         stacked: true
