@@ -50,7 +50,6 @@ const DashboardGraph2 = () => {
   const [isInvestedVisible, setInvestedVisible] = React.useState(true);
 
   const eventTooltips: any = {};
-  const [graphLabels, setGraphLabels] = React.useState<any[]>([]);
   const [graphDates, setGraphDates] = React.useState<any[]>([]);
   const [graphDataAvailable, setGraphDataAvailable] = React.useState<any[]>([]);
   const [graphDataInvested, setGraphDataInvested] = React.useState<any[]>([]);
@@ -60,12 +59,6 @@ const DashboardGraph2 = () => {
     dashboardGraph.forEach((el) => {
       const dayjsDate = dayjs(el.date);
       graphDates.push(dayjsDate);
-      graphLabels.push(dayjsDate.format("MMM 'YY"));
-      // graphLabels.push({
-      //   date: dayjsDate,
-      //   xLabelShort: dayjsDate.format("MMM 'YY"),
-      //   xLabelLong:
-      // });
       graphDataAvailable.push(el.availableBalance);
       graphDataInvested.push(el.committedBalance);
       if (el.eventType) {
@@ -73,12 +66,13 @@ const DashboardGraph2 = () => {
         graphEvents.push({
           type: 'point',
           radius: 4,
-          xValue: el.date,
+          xValue: dayjsDate,
           yValue: computeMarkerHeight(el.availableBalance, el.committedBalance),
           annotation: annotationForEvent,
           backgroundColor: annotationForEvent?.color,
           borderColor: 'white'
         });
+        eventTooltips[dayjsDate.valueOf()] = annotationForEvent.label;
       }
     });
   }, []);
@@ -143,8 +137,6 @@ const DashboardGraph2 = () => {
     return y;
   };
 
-  graphEvents.forEach((el) => (eventTooltips[el.xValue] = el.annotation.label));
-
   Chart.register(
     CategoryScale,
     LinearScale,
@@ -171,8 +163,11 @@ const DashboardGraph2 = () => {
       },
       tooltip: {
         callbacks: {
-          footer: (a: any) => {
-            const date = a[0].label;
+          title: (crtElement: any) => {
+            return dayjs(crtElement[0].label).format('DD MMM');
+          },
+          footer: (crtElement: any) => {
+            const date = crtElement[0].label;
             const label = eventTooltips[date];
             if (label) {
               return label;
@@ -220,7 +215,7 @@ const DashboardGraph2 = () => {
       x: {
         ticks: {
           callback: (val: any) => {
-            const crtDate = dayjs(dashboardGraph[val].date);
+            const crtDate = dayjs(graphDates[val]);
             if (crtDate.day() < 10) {
               return crtDate.format("MMM 'YY");
             }
@@ -233,7 +228,7 @@ const DashboardGraph2 = () => {
 
   const data = () => {
     return {
-      labels: dashboardGraph.map((el) => el.date),
+      labels: graphDates,
       datasets: [
         {
           label: 'Available',
