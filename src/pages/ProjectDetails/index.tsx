@@ -82,7 +82,7 @@ const ProjectDetails = () => {
                   <h2>
                     Project developer:{' '}
                     <Link
-                      to={`${routeNames.projectDevelopers}/${projectInfo.projectOwnerId}`}
+                      to={`${routeNames.home}/${projectInfo.projectOwnerId}`}
                     >
                       {projectInfo.projectOwner}
                     </Link>

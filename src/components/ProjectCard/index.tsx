@@ -18,7 +18,7 @@ const ProjectCard = ({
 }) => {
   const navigate = useNavigate();
   const handleNavigateToProject = () => {
-    navigate(`${routeNames.projects}/${projectId}`);
+    // navigate(`${routeNames.projects}/${projectId}`);
   };
 
   const imgStyle = {

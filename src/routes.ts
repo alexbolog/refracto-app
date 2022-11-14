@@ -1,42 +1,70 @@
 import Account from 'pages/Account';
 import Marketplace from 'pages/Marketplace';
-import ProjectDetails from 'pages/ProjectDetails';
-import ProjectDeveloperDetails from 'pages/ProjectDeveloperDetails';
 import Projects from 'pages/Projects';
 import withPageTitle from './components/PageTitle';
 import Dashboard from './pages/Dashboard';
-import Home from './pages/Home';
 import Transaction from './pages/Transaction';
 import Portfolio from './pages/Portfolio';
 import {
-  faCheckDouble,
-  faDashboard,
-  faShop
+  faBookOpen,
+  faFileContract,
+  faHandshakeAlt,
+  faIdBadge,
+  faListCheck,
+  faSackDollar,
+  faShop,
+  faWandSparkles
 } from '@fortawesome/free-solid-svg-icons';
+import Reports from 'pages/Reports';
+import Transactions from 'pages/Account/Transactions';
+import Agreements from 'pages/Agreements';
 
 export const routeNames = {
-  home: '/',
   dashboard: '/dashboard',
   portfolio: '/portfolio',
+
+  home: '/projects',
+  marketplace: '/marketplace',
+
+  reports: '/reports',
+  transactions: '/transactions',
+  agreements: '/agreements',
+  account: '/profile',
+
   transaction: '/transaction',
   unlock: '/unlock',
   ledger: '/ledger',
-  walletconnect: '/walletconnect',
-  account: '/account',
-  marketplace: '/marketplace',
-  projects: '/projects',
-  projectPage: '/projects/:id',
-  projectDevelopers: '/developers',
-  projectDeveloperPage: '/developers/:id'
+  walletconnect: '/walletconnect'
+  // projectPage: '/projects/:id',
+  // projectDevelopers: '/developers',
+  // projectDeveloperPage: '/developers/:id'
 };
 
 const routes: Array<any> = [
   {
-    path: routeNames.home,
-    title: 'Home',
-    component: Home
+    path: routeNames.dashboard,
+    title: 'Overview',
+    component: Dashboard,
+    authenticatedRoute: true,
+    displayInNavbar: true,
+    icon: faWandSparkles
   },
-  // unprotected routes
+  {
+    path: routeNames.portfolio,
+    title: 'Portfolio',
+    component: Portfolio,
+    authenticatedRoute: true,
+    displayInNavbar: true,
+    icon: faBookOpen
+  },
+  {
+    path: routeNames.home,
+    title: 'Available Projects',
+    component: Projects,
+    authenticatedRoute: false,
+    displayInNavbar: true,
+    icon: faListCheck
+  },
   {
     path: routeNames.marketplace,
     title: 'Market',
@@ -46,63 +74,44 @@ const routes: Array<any> = [
     icon: faShop
   },
   {
-    path: routeNames.projects,
-    title: 'Projects',
-    component: Projects,
-    authenticatedRoute: false,
-    displayInNavbar: true,
-    icon: faCheckDouble
-  },
-  // protected routes
-  {
-    path: routeNames.dashboard,
-    title: 'Dashboard',
-    component: Dashboard,
+    path: routeNames.reports,
+    title: 'Reports',
+    component: Reports,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faDashboard
+    icon: faFileContract
   },
   {
-    path: routeNames.portfolio,
-    title: 'Portfolio',
-    component: Portfolio,
-    authenticatedRoute: true
+    path: routeNames.transactions,
+    title: 'Transactions',
+    component: Transactions,
+    authenticatedRoute: true,
+    displayInNavbar: true,
+    icon: faSackDollar
   },
+  {
+    path: routeNames.agreements,
+    title: 'Agreements',
+    component: Agreements,
+    authenticatedRoute: true,
+    displayInNavbar: true,
+    icon: faHandshakeAlt
+  },
+
+  {
+    path: routeNames.account,
+    title: 'Account',
+    component: Account,
+    authenticatedRoute: true,
+    displayInNavbar: true,
+    icon: faIdBadge
+  },
+  // required
   {
     path: routeNames.transaction,
     title: 'Transaction',
     component: Transaction
-  },
-  {
-    path: routeNames.account,
-    title: 'Account',
-    component: Account
   }
-  // {
-  //   path: routeNames.marketplace,
-  //   title: 'Marketplace',
-  //   component: Marketplace
-  // },
-  // {
-  //   path: routeNames.projects,
-  //   title: 'Projects',
-  //   component: Projects
-  // },
-  // {
-  //   path: routeNames.projectPage,
-  //   title: 'Project Details',
-  //   component: ProjectDetails
-  // },
-  // {
-  //   path: routeNames.projectDevelopers,
-  //   title: 'Project Developers',
-  //   component: Projects
-  // },
-  // {
-  //   path: routeNames.projectDeveloperPage,
-  //   title: 'Project Developer',
-  //   component: ProjectDeveloperDetails
-  // }
 ];
 
 const mappedRoutes = routes.map((route) => {
