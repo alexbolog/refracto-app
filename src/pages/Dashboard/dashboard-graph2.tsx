@@ -19,6 +19,7 @@ import {
 import Annotation from 'chartjs-plugin-annotation';
 import Zoom from 'chartjs-plugin-zoom';
 import { Button } from 'react-bootstrap';
+import dayjs from 'dayjs';
 
 const DashboardGraph2 = () => {
   // const handleOneQuarterFilter = () => {
@@ -47,6 +48,40 @@ const DashboardGraph2 = () => {
 
   const [isAvailableVisible, setAvailableVisible] = React.useState(true);
   const [isInvestedVisible, setInvestedVisible] = React.useState(true);
+
+  const eventTooltips: any = {};
+  const [graphLabels, setGraphLabels] = React.useState<any[]>([]);
+  const [graphDates, setGraphDates] = React.useState<any[]>([]);
+  const [graphDataAvailable, setGraphDataAvailable] = React.useState<any[]>([]);
+  const [graphDataInvested, setGraphDataInvested] = React.useState<any[]>([]);
+  const [graphEvents, setGraphEvents] = React.useState<any[]>([]);
+
+  React.useEffect(() => {
+    dashboardGraph.forEach((el) => {
+      const dayjsDate = dayjs(el.date);
+      graphDates.push(dayjsDate);
+      graphLabels.push(dayjsDate.format("MMM 'YY"));
+      // graphLabels.push({
+      //   date: dayjsDate,
+      //   xLabelShort: dayjsDate.format("MMM 'YY"),
+      //   xLabelLong:
+      // });
+      graphDataAvailable.push(el.availableBalance);
+      graphDataInvested.push(el.committedBalance);
+      if (el.eventType) {
+        const annotationForEvent = getAnnotationForEvent(el);
+        graphEvents.push({
+          type: 'point',
+          radius: 4,
+          xValue: el.date,
+          yValue: computeMarkerHeight(el.availableBalance, el.committedBalance),
+          annotation: annotationForEvent,
+          backgroundColor: annotationForEvent?.color,
+          borderColor: 'white'
+        });
+      }
+    });
+  }, []);
 
   const getAnnotationForEvent = (el: {
     availableBalance: number;
@@ -108,24 +143,7 @@ const DashboardGraph2 = () => {
     return y;
   };
 
-  const events: any[] = dashboardGraph
-    .filter((el) => el.eventType)
-    .map((el) => {
-      const annotationForEvent = getAnnotationForEvent(el);
-      return {
-        type: 'point',
-        radius: 4,
-        xValue: el.date,
-        yValue: computeMarkerHeight(el.availableBalance, el.committedBalance),
-        annotation: annotationForEvent,
-        backgroundColor: annotationForEvent?.color,
-        borderColor: 'white'
-      };
-    });
-
-  const eventTooltips: any = {};
-
-  events.forEach((el) => (eventTooltips[el.xValue] = el.annotation.label));
+  graphEvents.forEach((el) => (eventTooltips[el.xValue] = el.annotation.label));
 
   Chart.register(
     CategoryScale,
@@ -153,7 +171,7 @@ const DashboardGraph2 = () => {
       },
       tooltip: {
         callbacks: {
-          title: (a: any) => {
+          footer: (a: any) => {
             const date = a[0].label;
             const label = eventTooltips[date];
             if (label) {
@@ -178,7 +196,7 @@ const DashboardGraph2 = () => {
             enabled: true,
             backgroundColor: 'rgba(144, 202, 249, 0.4)',
             borderColor: 'rgba(13, 71, 161, 0.4)',
-            borderWidth: 1,
+            borderWidth: 1
           },
           // drag: true,
           mode: 'x' as const
@@ -193,14 +211,24 @@ const DashboardGraph2 = () => {
     },
     interaction: {
       intersect: false,
-      mode: 'index' as const,
+      mode: 'index' as const
     },
     scales: {
       y: {
         stacked: true
+      },
+      x: {
+        ticks: {
+          callback: (val: any) => {
+            const crtDate = dayjs(dashboardGraph[val].date);
+            if (crtDate.day() < 10) {
+              return crtDate.format("MMM 'YY");
+            }
+          }
+        }
       }
     },
-    annotations: events
+    annotations: graphEvents
   };
 
   const data = () => {
@@ -218,7 +246,7 @@ const DashboardGraph2 = () => {
             return gradient;
           },
           fill: true,
-          data: dashboardGraph.map((el) => el.availableBalance)
+          data: graphDataAvailable
         },
         {
           label: 'Invested',
@@ -231,7 +259,7 @@ const DashboardGraph2 = () => {
             return gradient;
           },
           fill: true,
-          data: dashboardGraph.map((el) => el.committedBalance)
+          data: graphDataInvested
         }
       ]
     };
