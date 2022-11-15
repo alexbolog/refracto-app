@@ -5,7 +5,7 @@ const NotificationDropDownContent = () => {
       <div className='dropdown-menu dropdown-menu-end of-visible'>
         <div className='dropdown-header'>
           <h4 className='title mb-0'>Notification</h4>
-          <a href='javascript:void(0);' className='d-none'>
+          <a href='#' className='d-none'>
             <i className='flaticon-381-settings-6'></i>
           </a>
         </div>
@@ -79,7 +79,7 @@ const NotificationDropDownContent = () => {
             </li>
           </ul>
         </div>
-        <a className='all-notification' href='javascript:void(0);'>
+        <a className='all-notification' href='#'>
           See all notifications <i className='ti-arrow-end'></i>
         </a>
       </div>
