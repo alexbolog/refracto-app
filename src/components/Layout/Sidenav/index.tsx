@@ -17,9 +17,13 @@ import SearchBar from 'components/SearchBar';
 import NotificationDropDownContent from './NotificationDropDownContent';
 import CurrencyPicker from 'components/CurrencyPicker';
 import AccountInfo from './AccountInfo';
+import { ReactComponent as NotificationsIcon } from '../../../assets/icons/refracto/notifications.svg';
+import { ReactComponent as HelpIcon } from '../../../assets/icons/refracto/help.svg';
 
 const Sidenav = () => {
   const { address } = useGetAccountInfo();
+  const [hasNotifications, setHasNotifications] = React.useState(false);
+
   const handleLogout = () => {
     logout(`${window.location.origin}/`);
   };
@@ -101,21 +105,28 @@ const Sidenav = () => {
                 <li className='nav-item'>
                   <CurrencyPicker />
                 </li>
-                <li className='nav-item dropdown notification_dropdown'>
+                <li
+                  className={`nav-item dropdown notification_dropdown ${
+                    hasNotifications ? 'has-notifications' : ''
+                  }`}
+                >
                   <a
                     className='nav-link '
                     href='#'
                     role='button'
                     data-bs-toggle='dropdown'
+                    style={{ marginRight: '20px' }}
                   >
-                    <FontAwesomeIcon icon={faBell} />
+                    {/* <FontAwesomeIcon icon={faBell} size='lg' /> */}
+                    <NotificationsIcon />
                   </a>
                   <NotificationDropDownContent />
                 </li>
 
                 <li className='nav-item dropdown notification_dropdown'>
                   <a className='nav-link ' href='#'>
-                    <FontAwesomeIcon icon={faQuestionCircle} />
+                    {/* <FontAwesomeIcon icon={faQuestionCircle} size='lg' /> */}
+                    <HelpIcon />
                   </a>
                 </li>
                 <li className='nav-item'>
