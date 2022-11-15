@@ -1,10 +1,14 @@
+import SimpleCardWidget from 'components/CardWidgets/SimpleCardWidget';
 import CustomAlert from 'components/CustomAlert';
 import * as React from 'react';
 import ReactGA from 'react-ga4';
+import ActiveInvestmentsStatistics from './ActiveInvestmentsStatistics';
 import DashboardGraph from './dashboard-graph';
 import DashboardGraph2 from './dashboard-graph2';
 
 const Dashboard = () => {
+  const [hasClaimableCredits, setHasClaimableCredits] = React.useState(true);
+
   const isLastUrlSegmentEqualTo = (urlSegment: string) => {
     const prevPage = document.referrer;
     const urlSegments = prevPage.split('?')[0].split('/');
@@ -41,16 +45,21 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className='row'>
-        <div className='col-lg-12 col-md-12 col-sm-12'>
-          <CustomAlert
-            type={'primary'}
-            isDismissable={false}
-            messageComponent={claimableCreditsComponent()}
-            actionMessage={'Claim now'}
-            action={async () => window.alert('TO BE DONE')}
-          />
+      {hasClaimableCredits && (
+        <div className='row'>
+          <div className='col-lg-12 col-md-12 col-sm-12'>
+            <CustomAlert
+              type={'primary'}
+              isDismissable={false}
+              messageComponent={claimableCreditsComponent()}
+              actionMessage={'Claim now'}
+              action={async () => window.alert('TO BE DONE')}
+            />
+          </div>
         </div>
+      )}
+      <div className='row'>
+        <ActiveInvestmentsStatistics />
       </div>
       <div className='row'>
         <DashboardGraph />
