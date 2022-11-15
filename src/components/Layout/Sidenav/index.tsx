@@ -55,6 +55,7 @@ const Sidenav = () => {
     if (data.protectedRoute && !isLoggedIn) {
       return null;
     }
+    console.log(data.icon);
     return (
       <>
         <li
@@ -65,7 +66,9 @@ const Sidenav = () => {
           onClick={handleCloseNavbar}
         >
           <Link to={data.route} className='d-flex align-items-center'>
-            <FontAwesomeIcon icon={data.icon} data-tip={data.display} />
+            {/* <FontAwesomeIcon icon={data.icon} data-tip={data.display} /> */}
+            {/* {() => data.icon} */}
+            <data.icon data-tip={data.display} style={{ padding: '0' }} />
             <span className='nav-text'>{data.display}</span>
           </Link>
         </li>

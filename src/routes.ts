@@ -18,6 +18,14 @@ import {
 import Reports from 'pages/Reports';
 import Transactions from 'pages/Account/Transactions';
 import Agreements from 'pages/Agreements';
+import { ReactComponent as OverviewIcon } from 'assets/icons/refracto/insights.svg';
+import { ReactComponent as PortfolioIcon } from 'assets/icons/refracto/import_contacts.svg';
+import { ReactComponent as AvailableProjectsIcon } from 'assets/icons/refracto/checklist.svg';
+import { ReactComponent as MarketIcon } from 'assets/icons/refracto/store.svg';
+import { ReactComponent as ReportsIcon } from 'assets/icons/refracto/summarize.svg';
+import { ReactComponent as TransactionsIcon } from 'assets/icons/refracto/paid.svg';
+import { ReactComponent as AgreementsIcon } from 'assets/icons/refracto/handshake.svg';
+import { ReactComponent as ProfileIcon } from 'assets/icons/refracto/account_box.svg';
 
 export const routeNames = {
   dashboard: '/dashboard',
@@ -47,7 +55,7 @@ const routes: Array<any> = [
     component: Dashboard,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faWandSparkles
+    icon: OverviewIcon
   },
   {
     path: routeNames.portfolio,
@@ -55,7 +63,7 @@ const routes: Array<any> = [
     component: Portfolio,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faBookOpen
+    icon: PortfolioIcon
   },
   {
     path: routeNames.home,
@@ -63,7 +71,7 @@ const routes: Array<any> = [
     component: Projects,
     authenticatedRoute: false,
     displayInNavbar: true,
-    icon: faListCheck
+    icon: AvailableProjectsIcon
   },
   {
     path: routeNames.marketplace,
@@ -71,7 +79,7 @@ const routes: Array<any> = [
     component: Marketplace,
     authenticatedRoute: false,
     displayInNavbar: true,
-    icon: faShop
+    icon: MarketIcon
   },
   {
     path: routeNames.reports,
@@ -79,7 +87,7 @@ const routes: Array<any> = [
     component: Reports,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faFileContract
+    icon: ReportsIcon
   },
   {
     path: routeNames.transactions,
@@ -87,7 +95,7 @@ const routes: Array<any> = [
     component: Transactions,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faSackDollar
+    icon: TransactionsIcon
   },
   {
     path: routeNames.agreements,
@@ -95,16 +103,16 @@ const routes: Array<any> = [
     component: Agreements,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faHandshakeAlt
+    icon: AgreementsIcon
   },
 
   {
     path: routeNames.account,
-    title: 'Account',
+    title: 'Profile',
     component: Account,
     authenticatedRoute: true,
     displayInNavbar: true,
-    icon: faIdBadge
+    icon: ProfileIcon
   },
   // required
   {
