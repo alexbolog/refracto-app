@@ -4,6 +4,8 @@ import { routeNames } from 'routes';
 
 const AccountInfo = () => {
   const navigate = useNavigate();
+  const [userName, _] = React.useState('Leona Pop');
+  const [userProfileImg, __] = React.useState('user.jpg');
 
   return (
     <div className='dropdown header-profile2'>
@@ -15,9 +17,9 @@ const AccountInfo = () => {
         onClick={() => navigate(routeNames.account)}
       >
         <div className='header-info2 d-flex align-items-center'>
-          <img src='user.jpg' alt='' />
+          <img src={userProfileImg} className='rounded-circle' alt='' />
           <div className='d-flex align-items-center sidebar-info'>
-            <h4 className='mb-0 ml-4 text-white'>Leona Pop</h4>
+            <h4 className='mb-0 ml-4 text-white'>{userName}</h4>
           </div>
         </div>
       </a>
