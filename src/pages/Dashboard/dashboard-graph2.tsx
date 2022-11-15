@@ -89,19 +89,19 @@ const DashboardGraph2 = () => {
       case 'INVEST': {
         return {
           label: 'Invested ' + el.committedDifference + '$',
-          color: '#38c1cb'
+          color: '#6853e8'
         };
       }
       case 'PAYOUT': {
         return {
           label: 'Payout ' + el.availableDifference + '$',
-          color: '#38c1cb'
+          color: '#63b179'
         };
       }
       case 'DEPOSIT': {
         return {
           label: 'Deposited ' + el.availableDifference + '$',
-          color: '#9ccb38'
+          color: '#ffa600'
         };
       }
       case 'WITHDRAW': {
@@ -110,7 +110,7 @@ const DashboardGraph2 = () => {
             'Withdrew ' +
             (el.availableDifference ? -el.availableDifference : -1) +
             '$',
-          color: '#de415c'
+          color: '#ff6b45'
         };
       }
 
@@ -164,11 +164,11 @@ const DashboardGraph2 = () => {
       tooltip: {
         callbacks: {
           title: (crtElement: any) => {
-            return dayjs(crtElement[0].label).format('DD MMM');
+            return graphDates[crtElement[0].dataIndex].format('DD MMM');
           },
           footer: (crtElement: any) => {
-            const date = crtElement[0].label;
-            const label = eventTooltips[date];
+            const date = graphDates[crtElement[0].dataIndex];
+            const label = eventTooltips[date.valueOf()];
             if (label) {
               return label;
             }
@@ -216,7 +216,7 @@ const DashboardGraph2 = () => {
         ticks: {
           callback: (val: any) => {
             const crtDate = dayjs(graphDates[val]);
-            if (crtDate.day() < 10) {
+            if (crtDate.date() <= 7) {
               return crtDate.format("MMM 'YY");
             }
           }
