@@ -19,7 +19,7 @@
     "chartjs-plugin-annotation": "^2.0.1",
     "chartjs-plugin-gradient": "^0.5.1",
     "chartjs-plugin-zoom": "^1.2.1",
-    "dayjs": "^1.11.6",
+    "luxon": "^3.1.0",
     "moment": "2.29.1",
     "react": "18.1.0",
     "react-apexcharts": "^1.4.0",
