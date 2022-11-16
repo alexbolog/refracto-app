@@ -21,7 +21,7 @@ import Zoom from 'chartjs-plugin-zoom';
 import { Button } from 'react-bootstrap';
 import dayjs from 'dayjs';
 
-const DashboardGraph2 = () => {
+const DashboardGraph = () => {
   // const handleOneQuarterFilter = () => {
   //   resetEndDate();
   //   setZoomInterval(0, 3);
@@ -282,4 +282,4 @@ const DashboardGraph2 = () => {
   );
 };
 
-export default DashboardGraph2;
+export default DashboardGraph;

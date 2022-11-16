@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactGA from 'react-ga4';
-import DashboardGraph2 from './dashboard-graph2';
+import DashboardGraph from './dashboard-graph';
 
 const Dashboard = () => {
   const isLastUrlSegmentEqualTo = (urlSegment: string) => {
@@ -34,7 +34,7 @@ const Dashboard = () => {
   return (
     <div className='container py-4'>
       <div className='row'>
-        <DashboardGraph2 />
+        <DashboardGraph />
         <div className='col-12 col-md-10 mx-auto'></div>
       </div>
     </div>
