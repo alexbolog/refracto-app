@@ -101,7 +101,7 @@ const DashboardGraph = () => {
       case 'DEPOSIT': {
         return {
           label: 'Deposited ' + el.availableDifference + '$',
-          color: '#ffa600'
+          color: '#1586D1'
         };
       }
       case 'WITHDRAW': {
