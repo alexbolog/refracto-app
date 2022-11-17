@@ -28,17 +28,21 @@ const DashboardGraph = () => {
   const handleOneYearFilter = () => {
     const now = DateTime.now();
     const oneYearAgo = now.minus({ years: 1 });
-    chartRef?.current.zoomScale('x', { min: oneYearAgo, max: now });
+    chartRef?.current.zoomScale('x', { min: oneYearAgo, max: now }, 'normal');
   };
   const handleOneQuarterFilter = () => {
     const now = DateTime.now();
     const oneQuarterAgo = now.minus({ quarters: 1 });
-    chartRef?.current.zoomScale('x', { min: oneQuarterAgo, max: now });
+    chartRef?.current.zoomScale(
+      'x',
+      { min: oneQuarterAgo, max: now },
+      'normal'
+    );
   };
   const handleOneMonthFilter = () => {
     const now = DateTime.now();
     const oneMonthAgo = now.minus({ months: 1 });
-    chartRef?.current.zoomScale('x', { min: oneMonthAgo, max: now });
+    chartRef?.current.zoomScale('x', { min: oneMonthAgo, max: now }, 'normal');
   };
 
   const resetZoom = () => {
@@ -51,10 +55,10 @@ const DashboardGraph = () => {
   const [isInvestedVisible, setInvestedVisible] = React.useState(true);
 
   const eventTooltips: any = {};
-  const [graphDates, setGraphDates] = React.useState<any[]>([]);
-  const [graphDataAvailable, setGraphDataAvailable] = React.useState<any[]>([]);
-  const [graphDataInvested, setGraphDataInvested] = React.useState<any[]>([]);
-  const [graphEvents, setGraphEvents] = React.useState<any[]>([]);
+  const graphDates: any[] = [];
+  const graphDataAvailable: any[] = [];
+  const graphDataInvested: any[] = [];
+  const graphEvents: any[] = [];
 
   React.useEffect(() => {
     dashboardGraph.forEach((el) => {
@@ -75,6 +79,7 @@ const DashboardGraph = () => {
         });
         eventTooltips[date.toUnixInteger()] = annotationForEvent.label;
       }
+      resetZoom();
     });
   }, []);
 
