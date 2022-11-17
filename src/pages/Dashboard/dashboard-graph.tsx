@@ -49,11 +49,6 @@ const DashboardGraph = () => {
     chartRef?.current.resetZoom();
   };
 
-  const [activeFilter, setActiveFilter] = React.useState('');
-
-  const [isAvailableVisible, setAvailableVisible] = React.useState(true);
-  const [isInvestedVisible, setInvestedVisible] = React.useState(true);
-
   const eventTooltips: any = {};
   const graphDates: any[] = [];
   const graphDataAvailable: any[] = [];
@@ -72,7 +67,7 @@ const DashboardGraph = () => {
           type: 'point',
           radius: 4,
           xValue: date,
-          yValue: computeMarkerHeight(el.availableBalance, el.committedBalance),
+          yValue: el.availableBalance + el.committedBalance,
           annotation: annotationForEvent,
           backgroundColor: annotationForEvent?.color,
           borderColor: 'white'
@@ -127,20 +122,6 @@ const DashboardGraph = () => {
         };
       }
     }
-  };
-
-  const computeMarkerHeight = (available: number, invested: number) => {
-    if (!isAvailableVisible && !isInvestedVisible) {
-      return undefined;
-    }
-    let y = 0;
-    if (isAvailableVisible) {
-      y += available;
-    }
-    if (isInvestedVisible) {
-      y += invested;
-    }
-    return y;
   };
 
   Chart.register(
