@@ -1,6 +1,5 @@
 import './style.scss';
 import * as React from 'react';
-import { useRef } from 'react';
 import dashboardGraph from '../../db/dashboardGraph.json';
 import { Line } from 'react-chartjs-2';
 import gradient from 'chartjs-plugin-gradient';
@@ -13,13 +12,15 @@ import {
   LineElement,
   PointElement,
   ScriptableContext,
+  TimeScale,
   Title,
   Tooltip
 } from 'chart.js';
 import Annotation from 'chartjs-plugin-annotation';
 import Zoom from 'chartjs-plugin-zoom';
 import { Button } from 'react-bootstrap';
-import dayjs from 'dayjs';
+import { DateTime } from 'luxon';
+import 'chartjs-adapter-luxon';
 
 const DashboardGraph = () => {
   // const handleOneQuarterFilter = () => {
@@ -34,14 +35,14 @@ const DashboardGraph = () => {
   // };
   // TODO: autoScaleYaxis when zooming using buttons
 
-  const chartRef = React.useRef(null);
+  const chartRef = React.useRef<any>(null);
 
   const handleOneYearFilter = () => {
-    const a = chartRef;
-    debugger;
-    // resetEndDate();
-    // setZoomInterval(1);
-    // setActiveFilter('year');
+    const now = DateTime.now();
+    const aYearAgo = now.minus({ years: 1 });
+    if (chartRef) {
+      chartRef?.current?.zoomScale('x', { min: aYearAgo, max: now });
+    }
   };
 
   const [activeFilter, setActiveFilter] = React.useState('');
@@ -57,8 +58,8 @@ const DashboardGraph = () => {
 
   React.useEffect(() => {
     dashboardGraph.forEach((el) => {
-      const dayjsDate = dayjs(el.date);
-      graphDates.push(dayjsDate);
+      const date = DateTime.fromISO(el.date);
+      graphDates.push(date);
       graphDataAvailable.push(el.availableBalance);
       graphDataInvested.push(el.committedBalance);
       if (el.eventType) {
@@ -66,13 +67,13 @@ const DashboardGraph = () => {
         graphEvents.push({
           type: 'point',
           radius: 4,
-          xValue: dayjsDate,
+          xValue: date,
           yValue: computeMarkerHeight(el.availableBalance, el.committedBalance),
           annotation: annotationForEvent,
           backgroundColor: annotationForEvent?.color,
           borderColor: 'white'
         });
-        eventTooltips[dayjsDate.valueOf()] = annotationForEvent.label;
+        eventTooltips[date.toUnixInteger()] = annotationForEvent.label;
       }
     });
   }, []);
@@ -148,10 +149,12 @@ const DashboardGraph = () => {
     Filler,
     gradient,
     Annotation,
-    Zoom
+    Zoom,
+    TimeScale
   );
 
   const options = {
+    responsive: true,
     plugins: {
       title: {
         display: true,
@@ -164,11 +167,13 @@ const DashboardGraph = () => {
       tooltip: {
         callbacks: {
           title: (crtElement: any) => {
-            return graphDates[crtElement[0].dataIndex].format('DD MMM');
+            return graphDates[crtElement[0].dataIndex].toLocaleString(
+              DateTime.DATE_MED
+            );
           },
           footer: (crtElement: any) => {
             const date = graphDates[crtElement[0].dataIndex];
-            const label = eventTooltips[date.valueOf()];
+            const label = eventTooltips[date.toUnixInteger()];
             if (label) {
               return label;
             }
@@ -213,14 +218,12 @@ const DashboardGraph = () => {
         stacked: true
       },
       x: {
-        ticks: {
-          callback: (val: any) => {
-            const crtDate = dayjs(graphDates[val]);
-            if (crtDate.date() <= 7) {
-              return crtDate.format("MMM 'YY");
-            }
-          }
-        }
+        type: 'time' as const,
+        time: {
+          unit: 'month' as const
+        },
+        suggestedMin: DateTime.now().minus({ years: 1 }).toISO(),
+        suggestedMax: DateTime.now().toISO()
       }
     },
     annotations: graphEvents
