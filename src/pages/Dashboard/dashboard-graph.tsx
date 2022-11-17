@@ -148,7 +148,8 @@ const DashboardGraph = () => {
         align: 'start' as const
       },
       legend: {
-        position: 'bottom' as const
+        position: 'bottom' as const,
+        onClick: () => undefined
       },
       tooltip: {
         callbacks: {
