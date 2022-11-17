@@ -23,26 +23,26 @@ import { DateTime } from 'luxon';
 import 'chartjs-adapter-luxon';
 
 const DashboardGraph = () => {
-  // const handleOneQuarterFilter = () => {
-  //   resetEndDate();
-  //   setZoomInterval(0, 3);
-  //   setActiveFilter('quarter');
-  // };
-  // const handleOneMonthFilter = () => {
-  //   resetEndDate();
-  //   setZoomInterval(0, 1);
-  //   setActiveFilter('month');
-  // };
-  // TODO: autoScaleYaxis when zooming using buttons
-
   const chartRef = React.useRef<any>(null);
 
   const handleOneYearFilter = () => {
     const now = DateTime.now();
-    const aYearAgo = now.minus({ years: 1 });
-    if (chartRef) {
-      chartRef?.current?.zoomScale('x', { min: aYearAgo, max: now });
-    }
+    const oneYearAgo = now.minus({ years: 1 });
+    chartRef?.current.zoomScale('x', { min: oneYearAgo, max: now });
+  };
+  const handleOneQuarterFilter = () => {
+    const now = DateTime.now();
+    const oneQuarterAgo = now.minus({ quarters: 1 });
+    chartRef?.current.zoomScale('x', { min: oneQuarterAgo, max: now });
+  };
+  const handleOneMonthFilter = () => {
+    const now = DateTime.now();
+    const oneMonthAgo = now.minus({ months: 1 });
+    chartRef?.current.zoomScale('x', { min: oneMonthAgo, max: now });
+  };
+
+  const resetZoom = () => {
+    chartRef?.current.resetZoom();
   };
 
   const [activeFilter, setActiveFilter] = React.useState('');
@@ -265,21 +265,10 @@ const DashboardGraph = () => {
 
   return (
     <>
-      <Button onClick={handleOneYearFilter} disabled={activeFilter === 'year'}>
-        Last Year
-      </Button>
-      {/*<Button*/}
-      {/*  onClick={handleOneQuarterFilter}*/}
-      {/*  disabled={activeFilter === 'quarter'}*/}
-      {/*>*/}
-      {/*  Last Quarter*/}
-      {/*</Button>*/}
-      {/*<Button*/}
-      {/*  onClick={handleOneMonthFilter}*/}
-      {/*  disabled={activeFilter === 'month'}*/}
-      {/*>*/}
-      {/*  Last Month*/}
-      {/*</Button>*/}
+      <Button onClick={resetZoom}>Reset</Button>
+      <Button onClick={handleOneYearFilter}>Last Year</Button>
+      <Button onClick={handleOneQuarterFilter}>Last Quarter</Button>
+      <Button onClick={handleOneMonthFilter}>Last Month</Button>
       <Line options={options} data={data()} ref={chartRef}></Line>
     </>
   );
