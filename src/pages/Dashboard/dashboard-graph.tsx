@@ -168,6 +168,12 @@ const DashboardGraph = () => {
         }
       },
       zoom: {
+        limits: {
+          x: {
+            min: 'original' as const,
+            max: 'original' as const
+          }
+        },
         // pan: {
         //   enabled: true,
         //   mode: 'x' as const
