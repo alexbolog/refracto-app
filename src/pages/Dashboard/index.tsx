@@ -5,7 +5,6 @@ import * as React from 'react';
 import ReactGA from 'react-ga4';
 import ActiveInvestmentsStatistics from './ActiveInvestmentsStatistics';
 import DashboardGraph from './dashboard-graph';
-import DashboardGraph2 from './dashboard-graph2';
 import DoughnutChartRow from './DoughnutChartRow';
 
 const Dashboard = () => {
@@ -68,7 +67,6 @@ const Dashboard = () => {
       </div>
       <div className='row'>
         <DashboardGraph />
-        <DashboardGraph2 />
         <div className='col-12 col-md-10 mx-auto'></div>
       </div>
     </>

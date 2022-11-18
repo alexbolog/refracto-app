@@ -1,37 +1,86 @@
 import './style.scss';
-
-import { ApexOptions } from 'apexcharts';
-import ReactApexChart from 'react-apexcharts';
 import * as React from 'react';
 import dashboardGraph from '../../db/dashboardGraph.json';
+import { Line } from 'react-chartjs-2';
+import gradient from 'chartjs-plugin-gradient';
+import {
+  CategoryScale,
+  Chart,
+  Filler,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
+  ScriptableContext,
+  TimeScale,
+  Title,
+  Tooltip
+} from 'chart.js';
+import Annotation from 'chartjs-plugin-annotation';
+import Zoom from 'chartjs-plugin-zoom';
 import { Button } from 'react-bootstrap';
-import dayjs from 'dayjs';
+import { DateTime } from 'luxon';
+import 'chartjs-adapter-luxon';
 
 const DashboardGraph = () => {
-  const [activeFilter, setActiveFilter] = React.useState('');
-  const [endDate, setEndDate] = React.useState(dayjs());
-  const [isAvailableVisible, setAvailableVisible] = React.useState(true);
-  const [isInvestedVisible, setInvestedVisible] = React.useState(true);
+  const chartRef = React.useRef<any>(null);
 
-  const resetEndDate = () => {
-    setEndDate(dayjs());
+  const handleOneYearFilter = () => {
+    const now = DateTime.now();
+    const oneYearAgo = now.minus({ years: 1 });
+    chartRef?.current.zoomScale('x', { min: oneYearAgo, max: now }, 'normal');
+  };
+  const handleOneQuarterFilter = () => {
+    const now = DateTime.now();
+    const oneQuarterAgo = now.minus({ quarters: 1 });
+    chartRef?.current.zoomScale(
+      'x',
+      { min: oneQuarterAgo, max: now },
+      'normal'
+    );
+  };
+  const handleOneMonthFilter = () => {
+    const now = DateTime.now();
+    const oneMonthAgo = now.minus({ months: 1 });
+    chartRef?.current.zoomScale('x', { min: oneMonthAgo, max: now }, 'normal');
   };
 
-  const setZoomInterval = (years: number, months?: number) => {
-    let stDate = endDate.subtract(years, 'year');
-    if (months) {
-      stDate = stDate.subtract(months, 'month');
-    }
-    setStartDate(stDate);
+  const resetZoom = () => {
+    chartRef?.current.resetZoom();
   };
 
-  const [startDate, setStartDate] = React.useState(dayjs().subtract(2, 'year'));
+  const eventTooltips: any = {};
+  const graphDates: any[] = [];
+  const graphDataAvailable: any[] = [];
+  const graphDataInvested: any[] = [];
+  const graphEvents: any[] = [];
 
-  const getLabelForEvent = (el: {
-    date: string;
+  React.useEffect(() => {
+    dashboardGraph.forEach((el) => {
+      const date = DateTime.fromISO(el.date);
+      graphDates.push(date);
+      graphDataAvailable.push(el.availableBalance);
+      graphDataInvested.push(el.committedBalance);
+      if (el.eventType) {
+        const annotationForEvent = getAnnotationForEvent(el);
+        graphEvents.push({
+          type: 'point',
+          radius: 4,
+          xValue: date,
+          yValue: el.availableBalance + el.committedBalance,
+          annotation: annotationForEvent,
+          backgroundColor: annotationForEvent?.color,
+          borderColor: 'white'
+        });
+        eventTooltips[date.toUnixInteger()] = annotationForEvent.label;
+      }
+      resetZoom();
+    });
+  }, []);
+
+  const getAnnotationForEvent = (el: {
     availableBalance: number;
     committedBalance: number;
-    total: number;
     eventType?: string;
     availableDifference?: number;
     committedDifference?: number;
@@ -39,176 +88,181 @@ const DashboardGraph = () => {
     // TODO: we can group this in an 'event' nested field
     switch (el.eventType) {
       case 'INVEST': {
-        return 'Invested ' + el.committedDifference + '$';
+        return {
+          label: 'Invested ' + el.committedDifference + '$',
+          color: '#6853e8'
+        };
       }
       case 'PAYOUT': {
-        return 'Payout ' + el.availableDifference + '$';
+        return {
+          label: 'Payout ' + el.availableDifference + '$',
+          color: '#63b179'
+        };
       }
       case 'DEPOSIT': {
-        return 'Deposited ' + el.availableDifference + '$';
+        return {
+          label: 'Deposited ' + el.availableDifference + '$',
+          color: '#1586D1'
+        };
       }
       case 'WITHDRAW': {
-        return (
-          'Withdrew ' +
-          (el.availableDifference ? -el.availableDifference : -1) +
-          '$'
-        );
+        return {
+          label:
+            'Withdrew ' +
+            (el.availableDifference ? -el.availableDifference : -1) +
+            '$',
+          color: '#ff6b45'
+        };
       }
 
       default: {
-        return el.eventType;
+        return {
+          label: el.eventType,
+          color: 'black'
+        };
       }
     }
   };
 
-  const computeMarkerHeight = (available: number, invested: number) => {
-    if (!isAvailableVisible && !isInvestedVisible) {
-      return undefined;
-    }
-    let y = 0;
-    if (isAvailableVisible) {
-      y += available;
-    }
-    if (isInvestedVisible) {
-      y += invested;
-    }
-    return y;
-  };
+  Chart.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+    Filler,
+    gradient,
+    Annotation,
+    Zoom,
+    TimeScale
+  );
 
-  const events: PointAnnotations[] = dashboardGraph
-    .filter((el) => el.eventType)
-    .map(
-      (el) =>
-        new Object({
-          x: dayjs(el.date).valueOf(),
-          y: computeMarkerHeight(el.availableBalance, el.committedBalance),
-          label: {
-            text: getLabelForEvent(el)
+  const options = {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'General Overview Statistics',
+        align: 'start' as const
+      },
+      legend: {
+        position: 'bottom' as const,
+        onClick: () => undefined
+      },
+      tooltip: {
+        callbacks: {
+          title: (crtElement: any) => {
+            return graphDates[crtElement[0].dataIndex].toLocaleString(
+              DateTime.DATE_MED
+            );
+          },
+          footer: (crtElement: any) => {
+            const date = graphDates[crtElement[0].dataIndex];
+            const label = eventTooltips[date.toUnixInteger()];
+            if (label) {
+              return label;
+            }
           }
-        })
-    );
-
-  const series: ApexOptions['series'] = [
-    {
-      name: 'Available',
-      color: '#9ccb38',
-      data: dashboardGraph.map((el) => el.availableBalance)
-    },
-    {
-      name: 'Invested',
-      color: '#38c1cb',
-      data: dashboardGraph.map((el) => el.committedBalance)
-    }
-  ];
-
-  const optionsArea: ApexOptions = {
-    chart: {
-      id: 'area-datetime',
-      type: 'area',
+        }
+      },
       zoom: {
-        autoScaleYaxis: true
-      },
-      stacked: true,
-      events: {
-        legendClick: (event: any, chartContext: number) => {
-          if (chartContext === 0) {
-            setAvailableVisible(!isAvailableVisible);
-          }
-          if (chartContext === 1) {
-            setInvestedVisible(!isInvestedVisible);
+        limits: {
+          x: {
+            min: 'original' as const,
+            max: 'original' as const
           }
         },
-        beforeZoom: () => {
-          setActiveFilter('');
-        },
-        scrolled: () => {
-          setActiveFilter(''); // Does not work
-        },
-      },
-      toolbar: {
-        tools: {
-          reset: false,
-          pan: false,
-        }
-      },
-    },
-    grid: {
-      xaxis: {
-        lines: {
-          show: true
+        // pan: {
+        //   enabled: true,
+        //   mode: 'x' as const
+        // },
+        zoom: {
+          wheel: {
+            enabled: true
+          },
+          pinch: {
+            enabled: true
+          },
+          drag: {
+            enabled: true,
+            backgroundColor: 'rgba(144, 202, 249, 0.4)',
+            borderColor: 'rgba(13, 71, 161, 0.4)',
+            borderWidth: 1
+          },
+          // drag: true,
+          mode: 'x' as const
         }
       }
     },
-    annotations: {
-      points: events
+    elements: {
+      point: {
+        radius: 0,
+        hitRadius: 4
+      }
     },
-    dataLabels: {
-      enabled: false
+    interaction: {
+      intersect: false,
+      mode: 'index' as const
     },
-    xaxis: {
-      type: 'datetime',
-      categories: dashboardGraph.map((el) => el.date),
-      min: startDate.valueOf(),
-      max: endDate.valueOf()
-    },
-    tooltip: {
+    scales: {
+      y: {
+        stacked: true
+      },
       x: {
-        show: false
-        // format: 'dd MMM yyyy'
-      },
-    },
-    fill: {
-      type: 'gradient',
-      gradient: {
-        shadeIntensity: 1,
-        opacityFrom: 0.2,
-        opacityTo: 1,
-        stops: [0, 100]
+        type: 'time' as const,
+        time: {
+          unit: 'month' as const
+        },
+        suggestedMin: DateTime.now().minus({ years: 1 }).toISO(),
+        suggestedMax: DateTime.now().toISO()
       }
-    }
+    },
+    annotations: graphEvents
   };
 
-  const handleOneYearFilter = () => {
-    resetEndDate();
-    setZoomInterval(1);
-    setActiveFilter('year');
+  const data = () => {
+    return {
+      labels: graphDates,
+      datasets: [
+        {
+          label: 'Available',
+          borderColor: '#9ccb38',
+          backgroundColor: (context: ScriptableContext<'line'>) => {
+            const ctx = context.chart.ctx;
+            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, 'rgba(156, 203, 56, 0.5)');
+            gradient.addColorStop(1, 'rgba(156, 203, 56,0)');
+            return gradient;
+          },
+          fill: true,
+          data: graphDataAvailable
+        },
+        {
+          label: 'Invested',
+          borderColor: '#38c1cb',
+          backgroundColor: (context: ScriptableContext<'line'>) => {
+            const ctx = context.chart.ctx;
+            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, 'rgba(56, 193, 203, 0.5)');
+            gradient.addColorStop(1, 'rgba(56, 193, 203,0)');
+            return gradient;
+          },
+          fill: true,
+          data: graphDataInvested
+        }
+      ]
+    };
   };
-  const handleOneQuarterFilter = () => {
-    resetEndDate();
-    setZoomInterval(0, 3);
-    setActiveFilter('quarter');
-  };
-  const handleOneMonthFilter = () => {
-    resetEndDate();
-    setZoomInterval(0, 1);
-    setActiveFilter('month');
-  };
-  // TODO: autoScaleYaxis when zooming using buttons
 
   return (
     <>
-      <Button onClick={handleOneYearFilter} disabled={activeFilter === 'year'}>
-        Last Year
-      </Button>
-      <Button
-        onClick={handleOneQuarterFilter}
-        disabled={activeFilter === 'quarter'}
-      >
-        Last Quarter
-      </Button>
-      <Button
-        onClick={handleOneMonthFilter}
-        disabled={activeFilter === 'month'}
-      >
-        Last Month
-      </Button>
-      <ReactApexChart
-        options={optionsArea}
-        series={series}
-        type='area'
-        height='421px'
-        width='1000px'
-      ></ReactApexChart>
+      <Button onClick={resetZoom}>Reset</Button>
+      <Button onClick={handleOneYearFilter}>Last Year</Button>
+      <Button onClick={handleOneQuarterFilter}>Last Quarter</Button>
+      <Button onClick={handleOneMonthFilter}>Last Month</Button>
+      <Line options={options} data={data()} ref={chartRef}></Line>
     </>
   );
 };
