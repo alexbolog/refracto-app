@@ -1,5 +1,6 @@
 import React from 'react';
 import PaymentStatusEntry, { PaymentStatuses } from './PaymentStatusEntry';
+import { ReactComponent as ExpandIcon } from '../../assets/icons/refracto/arrow-down.svg';
 
 const PaymentStatusContainer = () => {
   return (
@@ -61,6 +62,17 @@ const PaymentStatusContainer = () => {
           projectName={'Bulevardul Timisoarei 128A, Bucharest'}
           date={'14-10-2022'}
         />
+      </div>
+      <div
+        className='card-footer d-flex justify-content-end'
+        style={{ padding: '0' }}
+      >
+        <p
+          className='text-primary'
+          style={{ padding: '15px', marginRight: '10px', cursor: 'pointer' }}
+        >
+          Expand <ExpandIcon />
+        </p>
       </div>
     </div>
   );
