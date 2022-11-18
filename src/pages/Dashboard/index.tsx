@@ -5,6 +5,7 @@ import * as React from 'react';
 import ReactGA from 'react-ga4';
 import ActiveInvestmentsStatistics from './ActiveInvestmentsStatistics';
 import DoughnutChartRow from './DoughnutChartRow';
+import GeneralInvestmentStatistics from './GeneralInvestmentStatistics';
 import GeneralStatisticsGraph from './GeneralStatisticsGraph';
 
 const Dashboard = () => {
@@ -60,13 +61,16 @@ const Dashboard = () => {
         </div>
       )}
       <div className='row'>
+        <GeneralInvestmentStatistics />
+      </div>
+      <div className='row'>
+        <GeneralStatisticsGraph />
+      </div>
+      <div className='row'>
         <ActiveInvestmentsStatistics />
       </div>
       <div className='row'>
         <DoughnutChartRow />
-      </div>
-      <div className='row'>
-        <GeneralStatisticsGraph />
       </div>
     </>
   );
