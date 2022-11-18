@@ -3,17 +3,17 @@ import * as React from 'react';
 import dashboardGraph from '../../../db/dashboardGraph.json';
 import { Line } from 'react-chartjs-2';
 import gradient from 'chartjs-plugin-gradient';
-import {
-  CategoryScale,
-  Chart,
-  Filler,
-  Legend,
-  LinearScale,
-  LineElement,
-  PointElement,
-  ScriptableContext,
-  TimeScale,
-  Title,
+import { 
+  CategoryScale, 
+  Chart, 
+  Filler, 
+  Legend, 
+  LinearScale, 
+  LineElement, 
+  PointElement, 
+  ScriptableContext, 
+  TimeScale, 
+  Title, 
   Tooltip
 } from 'chart.js';
 import Annotation from 'chartjs-plugin-annotation';
@@ -289,12 +289,15 @@ const GeneralStatisticsGraph = () => {
             </button>
           </div>
         </div>
-        <div className='card-body d-flex justify-content-center'>
-          <Line options={options} data={data()} ref={chartRef}></Line>
+        <div
+          className='card-body d-flex justify-content-center'
+          style={{ maxHeight: '70%' }}
+        >
+          <Line options={options} data={data()} ref={chartRef} style={{ maxHeight: '100%' }}></Line>
         </div>
         <div
           className='card-footer d-flex justify-content-end'
-          style={{ padding: '0' }}
+          style={{ padding: '0', margin: '0' }}
         >
           <p
             className='text-primary'
