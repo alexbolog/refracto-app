@@ -4,8 +4,8 @@ import DonutChartStatisticsCard from 'components/DonutChartStatisticsCard';
 import * as React from 'react';
 import ReactGA from 'react-ga4';
 import ActiveInvestmentsStatistics from './ActiveInvestmentsStatistics';
-import DashboardGraph from './dashboard-graph';
 import DoughnutChartRow from './DoughnutChartRow';
+import GeneralStatisticsGraph from './GeneralStatisticsGraph';
 
 const Dashboard = () => {
   const [hasClaimableCredits, setHasClaimableCredits] = React.useState(true);
@@ -66,8 +66,7 @@ const Dashboard = () => {
         <DoughnutChartRow />
       </div>
       <div className='row'>
-        <DashboardGraph />
-        <div className='col-12 col-md-10 mx-auto'></div>
+        <GeneralStatisticsGraph />
       </div>
     </>
   );

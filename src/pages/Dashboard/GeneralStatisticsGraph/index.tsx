@@ -1,6 +1,6 @@
 import './style.scss';
 import * as React from 'react';
-import dashboardGraph from '../../db/dashboardGraph.json';
+import dashboardGraph from '../../../db/dashboardGraph.json';
 import { Line } from 'react-chartjs-2';
 import gradient from 'chartjs-plugin-gradient';
 import {
@@ -21,8 +21,9 @@ import Zoom from 'chartjs-plugin-zoom';
 import { Button } from 'react-bootstrap';
 import { DateTime } from 'luxon';
 import 'chartjs-adapter-luxon';
+import { ReactComponent as ExpandIcon } from '../../../assets/icons/refracto/arrow_right_alt.svg';
 
-const DashboardGraph = () => {
+const GeneralStatisticsGraph = () => {
   const chartRef = React.useRef<any>(null);
 
   const handleOneYearFilter = () => {
@@ -143,9 +144,9 @@ const DashboardGraph = () => {
     responsive: true,
     plugins: {
       title: {
-        display: true,
-        text: 'General Overview Statistics',
-        align: 'start' as const
+        display: false
+        // text: 'General Overview Statistics',
+        // align: 'start' as const
       },
       legend: {
         position: 'bottom' as const,
@@ -257,14 +258,54 @@ const DashboardGraph = () => {
   };
 
   return (
-    <>
-      <Button onClick={resetZoom}>Reset</Button>
-      <Button onClick={handleOneYearFilter}>Last Year</Button>
-      <Button onClick={handleOneQuarterFilter}>Last Quarter</Button>
-      <Button onClick={handleOneMonthFilter}>Last Month</Button>
-      <Line options={options} data={data()} ref={chartRef}></Line>
-    </>
+    <div className='col-lg-12 col-md-12 col-sm-12'>
+      <div className='card'>
+        <div className='card-header d-flex justify-content-between'>
+          <h3>General Overview Statistics</h3>
+          <div>
+            <button
+              className='btn btn-outline-primary mr-2'
+              onClick={resetZoom}
+            >
+              Reset
+            </button>
+            <button
+              className='btn btn-outline-primary mr-2'
+              onClick={handleOneYearFilter}
+            >
+              Last Year
+            </button>
+            <button
+              className='btn btn-outline-primary mr-2'
+              onClick={handleOneQuarterFilter}
+            >
+              Last Quarter
+            </button>
+            <button
+              className='btn btn-outline-primary'
+              onClick={handleOneMonthFilter}
+            >
+              Last Month
+            </button>
+          </div>
+        </div>
+        <div className='card-body d-flex justify-content-center'>
+          <Line options={options} data={data()} ref={chartRef}></Line>
+        </div>
+        <div
+          className='card-footer d-flex justify-content-end'
+          style={{ padding: '0' }}
+        >
+          <p
+            className='text-primary'
+            style={{ padding: '15px', marginRight: '10px', cursor: 'pointer' }}
+          >
+            Expand <ExpandIcon />
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default DashboardGraph;
+export default GeneralStatisticsGraph;
