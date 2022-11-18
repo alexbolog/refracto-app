@@ -3,14 +3,9 @@ import { useGetAccountInfo } from '@elrondnetwork/dapp-core/hooks';
 import { logout } from '@elrondnetwork/dapp-core/utils';
 import { Link } from 'react-router-dom';
 import { NAVBAR_MENU_ITEMS, routeNames } from 'routes';
-import {
-  faBars,
-  faBell,
-  faBoltLightning,
-  faQuestionCircle
-} from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBoltLightning } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ReactComponent as Logo } from './../../../assets/images/svg/btc.svg';
+import { ReactComponent as Logo } from './../../../assets/icons/refracto/logo.svg';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import ReactTooltip from 'react-tooltip';
 import SearchBar from 'components/SearchBar';
@@ -86,7 +81,12 @@ const Sidenav = () => {
         >
           <Logo width={40} height={40} className='logo-abbr' />
           <div className='brand-title'>
-            <img src='./logo.png' alt='brand-logo' style={{ maxHeight: 50 }} />
+            <img
+              src='./logo-text.png'
+              alt='brand-logo'
+              style={{ maxHeight: '50px', maxWidth: '150px', marginTop: '3px' }}
+            />
+            {/* <LogoText /> */}
           </div>
         </Link>
         <div className='nav-control' onClick={handleCollapse}>
