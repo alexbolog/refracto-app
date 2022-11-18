@@ -1,6 +1,7 @@
 import SimpleCardWidget from 'components/CardWidgets/SimpleCardWidget';
 import CustomAlert from 'components/CustomAlert';
 import DonutChartStatisticsCard from 'components/DonutChartStatisticsCard';
+import PaymentStatusContainer from 'components/PaymentStatusContainer';
 import * as React from 'react';
 import ReactGA from 'react-ga4';
 import ActiveInvestmentsStatistics from './ActiveInvestmentsStatistics';
@@ -71,6 +72,11 @@ const Dashboard = () => {
       </div>
       <div className='row'>
         <DoughnutChartRow />
+      </div>
+      <div className='row'>
+        <div className='col-lg-12 col-sm-12 col-md-12'>
+          <PaymentStatusContainer />
+        </div>
       </div>
     </>
   );
