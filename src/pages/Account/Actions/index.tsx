@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useGetAccountInfo } from '@elrondnetwork/dapp-core/hooks/account/useGetAccountInfo';
 import { useGetPendingTransactions } from '@elrondnetwork/dapp-core/hooks/transactions/useGetPendingTransactions';
-import useGetNetworkConfig from '@elrondnetwork/dapp-core/hooks/useGetNetworkConfig';
 import { sendTransactions } from '@elrondnetwork/dapp-core/services';
 import { refreshAccount } from '@elrondnetwork/dapp-core/utils';
 import {
@@ -15,6 +14,7 @@ import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import moment from 'moment';
 import { contractAddress } from 'config';
+import { useGetNetworkConfig } from '@elrondnetwork/dapp-core/hooks';
 
 const Actions = () => {
   const account = useGetAccountInfo();

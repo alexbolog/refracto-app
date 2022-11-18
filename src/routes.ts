@@ -5,16 +5,6 @@ import withPageTitle from './components/PageTitle';
 import Dashboard from './pages/Dashboard';
 import Transaction from './pages/Transaction';
 import Portfolio from './pages/Portfolio';
-import {
-  faBookOpen,
-  faFileContract,
-  faHandshakeAlt,
-  faIdBadge,
-  faListCheck,
-  faSackDollar,
-  faShop,
-  faWandSparkles
-} from '@fortawesome/free-solid-svg-icons';
 import Reports from 'pages/Reports';
 import Transactions from 'pages/Account/Transactions';
 import Agreements from 'pages/Agreements';
