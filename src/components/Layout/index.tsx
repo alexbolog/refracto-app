@@ -3,7 +3,7 @@ import { AuthenticatedRoutesWrapper } from '@elrondnetwork/dapp-core/wrappers';
 import { useLocation } from 'react-router-dom';
 import routes, { routeNames } from 'routes';
 import Sidenav from './Sidenav';
-import { ReactComponent as Logo } from './../../assets/images/svg/btc.svg';
+import { ReactComponent as Logo } from './../../assets/icons/refracto/logo.svg';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { search } = useLocation();

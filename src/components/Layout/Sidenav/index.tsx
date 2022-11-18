@@ -5,12 +5,20 @@ import { Link } from 'react-router-dom';
 import { NAVBAR_MENU_ITEMS, routeNames } from 'routes';
 import { faBars, faBoltLightning } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ReactComponent as Logo } from './../../../assets/images/svg/btc.svg';
+import { ReactComponent as Logo } from './../../../assets/icons/refracto/logo.svg';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import ReactTooltip from 'react-tooltip';
+import SearchBar from 'components/SearchBar';
+import NotificationDropDownContent from './NotificationDropDownContent';
+import CurrencyPicker from 'components/CurrencyPicker';
+import AccountInfo from './AccountInfo';
+import { ReactComponent as NotificationsIcon } from '../../../assets/icons/refracto/notifications.svg';
+import { ReactComponent as HelpIcon } from '../../../assets/icons/refracto/help.svg';
 
 const Sidenav = () => {
   const { address } = useGetAccountInfo();
+  const [hasNotifications, setHasNotifications] = React.useState(false);
+
   const handleLogout = () => {
     logout(`${window.location.origin}/`);
   };
@@ -42,6 +50,7 @@ const Sidenav = () => {
     if (data.protectedRoute && !isLoggedIn) {
       return null;
     }
+    console.log(data.icon);
     return (
       <>
         <li
@@ -52,7 +61,9 @@ const Sidenav = () => {
           onClick={handleCloseNavbar}
         >
           <Link to={data.route} className='d-flex align-items-center'>
-            <FontAwesomeIcon icon={data.icon} data-tip={data.display} />
+            {/* <FontAwesomeIcon icon={data.icon} data-tip={data.display} /> */}
+            {/* {() => data.icon} */}
+            <data.icon data-tip={data.display} style={{ padding: '0' }} />
             <span className='nav-text'>{data.display}</span>
           </Link>
         </li>
@@ -63,32 +74,72 @@ const Sidenav = () => {
   return (
     <>
       <div className='nav-header'>
-        <Link to={routeNames.home} className='brand-logo'>
+        <Link
+          to={routeNames.home}
+          className='brand-logo'
+          style={{ backgroundColor: '#6853E8' }}
+        >
           <Logo width={40} height={40} className='logo-abbr' />
           <div className='brand-title'>
-            <img src='./logo.png' alt='brand-logo' style={{ maxHeight: 50 }} />
+            <img
+              src='./logo-text.png'
+              alt='brand-logo'
+              style={{ maxHeight: '50px', maxWidth: '150px', marginTop: '3px' }}
+            />
+            {/* <LogoText /> */}
           </div>
         </Link>
         <div className='nav-control' onClick={handleCollapse}>
-          <FontAwesomeIcon icon={faBars} className='hamburger' />
+          <FontAwesomeIcon
+            icon={faBars}
+            className='hamburger'
+            style={{ color: 'white' }}
+          />
         </div>
       </div>
-      <div className='header'>
+      <div className='header' style={{ backgroundColor: '#4e37cb' }}>
         <div className='header-content'>
           <nav className='navbar navbar-expand'>
             <div className='collapse navbar-collapse justify-content-between'>
-              <div className='header-left'>{/* <SearchBar /> */}</div>
+              <div className='header-left'>
+                <SearchBar />
+              </div>
+              <ul className='navbar-nav header-right'>
+                <li className='nav-item'>
+                  <CurrencyPicker />
+                </li>
+                <li
+                  className={`nav-item dropdown notification_dropdown ${
+                    hasNotifications ? 'has-notifications' : ''
+                  }`}
+                >
+                  <a
+                    className='nav-link '
+                    href='#'
+                    role='button'
+                    data-bs-toggle='dropdown'
+                    style={{ marginRight: '20px' }}
+                  >
+                    {/* <FontAwesomeIcon icon={faBell} size='lg' /> */}
+                    <NotificationsIcon />
+                  </a>
+                  <NotificationDropDownContent />
+                </li>
+
+                <li className='nav-item dropdown notification_dropdown'>
+                  <a className='nav-link ' href='#'>
+                    {/* <FontAwesomeIcon icon={faQuestionCircle} size='lg' /> */}
+                    <HelpIcon />
+                  </a>
+                </li>
+                <li className='nav-item'>
+                  <AccountInfo />
+                </li>
+              </ul>
             </div>
           </nav>
         </div>
       </div>
-      {/* <div
-        className='side-nav-collapse'
-        onClick={handleCollapse}
-        style={{ fontSize: '30px', position: 'absolute', zIndex: '25' }}
-      >
-        <FontAwesomeIcon icon={faArrowLeft} />
-      </div> */}
       <div className='dlabnav'>
         <div className='dlabnav-scroll'>
           <ul className='metismenu' id='menu' style={{ height: '100%' }}>

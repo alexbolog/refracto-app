@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ProjectList from './ProjectList';
 import projectList from '../../db/projectList.json';
 
 const Projects = () => {
@@ -17,7 +16,7 @@ const Projects = () => {
           <h1>Open projects</h1>
         </div>
       </div>
-      {projectInfo.length > 0 && <ProjectList projectInfo={projectInfo} />}
+      {/* {projectInfo.length > 0 && <ProjectList projectInfo={projectInfo} />} */}
     </div>
   );
 };
