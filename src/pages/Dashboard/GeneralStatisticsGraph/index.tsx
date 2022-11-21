@@ -18,10 +18,12 @@ import {
 } from 'chart.js';
 import Annotation from 'chartjs-plugin-annotation';
 import Zoom from 'chartjs-plugin-zoom';
-import { Button } from 'react-bootstrap';
 import { DateTime } from 'luxon';
 import 'chartjs-adapter-luxon';
 import { ReactComponent as ExpandIcon } from '../../../assets/icons/refracto/arrow_right_alt.svg';
+import ReactDatePicker from 'react-datepicker';
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 const GeneralStatisticsGraph = () => {
   const chartRef = React.useRef<any>(null);
@@ -290,6 +292,14 @@ const GeneralStatisticsGraph = () => {
             >
               Last Month
             </button>
+            <ReactDatePicker
+              // selected={firstDate}
+              onChange={onDatePick}
+              startDate={firstDate}
+              endDate={secondDate}
+              selectsRange={true}
+              // inline
+            />
           </div>
         </div>
         <div
