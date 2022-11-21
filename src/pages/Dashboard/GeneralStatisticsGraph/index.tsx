@@ -3,17 +3,17 @@ import * as React from 'react';
 import dashboardGraph from '../../../db/dashboardGraph.json';
 import { Line } from 'react-chartjs-2';
 import gradient from 'chartjs-plugin-gradient';
-import { 
-  CategoryScale, 
-  Chart, 
-  Filler, 
-  Legend, 
-  LinearScale, 
-  LineElement, 
-  PointElement, 
-  ScriptableContext, 
-  TimeScale, 
-  Title, 
+import {
+  CategoryScale,
+  Chart,
+  Filler,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
+  ScriptableContext,
+  TimeScale,
+  Title,
   Tooltip
 } from 'chart.js';
 import Annotation from 'chartjs-plugin-annotation';
@@ -56,8 +56,8 @@ const GeneralStatisticsGraph = () => {
   const graphDataInvested: any[] = [];
   const graphEvents: any[] = [];
 
-  React.useEffect(() => {
-    dashboardGraph.forEach((el) => {
+  const mapDashboardData = async (dashboardData: any[]) => {
+    dashboardData.forEach((el) => {
       const date = DateTime.fromISO(el.date);
       graphDates.push(date);
       graphDataAvailable.push(el.availableBalance);
@@ -75,8 +75,11 @@ const GeneralStatisticsGraph = () => {
         });
         eventTooltips[date.toUnixInteger()] = annotationForEvent.label;
       }
-      resetZoom();
     });
+  };
+
+  React.useEffect(() => {
+    mapDashboardData(dashboardGraph).then(() => resetZoom());
   }, []);
 
   const getAnnotationForEvent = (el: {
@@ -293,7 +296,12 @@ const GeneralStatisticsGraph = () => {
           className='card-body d-flex justify-content-center'
           style={{ maxHeight: '70%' }}
         >
-          <Line options={options} data={data()} ref={chartRef} style={{ maxHeight: '100%' }}></Line>
+          <Line
+            options={options}
+            data={data()}
+            ref={chartRef}
+            style={{ maxHeight: '100%' }}
+          ></Line>
         </div>
         <div
           className='card-footer d-flex justify-content-end'
