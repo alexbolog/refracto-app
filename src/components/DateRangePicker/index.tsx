@@ -6,6 +6,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
+import './style.css';
+
 const DateRangePicker = ({
   onChange,
   defaultStartDate = DateTime.now().minus({ years: 1 }),

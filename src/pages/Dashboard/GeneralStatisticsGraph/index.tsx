@@ -275,7 +275,7 @@ const GeneralStatisticsGraph = () => {
           <h3>General Overview Statistics</h3>
           <div>
             <button
-              className='btn btn-outline-primary mr-2'
+              className='btn btn-outline-primary mr-2 active'
               onClick={resetZoom}
             >
               Reset
@@ -293,7 +293,7 @@ const GeneralStatisticsGraph = () => {
               Last Quarter
             </button>
             <button
-              className='btn btn-outline-primary'
+              className='btn btn-outline-primary mr-2'
               onClick={handleOneMonthFilter}
             >
               Last Month
