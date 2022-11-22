@@ -3,17 +3,19 @@ import { DateTime } from 'luxon';
 import ReactDatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 const DateRangePicker = ({
+  onChange,
   defaultStartDate = DateTime.now().minus({ years: 1 }),
-  defaultEndDate = DateTime.now(),
-  onChange
+  defaultEndDate = DateTime.now()
 }: {
-  defaultStartDate?: DateTime;
-  defaultEndDate?: DateTime;
   startDate?: DateTime;
   endDate?: DateTime;
   onChange?: (startDate: DateTime, endDate: DateTime) => void;
+  defaultStartDate?: DateTime;
+  defaultEndDate?: DateTime;
 }) => {
   const [firstDate, setFirstDate] = React.useState<Date | null>(null);
   const [secondDate, setSecondDate] = React.useState<Date | null>(null);
@@ -31,11 +33,12 @@ const DateRangePicker = ({
       ? DateTime.fromJSDate(secondDate)
       : defaultEndDate;
     return (
-      <p>
-        {intervalStart.toLocaleString(DateTime.DATE_MED) +
-          '->' +
-          intervalEnd.toLocaleString(DateTime.DATE_MED)}
-      </p>
+      <span className='btn btn-outline-primary'>
+        {intervalStart.toLocaleString(DateTime.DATE_MED)}
+        <FontAwesomeIcon icon={faArrowRight} className='ml-2 mr-2' />
+        {intervalEnd.toLocaleString(DateTime.DATE_MED)}
+        <FontAwesomeIcon icon={faCalendar} className='ml-2' />
+      </span>
     );
   };
 
