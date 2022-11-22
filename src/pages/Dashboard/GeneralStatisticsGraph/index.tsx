@@ -21,9 +21,7 @@ import Zoom from 'chartjs-plugin-zoom';
 import { DateTime } from 'luxon';
 import 'chartjs-adapter-luxon';
 import { ReactComponent as ExpandIcon } from '../../../assets/icons/refracto/arrow_right_alt.svg';
-import ReactDatePicker from 'react-datepicker';
-
-import 'react-datepicker/dist/react-datepicker.css';
+import DateRangePicker from '../../../components/DateRangePicker';
 
 const GeneralStatisticsGraph = () => {
   const chartRef = React.useRef<any>(null);
@@ -46,6 +44,14 @@ const GeneralStatisticsGraph = () => {
     const now = DateTime.now();
     const oneMonthAgo = now.minus({ months: 1 });
     chartRef?.current.zoomScale('x', { min: oneMonthAgo, max: now }, 'normal');
+  };
+
+  const onDatePick = (startDate: DateTime, endDate: DateTime) => {
+    chartRef?.current.zoomScale(
+      'x',
+      { min: startDate, max: endDate },
+      'normal'
+    );
   };
 
   const resetZoom = () => {
@@ -292,14 +298,7 @@ const GeneralStatisticsGraph = () => {
             >
               Last Month
             </button>
-            <ReactDatePicker
-              // selected={firstDate}
-              onChange={onDatePick}
-              startDate={firstDate}
-              endDate={secondDate}
-              selectsRange={true}
-              // inline
-            />
+            <DateRangePicker onChange={onDatePick}></DateRangePicker>
           </div>
         </div>
         <div
