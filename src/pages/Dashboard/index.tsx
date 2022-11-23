@@ -1,3 +1,4 @@
+import ProjectCardCarousel from 'components/ProjectCardCarousel';
 import SimpleCardWidget from 'components/CardWidgets/SimpleCardWidget';
 import CustomAlert from 'components/CustomAlert';
 import DonutChartStatisticsCard from 'components/DonutChartStatisticsCard';
@@ -8,6 +9,8 @@ import ActiveInvestmentsStatistics from './ActiveInvestmentsStatistics';
 import DoughnutChartRow from './DoughnutChartRow';
 import GeneralInvestmentStatistics from './GeneralInvestmentStatistics';
 import GeneralStatisticsGraph from './GeneralStatisticsGraph';
+import FavoriteProjectsList from './../../db/favoriteProjects.json';
+import SuggestedProjectsList from './../../db/suggestedProjects.json';
 
 const Dashboard = () => {
   const [hasClaimableCredits, setHasClaimableCredits] = React.useState(true);
@@ -77,6 +80,20 @@ const Dashboard = () => {
         <div className='col-lg-12 col-sm-12 col-md-12'>
           <PaymentStatusContainer />
         </div>
+      </div>
+      <div className='row'>
+        <ProjectCardCarousel
+          title='Favorite Projects'
+          projects={FavoriteProjectsList}
+          isFavoritesOnly={true}
+        />
+      </div>
+      <div className='row'>
+        <ProjectCardCarousel
+          title='Suggested Projects'
+          projects={SuggestedProjectsList}
+          isFavoritesOnly={false}
+        />
       </div>
     </>
   );
