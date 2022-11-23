@@ -3,25 +3,25 @@ import * as React from 'react';
 import dashboardGraph from '../../../db/dashboardGraph.json';
 import { Line } from 'react-chartjs-2';
 import gradient from 'chartjs-plugin-gradient';
-import { 
-  CategoryScale, 
-  Chart, 
-  Filler, 
-  Legend, 
-  LinearScale, 
-  LineElement, 
-  PointElement, 
-  ScriptableContext, 
-  TimeScale, 
-  Title, 
+import {
+  CategoryScale,
+  Chart,
+  Filler,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
+  ScriptableContext,
+  TimeScale,
+  Title,
   Tooltip
 } from 'chart.js';
 import Annotation from 'chartjs-plugin-annotation';
 import Zoom from 'chartjs-plugin-zoom';
-import { Button } from 'react-bootstrap';
 import { DateTime } from 'luxon';
 import 'chartjs-adapter-luxon';
 import { ReactComponent as ExpandIcon } from '../../../assets/icons/refracto/arrow_right_alt.svg';
+import DateRangePicker from '../../../components/DateRangePicker';
 
 const GeneralStatisticsGraph = () => {
   const chartRef = React.useRef<any>(null);
@@ -46,6 +46,14 @@ const GeneralStatisticsGraph = () => {
     chartRef?.current.zoomScale('x', { min: oneMonthAgo, max: now }, 'normal');
   };
 
+  const onDatePick = (startDate: DateTime, endDate: DateTime) => {
+    chartRef?.current.zoomScale(
+      'x',
+      { min: startDate, max: endDate },
+      'normal'
+    );
+  };
+
   const resetZoom = () => {
     chartRef?.current.resetZoom();
   };
@@ -56,8 +64,8 @@ const GeneralStatisticsGraph = () => {
   const graphDataInvested: any[] = [];
   const graphEvents: any[] = [];
 
-  React.useEffect(() => {
-    dashboardGraph.forEach((el) => {
+  const mapDashboardData = async (dashboardData: any[]) => {
+    dashboardData.forEach((el) => {
       const date = DateTime.fromISO(el.date);
       graphDates.push(date);
       graphDataAvailable.push(el.availableBalance);
@@ -75,8 +83,11 @@ const GeneralStatisticsGraph = () => {
         });
         eventTooltips[date.toUnixInteger()] = annotationForEvent.label;
       }
-      resetZoom();
     });
+  };
+
+  React.useEffect(() => {
+    mapDashboardData(dashboardGraph).then(() => resetZoom());
   }, []);
 
   const getAnnotationForEvent = (el: {
@@ -264,7 +275,7 @@ const GeneralStatisticsGraph = () => {
           <h3>General Overview Statistics</h3>
           <div>
             <button
-              className='btn btn-outline-primary mr-2'
+              className='btn btn-outline-primary mr-2 active'
               onClick={resetZoom}
             >
               Reset
@@ -282,18 +293,24 @@ const GeneralStatisticsGraph = () => {
               Last Quarter
             </button>
             <button
-              className='btn btn-outline-primary'
+              className='btn btn-outline-primary mr-2'
               onClick={handleOneMonthFilter}
             >
               Last Month
             </button>
+            <DateRangePicker onChange={onDatePick}></DateRangePicker>
           </div>
         </div>
         <div
           className='card-body d-flex justify-content-center'
           style={{ maxHeight: '70%' }}
         >
-          <Line options={options} data={data()} ref={chartRef} style={{ maxHeight: '100%' }}></Line>
+          <Line
+            options={options}
+            data={data()}
+            ref={chartRef}
+            style={{ maxHeight: '100%' }}
+          ></Line>
         </div>
         <div
           className='card-footer d-flex justify-content-end'
