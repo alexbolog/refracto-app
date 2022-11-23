@@ -18,10 +18,10 @@ import {
 } from 'chart.js';
 import Annotation from 'chartjs-plugin-annotation';
 import Zoom from 'chartjs-plugin-zoom';
-import { Button } from 'react-bootstrap';
 import { DateTime } from 'luxon';
 import 'chartjs-adapter-luxon';
 import { ReactComponent as ExpandIcon } from '../../../assets/icons/refracto/arrow_right_alt.svg';
+import DateRangePicker from '../../../components/DateRangePicker';
 
 const GeneralStatisticsGraph = () => {
   const chartRef = React.useRef<any>(null);
@@ -44,6 +44,14 @@ const GeneralStatisticsGraph = () => {
     const now = DateTime.now();
     const oneMonthAgo = now.minus({ months: 1 });
     chartRef?.current.zoomScale('x', { min: oneMonthAgo, max: now }, 'normal');
+  };
+
+  const onDatePick = (startDate: DateTime, endDate: DateTime) => {
+    chartRef?.current.zoomScale(
+      'x',
+      { min: startDate, max: endDate },
+      'normal'
+    );
   };
 
   const resetZoom = () => {
@@ -267,7 +275,7 @@ const GeneralStatisticsGraph = () => {
           <h3>General Overview Statistics</h3>
           <div>
             <button
-              className='btn btn-outline-primary mr-2'
+              className='btn btn-outline-primary mr-2 active'
               onClick={resetZoom}
             >
               Reset
@@ -285,11 +293,12 @@ const GeneralStatisticsGraph = () => {
               Last Quarter
             </button>
             <button
-              className='btn btn-outline-primary'
+              className='btn btn-outline-primary mr-2'
               onClick={handleOneMonthFilter}
             >
               Last Month
             </button>
+            <DateRangePicker onChange={onDatePick}></DateRangePicker>
           </div>
         </div>
         <div
