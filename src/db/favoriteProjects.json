@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "projectName": "Bulevardul Timisoarei,  128A Bucharest",
+    "return": "45%",
+    "deadline": "89 days",
+    "imageSource": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "id": 2,
+    "projectName": "Bulevardul Timisoarei,  128A Bucharest",
+    "return": "45%",
+    "deadline": "89 days",
+    "imageSource": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+  },
+  {
+    "id": 3,
+    "projectName": "Bulevardul Timisoarei,  128A Bucharest",
+    "return": "45%",
+    "deadline": "89 days",
+    "imageSource": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+  }
+]
