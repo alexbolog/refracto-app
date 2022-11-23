@@ -68,6 +68,9 @@ const DateRangePicker = ({
       customInput={renderInput()}
       dateFormat={'dd MMM yyyy'}
       onChange={onDatePick}
+      showMonthDropdown
+      showYearDropdown
+      dropdownMode='select'
       startDate={firstDate}
       endDate={secondDate}
       selectsRange={true}
