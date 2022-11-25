@@ -24,6 +24,21 @@ import { ReactComponent as ExpandIcon } from '../../../assets/icons/refracto/arr
 import DateRangePicker from '../../../components/DateRangePicker';
 
 const GeneralStatisticsGraph = () => {
+  Chart.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+    Filler,
+    gradient,
+    Annotation,
+    Zoom,
+    TimeScale
+  );
+
   const chartRef = React.useRef<any>(null);
 
   const handleOneYearFilter = () => {
@@ -135,21 +150,6 @@ const GeneralStatisticsGraph = () => {
       }
     }
   };
-
-  Chart.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-    Filler,
-    gradient,
-    Annotation,
-    Zoom,
-    TimeScale
-  );
 
   const options = {
     responsive: true,

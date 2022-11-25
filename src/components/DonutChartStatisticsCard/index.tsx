@@ -4,6 +4,8 @@ import { Doughnut } from 'react-chartjs-2';
 import { ReactComponent as ExpandIcon } from '../../assets/icons/refracto/arrow_right_alt.svg';
 import projectList from '../../db/projectListV2.json';
 
+import './style.scss';
+
 const DonutChartStatisticsCard = () => {
   Chart.register(ArcElement);
   const hexToRgb = (hex: string) => {
@@ -36,22 +38,36 @@ const DonutChartStatisticsCard = () => {
   const chartOptions = {
     plugins: {
       title: {
-        display: true,
+        display: false,
         text: 'Test title',
         align: 'start' as const
       },
       legend: {
+        display: false,
         position: 'bottom' as const
       }
-    }
+    },
+    cutout: '80%',
+    radius: '100%',
+    responsive: true
   };
 
   return (
     <div className='card'>
       <div className='card-body row'>
-        <div className='col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center'>
+        <h3>
+          <strong>Proportion of Investments</strong>
+        </h3>
+        <div className='donut-container d-flex justify-content-center'>
           <Doughnut data={chartData} options={chartOptions} />
+          <div className='donut-hole-text'>
+            <label>Total Investment</label>
+            <label className='fat-number'>€789,096</label>
+          </div>
         </div>
+        <h4>
+          <strong>Projects</strong>
+        </h4>
       </div>
       <div
         className='card-footer d-flex justify-content-end'
