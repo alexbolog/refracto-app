@@ -2,7 +2,7 @@ import Account from 'pages/Account';
 import Marketplace from 'pages/Marketplace';
 import Projects from 'pages/Projects';
 import withPageTitle from './components/PageTitle';
-import Dashboard from './pages/Dashboard';
+import Overview from './pages/Overview';
 import Transaction from './pages/Transaction';
 import Portfolio from './pages/Portfolio';
 import Reports from 'pages/Reports';
@@ -42,7 +42,7 @@ const routes: Array<any> = [
   {
     path: routeNames.dashboard,
     title: 'Overview',
-    component: Dashboard,
+    component: Overview,
     authenticatedRoute: true,
     displayInNavbar: true,
     icon: OverviewIcon

@@ -9,10 +9,10 @@ import ActiveInvestmentsStatistics from './ActiveInvestmentsStatistics';
 import DoughnutChartRow from './DoughnutChartRow';
 import GeneralInvestmentStatistics from './GeneralInvestmentStatistics';
 import GeneralStatisticsGraph from './GeneralStatisticsGraph';
-import FavoriteProjectsList from './../../db/favoriteProjects.json';
-import SuggestedProjectsList from './../../db/suggestedProjects.json';
+import FavoriteProjectsList from '../../db/favoriteProjects.json';
+import SuggestedProjectsList from '../../db/suggestedProjects.json';
 
-const Dashboard = () => {
+const Overview = () => {
   const [hasClaimableCredits, setHasClaimableCredits] = React.useState(true);
 
   const isLastUrlSegmentEqualTo = (urlSegment: string) => {
@@ -99,4 +99,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Overview;
