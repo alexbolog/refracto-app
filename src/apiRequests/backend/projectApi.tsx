@@ -14,7 +14,7 @@ export const getAvailableProjects = (): ProjectListItem[] => {
 
 export const getProjectInfo = (projectId: string): ProjectPageDetails => {
   return projectInfo.filter(
-    (pi) => pi.ProjectId === projectId
+    (pi) => pi.projectId === projectId
   )[0] as any as ProjectPageDetails;
 };
 
@@ -22,6 +22,6 @@ export const getFullProjectInfo = (
   projectId: string
 ): FullProjectPageDetails => {
   return fullProjectInfo.filter(
-    (pi) => pi.ProjectId === projectId
+    (pi) => pi.projectId === projectId
   )[0] as any as FullProjectPageDetails;
 };
