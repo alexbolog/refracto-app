@@ -1,289 +1,301 @@
 {
-  "AvailableBalance": 1920794659.57092691805977,
-  "AccountValue": 1859491826.71342098322408,
-  "Committedfunds": 1333582234.580242852524274,
-  "ActiveInvestments": {
-    "TotalInvested": 732616347.99208292973934,
-    "ReturnedToDate": 1134354618.68549287432213,
-    "LifetimeReturn": 2098653742.323656506272239,
-    "ExpectedTotalReturn": 306218533.461265652470966,
-    "ExpectedTotalProfit": 1086555024.819355665671577,
-    "AverageExpectedReturn": 1428231119.50048006301982
+  "availableBalance": 1086464796.172951921934588,
+  "accountValue": 1808527003.701087216164756,
+  "committedfunds": 288938834.334731221624836,
+  "activeInvestments": {
+    "totalInvested": 2019751282.0922178746746299,
+    "returnedToDate": 879718634.599362321227864,
+    "lifetimeReturn": 1779176291.849669332568281,
+    "expectedTotalReturn": 950802718.0995712460561458,
+    "expectedTotalProfit": 1356509461.568995132214047,
+    "averageExpectedReturn": 355699210.61342002556994
   },
-  "FavoriteProjects": [
+  "favoriteProjects": [
     {
-      "ProjectId": "f7c9e77f-1901-4cec-bd29-6c244427db83",
-      "ReturnPercentage": 0.692747176483592,
-      "CrowdfundingDeadline": "2026-08-22T00:00:00",
-      "ThumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "projectId": "eb58491d-45e2-421f-ab13-8bb069091984",
+      "returnPercentage": 0.601474336054969,
+      "crowdfundingDeadline": "2024-03-23T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
-      "ProjectId": "64560e12-3e5a-42ae-b199-d1f963a7a70f",
-      "ReturnPercentage": 0.197060118104858,
-      "CrowdfundingDeadline": "2029-09-06T00:00:00",
-      "ThumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+      "projectId": "2ab7c18e-4c57-4d49-9d5d-44662622d0bc",
+      "returnPercentage": 0.0228807905359251,
+      "crowdfundingDeadline": "2027-09-14T00:00:00",
+      "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     },
     {
-      "ProjectId": "af7d4ea3-dbd1-4af4-bf30-e48f4f477b0e",
-      "ReturnPercentage": 0.872783474630689,
-      "CrowdfundingDeadline": "2024-07-03T00:00:00",
-      "ThumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "projectId": "71404cf5-b213-4174-9062-077bde738a9f",
+      "returnPercentage": 0.676592947248204,
+      "crowdfundingDeadline": "2028-10-08T00:00:00",
+      "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
     },
     {
-      "ProjectId": "8b0ede0d-4a05-4f30-a2aa-a173f9de3e84",
-      "ReturnPercentage": 0.347874979235523,
-      "CrowdfundingDeadline": "2030-07-01T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "projectId": "5fcebbb8-f190-4f1f-9f89-aebbd9f7b2ff",
+      "returnPercentage": 0.800834036125167,
+      "crowdfundingDeadline": "2026-06-22T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
-      "ProjectId": "7d6381ea-05b2-479c-9485-cfadd891daf8",
-      "ReturnPercentage": 0.554760385063887,
-      "CrowdfundingDeadline": "2027-04-03T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "projectId": "de3dd473-9369-4c8b-aa1a-b0485e1d35a0",
+      "returnPercentage": 0.44039674740628,
+      "crowdfundingDeadline": "2028-05-11T00:00:00",
+      "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     },
     {
-      "ProjectId": "b6a7693e-8ddc-4b90-9d57-c3dc805fd849",
-      "ReturnPercentage": 0.651710227934781,
-      "CrowdfundingDeadline": "2028-10-09T00:00:00",
-      "ThumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "projectId": "e6662771-bb93-4817-84df-5f567458055f",
+      "returnPercentage": 0.903928784477519,
+      "crowdfundingDeadline": "2023-03-20T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
-      "ProjectId": "ab212384-ae8b-4f1c-aea1-ce38c8dad546",
-      "ReturnPercentage": 0.472099244601525,
-      "CrowdfundingDeadline": "2025-01-16T00:00:00",
-      "ThumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+      "projectId": "a8ec39cf-db5d-4307-816b-59a6a901aab8",
+      "returnPercentage": 0.66808868226975,
+      "crowdfundingDeadline": "2027-08-11T00:00:00",
+      "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     },
     {
-      "ProjectId": "7e227d7d-86fb-4b86-9da7-5666d79b9ff5",
-      "ReturnPercentage": 0.650330384178773,
-      "CrowdfundingDeadline": "2028-09-09T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "projectId": "85004169-f52e-48f1-aed1-3207fedf3104",
+      "returnPercentage": 0.220769370066635,
+      "crowdfundingDeadline": "2030-07-15T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
-      "ProjectId": "850a1543-b6fa-4eb7-98fa-946b6e9686ae",
-      "ReturnPercentage": 0.268322619975122,
-      "CrowdfundingDeadline": "2024-04-19T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "projectId": "6185d785-da9e-4d52-85f4-38a5c0778a8c",
+      "returnPercentage": 0.210000834904296,
+      "crowdfundingDeadline": "2023-10-06T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
-      "ProjectId": "0480179c-1028-4096-9572-24784c7269ff",
-      "ReturnPercentage": 0.511801815740441,
-      "CrowdfundingDeadline": "2023-11-01T00:00:00",
-      "ThumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+      "projectId": "f5bd7e96-7020-4ecf-8d2f-57d5b6564c75",
+      "returnPercentage": 0.620449764771775,
+      "crowdfundingDeadline": "2026-09-05T00:00:00",
+      "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
     },
     {
-      "ProjectId": "cfd2fb15-492d-4bca-bfc2-aea49313ef18",
-      "ReturnPercentage": 0.708786271877203,
-      "CrowdfundingDeadline": "2023-04-02T00:00:00",
-      "ThumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "projectId": "65898397-0b73-456c-808c-08e6ac915c9d",
+      "returnPercentage": 0.420129540034385,
+      "crowdfundingDeadline": "2025-05-01T00:00:00",
+      "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
     },
     {
-      "ProjectId": "723ab2da-86e1-43a0-b65f-a1162552f216",
-      "ReturnPercentage": 0.156613878469297,
-      "CrowdfundingDeadline": "2029-03-19T00:00:00",
-      "ThumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "projectId": "2838b0f3-c0a5-474e-9617-f8f9cf58cb33",
+      "returnPercentage": 0.952788980078194,
+      "crowdfundingDeadline": "2029-03-07T00:00:00",
+      "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
     },
     {
-      "ProjectId": "0d2d947a-b043-45fb-b6d6-27f139255cc0",
-      "ReturnPercentage": 0.921716118938292,
-      "CrowdfundingDeadline": "2027-03-23T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "projectId": "328b01d7-fe39-4d55-89d1-3e70734d19df",
+      "returnPercentage": 0.917946726374732,
+      "crowdfundingDeadline": "2024-03-20T00:00:00",
+      "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     },
     {
-      "ProjectId": "8fd95327-5caf-46c1-89ab-b6d702d0a7b9",
-      "ReturnPercentage": 0.754862576956549,
-      "CrowdfundingDeadline": "2024-01-11T00:00:00",
-      "ThumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+      "projectId": "8003f75d-45e1-47ac-9809-30f230fb7a4f",
+      "returnPercentage": 0.318155065613388,
+      "crowdfundingDeadline": "2030-07-25T00:00:00",
+      "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+    },
+    {
+      "projectId": "2114f084-7408-4415-8363-40de267794e1",
+      "returnPercentage": 0.803732885836143,
+      "crowdfundingDeadline": "2030-06-11T00:00:00",
+      "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+    },
+    {
+      "projectId": "0707556c-61c1-4e3a-93be-1a46d895fac0",
+      "returnPercentage": 0.340357835561874,
+      "crowdfundingDeadline": "2026-09-10T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     }
   ],
-  "SuggestedProjects": [
+  "suggestedProjects": [
     {
-      "IsFavorite": false,
-      "ProjectId": "bdcbe4df-dc53-46ad-808c-fb7ac72cf9e0",
-      "ReturnPercentage": 0.248846510818984,
-      "CrowdfundingDeadline": "2028-11-25T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "isFavorite": false,
+      "projectId": "8a46455b-147d-45e0-9e3c-53fa5f70fe3b",
+      "returnPercentage": 0.179601622668296,
+      "crowdfundingDeadline": "2026-05-05T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
-      "IsFavorite": false,
-      "ProjectId": "7b630dc6-6216-4f2a-a8d0-0f078ea252c0",
-      "ReturnPercentage": 0.782207561849412,
-      "CrowdfundingDeadline": "2030-08-25T00:00:00",
-      "ThumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "isFavorite": false,
+      "projectId": "a3f801e1-cfd8-4e83-a3e6-51c21c0cd1f6",
+      "returnPercentage": 0.440651957741621,
+      "crowdfundingDeadline": "2030-06-05T00:00:00",
+      "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     },
     {
-      "IsFavorite": false,
-      "ProjectId": "9d87d44d-6d55-46e0-9fa9-c93ee6e9f7ce",
-      "ReturnPercentage": 0.509466429893484,
-      "CrowdfundingDeadline": "2023-01-19T00:00:00",
-      "ThumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "isFavorite": false,
+      "projectId": "c9facedd-1255-4115-83ab-4df851a3d706",
+      "returnPercentage": 0.355640635440475,
+      "crowdfundingDeadline": "2025-09-22T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
-      "IsFavorite": false,
-      "ProjectId": "d69533fe-7d6c-484c-900c-b9184e0dfb24",
-      "ReturnPercentage": 0.205500262081689,
-      "CrowdfundingDeadline": "2024-09-26T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "isFavorite": false,
+      "projectId": "9938dcfa-c9b2-4412-b84d-df27eb7b799e",
+      "returnPercentage": 0.620161834931035,
+      "crowdfundingDeadline": "2028-07-16T00:00:00",
+      "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     },
     {
-      "IsFavorite": false,
-      "ProjectId": "6189cb12-4e83-4346-91ed-ae6762544d49",
-      "ReturnPercentage": 0.301914422104188,
-      "CrowdfundingDeadline": "2026-10-10T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "isFavorite": true,
+      "projectId": "0707556c-61c1-4e3a-93be-1a46d895fac0",
+      "returnPercentage": 0.340357835561874,
+      "crowdfundingDeadline": "2026-09-10T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
-      "IsFavorite": false,
-      "ProjectId": "9729de05-e4c2-4805-9a02-5caee6203a34",
-      "ReturnPercentage": 0.743962500218213,
-      "CrowdfundingDeadline": "2029-09-07T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "isFavorite": false,
+      "projectId": "3354a593-e29e-493a-a14d-1420eaa7feb6",
+      "returnPercentage": 0.335476191107947,
+      "crowdfundingDeadline": "2024-10-07T00:00:00",
+      "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
     },
     {
-      "IsFavorite": false,
-      "ProjectId": "53990e4e-652b-4b58-9b84-6d77d74a952c",
-      "ReturnPercentage": 0.630011601603602,
-      "CrowdfundingDeadline": "2025-09-08T00:00:00",
-      "ThumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "isFavorite": false,
+      "projectId": "32b1e38b-19eb-4647-ac03-968628e80fbc",
+      "returnPercentage": 0.5563473886487,
+      "crowdfundingDeadline": "2024-11-17T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
-      "IsFavorite": false,
-      "ProjectId": "a57bf005-054c-4959-b11d-aa1d38a5bba8",
-      "ReturnPercentage": 0.107787038903223,
-      "CrowdfundingDeadline": "2026-06-08T00:00:00",
-      "ThumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+      "isFavorite": true,
+      "projectId": "8003f75d-45e1-47ac-9809-30f230fb7a4f",
+      "returnPercentage": 0.318155065613388,
+      "crowdfundingDeadline": "2030-07-25T00:00:00",
+      "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     },
     {
-      "IsFavorite": true,
-      "ProjectId": "f7c9e77f-1901-4cec-bd29-6c244427db83",
-      "ReturnPercentage": 0.692747176483592,
-      "CrowdfundingDeadline": "2026-08-22T00:00:00",
-      "ThumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "isFavorite": false,
+      "projectId": "61b4c5e8-4c86-4a0f-9f83-a18bf73ee02e",
+      "returnPercentage": 0.584271571136555,
+      "crowdfundingDeadline": "2025-07-08T00:00:00",
+      "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
     },
     {
-      "IsFavorite": true,
-      "ProjectId": "7d6381ea-05b2-479c-9485-cfadd891daf8",
-      "ReturnPercentage": 0.554760385063887,
-      "CrowdfundingDeadline": "2027-04-03T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "isFavorite": false,
+      "projectId": "9bb755c4-a6c1-46f7-aa02-dbb3597838c8",
+      "returnPercentage": 0.203367113264841,
+      "crowdfundingDeadline": "2024-02-24T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
-      "IsFavorite": false,
-      "ProjectId": "27682705-2e4c-4a12-85f6-73d2d2d45a0c",
-      "ReturnPercentage": 0.969337624514776,
-      "CrowdfundingDeadline": "2027-02-24T00:00:00",
-      "ThumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "isFavorite": false,
+      "projectId": "8190f899-0ca3-4867-b7bd-03572c65b415",
+      "returnPercentage": 0.697343717019526,
+      "crowdfundingDeadline": "2023-07-14T00:00:00",
+      "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
     },
     {
-      "IsFavorite": false,
-      "ProjectId": "de3802ce-8743-4b71-8b7b-ddb1822b9947",
-      "ReturnPercentage": 0.215287630163069,
-      "CrowdfundingDeadline": "2026-09-18T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "isFavorite": false,
+      "projectId": "92250197-e7c3-4fa2-8660-b13c18aad05c",
+      "returnPercentage": 0.808448564444831,
+      "crowdfundingDeadline": "2027-10-10T00:00:00",
+      "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
     },
     {
-      "IsFavorite": false,
-      "ProjectId": "89a10695-0e0b-43a7-87fa-177614be0cc6",
-      "ReturnPercentage": 0.309113894344211,
-      "CrowdfundingDeadline": "2030-07-17T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "isFavorite": false,
+      "projectId": "fcb68979-372f-4226-91e0-e1c199c1959b",
+      "returnPercentage": 0.953551581745032,
+      "crowdfundingDeadline": "2025-05-13T00:00:00",
+      "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     },
     {
-      "IsFavorite": false,
-      "ProjectId": "7cbaf1ad-f74f-4e46-a348-f49b612aad96",
-      "ReturnPercentage": 0.670799493705946,
-      "CrowdfundingDeadline": "2024-04-23T00:00:00",
-      "ThumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg"
+      "isFavorite": false,
+      "projectId": "2aaeba91-33e6-4c66-91a2-745e29e199ea",
+      "returnPercentage": 0.904383790887782,
+      "crowdfundingDeadline": "2025-06-27T00:00:00",
+      "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     },
     {
-      "IsFavorite": true,
-      "ProjectId": "b6a7693e-8ddc-4b90-9d57-c3dc805fd849",
-      "ReturnPercentage": 0.651710227934781,
-      "CrowdfundingDeadline": "2028-10-09T00:00:00",
-      "ThumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "isFavorite": false,
+      "projectId": "fc66cac1-f16a-4a7f-87ac-2d290ce9b501",
+      "returnPercentage": 0.0627747338556984,
+      "crowdfundingDeadline": "2025-02-24T00:00:00",
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     }
   ],
-  "Payments": [
+  "payments": [
     {
-      "ProjectId": "7d6381ea-05b2-479c-9485-cfadd891daf8",
-      "ProjectRepaymentId": "733fbccb-66d2-4f5b-abd6-14122342a9a4",
-      "Date": "2023-11-13T00:00:00",
-      "ProjectTitle": "Generated Project #8",
-      "PaymentStatus": 0,
-      "PaymentAmount": 75373338.0829393078987608,
-      "TxHash": null
+      "projectId": "45dcd6ec-5bc2-4eb3-b973-06fcfe7a3f4f",
+      "projectRepaymentId": "1b5489d4-1ee5-4410-88b7-ac926236d6d9",
+      "date": "2023-11-13T00:00:00",
+      "projectTitle": "Generated Project #0",
+      "paymentStatus": 0,
+      "paymentAmount": 1431172476.576854412154116,
+      "txHash": null
     },
     {
-      "ProjectId": "7b630dc6-6216-4f2a-a8d0-0f078ea252c0",
-      "ProjectRepaymentId": "9d1c5321-554c-45de-ba09-43e49b0245b4",
-      "Date": "2023-11-13T00:00:00",
-      "ProjectTitle": "Generated Project #25",
-      "PaymentStatus": 0,
-      "PaymentAmount": 605677613.388809962668701,
-      "TxHash": null
+      "projectId": "9585711b-f2ce-484e-b118-d3638739e46b",
+      "projectRepaymentId": "9a9e4018-34e3-4ddb-8b17-106a5015c984",
+      "date": "2023-11-13T00:00:00",
+      "projectTitle": "Generated Project #13",
+      "paymentStatus": 0,
+      "paymentAmount": 1848254203.289854822415675,
+      "txHash": null
     },
     {
-      "ProjectId": "61f4286b-a862-4a3e-aecc-7f905d29fc51",
-      "ProjectRepaymentId": "64175cc9-95f7-4710-8caa-e72c501e5353",
-      "Date": "2023-11-13T00:00:00",
-      "ProjectTitle": "Generated Project #12",
-      "PaymentStatus": 0,
-      "PaymentAmount": 999522519.445759514533437,
-      "TxHash": null
+      "projectId": "32b1e38b-19eb-4647-ac03-968628e80fbc",
+      "projectRepaymentId": "aba53748-ce2f-4b3c-9ef3-5b81eefd683e",
+      "date": "2023-11-13T00:00:00",
+      "projectTitle": "Generated Project #7",
+      "paymentStatus": 0,
+      "paymentAmount": 1225540611.304612895235659,
+      "txHash": null
     },
     {
-      "ProjectId": "7cbaf1ad-f74f-4e46-a348-f49b612aad96",
-      "ProjectRepaymentId": "df48bd00-c7d9-496c-94ec-bf0cc90049ef",
-      "Date": "2023-11-13T00:00:00",
-      "ProjectTitle": "Generated Project #16",
-      "PaymentStatus": 1,
-      "PaymentAmount": 143109008.155996646627087,
-      "TxHash": "7HSWMSI1THJGXDNQ5NPIKE8WU5IQCG2 270LO0HTVTXWX867UQ6JWHHBB1KO8D4B"
+      "projectId": "e6662771-bb93-4817-84df-5f567458055f",
+      "projectRepaymentId": "27197c56-4284-4f9b-94e5-3ad7e825bf55",
+      "date": "2023-11-13T00:00:00",
+      "projectTitle": "Generated Project #23",
+      "paymentStatus": 1,
+      "paymentAmount": 1360770630.996922937766274,
+      "txHash": "BYV0NBKAIH9ALLHXBXPLCGSFXOVIPX7CHI7MY 1UP2UBJD8XQVG4ZE QQ5QZDZ0G"
     },
     {
-      "ProjectId": "89a10695-0e0b-43a7-87fa-177614be0cc6",
-      "ProjectRepaymentId": "5c7328b0-63cf-483b-9ce5-47b8a5e7f1e7",
-      "Date": "2023-11-13T00:00:00",
-      "ProjectTitle": "Generated Project #33",
-      "PaymentStatus": 1,
-      "PaymentAmount": 657221815.10200099442608,
-      "TxHash": "NGN1WELKUJM041GQQVHVT N50P62FV0Z2HM49LK9 HK1ZLHKHM1PCIDWMQXD716Q"
+      "projectId": "71404cf5-b213-4174-9062-077bde738a9f",
+      "projectRepaymentId": "cf072fc0-9b6a-463c-99e8-4af6b79423ec",
+      "date": "2023-11-13T00:00:00",
+      "projectTitle": "Generated Project #19",
+      "paymentStatus": 1,
+      "paymentAmount": 1466170110.115473524112435,
+      "txHash": "BQCGENL1YL5KT135FK5VBPRJ3IDNHYQS6TF2P81QN8HRN7QJ9VT2E5E8X7VRU02Y"
     },
     {
-      "ProjectId": "77fa2947-b7ef-4e2a-9209-48f027319c99",
-      "ProjectRepaymentId": "016a991c-e58c-4a7e-a3d0-12b57faff498",
-      "Date": "2023-11-13T00:00:00",
-      "ProjectTitle": "Generated Project #47",
-      "PaymentStatus": 1,
-      "PaymentAmount": 866336020.870090410243743,
-      "TxHash": "H6K9FC55MPP3 T60YVTCBES0AOV870O9GKRP6R2QNJBI HQTA6LGM9 ZR07UGZFD"
+      "projectId": "a8ec39cf-db5d-4307-816b-59a6a901aab8",
+      "projectRepaymentId": "15963af6-2080-4a50-83ef-e0d2b50705c1",
+      "date": "2023-11-13T00:00:00",
+      "projectTitle": "Generated Project #49",
+      "paymentStatus": 1,
+      "paymentAmount": 1778278205.605059548358153,
+      "txHash": "L1S7EO4F90JMT31NEBK2HG0VJD S58HMF7PA7KWLNSNVFW9GVTDWGQY54  UZNQM"
     },
     {
-      "ProjectId": "53990e4e-652b-4b58-9b84-6d77d74a952c",
-      "ProjectRepaymentId": "2aaaa5bc-6a51-41b4-8c86-50b25653df49",
-      "Date": "2023-11-13T00:00:00",
-      "ProjectTitle": "Generated Project #31",
-      "PaymentStatus": 2,
-      "PaymentAmount": 854374212.749651071762418,
-      "TxHash": null
+      "projectId": "5fcebbb8-f190-4f1f-9f89-aebbd9f7b2ff",
+      "projectRepaymentId": "c40d7dd7-ed62-4881-940d-44b87c9b9b0b",
+      "date": "2023-11-13T00:00:00",
+      "projectTitle": "Generated Project #2",
+      "paymentStatus": 2,
+      "paymentAmount": 224677692.318260613566276,
+      "txHash": null
     },
     {
-      "ProjectId": "61f4286b-a862-4a3e-aecc-7f905d29fc51",
-      "ProjectRepaymentId": "a9ab3501-797c-4f78-b520-239cbe1c208f",
-      "Date": "2023-11-13T00:00:00",
-      "ProjectTitle": "Generated Project #12",
-      "PaymentStatus": 2,
-      "PaymentAmount": 1399192700.686636207737872,
-      "TxHash": null
+      "projectId": "fa4ff744-1104-4b02-8757-544f79c82fa9",
+      "projectRepaymentId": "b135189e-afcb-4260-8f82-4f0d20f39bf2",
+      "date": "2023-11-13T00:00:00",
+      "projectTitle": "Generated Project #44",
+      "paymentStatus": 2,
+      "paymentAmount": 25590940.689044483688143,
+      "txHash": null
     },
     {
-      "ProjectId": "cfd2fb15-492d-4bca-bfc2-aea49313ef18",
-      "ProjectRepaymentId": "1bcf5c0d-9e33-47d0-abd5-223d52d5495f",
-      "Date": "2023-11-13T00:00:00",
-      "ProjectTitle": "Generated Project #7",
-      "PaymentStatus": 2,
-      "PaymentAmount": 490308667.783006107448251,
-      "TxHash": null
+      "projectId": "2838b0f3-c0a5-474e-9617-f8f9cf58cb33",
+      "projectRepaymentId": "8d4b0dda-1239-4dae-a882-a9a450fc9467",
+      "date": "2023-11-13T00:00:00",
+      "projectTitle": "Generated Project #15",
+      "paymentStatus": 2,
+      "paymentAmount": 1281150263.365782057350704,
+      "txHash": null
     }
   ]
 }
