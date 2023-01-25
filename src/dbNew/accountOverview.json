@@ -5,10 +5,10 @@
   "activeInvestments": {
     "totalInvested": 2019751282.0922178746746299,
     "returnedToDate": 879718634.599362321227864,
-    "lifetimeReturn": 1779176291.849669332568281,
+    "lifetimeReturn": 0.2341231241243123125412,
     "expectedTotalReturn": 950802718.0995712460561458,
     "expectedTotalProfit": 1356509461.568995132214047,
-    "averageExpectedReturn": 355699210.61342002556994
+    "averageExpectedReturn": 0.4871263718243123125412
   },
   "favoriteProjects": [
     {

@@ -1,28 +1,40 @@
 import SimpleCardWidget from 'components/CardWidgets/SimpleCardWidget';
+import { toLocaleStringOptions } from 'config';
+import { GeneralContext } from 'contexts/GeneralContext';
 import React from 'react';
 
 const GeneralInvestmentStatistics = () => {
+  const { accountOverview } = React.useContext(GeneralContext);
   return (
     <>
       <div className='col-lg-4 col-md-12 col-sm-12'>
         <SimpleCardWidget
-          title={'Total Invested'}
-          content={'€5,789,560'}
-          infoMessage={'Total invested tooltip message'}
+          title={'Available Balance'}
+          content={`€${(accountOverview?.availableBalance ?? 0).toLocaleString(
+            undefined,
+            toLocaleStringOptions
+          )}`}
+          infoMessage={'available balance tooltip message'}
         />
       </div>
       <div className='col-lg-4 col-md-12 col-sm-12'>
         <SimpleCardWidget
-          title={'Returned to Date'}
-          content={'€5,789,560'}
-          infoMessage={'Returned to date tooltip message'}
+          title={'Account Value'}
+          content={`€${(accountOverview?.accountValue ?? 0).toLocaleString(
+            undefined,
+            toLocaleStringOptions
+          )}`}
+          infoMessage={'Acc value tooltip message'}
         />
       </div>
       <div className='col-lg-4 col-md-12 col-sm-12'>
         <SimpleCardWidget
-          title={'Liftetime Return of Investment'}
-          content={'40.27%'}
-          infoMessage={'lifetime return tooltip message'}
+          title={'Committed Funds'}
+          content={`€${(accountOverview?.committedfunds ?? 0).toLocaleString(
+            undefined,
+            toLocaleStringOptions
+          )}`}
+          infoMessage={'Committed funds tooltip message'}
         />
       </div>
     </>

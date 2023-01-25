@@ -4,7 +4,7 @@ export interface AccountOverview {
   availableBalance: number;
   accountValue: number;
   committedfunds: number;
-  activeInvestments: ActiveInvestmentsStatistics;
+  activeInvestments?: ActiveInvestmentsStatistics;
   favoriteProjects: FavoriteProject[];
   suggestedProjects: SuggestedProject[];
   payments: Payment[];
