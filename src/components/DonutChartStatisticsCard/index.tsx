@@ -1,10 +1,10 @@
 import React from 'react';
 import { ArcElement, Chart } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import { ReactComponent as ExpandIcon } from '../../assets/icons/refracto/arrow_right_alt.svg';
 import projectList from '../../db/projectListV2.json';
 
 import './style.scss';
+import ExpandFooter from '../ExpandFooter';
 
 const DonutChartStatisticsCard = () => {
   Chart.register(ArcElement);
@@ -96,17 +96,7 @@ const DonutChartStatisticsCard = () => {
           })}
         </div>
       </div>
-      <div
-        className='card-footer d-flex justify-content-end'
-        style={{ padding: '0', borderTop: '0' }}
-      >
-        <p
-          className='text-primary'
-          style={{ padding: '15px', marginRight: '10px', cursor: 'pointer' }}
-        >
-          Expand <ExpandIcon />
-        </p>
-      </div>
+      <ExpandFooter />
     </div>
   );
 };
