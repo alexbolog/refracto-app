@@ -66,36 +66,39 @@ const DonutChartStatisticsCard = () => {
         </div>
         <h4>
           <strong>Projects (Mock Data)</strong>
-          <div className='projects-list container'>
-            {chartData.labels.map((label, idx) => {
-              const color = chartData.datasets[0].backgroundColor[idx];
-              const roi = '123%';
-              const invested = '€12345';
-              return (
-                <div className='row' key={idx}>
-                  <div
-                    className='p-0 col-1 mt-auto mb-auto'
-                    style={{
-                      backgroundColor: color,
-                      width: '16px',
-                      height: '16px',
-                      borderRadius: '4px'
-                    }}
-                  ></div>
-                  <div className='col-6'>{label}</div>
-                  <div className='col'>{roi}</div>
-                  <div className='col' style={{ fontWeight: '600' }}>
-                    {invested}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </h4>
+        <div className='projects-list container ml-3 mt-2'>
+          {chartData.labels.map((label, idx) => {
+            const color = chartData.datasets[0].backgroundColor[idx];
+            const roi = '123%';
+            const invested = '€12345';
+            return (
+              <div className='row' key={idx}>
+                <div
+                  className='p-0 col-1 mt-auto mb-auto'
+                  style={{
+                    backgroundColor: color,
+                    width: '16px',
+                    height: '16px',
+                    borderRadius: '4px'
+                  }}
+                ></div>
+                <div className='col-6'>{label}</div>
+                <div className='col'>{roi}</div>
+                <div
+                  className='col text-blugray-4'
+                  style={{ fontWeight: '600' }}
+                >
+                  {invested}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div
         className='card-footer d-flex justify-content-end'
-        style={{ padding: '0' }}
+        style={{ padding: '0', borderTop: '0' }}
       >
         <p
           className='text-primary'
