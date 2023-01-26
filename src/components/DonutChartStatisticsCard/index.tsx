@@ -1,5 +1,5 @@
 import React from 'react';
-import { Chart, ArcElement } from 'chart.js';
+import { ArcElement, Chart } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { ReactComponent as ExpandIcon } from '../../assets/icons/refracto/arrow_right_alt.svg';
 import projectList from '../../db/projectListV2.json';
@@ -28,7 +28,6 @@ const DonutChartStatisticsCard = () => {
     labels: projectList.map((pl) => pl.projectName),
     datasets: [
       {
-        label: 'Test label',
         data: projectList.map((pl) => pl.minCrowdfundingTarget),
         backgroundColor: projectList.map((pl) => hexToRgbString(pl.colorCode))
       }
@@ -66,7 +65,30 @@ const DonutChartStatisticsCard = () => {
           </div>
         </div>
         <h4>
-          <strong>Projects</strong>
+          <strong>Projects (Mock Data)</strong>
+          <div className='projects-list d-flex flex-column'>
+            {chartData.labels.map((label, idx) => {
+              const color = chartData.datasets[0].backgroundColor[idx];
+              const roi = '123%';
+              const invested = '€12345';
+              return (
+                <div className='d-flex flex-row m-2' key={idx}>
+                  <div
+                    className='m-1'
+                    style={{
+                      backgroundColor: color,
+                      width: '16px',
+                      height: '16px',
+                      borderRadius: '4px'
+                    }}
+                  ></div>
+                  <div className='flex-fill'>{label}</div>
+                  <div className='flex-fill'>{roi}</div>
+                  <div className='flex-fill'>{invested}</div>
+                </div>
+              );
+            })}
+          </div>
         </h4>
       </div>
       <div
