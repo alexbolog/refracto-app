@@ -66,15 +66,15 @@ const DonutChartStatisticsCard = () => {
         </div>
         <h4>
           <strong>Projects (Mock Data)</strong>
-          <div className='projects-list d-flex flex-column'>
+          <div className='projects-list container'>
             {chartData.labels.map((label, idx) => {
               const color = chartData.datasets[0].backgroundColor[idx];
               const roi = '123%';
               const invested = '€12345';
               return (
-                <div className='d-flex flex-row m-2' key={idx}>
+                <div className='row' key={idx}>
                   <div
-                    className='m-1'
+                    className='p-0 col-1 mt-auto mb-auto'
                     style={{
                       backgroundColor: color,
                       width: '16px',
@@ -82,9 +82,11 @@ const DonutChartStatisticsCard = () => {
                       borderRadius: '4px'
                     }}
                   ></div>
-                  <div className='flex-fill'>{label}</div>
-                  <div className='flex-fill'>{roi}</div>
-                  <div className='flex-fill'>{invested}</div>
+                  <div className='col-6'>{label}</div>
+                  <div className='col'>{roi}</div>
+                  <div className='col' style={{ fontWeight: '600' }}>
+                    {invested}
+                  </div>
                 </div>
               );
             })}
