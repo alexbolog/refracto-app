@@ -1,16 +1,15 @@
 import { ReactComponent as ExpandIcon } from '../../assets/icons/refracto/arrow_right_alt.svg';
 import * as React from 'react';
 
+import './style.scss';
+
 const ExpandFooter = () => {
   return (
     <div
-      className='card-footer d-flex justify-content-end'
-      style={{ padding: '0', margin: '0', borderTop: '0' }}
+      className='card-footer d-flex justify-content-end expand-footer-spacings'
+      onClick={() => alert('TODO Expand')}
     >
-      <p
-        className='text-primary'
-        style={{ padding: '15px', marginRight: '10px', cursor: 'pointer' }}
-      >
+      <p className='text-primary expand-footer-text'>
         Expand <ExpandIcon />
       </p>
     </div>
