@@ -1,4 +1,6 @@
+import { toLocaleStringOptions } from 'config';
 import React from 'react';
+import { SuggestedProject } from 'types/accountTypes';
 import { ReactComponent as FavoriteDisabled } from './../../assets/icons/refracto/favorite-empty.svg';
 import { ReactComponent as FavoriteEnabled } from './../../assets/icons/refracto/favorite-fill.svg';
 
@@ -10,8 +12,8 @@ const ProjectCardItem = ({
   className
 }: {
   className?: string;
-  projectDetails: any;
-  onToggleFavorite: (projectId: number, state: boolean) => void;
+  projectDetails: SuggestedProject;
+  onToggleFavorite: (projectId: string, state: boolean) => void;
   isButtonOutline: boolean;
   buttonText: string;
 }) => {
@@ -32,7 +34,7 @@ const ProjectCardItem = ({
         >
           <div className='col-lg-3 text-left'>
             <img
-              src={projectDetails.imageSource}
+              src={projectDetails.thumbnailSrc}
               height='60px'
               width='60px'
               className='rounded'
@@ -40,7 +42,7 @@ const ProjectCardItem = ({
           </div>
           <div className='col-lg-6 text-left'>
             <h6>
-              <strong>{projectDetails.projectName}</strong>
+              <strong>{projectDetails.projectTitle}</strong>
             </h6>
           </div>
           <div className='col-lg-3 text-right'>
@@ -73,13 +75,19 @@ const ProjectCardItem = ({
           <div className='col-lg-12 col-sm-12 col-md-12 d-flex justify-content-between'>
             <h5>Return</h5>
             <h5>
-              <strong>{projectDetails.return}</strong>
+              <strong>
+                {(projectDetails.returnPercentage * 100).toLocaleString(
+                  undefined,
+                  toLocaleStringOptions
+                )}
+                %
+              </strong>
             </h5>
           </div>
           <div className='col-lg-12 col-sm-12 col-md-12 d-flex justify-content-between'>
             <h5>Crowdfunding Deadline</h5>
             <h5>
-              <strong>{projectDetails.deadline}</strong>
+              <strong>{projectDetails.crowdfundingDeadline.toString()}</strong>
             </h5>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { PaymentStatuses } from "enums";
+import { PaymentStatuses } from 'enums';
 
 export interface AccountOverview {
   availableBalance: number;
@@ -21,9 +21,10 @@ export interface ActiveInvestmentsStatistics {
 
 export interface FavoriteProject {
   projectId: string;
-  return: number;
+  returnPercentage: number;
   crowdfundingDeadline: Date;
   thumbnailSrc: string;
+  projectTitle: string;
 }
 
 export interface SuggestedProject extends FavoriteProject {
