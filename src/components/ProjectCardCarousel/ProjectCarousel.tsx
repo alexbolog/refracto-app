@@ -31,43 +31,29 @@ const ProjectCardCarousel = ({
       window.removeEventListener('resize', handleWindowSizeChange);
     };
   }, []);
-  const splitProjectList = () => {
-    const isMobile = width <= 768;
-    const chunkSize = isMobile ? 2 : 4;
-    const chunks = [];
-    for (let i = 0; i < projects.length; i += chunkSize) {
-      const chunk = projects.slice(i, i + chunkSize);
-      chunks.push(chunk);
-    }
-    return chunks;
-  };
 
-  const [carouselStartIndex, setCarouselStartIndex] = React.useState(0);
-  // const [projectItemChunks, _] = React.useState<SuggestedProject[][]>(
-  //   splitProjectList()
-  // );
   const handleToggleFavorite = (projectId: string, isFavorite: boolean) => {
     window.alert(`${projectId} is favorite: ${isFavorite}`);
   };
-  const toggleCarousel = (step: number) => {
+  const carouselMovePrev = () => {
     const carouselId = isFavoritesOnly ? 'fav-swiper' : 'sgst-swiper';
-    if (step === -1) {
-      const elements = document.getElementsByClassName('swiper-button-prev');
-      for (let i = 0; i < elements.length; i++) {
-        const parentId = elements[i].parentElement?.id;
-        if (parentId === carouselId) {
-          const el = elements[i] as HTMLInputElement;
-          el.click();
-        }
+    const elements = document.getElementsByClassName('swiper-button-prev');
+    for (let i = 0; i < elements.length; i++) {
+      const parentId = elements[i].parentElement?.id;
+      if (parentId === carouselId) {
+        const el = elements[i] as HTMLInputElement;
+        el.click();
       }
-    } else {
-      const elements = document.getElementsByClassName('swiper-button-next');
-      for (let i = 0; i < elements.length; i++) {
-        const parentId = elements[i].parentElement?.id;
-        if (parentId === carouselId) {
-          const el = elements[i] as HTMLInputElement;
-          el.click();
-        }
+    }
+  };
+  const carouselMoveNext = () => {
+    const carouselId = isFavoritesOnly ? 'fav-swiper' : 'sgst-swiper';
+    const elements = document.getElementsByClassName('swiper-button-next');
+    for (let i = 0; i < elements.length; i++) {
+      const parentId = elements[i].parentElement?.id;
+      if (parentId === carouselId) {
+        const el = elements[i] as HTMLInputElement;
+        el.click();
       }
     }
   };
@@ -92,7 +78,7 @@ const ProjectCardCarousel = ({
                     padding: '0.5rem',
                     marginRight: '10px'
                   }}
-                  onClick={() => toggleCarousel(-1)}
+                  onClick={carouselMovePrev}
                 >
                   <LeftArrow />
                 </button>
@@ -103,7 +89,7 @@ const ProjectCardCarousel = ({
                     border: '1px #D5DFE7 solid',
                     padding: '0.5rem'
                   }}
-                  onClick={() => toggleCarousel(1)}
+                  onClick={carouselMoveNext}
                 >
                   <RightArrow />
                 </button>
