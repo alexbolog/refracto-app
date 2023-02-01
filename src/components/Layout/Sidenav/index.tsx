@@ -50,7 +50,6 @@ const Sidenav = () => {
     if (data.protectedRoute && !isLoggedIn) {
       return null;
     }
-    console.log(data.icon);
     return (
       <>
         <li

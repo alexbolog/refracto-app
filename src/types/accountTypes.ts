@@ -1,4 +1,4 @@
-import { PaymentStatuses } from 'components/PaymentStatusContainer/PaymentStatusEntry';
+import { PaymentStatuses } from "enums";
 
 export interface AccountOverview {
   availableBalance: number;
@@ -31,9 +31,10 @@ export interface SuggestedProject extends FavoriteProject {
 }
 
 export interface Payment {
-  Date: Date;
-  ProjectTitle: string;
-  PaymentStatus: PaymentStatuses;
-  PaymentAmount: number;
-  TxHash?: string;
+  projectId: string;
+  date: Date;
+  projectTitle: string;
+  paymentStatus: PaymentStatuses;
+  paymentAmount: number;
+  xHash?: string;
 }

@@ -77,9 +77,7 @@ const Overview = () => {
         <DoughnutChartRow />
       </div>
       <div className='row'>
-        <div className='col-lg-12 col-sm-12 col-md-12'>
-          <PaymentStatusContainer />
-        </div>
+        <PaymentStatusContainer />
       </div>
       <div className='row'>
         <ProjectCardCarousel
