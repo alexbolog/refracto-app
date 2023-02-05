@@ -3,3 +3,13 @@ export const contractAddress =
 
 export const dAppName = 'Refracto';
 export const NUMBER_OF_SHARES_PER_PROJECT = 1_000_000;
+
+export const toLocaleStringOptions = {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
+};
+
+export const toLocaleStringOptionsNoDecimals = {
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0
+};

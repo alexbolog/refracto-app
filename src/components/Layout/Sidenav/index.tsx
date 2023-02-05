@@ -50,7 +50,6 @@ const Sidenav = () => {
     if (data.protectedRoute && !isLoggedIn) {
       return null;
     }
-    console.log(data.icon);
     return (
       <>
         <li
@@ -104,7 +103,7 @@ const Sidenav = () => {
               <div className='header-left'>
                 <SearchBar />
               </div>
-              <ul className='navbar-nav header-right'>
+              {/* <ul className='navbar-nav header-right'>
                 <li className='nav-item'>
                   <CurrencyPicker />
                 </li>
@@ -120,7 +119,6 @@ const Sidenav = () => {
                     data-bs-toggle='dropdown'
                     style={{ marginRight: '20px' }}
                   >
-                    {/* <FontAwesomeIcon icon={faBell} size='lg' /> */}
                     <NotificationsIcon />
                   </a>
                   <NotificationDropDownContent />
@@ -128,14 +126,13 @@ const Sidenav = () => {
 
                 <li className='nav-item dropdown notification_dropdown'>
                   <a className='nav-link ' href='#'>
-                    {/* <FontAwesomeIcon icon={faQuestionCircle} size='lg' /> */}
                     <HelpIcon />
                   </a>
                 </li>
                 <li className='nav-item'>
                   <AccountInfo />
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </nav>
         </div>

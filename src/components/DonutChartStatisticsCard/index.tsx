@@ -24,6 +24,7 @@ const DonutChartStatisticsCard = () => {
 
   const chartData = {
     labels: projectList.map((pl) => pl.projectName),
+    title: 'test',
     datasets: [
       {
         label: 'Test label',
@@ -41,7 +42,8 @@ const DonutChartStatisticsCard = () => {
         align: 'start' as const
       },
       legend: {
-        position: 'bottom' as const
+        position: 'bottom' as const,
+        display: true
       }
     }
   };
