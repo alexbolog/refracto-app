@@ -4,7 +4,6 @@ import ExpandFooter from '../ExpandFooter';
 import { GeneralContext } from 'contexts/GeneralContext';
 import { Payment } from 'types/accountTypes';
 import { formatDateOnly } from 'utils';
-import { PaymentStatuses } from 'enums';
 
 const PaymentStatusContainer = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -65,7 +64,7 @@ const PaymentStatusContainer = () => {
               role='button'
               onClick={() => setIsExpanded(true)}
             >
-              Expand <ExpandIcon />
+              Expand <ExpandFooter />
             </p>
           )}
           {isExpanded && (
@@ -75,7 +74,7 @@ const PaymentStatusContainer = () => {
               role='button'
               onClick={() => setIsExpanded(false)}
             >
-              Collapse <ExpandIcon />
+              Collapse <ExpandFooter />
             </p>
           )}
         </div>
