@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArcElement, Chart } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import projectList from '../../db/projectListV2.json';
+import myProjects from '../../dbNew/myProjects';
 
 import './style.scss';
 import ExpandFooter from '../ExpandFooter';
@@ -24,12 +24,20 @@ const DonutChartStatisticsCard = () => {
     return `rgb(${rgb?.r}, ${rgb?.g}, ${rgb?.b})` ?? 'rgb(0,0,0)';
   };
 
+  const colors = ['#6853E8', '#FFA600', '#FF6B45'];
+
+  const totalInvested = myProjects
+    .map((project) => project.crowdfundedAmount)
+    .reduce((partialSum, crtAmount) => partialSum + crtAmount, 0);
+
   const chartData = {
-    labels: projectList.map((pl) => pl.projectName),
+    labels: myProjects.map((pl) => pl.projectTitle),
     datasets: [
       {
-        data: projectList.map((pl) => pl.minCrowdfundingTarget),
-        backgroundColor: projectList.map((pl) => hexToRgbString(pl.colorCode))
+        data: myProjects.map((pl) => pl.crowdfundedAmount),
+        backgroundColor: myProjects.map((pl, index) =>
+          hexToRgbString(colors[index % 3])
+        )
       }
     ]
   };
@@ -61,34 +69,28 @@ const DonutChartStatisticsCard = () => {
           <Doughnut data={chartData} options={chartOptions} />
           <div className='donut-hole-text'>
             <label>Total Investment</label>
-            <label className='fat-number'>€789,096</label>
+            <label className='fat-number'>€{totalInvested}</label>
           </div>
         </div>
         <h4>
-          <strong>Projects (Mock Data)</strong>
+          <strong>Projects</strong>
         </h4>
         <div className='projects-list container ml-3 mt-2'>
           {chartData.labels.map((label, idx) => {
             const color = chartData.datasets[0].backgroundColor[idx];
-            const roi = '123%';
-            const invested = '€12345';
+            const roi = myProjects[idx].returnPercentage + '%';
+            const invested = '€' + myProjects[idx].crowdfundedAmount;
             return (
               <div className='row' key={idx}>
                 <div
-                  className='p-0 col-1 mt-auto mb-auto'
+                  className='color-box p-0 col-1 mt-auto mb-auto'
                   style={{
-                    backgroundColor: color,
-                    width: '16px',
-                    height: '16px',
-                    borderRadius: '4px'
+                    backgroundColor: color
                   }}
                 ></div>
                 <div className='col-6'>{label}</div>
                 <div className='col'>{roi}</div>
-                <div
-                  className='col text-blugray-4'
-                  style={{ fontWeight: '600' }}
-                >
+                <div className='invested-number col text-blugray-4'>
                   {invested}
                 </div>
               </div>
