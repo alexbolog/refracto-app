@@ -1,7 +1,8 @@
-import ProjectCardCarousel from 'components/ProjectCardCarousel';
-import SimpleCardWidget from 'components/CardWidgets/SimpleCardWidget';
+import {
+  FavoriteProjectCarousel,
+  SuggestedProjectsCarousel
+} from 'components/ProjectCardCarousel';
 import CustomAlert from 'components/CustomAlert';
-import DonutChartStatisticsCard from 'components/DonutChartStatisticsCard';
 import PaymentStatusContainer from 'components/PaymentStatusContainer';
 import * as React from 'react';
 import ReactGA from 'react-ga4';
@@ -9,10 +10,8 @@ import ActiveInvestmentsStatistics from './ActiveInvestmentsStatistics';
 import DoughnutChartRow from './DoughnutChartRow';
 import GeneralInvestmentStatistics from './GeneralInvestmentStatistics';
 import GeneralStatisticsGraph from './GeneralStatisticsGraph';
-import FavoriteProjectsList from './../../db/favoriteProjects.json';
-import SuggestedProjectsList from './../../db/suggestedProjects.json';
 
-const Dashboard = () => {
+const Overview = () => {
   const [hasClaimableCredits, setHasClaimableCredits] = React.useState(true);
 
   const isLastUrlSegmentEqualTo = (urlSegment: string) => {
@@ -77,26 +76,26 @@ const Dashboard = () => {
         <DoughnutChartRow />
       </div>
       <div className='row'>
-        <div className='col-lg-12 col-sm-12 col-md-12'>
-          <PaymentStatusContainer />
-        </div>
+        <PaymentStatusContainer />
       </div>
       <div className='row'>
-        <ProjectCardCarousel
+        {/* <ProjectCardCarousel
           title='Favorite Projects'
           projects={FavoriteProjectsList}
           isFavoritesOnly={true}
-        />
+        /> */}
+        <FavoriteProjectCarousel />
       </div>
       <div className='row'>
-        <ProjectCardCarousel
+        {/* <ProjectCardCarousel
           title='Suggested Projects'
           projects={SuggestedProjectsList}
           isFavoritesOnly={false}
-        />
+        /> */}
+        <SuggestedProjectsCarousel />
       </div>
     </>
   );
 };
 
-export default Dashboard;
+export default Overview;

@@ -1,3 +1,5 @@
+import { toLocaleStringOptions } from 'config';
+import { PaymentStatuses } from 'enums';
 import React from 'react';
 import { ReactComponent as DoneIcon } from '../../assets/icons/refracto/done.svg';
 
@@ -21,7 +23,7 @@ const PaymentStatusEntry = ({
         return (
           <div className='col-lg-3 d-flex justify-content-left p-3'>
             <h5>
-              <DoneIcon className='mr-2'/> Paid
+              <DoneIcon className='mr-2' /> Paid
             </h5>
           </div>
         );
@@ -48,7 +50,7 @@ const PaymentStatusEntry = ({
       return (
         <div className='col-lg-3 d-flex justify-content-left p-3 row'>
           <div className='col-lg-6 col-sm-6 col-md-6 text-left'>
-            <h5>€{amount}</h5>
+            <h5>€{amount.toLocaleString(undefined, toLocaleStringOptions)}</h5>
           </div>
           <div
             className='col-lg-6 col-sm-6 col-md-6 d-flex justify-content-left'
@@ -61,7 +63,7 @@ const PaymentStatusEntry = ({
     } else
       return (
         <div className='col-lg-3 d-flex justify-content-left p-3'>
-          <h5>€{amount}</h5>
+          <h5>€{amount.toLocaleString(undefined, toLocaleStringOptions)}</h5>
         </div>
       );
   };
@@ -81,9 +83,3 @@ const PaymentStatusEntry = ({
 };
 
 export default PaymentStatusEntry;
-
-export enum PaymentStatuses {
-  CLAIMED = 0,
-  EXPECTED = 1,
-  PENDING = 2
-}
