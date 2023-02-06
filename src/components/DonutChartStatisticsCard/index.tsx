@@ -95,14 +95,14 @@ const DonutChartStatisticsCard = () => {
             return (
               <div className='row' key={idx}>
                 <div
-                  className='color-box p-0 col-1 mt-auto mb-auto'
+                  className='col color-box p-0 col-1 mt-auto mb-auto'
                   style={{
                     backgroundColor: color
                   }}
                 ></div>
-                <div className='col-6'>{label}</div>
-                <div className='col'>{roi}</div>
-                <div className='invested-number col text-blugray-4'>
+                <div className='col col-xl-5 col-11'>{label}</div>
+                <div className='col col-4 col-xl-3'>{roi}</div>
+                <div className='col invested-number col-8 col-xl-3 text-blugray-4'>
                   {invested}
                 </div>
               </div>
