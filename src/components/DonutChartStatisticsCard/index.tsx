@@ -5,6 +5,7 @@ import myProjects from '../../dbNew/myProjects';
 
 import './style.scss';
 import ExpandFooter from '../ExpandFooter';
+import { toLocaleStringOptions } from '../../config';
 
 const DonutChartStatisticsCard = () => {
   Chart.register(ArcElement);
@@ -69,7 +70,9 @@ const DonutChartStatisticsCard = () => {
           <Doughnut data={chartData} options={chartOptions} />
           <div className='donut-hole-text'>
             <label>Total Investment</label>
-            <label className='fat-number'>€{totalInvested}</label>
+            <label className='fat-number'>
+              €{totalInvested.toLocaleString(undefined, toLocaleStringOptions)}
+            </label>
           </div>
         </div>
         <h4>
@@ -78,8 +81,17 @@ const DonutChartStatisticsCard = () => {
         <div className='projects-list container ml-3 mt-2'>
           {chartData.labels.map((label, idx) => {
             const color = chartData.datasets[0].backgroundColor[idx];
-            const roi = myProjects[idx].returnPercentage + '%';
-            const invested = '€' + myProjects[idx].crowdfundedAmount;
+            const roi =
+              myProjects[idx].returnPercentage.toLocaleString(
+                undefined,
+                toLocaleStringOptions
+              ) + '%';
+            const invested =
+              '€' +
+              myProjects[idx].crowdfundedAmount.toLocaleString(
+                undefined,
+                toLocaleStringOptions
+              );
             return (
               <div className='row' key={idx}>
                 <div
