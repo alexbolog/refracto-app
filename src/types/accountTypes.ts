@@ -22,7 +22,7 @@ export interface ActiveInvestmentsStatistics {
 export interface FavoriteProject {
   projectId: string;
   returnPercentage: number;
-  crowdfundingDeadline: Date;
+  crowdfundingDeadline: string; // ISO format
   thumbnailSrc: string;
   projectTitle: string;
 }
@@ -33,7 +33,7 @@ export interface SuggestedProject extends FavoriteProject {
 
 export interface Payment {
   projectId: string;
-  date: Date;
+  date: string; // ISO format
   projectTitle: string;
   paymentStatus: PaymentStatuses;
   paymentAmount: number;

@@ -3,7 +3,7 @@ export interface ProjectListItem {
   projectTitle: string;
   returnPercentage: number;
   riskRatingLevel: string;
-  crowdfundingDeadline: Date;
+  crowdfundingDeadline: string; // ISO format
   crowdfundingTarget: number;
   crowdfundedAmount: number;
 }
@@ -57,7 +57,7 @@ export interface CapitalStructureItem {
 }
 
 export interface RepaymentScheduleEntry {
-  date: Date;
+  date: string; // ISO format
   paymentStatus: string;
   lateFees: number;
   principalAmount: number;
@@ -68,6 +68,6 @@ export interface QuestionAndAnswer {
   ownerAddress: string;
   question: string;
   answer: string;
-  questionDate: Date;
-  answerDate: Date;
+  questionDate: string; // ISO format
+  answerDate: string; // ISO format
 }

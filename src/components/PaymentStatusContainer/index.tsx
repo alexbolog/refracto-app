@@ -3,8 +3,8 @@ import PaymentStatusEntry from './PaymentStatusEntry';
 import { ReactComponent as ExpandIcon } from '../../assets/icons/refracto/arrow-down.svg';
 import { GeneralContext } from 'contexts/GeneralContext';
 import { Payment } from 'types/accountTypes';
-import { formatDateOnly } from 'utils';
-import { PaymentStatuses } from 'enums';
+import { formatIso } from 'utils';
+import { DateTime } from 'luxon';
 
 const PaymentStatusContainer = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -21,22 +21,22 @@ const PaymentStatusContainer = () => {
           <button className='btn btn-primary disabled'>Sort payments</button>
         </div>
         <div className='card-body row'>
-          <div className='col-lg-3 d-flex justify-content-left p-3'>
+          <div className='col col-lg-3 d-flex justify-content-left p-3'>
             <h4>
               <strong>Date</strong>
             </h4>
           </div>
-          <div className='col-lg-3 d-flex justify-content-left p-3'>
+          <div className='col col-lg-3 d-flex justify-content-left p-3'>
             <h4>
               <strong>Project Name</strong>
             </h4>
           </div>
-          <div className='col-lg-3 d-flex justify-content-left p-3'>
+          <div className='col col-lg-3 d-flex justify-content-left p-3'>
             <h4>
               <strong>Payment Status</strong>
             </h4>
           </div>
-          <div className='col-lg-3 d-flex justify-content-left p-3'>
+          <div className='col col-lg-3 d-flex justify-content-left p-3'>
             <h4>
               <strong>Payment Amount</strong>
             </h4>
@@ -48,7 +48,7 @@ const PaymentStatusContainer = () => {
                 paymentStatus={p.paymentStatus}
                 amount={p.paymentAmount}
                 projectName={p.projectTitle}
-                date={formatDateOnly(new Date(p.date))}
+                date={formatIso(p.date, DateTime.DATE_FULL)}
                 key={`payment-status-${p.projectId}-${i}`}
               />
             )
