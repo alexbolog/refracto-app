@@ -22,6 +22,7 @@ import { DateTime } from 'luxon';
 import 'chartjs-adapter-luxon';
 import { ReactComponent as ExpandIcon } from '../../../assets/icons/refracto/arrow_right_alt.svg';
 import DateRangePicker from '../../../components/DateRangePicker';
+import { formatDate } from '../../../utils';
 
 const GeneralStatisticsGraph = () => {
   const chartRef = React.useRef<any>(null);
@@ -166,7 +167,8 @@ const GeneralStatisticsGraph = () => {
       tooltip: {
         callbacks: {
           title: (crtElement: any) => {
-            return graphDates[crtElement[0].dataIndex].toLocaleString(
+            return formatDate(
+              graphDates[crtElement[0].dataIndex],
               DateTime.DATE_MED
             );
           },
