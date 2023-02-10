@@ -79,19 +79,9 @@ const Overview = () => {
         <PaymentStatusContainer />
       </div>
       <div className='row'>
-        {/* <ProjectCardCarousel
-          title='Favorite Projects'
-          projects={FavoriteProjectsList}
-          isFavoritesOnly={true}
-        /> */}
         <FavoriteProjectCarousel />
       </div>
       <div className='row'>
-        {/* <ProjectCardCarousel
-          title='Suggested Projects'
-          projects={SuggestedProjectsList}
-          isFavoritesOnly={false}
-        /> */}
         <SuggestedProjectsCarousel />
       </div>
     </>
