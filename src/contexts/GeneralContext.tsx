@@ -1,5 +1,4 @@
 import { useGetAccountInfo } from '@elrondnetwork/dapp-core/hooks';
-import { getAccountOverview } from 'apiRequests/backend/accountApi';
 import useGetAccountOverview from './hooks/useGetAccountOverview';
 import React from 'react';
 import { AccountOverview } from 'types/accountTypes';
