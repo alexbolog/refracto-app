@@ -6,6 +6,12 @@ export interface ProjectListItem {
   crowdfundingDeadline: string; // ISO format
   crowdfundingTarget: number;
   crowdfundedAmount: number;
+  colorCodeHex: string;
+  thumbnailSrc: string;
+}
+
+export interface ActiveProjectInvestment extends ProjectListItem {
+  amountInvested: number;
 }
 
 export interface ProjectPageDetails extends ProjectListItem {
