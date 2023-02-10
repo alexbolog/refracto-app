@@ -1,0 +1,28 @@
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon {
+    background-color: white !important;
+    border-right: 0 !important;
+}
+
+.search-bar-input {
+    border-left: 0 !important;
+}
+
+.dropdown {
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    padding-left: 10px !important;
+    font-style: normal !important;
+}
+
+.settings-button {
+    /* padding: 0px !important; */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
