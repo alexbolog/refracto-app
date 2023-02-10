@@ -100,9 +100,9 @@ const Sidenav = () => {
         <div className='header-content'>
           <nav className='navbar navbar-expand'>
             <div className='collapse navbar-collapse justify-content-between'>
-              <div className='header-left'>
+              {/* <div className='header-left'>
                 <SearchBar />
-              </div>
+              </div> */}
               {/* <ul className='navbar-nav header-right'>
                 <li className='nav-item'>
                   <CurrencyPicker />
