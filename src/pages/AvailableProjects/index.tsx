@@ -1,7 +1,7 @@
 import * as React from 'react';
 import projectList from '../../db/projectList.json';
 
-const Projects = () => {
+const AvailableProjects = () => {
   const [projectInfo, setProjectInfo] = React.useState<any[]>([]);
 
   React.useEffect(() => {
@@ -21,4 +21,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default AvailableProjects;
