@@ -2,3 +2,46 @@
     margin-top: 25px !important;
     border: 1px #D9D9D9 solid !important;
 }
+
+.project-wrapper img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.project-info-title {
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+}
+
+.project-specs-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.project-specs {
+    display: flex;
+    justify-content: start;
+    align-items: center !important;
+    width: 100%;
+    /* gap: 14px; */
+    margin-top: 14px;
+}
+
+.project-specs-type {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #364E63;
+    margin-left: 14px;
+    margin-right: 6px;
+}
+
+.project-specs-value {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: #6F869B;
+}
