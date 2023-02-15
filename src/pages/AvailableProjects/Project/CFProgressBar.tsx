@@ -17,7 +17,7 @@ export const CFProgressBar = ({
   );
 
   return (
-    <>
+    <div>
       <div className='crowdfunding-progress-wrapper'>
         <span className='crowdfunding-progress-text sum-progress'>
           €
@@ -43,6 +43,6 @@ export const CFProgressBar = ({
           }}
         ></div>
       </div>
-    </>
+    </div>
   );
 };

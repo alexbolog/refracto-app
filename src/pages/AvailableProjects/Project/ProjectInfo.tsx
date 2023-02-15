@@ -8,27 +8,19 @@ import { Return } from './ProjectSpecs/Return';
 
 export const ProjectInfo = ({ project }: { project: ProjectListItem }) => {
   return (
-    <div className='container-fluid p-0 w-100'>
-      <div className='row'>
-        <div className='col-12 text-start'>
-          <h3 className='project-info-title'>{project.projectTitle}</h3>
-        </div>
-        <div className='col-12 project-specs-wrapper'>
-          <Return value={project.returnPercentage} />
-          <Rating value={project.riskRatingLevel} />
-          <Goal
-            value={project.crowdfundedAmount / project.crowdfundingTarget}
-          />
-          <Deadline value={project.crowdfundingDeadline} />
-        </div>
-        <div className='col-12'>
-          <CFProgressBar
-            crowdfundedAmount={project.crowdfundedAmount}
-            crowdfundingTarget={project.crowdfundingTarget}
-            deadline={project.crowdfundingDeadline}
-          />
-        </div>
+    <div className='project-specs-container'>
+      <h3 className='project-info-title'>{project.projectTitle}</h3>
+      <div className='project-specs-wrapper'>
+        <Return value={project.returnPercentage} />
+        <Rating value={project.riskRatingLevel} />
+        <Goal value={project.crowdfundedAmount / project.crowdfundingTarget} />
+        <Deadline value={project.crowdfundingDeadline} />
       </div>
+      <CFProgressBar
+        crowdfundedAmount={project.crowdfundedAmount}
+        crowdfundingTarget={project.crowdfundingTarget}
+        deadline={project.crowdfundingDeadline}
+      />
     </div>
   );
 };
