@@ -1,5 +1,6 @@
 import React from 'react';
 import { ProjectListItem } from 'types/projectTypes';
+import { CFProgressBar } from './CFProgressBar';
 import { Deadline } from './ProjectSpecs/Deadline';
 import { Goal } from './ProjectSpecs/Goal';
 import { Rating } from './ProjectSpecs/Rating';
@@ -19,6 +20,13 @@ export const ProjectInfo = ({ project }: { project: ProjectListItem }) => {
             value={project.crowdfundedAmount / project.crowdfundingTarget}
           />
           <Deadline value={project.crowdfundingDeadline} />
+        </div>
+        <div className='col-12'>
+          <CFProgressBar
+            crowdfundedAmount={project.crowdfundedAmount}
+            crowdfundingTarget={project.crowdfundingTarget}
+            deadline={project.crowdfundingDeadline}
+          />
         </div>
       </div>
     </div>

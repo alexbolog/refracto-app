@@ -8,6 +8,8 @@
     height: auto;
     max-width: 100%;
     max-height: 100%;
+    border: 1px solid #D5DFE7;
+    border-radius: 8px;
 }
 
 .project-info-title {
@@ -44,4 +46,30 @@
     font-size: 14px;
     line-height: 24px;
     color: #6F869B;
+}
+
+.progress-bar {
+    background-color: #75BE48 !important;
+}
+
+
+.crowdfunding-progress-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.crowdfunding-progress-text {
+    color: #6F869B !important;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.crowdfunding-progress-text.sum-progress {
+    font-weight: 600;
+
+}
+
+.crowdfunding-progress-text.time-left {
+    font-weight: 400;
 }
