@@ -13,7 +13,7 @@ import { routeNames } from 'routes';
 import routes from 'routes';
 import UnlockPage from './pages/UnlockPage';
 import ReactGA from 'react-ga4';
-import { GeneralContextProvider } from 'contexts/GeneralContext';
+import { AccountContextProvider } from 'contexts/AccountContext';
 
 const environment = 'devnet';
 
@@ -31,7 +31,7 @@ const App = () => {
         environment={environment}
         customNetworkConfig={{ name: 'customConfig', apiTimeout: 6000 }}
       >
-        <GeneralContextProvider>
+        <AccountContextProvider>
           <Layout>
             <TransactionsToastList />
             <NotificationModal />
@@ -48,7 +48,7 @@ const App = () => {
               <Route path='*' element={<PageNotFound />} />
             </Routes>
           </Layout>
-        </GeneralContextProvider>
+        </AccountContextProvider>
       </DappProvider>
     </Router>
   );

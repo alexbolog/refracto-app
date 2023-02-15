@@ -1,4 +1,4 @@
-import { GeneralContext } from 'contexts/GeneralContext';
+import { AccountContext } from 'contexts/AccountContext';
 import React, { useContext, useEffect } from 'react';
 import ProjectCardCarousel from './ProjectCarousel';
 // import Swiper core and required modules
@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 export const SuggestedProjectsCarousel = () => {
-  const { accountOverview } = useContext(GeneralContext);
+  const { accountOverview } = useContext(AccountContext);
   return (
     <ProjectCardCarousel
       title={'Suggested Projects'}

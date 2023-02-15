@@ -1,10 +1,10 @@
 import SimpleCardWidget from 'components/CardWidgets/SimpleCardWidget';
 import { toLocaleStringOptions } from 'config';
-import { GeneralContext } from 'contexts/GeneralContext';
+import { AccountContext } from 'contexts/AccountContext';
 import React from 'react';
 
 const GeneralInvestmentStatistics = () => {
-  const { accountOverview } = React.useContext(GeneralContext);
+  const { accountOverview } = React.useContext(AccountContext);
   return (
     <>
       <div className='col-lg-4 col-md-12 col-sm-12'>

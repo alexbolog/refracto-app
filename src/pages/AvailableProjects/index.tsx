@@ -1,15 +1,17 @@
+import { AccountContext } from 'contexts/AccountContext';
 import * as React from 'react';
-import projectList from '../../db/projectList.json';
+import { useContext } from 'react';
 import { Filters } from './Filters';
 import { ProjectListFilterType } from './Filters/ProjectListFilterType';
+import { Project } from './Project';
 
 const AvailableProjects = () => {
   const [projectInfo, setProjectInfo] = React.useState<any[]>([]);
-
-  React.useEffect(() => {
-    const data = projectList;
-    setProjectInfo(data);
-  }, []);
+  const {} = useContext(AccountContext);
+  // React.useEffect(() => {
+  //   const data = projectList;
+  //   setProjectInfo(data);
+  // }, []);
 
   const handleApplyFilters = (filters: ProjectListFilterType) => {
     //
@@ -19,6 +21,9 @@ const AvailableProjects = () => {
       <div className='row'>
         <div className='col-12'>
           <Filters onApplyFilters={handleApplyFilters} />
+        </div>
+        <div className='col-12'>
+          {/* <Project project={projectInfo[0]} /> */}
         </div>
       </div>
     </div>

@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PaymentStatusEntry from './PaymentStatusEntry';
 import { ReactComponent as ExpandIcon } from '../../assets/icons/refracto/arrow-down.svg';
-import { GeneralContext } from 'contexts/GeneralContext';
+import { AccountContext } from 'contexts/AccountContext';
 import { Payment } from 'types/accountTypes';
 import { formatIso } from 'utils';
 import { DateTime } from 'luxon';
 
 const PaymentStatusContainer = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { accountOverview } = useContext(GeneralContext);
+  const { accountOverview } = useContext(AccountContext);
   useEffect(() => {
     console.log(accountOverview?.payments);
   }, []);
