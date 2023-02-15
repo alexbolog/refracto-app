@@ -1,7 +1,7 @@
+import React from 'react';
 import { faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toLocaleStringOptionsNoDecimals } from 'config';
-import React from 'react';
 
 export const Goal = ({ value }: { value: number }) => {
   return (

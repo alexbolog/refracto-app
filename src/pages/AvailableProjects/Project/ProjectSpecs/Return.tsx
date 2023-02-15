@@ -1,7 +1,7 @@
+import React from 'react';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toLocaleStringOptionsNoDecimals } from 'config';
-import React from 'react';
 
 export const Return = ({ value }: { value: number }) => {
   return (

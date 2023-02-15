@@ -1,7 +1,6 @@
+import React from 'react';
 import { faArrowTrendUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import { ProjectListItem } from 'types/projectTypes';
 
 export const Rating = ({ value }: { value: string }) => {
   const riskLevelBox = () => {

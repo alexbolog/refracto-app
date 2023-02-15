@@ -1,7 +1,7 @@
+import React from 'react';
 import { faHourglassEmpty } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DateTime } from 'luxon';
-import React from 'react';
 import { formatIso } from 'utils';
 
 export const Deadline = ({ value }: { value: string }) => {

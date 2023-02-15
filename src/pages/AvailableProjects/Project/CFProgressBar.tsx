@@ -1,6 +1,5 @@
+import React from 'react';
 import { toLocaleStringOptionsNoDecimals } from 'config';
-import React, { useState } from 'react';
-import { ProjectListItem } from 'types/projectTypes';
 import { getDaysUntil } from 'utils';
 
 export const CFProgressBar = ({
