@@ -7,7 +7,6 @@ import { Project } from './Project';
 
 const AvailableProjects = () => {
   const { availableProjects } = useContext(ProjectContext);
-
   const handleApplyFilters = (filters: ProjectListFilterType) => {
     //
   };

@@ -1,6 +1,7 @@
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { SettingsButton } from './SettingsButton';
 
 export const DeadlineSelectAndSettings = () => {
   return (
@@ -30,9 +31,7 @@ export const DeadlineSelectAndSettings = () => {
           </a>
         </li>
       </ul>
-      <button className='btn btn-outline-primary ml-2 btn-md'>
-        <FontAwesomeIcon icon={faSlidersH} />
-      </button>
+      <SettingsButton />
     </div>
   );
 };
