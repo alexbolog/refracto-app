@@ -1,7 +1,7 @@
 import * as React from 'react';
 import projectList from '../../db/projectList.json';
-import { FilterComponent } from './FilterComponent';
-import { ProjectListFilterType } from './FilterComponent/ProjectListFilterType';
+import { FilterBox } from './FilterBox';
+import { ProjectListFilterType } from './FilterBox/ProjectListFilterType';
 
 const AvailableProjects = () => {
   const [projectInfo, setProjectInfo] = React.useState<any[]>([]);
@@ -15,13 +15,12 @@ const AvailableProjects = () => {
     //
   };
   return (
-    <div className='container-fluid'>
+    <div className='container-fluid w-100 p-0'>
       <div className='row'>
         <div className='col-12'>
-          <FilterComponent onApplyFilters={handleApplyFilters} />
+          <FilterBox onApplyFilters={handleApplyFilters} />
         </div>
       </div>
-      {/* {projectInfo.length > 0 && <ProjectList projectInfo={projectInfo} />} */}
     </div>
   );
 };
