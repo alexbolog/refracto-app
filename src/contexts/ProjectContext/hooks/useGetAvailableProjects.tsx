@@ -1,13 +1,10 @@
-import {
-  getAccountOverview,
-  getActiveProjectInvestments
-} from 'apiRequests/backend/accountApi';
+import { getAvailableProjects } from 'apiRequests/backend';
 import React from 'react';
-import { ActiveProjectInvestment } from 'types/projectTypes';
+import { ProjectListItem } from 'types/projectTypes';
 
 const useGetAvailableProjects = () => {
   const [activeProjectInvestments, setActiveProjectInvestments] =
-    React.useState<ActiveProjectInvestment[]>(getActiveProjectInvestments());
+    React.useState<ProjectListItem[]>(getAvailableProjects());
 
   return activeProjectInvestments;
 };

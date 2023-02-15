@@ -1,17 +1,16 @@
 import { useGetAccountInfo } from '@elrondnetwork/dapp-core/hooks';
-import useGetAccountOverview from '../AccountContext/hooks/useGetAccountOverview';
 import React from 'react';
-import { AccountOverview } from 'types/accountTypes';
-import { ActiveProjectInvestment } from 'types/projectTypes';
-import useGetAccountActiveInvestments from '../AccountContext/hooks/useGetAccountActiveInvestments';
+import { ProjectListItem } from 'types/projectTypes';
 import useGetAvailableProjects from './hooks/useGetAvailableProjects';
 
 export interface IProjectContext {
   isLoading: boolean;
+  availableProjects: ProjectListItem[];
 }
 
 const defaultState: IProjectContext = {
-  isLoading: true
+  isLoading: true,
+  availableProjects: []
 };
 
 export const ProjectContext =
@@ -36,7 +35,8 @@ export const ProjectContextProvider = ({
   return (
     <ProjectContext.Provider
       value={{
-        isLoading
+        isLoading,
+        availableProjects
       }}
     >
       {children}
