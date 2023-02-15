@@ -78,3 +78,21 @@
 .crowdfunding-progress-text.time-left {
     font-weight: 400;
 }
+
+.btn.btn-fav {
+    width: 32px;
+    height: 32px;
+    justify-self: flex-end;
+    align-self: flex-start;
+}
+
+.btn.btn-details {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    justify-self: flex-end;
+}
