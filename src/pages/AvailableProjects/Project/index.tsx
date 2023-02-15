@@ -13,7 +13,7 @@ export const Project = ({ project }: { project: ProjectListItem }) => {
   };
   return (
     <div className='card project-wrapper'>
-      <div className='card-body container-fluid'>
+      <div className='card-body container-fluid pb-1'>
         <div className='row'>
           <div className='col-2'>
             <img src={project.thumbnailSrc} />
