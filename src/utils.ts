@@ -24,3 +24,7 @@ export const formatIso = (
 ): string => {
   return formatDate(DateTime.fromISO(isoDate), format);
 };
+
+export const getDaysUntil = (isoDate: string): number => {
+  return DateTime.fromISO(isoDate).diffNow('days').get('day');
+};
