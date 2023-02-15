@@ -22,11 +22,13 @@ const AvailableProjects = () => {
         <div className='col-12'>
           <Filters onApplyFilters={handleApplyFilters} />
         </div>
-        <div className='col-12'>
-          {availableProjects.length > 0 && (
-            <Project project={availableProjects[0]} />
-          )}
-        </div>
+
+        {availableProjects.length > 0 &&
+          availableProjects.map((p, i) => (
+            <div className='col-12' key={`available-project-list-item-${i}`}>
+              <Project project={p} />
+            </div>
+          ))}
       </div>
     </div>
   );

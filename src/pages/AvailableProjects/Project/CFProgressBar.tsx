@@ -24,8 +24,8 @@ export const CFProgressBar = ({
           {crowdfundedAmount.toLocaleString(
             undefined,
             toLocaleStringOptionsNoDecimals
-          )}
-          /€
+          )}{' '}
+          / €
           {crowdfundingTarget.toLocaleString(
             undefined,
             toLocaleStringOptionsNoDecimals
