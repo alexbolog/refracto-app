@@ -44726,3 +44726,12 @@ div#example5_wrapper .form-check-input {
 .risk-box.risk-high {
     background-color: #CB3737;
 }
+
+.btn.btn-fav {
+    background: white;
+    border-radius: 0.625rem;
+    border: 1px #D5DFE7 solid;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+}

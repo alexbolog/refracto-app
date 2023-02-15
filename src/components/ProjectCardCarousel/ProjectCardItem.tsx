@@ -47,15 +47,8 @@ const ProjectCardItem = ({
               <strong>{projectDetails.projectTitle}</strong>
             </h6>
           </div>
-          <div className='col-lg-3 text-right'>
-            <button
-              style={{
-                background: 'white',
-                borderRadius: '0.625rem',
-                border: '1px #D5DFE7 solid',
-                padding: '0.5rem'
-              }}
-            >
+          <div className='col-lg-3 text-right d-flex justify-content-end'>
+            <button className='btn btn-fav'>
               {isFavoriteEnabled && (
                 <FavoriteEnabled
                   height={16}
