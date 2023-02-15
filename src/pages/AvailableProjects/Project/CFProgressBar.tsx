@@ -12,9 +12,7 @@ export const CFProgressBar = ({
   crowdfundingTarget: number;
   deadline: string;
 }) => {
-  const [progressPercentage, setProgressPercentage] = useState(
-    (crowdfundedAmount / crowdfundingTarget) * 100
-  );
+  const progressPercentage = (crowdfundedAmount / crowdfundingTarget) * 100;
 
   return (
     <div>
