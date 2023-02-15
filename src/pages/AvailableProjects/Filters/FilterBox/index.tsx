@@ -1,21 +1,17 @@
-import {
-  faMagnifyingGlass,
-  faSlidersH
-} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import SearchBar from 'components/SearchBar';
 import React from 'react';
+import { ProjectListFilterType } from '../ProjectListFilterType';
 import { DeadlineSelectAndSettings } from './DeadlineSelectAndSettings';
-import { ProjectListFilterType } from './ProjectListFilterType';
 import { RatingSelect } from './RatingSelect';
 import { ReturnRangeSelect } from './ReturnRangeSelect';
-import './style.css';
-
-export const FilterBox = ({}: {
+export const FilterBox = ({
+  onApplyFilters
+}: {
   onApplyFilters: (selectedFilters: ProjectListFilterType) => void;
 }) => {
   return (
-    <div className='card w-100'>
+    <div className='card w-100 filter-box-wrapper'>
       <div className='card-body border-0'>
         <div className='container-fluid p-0'>
           <div className='row'>
