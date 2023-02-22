@@ -8,7 +8,7 @@ const useGetProjectById = () => {
 
   const getProjectById = async (
     projectId: string
-  ): Promise<ProjectPageDetails | FullProjectPageDetails> => {
+  ): Promise<ProjectPageDetails | FullProjectPageDetails | undefined> => {
     const isLoggedIn = Boolean(address);
     if (isLoggedIn) {
       return getFullProjectInfo(projectId);
