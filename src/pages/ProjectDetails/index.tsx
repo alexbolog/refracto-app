@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
-import { dAppName } from 'config';
-import { routeNames } from 'routes';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { ProjectPageDetails } from 'types/projectTypes';
+import { ProjectDetailsLayout } from './Layout';
+import useGetProjectById from 'contexts/ProjectContext/hooks/useGetProjectById';
+import './style.css';
 
 const ProjectDetails = () => {
   const getProjectId = () => {
@@ -14,7 +14,19 @@ const ProjectDetails = () => {
     return '';
   };
   const [projectId, _] = useState(getProjectId());
-  return <h2>Project ID: {projectId}</h2>;
+  const getProjectById = useGetProjectById();
+  useEffect(() => {
+    getProjectById(projectId).then((res) => {
+      setProjectDetails(res);
+    });
+  }, [projectId]);
+
+  const [projectDetails, setProjectDetails] = useState<ProjectPageDetails>();
+
+  //TODO: add loading screen
+  return projectDetails === undefined ? null : (
+    <ProjectDetailsLayout project={projectDetails} />
+  );
 };
 
 export default ProjectDetails;
