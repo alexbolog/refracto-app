@@ -44737,3 +44737,10 @@ div#example5_wrapper .form-check-input {
     display: flex;
     justify-content: center;
 }
+
+.responsive-img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}

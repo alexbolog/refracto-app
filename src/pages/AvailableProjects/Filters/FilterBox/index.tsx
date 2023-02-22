@@ -1,6 +1,7 @@
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { getIsMobile } from 'utils';
 import { ProjectListFilterType } from '../ProjectListFilterType';
 import { DeadlineSelectAndSettings } from './DeadlineSelectAndSettings';
 import { RatingSelect } from './RatingSelect';
@@ -11,7 +12,7 @@ export const FilterBox = ({
 }: {
   onApplyFilters: (selectedFilters: ProjectListFilterType) => void;
 }) => {
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = getIsMobile();
   const fullSizedVersion = () => {
     return (
       <div className='card w-100 filter-box-wrapper'>

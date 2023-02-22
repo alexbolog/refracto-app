@@ -1,5 +1,6 @@
 import React from 'react';
 import { ProjectListItem } from 'types/projectTypes';
+import { getIsMobile } from 'utils';
 import { CFProgressBar } from './CFProgressBar';
 import { Deadline } from './ProjectSpecs/Deadline';
 import { Goal } from './ProjectSpecs/Goal';

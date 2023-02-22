@@ -73,7 +73,6 @@
 
 .crowdfunding-progress-text.sum-progress {
     font-weight: 600;
-
 }
 
 .crowdfunding-progress-text.time-left {
@@ -96,4 +95,65 @@
     padding-top: 6px;
     padding-bottom: 6px;
     justify-self: flex-end;
+}
+
+@media only screen and (max-width: 768px) {
+    .project-specs {
+        margin-top: 15px;
+    }
+
+    .crowdfunding-progress-wrapper {
+        width: 100% !important;
+    }
+
+    .progress {
+        height: 4px !important;
+    }
+
+    .project-wrapper {
+        border: none;
+    }
+
+    .project-wrapper img {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    .project-specs-wrapper {
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 34px;
+    }
+
+    .project-info-title {
+        display: none;
+    }
+
+    .project-specs-container {
+        flex-direction: column-reverse;
+        /* padding: 0 20px; */
+        padding-left: 20px;
+    }
+
+    .project-title {
+        font-weight: 700 !important;
+        font-size: 20px;
+        line-height: 28px;
+        color: #364E63;
+        margin-top: 30px;
+    }
+
+    .btn-details {
+        width: 100%;
+    }
+
+    .btn-fav {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        border: 1px solid #D5DFE7;
+        border-radius: 6px;
+    }
 }

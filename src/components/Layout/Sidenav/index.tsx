@@ -14,6 +14,7 @@ import CurrencyPicker from 'components/CurrencyPicker';
 import AccountInfo from './AccountInfo';
 import { ReactComponent as NotificationsIcon } from '../../../assets/icons/refracto/notifications.svg';
 import { ReactComponent as HelpIcon } from '../../../assets/icons/refracto/help.svg';
+import { getIsMobile } from 'utils';
 
 const Sidenav = () => {
   const { address } = useGetAccountInfo();
@@ -31,8 +32,7 @@ const Sidenav = () => {
   };
 
   const handleCloseNavbar = () => {
-    const width = window.innerWidth;
-    const isMobile = width <= 768;
+    const isMobile = getIsMobile();
     const nav = document.getElementById('main-wrapper');
     const navControl = document.getElementsByClassName('hamburger')[0];
 
