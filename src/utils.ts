@@ -25,6 +25,31 @@ export const formatIso = (
   return formatDate(DateTime.fromISO(isoDate), format);
 };
 
+export const getLargestUnitTimeUntil = (isoDate: string): string => {
+  const diff = DateTime.fromISO(isoDate).diffNow([
+    'years',
+    'months',
+    'days',
+    'hours'
+  ]);
+  if (diff.years > 0) {
+    return `${diff.years} years`;
+  }
+
+  if (diff.months > 0) {
+    return `${diff.months} months`;
+  }
+
+  if (diff.weeks > 0) {
+    return `${diff.weeks} weeks`;
+  }
+
+  if (diff.days > 0) {
+    return `${diff.days} days`;
+  }
+  return '';
+};
+
 export const getDaysUntil = (isoDate: string): number => {
   return DateTime.fromISO(isoDate).diffNow('days').get('day');
 };
