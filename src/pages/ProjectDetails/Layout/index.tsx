@@ -4,7 +4,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { routeNames } from 'routes';
 import { FullProjectPageDetails, ProjectPageDetails } from 'types/projectTypes';
-import { MainCard } from '../MainCard';
+import { MainContainer } from '../MainContainer';
+import { ProjectSpecs } from '../ProjectSpecs';
 
 export const ProjectDetailsLayout = ({
   project
@@ -26,7 +27,10 @@ export const ProjectDetailsLayout = ({
       </div>
       <div className='row'>
         <div className='col-8'>
-          <MainCard project={project} />
+          <MainContainer project={project} />
+        </div>
+        <div className='col-4'>
+          <ProjectSpecs project={project} />
         </div>
       </div>
     </div>

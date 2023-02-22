@@ -12,7 +12,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-export const MainCard = ({ project }: { project: ProjectPageDetails }) => {
+export const HeaderCard = ({ project }: { project: ProjectPageDetails }) => {
   const carouselMovePrev = () => {
     const carouselId = 'img-slider';
     const elements = document.getElementsByClassName('swiper-button-prev');
