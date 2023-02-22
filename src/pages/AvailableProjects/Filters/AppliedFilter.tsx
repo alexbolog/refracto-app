@@ -1,5 +1,6 @@
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ReactComponent as CancelButton } from './../../../assets/icons/refracto/cancel.svg';
 import React from 'react';
 
 export const AppliedFilter = ({
@@ -13,7 +14,7 @@ export const AppliedFilter = ({
     <div className='applied-filter'>
       <span className='filter-type'>
         {filterText}: {filterValue}
-        <FontAwesomeIcon icon={faCircleXmark} className='ml-2' />
+        <CancelButton className='ml-2 mb-1' role='button' />
       </span>
     </div>
   );
