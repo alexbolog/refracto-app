@@ -24,6 +24,10 @@
     border-radius: 6px !important;
 }
 
+.card-header {
+    border: none !important;
+}
+
 .main-card-header {
     width: 100% !important;
 }
@@ -64,4 +68,27 @@
     position: absolute;
     top: 23px;
     right: 34px;
+}
+
+#img-slider img {
+    width: auto;
+    height: auto;
+    /* max-width: 530px;
+    max-height: 330px; */
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btn-carousel {
+    position: absolute;
+    bottom: 56px;
+    right: 54px;
+    z-index: 20;
+}
+
+.btn-carousel.left {
+    position: absolute;
+    bottom: 56px;
+    right: 88px;
+    margin: 0px;
 }

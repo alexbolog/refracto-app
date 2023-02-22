@@ -71,26 +71,12 @@ const ProjectCardCarousel = ({
             {projects.length > 4 && (
               <>
                 <button
-                  style={{
-                    background: 'white',
-                    borderRadius: '0.625rem',
-                    border: '1px #D5DFE7 solid',
-                    padding: '0.5rem',
-                    marginRight: '10px'
-                  }}
+                  className='btn-carousel left'
                   onClick={carouselMovePrev}
                 >
                   <LeftArrow />
                 </button>
-                <button
-                  style={{
-                    background: 'white',
-                    borderRadius: '0.625rem',
-                    border: '1px #D5DFE7 solid',
-                    padding: '0.5rem'
-                  }}
-                  onClick={carouselMoveNext}
-                >
+                <button className='btn-carousel' onClick={carouselMoveNext}>
                   <RightArrow />
                 </button>
               </>
