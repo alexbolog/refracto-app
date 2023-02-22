@@ -4,17 +4,35 @@ import { useContext, useState } from 'react';
 import { Filters } from './Filters';
 import { ProjectListFilterType } from './Filters/ProjectListFilterType';
 import { Project } from './Project';
+import { ProjectListItem } from 'types/projectTypes';
 
 const AvailableProjects = () => {
   const { availableProjects } = useContext(ProjectContext);
-  const [currentAppliedFilters, setCurrentAppliedFilters] =
-    useState<ProjectListFilterType>();
+  // const [currentAppliedFilters, setCurrentAppliedFilters] =
+  //   useState<ProjectListFilterType>();
+
+  const [filteredProjects, setFilteredProjects] =
+    useState<ProjectListItem[]>(availableProjects);
+
   const handleApplyFilters = (filters: ProjectListFilterType) => {
-    setCurrentAppliedFilters(filters);
+    console.log('filters updated');
+    setFilteredProjects(
+      availableProjects.filter((p) => shouldDisplayProject(p, filters))
+    );
   };
 
-  const shouldDisplayProject = () => {
-    return true;
+  const shouldDisplayProject = (
+    project: ProjectListItem,
+    currentAppliedFilters: ProjectListFilterType
+  ) => {
+    let shouldDisplay = true;
+    if (currentAppliedFilters?.nameSearch !== undefined) {
+      console.log('should display', currentAppliedFilters.nameSearch);
+      shouldDisplay =
+        shouldDisplay &&
+        project.projectTitle.includes(currentAppliedFilters.nameSearch);
+    }
+    return shouldDisplay;
   };
 
   return (
@@ -24,8 +42,8 @@ const AvailableProjects = () => {
           <Filters onApplyFilters={handleApplyFilters} />
         </div>
 
-        {availableProjects.length > 0 &&
-          availableProjects.filter(shouldDisplayProject).map((p, i) => (
+        {filteredProjects.length > 0 &&
+          filteredProjects.map((p, i) => (
             <div className='col-12' key={`available-project-list-item-${i}`}>
               <Project project={p} />
             </div>

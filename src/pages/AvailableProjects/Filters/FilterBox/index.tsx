@@ -1,6 +1,6 @@
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { getIsMobile } from 'utils';
 import { ProjectListFilterType } from '../ProjectListFilterType';
 import { DeadlineSelectAndSettings } from './DeadlineSelectAndSettings';
@@ -12,6 +12,22 @@ export const FilterBox = ({
 }: {
   onApplyFilters: (selectedFilters: ProjectListFilterType) => void;
 }) => {
+  const [searchInput, setSearchInput] = useState<string>('');
+  const handleUpdateInput = (value: string) => {
+    setSearchInput(value);
+  };
+
+  useEffect(() => {
+    handleApplyFilters();
+  }, [searchInput]);
+
+  const handleApplyFilters = () => {
+    const currentFilters: ProjectListFilterType = {
+      nameSearch: searchInput
+    };
+    onApplyFilters(currentFilters);
+  };
+
   const isMobile = getIsMobile();
   const fullSizedVersion = () => {
     return (
@@ -31,6 +47,7 @@ export const FilterBox = ({
                     type='text'
                     className='form-control h-100 search-bar-input'
                     placeholder='Search for a project'
+                    onChange={(e) => handleUpdateInput(e.target.value)}
                   />
                 </div>
               </div>
