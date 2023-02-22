@@ -15,6 +15,7 @@ export interface ActiveProjectInvestment extends ProjectListItem {
 }
 
 export interface ProjectPageDetails extends ProjectListItem {
+  loanDeadline: string;
   images: string[];
   assetClass: string;
   investmentType: string;
