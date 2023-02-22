@@ -15,7 +15,6 @@ const AvailableProjects = () => {
     useState<ProjectListItem[]>(availableProjects);
 
   const handleApplyFilters = (filters: ProjectListFilterType) => {
-    console.log('filters updated');
     setFilteredProjects(
       availableProjects.filter((p) => shouldDisplayProject(p, filters))
     );
@@ -27,7 +26,6 @@ const AvailableProjects = () => {
   ) => {
     let shouldDisplay = true;
     if (currentAppliedFilters?.nameSearch !== undefined) {
-      console.log('should display', currentAppliedFilters.nameSearch);
       shouldDisplay =
         shouldDisplay &&
         project.projectTitle.includes(currentAppliedFilters.nameSearch);
