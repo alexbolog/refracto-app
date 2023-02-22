@@ -6,38 +6,15 @@ import { useState } from 'react';
 
 const ProjectDetails = () => {
   const getProjectId = () => {
-    // const pathItems = document.location.pathname.split('/');
-    // if (pathItems.length === 2) {
-    //   return pathItems[1];
-    // }
+    const pathItems = document.location.pathname.split('/');
+    console.log(pathItems);
+    if (pathItems.length === 3) {
+      return pathItems[2];
+    }
     return '';
   };
   const [projectId, _] = useState(getProjectId());
-  return (
-    <div className='d-flex flex-fill align-items-center container'>
-      <div className='row w-100'>
-        <div className='col-12 col-md-8 col-lg-5 mx-auto'>
-          <div className='card shadow-sm rounded p-4 border-0'>
-            <div className='card-body text-center'>
-              <h2 className='mb-3' data-testid='title'>
-                {dAppName}
-              </h2>
-
-              <p className='mb-3'>{projectId}</p>
-
-              <Link
-                to={routeNames.unlock}
-                className='btn btn-primary mt-3 text-white'
-                data-testid='loginBtn'
-              >
-                Login
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <h2>Project ID: {projectId}</h2>;
 };
 
 export default ProjectDetails;

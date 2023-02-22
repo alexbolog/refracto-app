@@ -5,6 +5,8 @@ import './style.css';
 import { ReactComponent as FavoriteDisabled } from './../../../assets/icons/refracto/favorite-empty.svg';
 import { ReactComponent as FavoriteEnabled } from './../../../assets/icons/refracto/favorite-fill.svg';
 import { CFProgressBar } from './CFProgressBar';
+import { useNavigate } from 'react-router-dom';
+import { routeNames } from 'routes';
 
 export const MobileSizeProject = ({
   project
@@ -15,6 +17,11 @@ export const MobileSizeProject = ({
   const toggleFavorite = () => {
     // onToggleFavorite(projectDetails.projectId, !isFavoriteEnabled);
     setIsFavoriteEnabled(!isFavoriteEnabled);
+  };
+
+  const navigate = useNavigate();
+  const handleShowProjectDetails = () => {
+    navigate(`${routeNames.projectPage.replace(':id', project.projectId)}`);
   };
 
   return (
@@ -49,7 +56,12 @@ export const MobileSizeProject = ({
         </div>
       </div>
       <div className='card-footer border-0'>
-        <button className='btn btn-primary btn-details'>View Details</button>
+        <button
+          className='btn btn-primary btn-details'
+          onClick={handleShowProjectDetails}
+        >
+          View Details
+        </button>
       </div>
     </div>
   );

@@ -4,12 +4,19 @@ import { ProjectInfo } from './ProjectInfo';
 import './style.css';
 import { ReactComponent as FavoriteDisabled } from './../../../assets/icons/refracto/favorite-empty.svg';
 import { ReactComponent as FavoriteEnabled } from './../../../assets/icons/refracto/favorite-fill.svg';
+import { useNavigate } from 'react-router-dom';
+import { routeNames } from 'routes';
 
 export const FullSizeProject = ({ project }: { project: ProjectListItem }) => {
   const [isFavoriteEnabled, setIsFavoriteEnabled] = React.useState(false);
   const toggleFavorite = () => {
     // onToggleFavorite(projectDetails.projectId, !isFavoriteEnabled);
     setIsFavoriteEnabled(!isFavoriteEnabled);
+  };
+
+  const navigate = useNavigate();
+  const handleShowProjectDetails = () => {
+    navigate(`${routeNames.projectPage.replace(':id', project.projectId)}`);
   };
 
   return (
@@ -39,7 +46,10 @@ export const FullSizeProject = ({ project }: { project: ProjectListItem }) => {
                 />
               )}
             </button>
-            <button className='btn btn-primary align-self-end btn-details'>
+            <button
+              className='btn btn-primary align-self-end btn-details'
+              onClick={handleShowProjectDetails}
+            >
               View Details
             </button>
           </div>
