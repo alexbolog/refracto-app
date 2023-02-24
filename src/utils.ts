@@ -26,6 +26,7 @@ export const formatIso = (
 };
 
 export const getDaysUntil = (isoDate: string): number => {
+  // TODO: change to luxon difference. Return int
   return DateTime.fromISO(isoDate).diffNow('days').get('day');
 };
 
