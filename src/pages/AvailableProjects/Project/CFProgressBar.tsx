@@ -1,6 +1,6 @@
 import React from 'react';
 import { toLocaleStringOptionsNoDecimals } from 'config';
-import { getDaysUntil } from 'utils';
+import { formatRelativeDate, fromIso } from 'utils';
 
 export const CFProgressBar = ({
   crowdfundedAmount,
@@ -29,7 +29,7 @@ export const CFProgressBar = ({
           )}
         </span>
         <span className='crowdfunding-progress-text time-left'>
-          {Math.floor(getDaysUntil(deadline))} days left
+          {formatRelativeDate(fromIso(deadline))}
         </span>
       </div>
       <div className='progress w-100'>

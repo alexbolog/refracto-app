@@ -18,6 +18,10 @@ export const formatRelativeDate = (luxonDate: DateTime): string => {
   return luxonDate.toRelative()!;
 };
 
+export const fromIso = (isoDate: string): DateTime => {
+  return DateTime.fromISO(isoDate);
+};
+
 export const formatIso = (
   isoDate: string,
   format?: Intl.DateTimeFormatOptions
@@ -26,7 +30,6 @@ export const formatIso = (
 };
 
 export const getDaysUntil = (isoDate: string): number => {
-  // TODO: change to luxon difference. Return int
   return DateTime.fromISO(isoDate).diffNow('days').get('day');
 };
 
