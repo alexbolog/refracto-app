@@ -1,6 +1,8 @@
 import { AccountOverview } from 'types/accountTypes';
+import { ActiveProjectInvestment } from 'types/projectTypes';
 import accountOverview from '../../dbNew/accountOverview.json';
 import projectDetails from '../../dbNew/projectList.json';
+import projectList from '../../dbNew/projectList.json';
 
 export const getAccountOverview = (): AccountOverview => {
   const response = accountOverview as any as AccountOverview;
@@ -16,4 +18,13 @@ export const getAccountOverview = (): AccountOverview => {
     )[0].projectTitle;
   }
   return response;
+};
+
+export const getActiveProjectInvestments = (): ActiveProjectInvestment[] => {
+  return projectList.map((l: any) => {
+    const o = l as ActiveProjectInvestment;
+    o.amountInvested = 123456.789;
+    // o.thumbnailSrc = l.images[0];
+    return o;
+  });
 };

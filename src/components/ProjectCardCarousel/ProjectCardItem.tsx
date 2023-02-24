@@ -3,6 +3,8 @@ import React from 'react';
 import { SuggestedProject } from 'types/accountTypes';
 import { ReactComponent as FavoriteDisabled } from './../../assets/icons/refracto/favorite-empty.svg';
 import { ReactComponent as FavoriteEnabled } from './../../assets/icons/refracto/favorite-fill.svg';
+import { formatIso } from '../../utils';
+import { DateTime } from 'luxon';
 
 const ProjectCardItem = ({
   projectDetails,
@@ -87,7 +89,12 @@ const ProjectCardItem = ({
           <div className='col-lg-12 col-sm-12 col-md-12 d-flex justify-content-between'>
             <h5>Crowdfunding Deadline</h5>
             <h5>
-              <strong>{projectDetails.crowdfundingDeadline.toString()}</strong>
+              <strong>
+                {formatIso(
+                  projectDetails.crowdfundingDeadline,
+                  DateTime.DATE_MED
+                )}
+              </strong>
             </h5>
           </div>
         </div>

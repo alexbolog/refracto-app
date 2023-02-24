@@ -21,6 +21,7 @@ import Zoom from 'chartjs-plugin-zoom';
 import { DateTime } from 'luxon';
 import 'chartjs-adapter-luxon';
 import DateRangePicker from '../../../components/DateRangePicker';
+import { formatDate } from '../../../utils';
 import ExpandFooter from '../../../components/ExpandFooter';
 
 const GeneralStatisticsGraph = () => {
@@ -166,7 +167,8 @@ const GeneralStatisticsGraph = () => {
       tooltip: {
         callbacks: {
           title: (crtElement: any) => {
-            return graphDates[crtElement[0].dataIndex].toLocaleString(
+            return formatDate(
+              graphDates[crtElement[0].dataIndex],
               DateTime.DATE_MED
             );
           },

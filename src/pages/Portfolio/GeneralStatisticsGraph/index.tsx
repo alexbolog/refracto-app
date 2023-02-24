@@ -269,60 +269,58 @@ const GeneralStatisticsGraph = () => {
   };
 
   return (
-    <div className='col-lg-12 col-md-12 col-sm-12'>
-      <div className='card'>
-        <div className='card-header d-flex justify-content-between'>
-          <h3>General Overview Statistics</h3>
-          <div>
-            <button
-              className='btn btn-outline-primary mr-2 active'
-              onClick={resetZoom}
-            >
-              Reset
-            </button>
-            <button
-              className='btn btn-outline-primary mr-2'
-              onClick={handleOneYearFilter}
-            >
-              Last Year
-            </button>
-            <button
-              className='btn btn-outline-primary mr-2'
-              onClick={handleOneQuarterFilter}
-            >
-              Last Quarter
-            </button>
-            <button
-              className='btn btn-outline-primary mr-2'
-              onClick={handleOneMonthFilter}
-            >
-              Last Month
-            </button>
-            <DateRangePicker onChange={onDatePick}></DateRangePicker>
-          </div>
-        </div>
-        <div
-          className='card-body d-flex justify-content-center'
-          style={{ maxHeight: '70%' }}
-        >
-          <Line
-            options={options}
-            data={data()}
-            ref={chartRef}
-            style={{ maxHeight: '100%' }}
-          ></Line>
-        </div>
-        <div
-          className='card-footer d-flex justify-content-end'
-          style={{ padding: '0', margin: '0' }}
-        >
-          <p
-            className='text-primary'
-            style={{ padding: '15px', marginRight: '10px', cursor: 'pointer' }}
+    <div className='card w-100'>
+      <div className='card-header d-flex justify-content-between'>
+        <h3>General Overview Statistics</h3>
+        <div>
+          <button
+            className='btn btn-outline-primary mr-2 active'
+            onClick={resetZoom}
           >
-            Expand <ExpandIcon />
-          </p>
+            Reset
+          </button>
+          <button
+            className='btn btn-outline-primary mr-2'
+            onClick={handleOneYearFilter}
+          >
+            Last Year
+          </button>
+          <button
+            className='btn btn-outline-primary mr-2'
+            onClick={handleOneQuarterFilter}
+          >
+            Last Quarter
+          </button>
+          <button
+            className='btn btn-outline-primary mr-2'
+            onClick={handleOneMonthFilter}
+          >
+            Last Month
+          </button>
+          <DateRangePicker onChange={onDatePick}></DateRangePicker>
         </div>
+      </div>
+      <div
+        className='card-body d-flex justify-content-center'
+        style={{ maxHeight: '70%' }}
+      >
+        <Line
+          options={options}
+          data={data()}
+          ref={chartRef}
+          style={{ maxHeight: '100%' }}
+        ></Line>
+      </div>
+      <div
+        className='card-footer d-flex justify-content-end'
+        style={{ padding: '0', margin: '0' }}
+      >
+        <p
+          className='text-primary'
+          style={{ padding: '15px', marginRight: '10px', cursor: 'pointer' }}
+        >
+          Expand <ExpandIcon />
+        </p>
       </div>
     </div>
   );
