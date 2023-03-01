@@ -4,20 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Rating = ({ value }: { value: string }) => {
   const riskLevelBox = () => {
-    const isLowRisk = value.includes('Low');
-    const isMedRisk = value.includes('Med');
-    if (isLowRisk) {
-      return (
-        <span className='risk-box risk-box-sm risk-low mb-1'>{value}</span>
-      );
-    }
-    if (isMedRisk) {
-      return (
-        <span className='risk-box risk-box-sm risk-medium mb-1'>{value}</span>
-      );
+    let riskClass = '';
+    if (value.includes('Low')) {
+      riskClass = 'risk-low';
+    } else if (value.includes('Med')) {
+      riskClass = 'risk-medium';
+    } else if (value.includes('High')) {
+      riskClass = 'risk-high';
+    } else {
+      console.log('Could not find risk class for value: ', value);
     }
 
-    return <span className='risk-box risk-box-sm risk-high mb-1'>{value}</span>;
+    const classes = 'risk-box risk-box-sm risk-high mb-1 ' + riskClass;
+    return <span className={classes}>{value}</span>;
   };
   return (
     <div className='project-specs'>
