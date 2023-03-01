@@ -1,0 +1,16 @@
+{
+  "plugins": {
+    "title": {
+      "display": false,
+      "text": "Test title",
+      "align": "start"
+    },
+    "legend": {
+      "display": false,
+      "position": "bottom"
+    }
+  },
+  "cutout": "80%",
+  "radius": "100%",
+  "responsive": true
+}

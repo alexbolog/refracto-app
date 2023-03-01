@@ -6,10 +6,14 @@ import './style.scss';
 import ExpandFooter from '../ExpandFooter';
 import { toLocaleStringOptions } from '../../config';
 import { GeneralContext } from '../../contexts/GeneralContext';
+import donutChartOptions from './donut-chart-options.json';
 
 const DonutChartStatisticsCard = () => {
   const { activeProjectInvestments } = useContext(GeneralContext);
   Chart.register(ArcElement);
+
+  const chartOptions = donutChartOptions;
+
   const hexToRgb = (hex: string) => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result
@@ -40,23 +44,6 @@ const DonutChartStatisticsCard = () => {
         )
       }
     ]
-  };
-
-  const chartOptions = {
-    plugins: {
-      title: {
-        display: false,
-        text: 'Test title',
-        align: 'start' as const
-      },
-      legend: {
-        display: false,
-        position: 'bottom' as const
-      }
-    },
-    cutout: '80%',
-    radius: '100%',
-    responsive: true
   };
 
   return (
