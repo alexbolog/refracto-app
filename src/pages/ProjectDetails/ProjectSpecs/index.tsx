@@ -15,7 +15,7 @@ import { CFProgressBar } from 'pages/AvailableProjects/Project/CFProgressBar';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ProjectPageDetails, FullProjectPageDetails } from 'types/projectTypes';
-import { formatIso, getLargestUnitTimeUntil } from 'utils';
+import { formatIso, formatRelativeDate, fromIso } from 'utils';
 
 export const ProjectSpecs = ({
   project
@@ -118,7 +118,7 @@ export const ProjectSpecs = ({
               <span>Loan Duration</span>
             </div>
             <div className='col-6 d-flex justify-content-end p-0 spec-value'>
-              {getLargestUnitTimeUntil(project.loanDeadline)}
+              {formatRelativeDate(fromIso(project.loanDeadline))}
             </div>
           </div>
 
