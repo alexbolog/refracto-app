@@ -1,11 +1,18 @@
-import React from 'react';
-import { Chart, ArcElement } from 'chart.js';
+import React, { useContext } from 'react';
+import { ArcElement, Chart } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import { ReactComponent as ExpandIcon } from '../../assets/icons/refracto/arrow_right_alt.svg';
-import projectList from '../../db/projectListV2.json';
+
+import './style.scss';
+import ExpandFooter from '../ExpandFooter';
+import { toLocaleStringOptions } from '../../config';
+import { GeneralContext } from '../../contexts/GeneralContext';
+import DonutChartOptions from './donut-chart-options';
+import DonutProjectList from './donut-project-list';
 
 const DonutChartStatisticsCard = () => {
+  const { activeProjectInvestments } = useContext(GeneralContext);
   Chart.register(ArcElement);
+
   const hexToRgb = (hex: string) => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result
@@ -22,50 +29,43 @@ const DonutChartStatisticsCard = () => {
     return `rgb(${rgb?.r}, ${rgb?.g}, ${rgb?.b})` ?? 'rgb(0,0,0)';
   };
 
+  const totalInvested = activeProjectInvestments
+    ?.map((project) => project.amountInvested)
+    .reduce((partialSum, crtAmount) => partialSum + crtAmount, 0);
+
   const chartData = {
-    labels: projectList.map((pl) => pl.projectName),
-    title: 'test',
+    labels: activeProjectInvestments?.map((pl) => pl.projectTitle),
     datasets: [
       {
-        label: 'Test label',
-        data: projectList.map((pl) => pl.minCrowdfundingTarget),
-        backgroundColor: projectList.map((pl) => hexToRgbString(pl.colorCode))
+        data: activeProjectInvestments?.map((pl) => pl.amountInvested),
+        backgroundColor: activeProjectInvestments!.map((pl) =>
+          hexToRgbString(pl.colorCodeHex)
+        )
       }
     ]
-  };
-
-  const chartOptions = {
-    plugins: {
-      title: {
-        display: true,
-        text: 'Test title',
-        align: 'start' as const
-      },
-      legend: {
-        position: 'bottom' as const,
-        display: true
-      }
-    }
   };
 
   return (
     <div className='card'>
       <div className='card-body row'>
-        <div className='col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center'>
-          <Doughnut data={chartData} options={chartOptions} />
+        <h3>
+          <strong>Proportion of Investments</strong>
+        </h3>
+        <div className='donut-container d-flex justify-content-center'>
+          <Doughnut data={chartData} options={DonutChartOptions} />
+          <div className='donut-hole-text'>
+            <label>Total Investment</label>
+            <label className='fat-number'>
+              €{totalInvested?.toLocaleString(undefined, toLocaleStringOptions)}
+            </label>
+          </div>
         </div>
+        <DonutProjectList
+          chartData={chartData}
+          activeProjectInvestments={activeProjectInvestments}
+        />
       </div>
-      <div
-        className='card-footer d-flex justify-content-end'
-        style={{ padding: '0' }}
-      >
-        <p
-          className='text-primary'
-          style={{ padding: '15px', marginRight: '10px', cursor: 'pointer' }}
-        >
-          Expand <ExpandIcon />
-        </p>
-      </div>
+      <ExpandFooter />
     </div>
   );
 };

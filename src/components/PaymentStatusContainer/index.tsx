@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PaymentStatusEntry from './PaymentStatusEntry';
-import { ReactComponent as ExpandIcon } from '../../assets/icons/refracto/arrow-down.svg';
+import ExpandFooter from '../ExpandFooter';
 import { GeneralContext } from 'contexts/GeneralContext';
 import { Payment } from 'types/accountTypes';
 import { formatIso } from 'utils';
@@ -65,7 +65,7 @@ const PaymentStatusContainer = () => {
               role='button'
               onClick={() => setIsExpanded(true)}
             >
-              Expand <ExpandIcon />
+              Expand <ExpandFooter />
             </p>
           )}
           {isExpanded && (
@@ -75,7 +75,7 @@ const PaymentStatusContainer = () => {
               role='button'
               onClick={() => setIsExpanded(false)}
             >
-              Collapse <ExpandIcon />
+              Collapse <ExpandFooter />
             </p>
           )}
         </div>
