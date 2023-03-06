@@ -6,13 +6,12 @@ import './style.scss';
 import ExpandFooter from '../ExpandFooter';
 import { toLocaleStringOptions } from '../../config';
 import { GeneralContext } from '../../contexts/GeneralContext';
-import donutChartOptions from './donut-chart-options.json';
+import DonutChartOptions from './donut-chart-options';
+import DonutProjectList from './donut-project-list';
 
 const DonutChartStatisticsCard = () => {
   const { activeProjectInvestments } = useContext(GeneralContext);
   Chart.register(ArcElement);
-
-  const chartOptions = donutChartOptions;
 
   const hexToRgb = (hex: string) => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -53,7 +52,7 @@ const DonutChartStatisticsCard = () => {
           <strong>Proportion of Investments</strong>
         </h3>
         <div className='donut-container d-flex justify-content-center'>
-          <Doughnut data={chartData} options={chartOptions} />
+          <Doughnut data={chartData} options={DonutChartOptions} />
           <div className='donut-hole-text'>
             <label>Total Investment</label>
             <label className='fat-number'>
@@ -61,40 +60,10 @@ const DonutChartStatisticsCard = () => {
             </label>
           </div>
         </div>
-        <h4>
-          <strong>Projects</strong>
-        </h4>
-        <div className='projects-list container ml-3 mt-2'>
-          {chartData.labels?.map((label, idx) => {
-            const color = chartData.datasets[0].backgroundColor[idx];
-            const roi =
-              activeProjectInvestments![idx].returnPercentage.toLocaleString(
-                undefined,
-                toLocaleStringOptions
-              ) + '%';
-            const invested =
-              '€' +
-              activeProjectInvestments![idx].amountInvested.toLocaleString(
-                undefined,
-                toLocaleStringOptions
-              );
-            return (
-              <div className='row' key={idx}>
-                <div
-                  className='col color-box p-0 col-1 mt-auto mb-auto'
-                  style={{
-                    backgroundColor: color
-                  }}
-                ></div>
-                <div className='col col-xl-5 col-11'>{label}</div>
-                <div className='col col-4 col-xl-3'>{roi}</div>
-                <div className='col invested-number col-8 col-xl-3 text-blugray-4'>
-                  {invested}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <DonutProjectList
+          chartData={chartData}
+          activeProjectInvestments={activeProjectInvestments}
+        />
       </div>
       <ExpandFooter />
     </div>
