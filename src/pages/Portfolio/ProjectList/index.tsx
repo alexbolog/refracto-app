@@ -1,5 +1,5 @@
 import React from 'react';
-import { GeneralContext } from 'contexts/GeneralContext';
+import { AccountContext } from 'contexts/AccountContext';
 import { useContext, useState } from 'react';
 import ProjectInfo from './ProjectInfo';
 import './style.css';
@@ -7,7 +7,7 @@ import './style.css';
 const ProjectList = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const COLLAPSE_BREAK_POINT = 4;
-  const { activeProjectInvestments, isLoading } = useContext(GeneralContext);
+  const { activeProjectInvestments, isLoading } = useContext(AccountContext);
   const shouldShowBorder = (index: number) => {
     return isCollapsed
       ? index < COLLAPSE_BREAK_POINT

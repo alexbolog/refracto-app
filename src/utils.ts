@@ -18,9 +18,21 @@ export const formatRelativeDate = (luxonDate: DateTime): string => {
   return luxonDate.toRelative()!;
 };
 
+export const fromIso = (isoDate: string): DateTime => {
+  return DateTime.fromISO(isoDate);
+};
+
 export const formatIso = (
   isoDate: string,
   format?: Intl.DateTimeFormatOptions
 ): string => {
   return formatDate(DateTime.fromISO(isoDate), format);
+};
+
+export const getDaysUntil = (isoDate: string): number => {
+  return DateTime.fromISO(isoDate).diffNow('days').get('day');
+};
+
+export const getIsMobile = (): boolean => {
+  return window.innerWidth <= 768;
 };

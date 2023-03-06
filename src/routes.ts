@@ -1,6 +1,6 @@
 import Account from 'pages/Account';
 import Marketplace from 'pages/Marketplace';
-import Projects from 'pages/Projects';
+import AvailableProjects from 'pages/AvailableProjects';
 import withPageTitle from './components/PageTitle';
 import Overview from './pages/Overview';
 import Transaction from './pages/Transaction';
@@ -58,7 +58,7 @@ const routes: Array<any> = [
   {
     path: routeNames.home,
     title: 'Available Projects',
-    component: Projects,
+    component: AvailableProjects,
     authenticatedRoute: false,
     displayInNavbar: true,
     icon: AvailableProjectsIcon

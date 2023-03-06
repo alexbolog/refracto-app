@@ -13,7 +13,8 @@ import { routeNames } from 'routes';
 import routes from 'routes';
 import UnlockPage from './pages/UnlockPage';
 import ReactGA from 'react-ga4';
-import { GeneralContextProvider } from 'contexts/GeneralContext';
+import { AccountContextProvider } from 'contexts/AccountContext';
+import { ProjectContextProvider } from 'contexts/ProjectContext';
 
 const environment = 'devnet';
 
@@ -31,24 +32,26 @@ const App = () => {
         environment={environment}
         customNetworkConfig={{ name: 'customConfig', apiTimeout: 6000 }}
       >
-        <GeneralContextProvider>
-          <Layout>
-            <TransactionsToastList />
-            <NotificationModal />
-            <SignTransactionsModals className='custom-class-for-modals' />
-            <Routes>
-              <Route path={routeNames.unlock} element={<UnlockPage />} />
-              {routes.map((route: any, index: number) => (
-                <Route
-                  path={route.path}
-                  key={'route-key-' + index}
-                  element={<route.component />}
-                />
-              ))}
-              <Route path='*' element={<PageNotFound />} />
-            </Routes>
-          </Layout>
-        </GeneralContextProvider>
+        <ProjectContextProvider>
+          <AccountContextProvider>
+            <Layout>
+              <TransactionsToastList />
+              <NotificationModal />
+              <SignTransactionsModals className='custom-class-for-modals' />
+              <Routes>
+                <Route path={routeNames.unlock} element={<UnlockPage />} />
+                {routes.map((route: any, index: number) => (
+                  <Route
+                    path={route.path}
+                    key={'route-key-' + index}
+                    element={<route.component />}
+                  />
+                ))}
+                <Route path='*' element={<PageNotFound />} />
+              </Routes>
+            </Layout>
+          </AccountContextProvider>
+        </ProjectContextProvider>
       </DappProvider>
     </Router>
   );

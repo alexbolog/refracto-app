@@ -1,0 +1,159 @@
+.project-wrapper {
+    margin-top: 25px !important;
+    border: 1px #D9D9D9 solid !important;
+}
+
+.project-wrapper img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px solid #D5DFE7;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px 0px #261A7033;
+}
+
+.project-info-title {
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+}
+
+.project-specs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.project-specs-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.project-specs {
+    display: flex;
+    justify-content: start;
+    align-items: center !important;
+    width: 100%;
+}
+
+.project-specs-type {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #364E63;
+    margin-left: 14px;
+    margin-right: 6px;
+}
+
+.project-specs-value {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: #6F869B;
+}
+
+.progress-bar {
+    background-color: #75BE48 !important;
+}
+
+
+.crowdfunding-progress-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.crowdfunding-progress-text {
+    color: #6F869B !important;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.crowdfunding-progress-text.sum-progress {
+    font-weight: 600;
+}
+
+.crowdfunding-progress-text.time-left {
+    font-weight: 400;
+}
+
+.btn.btn-fav {
+    width: 32px;
+    height: 32px;
+    justify-self: flex-end;
+    align-self: flex-start;
+}
+
+.btn.btn-details {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    justify-self: flex-end;
+}
+
+@media only screen and (max-width: 768px) {
+    .project-specs {
+        margin-top: 15px;
+    }
+
+    .crowdfunding-progress-wrapper {
+        width: 100% !important;
+    }
+
+    .progress {
+        height: 4px !important;
+    }
+
+    .project-wrapper {
+        border: none;
+    }
+
+    .project-wrapper img {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    .project-specs-wrapper {
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 34px;
+    }
+
+    .project-info-title {
+        display: none;
+    }
+
+    .project-specs-container {
+        flex-direction: column-reverse;
+        /* padding: 0 20px; */
+        padding-left: 20px;
+    }
+
+    .project-title {
+        font-weight: 700 !important;
+        font-size: 20px;
+        line-height: 28px;
+        color: #364E63;
+        margin-top: 30px;
+    }
+
+    .btn-details {
+        width: 100%;
+    }
+
+    .btn-fav {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        border: 1px solid #D5DFE7;
+        border-radius: 6px;
+    }
+}

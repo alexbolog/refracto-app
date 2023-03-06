@@ -5,21 +5,21 @@ import { AccountOverview } from 'types/accountTypes';
 import { ActiveProjectInvestment } from 'types/projectTypes';
 import useGetAccountActiveInvestments from './hooks/useGetAccountActiveInvestments';
 
-export interface IGeneralContext {
+export interface IAccountContext {
   isLoading: boolean;
   accountOverview?: AccountOverview;
   activeProjectInvestments?: ActiveProjectInvestment[];
   address?: string;
 }
 
-const defaultState: IGeneralContext = {
+const defaultState: IAccountContext = {
   isLoading: true
 };
 
-export const GeneralContext =
-  React.createContext<IGeneralContext>(defaultState);
+export const AccountContext =
+  React.createContext<IAccountContext>(defaultState);
 
-export const GeneralContextProvider = ({
+export const AccountContextProvider = ({
   children
 }: {
   children: React.ReactNode;
@@ -37,7 +37,7 @@ export const GeneralContextProvider = ({
   }, [address]);
 
   return (
-    <GeneralContext.Provider
+    <AccountContext.Provider
       value={{
         isLoading,
         accountOverview,
@@ -46,6 +46,6 @@ export const GeneralContextProvider = ({
       }}
     >
       {children}
-    </GeneralContext.Provider>
+    </AccountContext.Provider>
   );
 };

@@ -19,32 +19,3 @@
     max-width: 75px;
     border-radius: 4px;
 }
-
-.risk-box {
-    width: 90px;
-    height: 24px;
-    font-weight: 400;
-    border-radius: 4px;
-    font-size: 12px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.risk-box.risk-low {
-    background-color: #2E9758;
-}
-
-.risk-box.risk-medium {
-    background-color: #EBBC15;
-}
-
-.risk-box.risk-high {
-    background-color: #CB3737;
-}
-
-.project-list-container {
-    padding-top: 5px !important;
-    padding-bottom: 0 !important;
-}
