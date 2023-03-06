@@ -35613,8 +35613,7 @@ code {
 }
 
 .widget-stat .media .media-body p {
-    text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 0.875rem;
 }
 
