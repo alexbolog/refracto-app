@@ -5,12 +5,12 @@ import { Doughnut } from 'react-chartjs-2';
 import './style.scss';
 import ExpandFooter from '../ExpandFooter';
 import { toLocaleStringOptions } from '../../config';
-import { GeneralContext } from '../../contexts/GeneralContext';
 import DonutChartOptions from './donut-chart-options';
 import DonutProjectList from './donut-project-list';
+import { AccountContext } from '../../contexts/AccountContext';
 
 const DonutChartStatisticsCard = () => {
-  const { activeProjectInvestments } = useContext(GeneralContext);
+  const { activeProjectInvestments } = useContext(AccountContext);
   Chart.register(ArcElement);
 
   const hexToRgb = (hex: string) => {
