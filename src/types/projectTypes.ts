@@ -69,6 +69,7 @@ export interface RepaymentScheduleEntry {
   lateFees: number;
   principalAmount: number;
   interestAmount: number;
+  paid: number;
 }
 
 export interface QuestionAndAnswer {
