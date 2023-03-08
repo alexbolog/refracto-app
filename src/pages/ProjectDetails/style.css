@@ -302,8 +302,8 @@
 }
 
 .rating-table-row .category, .rating-table-row .assesments {
-    width: 50% !important;
     border-top: 1px solid #D5DFE7;
+    width: 50% !important;
     text-align: left;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -328,7 +328,14 @@
     padding: 10px;
     border: none !important;
     margin-top: 15px;
+    padding-left: 0px !important;
 }
+
+.rating-table-row.total {
+    padding-bottom: 45px !important;
+    border-bottom: 1px solid #D5DFE7;
+}
+
 
 .refracto-rating-disclaimer {
     font-style: normal !important;
@@ -336,4 +343,5 @@
     font-size: 12px !important;
     line-height: 26px !important;
     color: #6F869B !important;
+    margin-top: 25px;
 }

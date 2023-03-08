@@ -32,7 +32,7 @@ export const RatingTable = ({
           <div className='assesments'>{r.assesments}</div>
         </div>
       ))}
-      <div className='rating-table-row'>
+      <div className='rating-table-row total'>
         <div className='category' style={{ fontWeight: 700 }}>
           Total
         </div>
