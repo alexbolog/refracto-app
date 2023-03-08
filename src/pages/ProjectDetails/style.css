@@ -291,3 +291,49 @@
 .rating.high.active {
     background-color: #CB3737;
 }
+
+.rating-table-wrapper {
+    width: 100% !important;
+}
+
+.rating-table-row {
+    width: 100% !important;
+    display: flex;
+}
+
+.rating-table-row .category, .rating-table-row .assesments {
+    width: 50% !important;
+    border-top: 1px solid #D5DFE7;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 26px;
+    color: #364E63;
+}
+
+.rating-table-row .assesments {
+    font-weight: 600 !important;
+}
+
+.t-header {
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    line-height: 32px !important;
+    color: #6F869B !important;
+    padding: 10px;
+    border: none !important;
+    margin-top: 15px;
+}
+
+.refracto-rating-disclaimer {
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 26px !important;
+    color: #6F869B !important;
+}
