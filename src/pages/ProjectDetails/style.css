@@ -46,8 +46,11 @@
     color: #364E63 !important;
 }
 
+.executive-summary-wrapper {
+    padding: 30px;
+}
+
 .executive-summary-wrapper h1 {
-    padding: 30px 30px;
     font-weight: 700 !important;
     font-size: 24px !important;
     line-height: 32px !important;
@@ -56,11 +59,15 @@
 
 .executive-summary-wrapper h6 {
     margin-top: 0;
-    padding: 30px 30px;
     font-weight: 400 !important;
     font-size: 14px !important;
     line-height: 26px !important;
     color: #364E63 !important;
+}
+
+.executive-summary-wrapper.card-body {
+    padding-top: 0px !important;
+    /* margin-top: 0px !important; */
 }
 
 .btn-social {
@@ -163,4 +170,124 @@
     line-height: 20px !important;
     color: white !important;
     margin-bottom: 10px;
+}
+
+.not-connected-wrapper {
+    width: 100% !important;
+    padding: 18px !important;
+    margin-bottom: 20px;
+}
+
+.not-connected-wrapper h3 {
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 32px !important;
+    color: #364E63 !important;
+    margin-bottom: 18px !important;
+}
+
+.not-connected-wrapper .btn-connect {
+    border: none !important;
+    width: 100% !important;
+    background-color: white;
+}
+
+.border-left {
+    border-left: 1px solid #D5DFE7 !important;
+}
+
+.border-bottom {
+    border-left: 1px solid #D5DFE7 !important;
+}
+
+.swot-wrapper {
+    width: 100% !important;
+    display: flex;
+    min-width: 0;
+}
+
+.swot-wrapper .swot-cell {
+    width: 50%;
+    padding: 25px 15px 45px 30px;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 26px !important;
+    color: #364E63 !important;
+
+}
+
+.swot-cell ul {
+    list-style: none;
+}
+
+.swot-cell ul li::before {
+    /* \2022 is the CSS Code/unicode for a bullet */
+    content: "\2022";
+    font-weight: bold;
+    display: inline-block;
+    width: 1.3em;
+    margin-left: -1.3em;
+}
+
+.swot-cell .title {
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    line-height: 32px !important;
+    color: #6F869B !important;
+}
+
+.swot-cell.strenghts {
+    border-right: 1px solid #D5DFE7 !important;
+    border-bottom: 1px solid #D5DFE7 !important;
+}
+
+.swot-cell.weaknesses {
+    border-bottom: 1px solid #D5DFE7 !important;
+}
+
+.swot-cell.opportunities {
+    border-right: 1px solid #D5DFE7 !important;
+}
+
+.rating-box {
+    display: flex;
+    width: 100%;
+}
+
+.rating-box .rating {
+    width: 33% !important;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.rating-box .rating.low {
+    border-radius: 4px 0px 0px 4px;
+}
+
+.rating-box .rating.med {
+    border-radius: 0px;
+}
+
+.rating-box .rating.high {
+    border-radius: 0px 4px 4px 0px;
+}
+
+.rating.active {
+    color: white;
+}
+
+.rating.low.active {
+    background-color: #75BE48;
+}
+
+.rating.med.active {
+    background-color: #EBBC15;
+}
+
+.rating.high.active {
+    background-color: #CB3737;
 }

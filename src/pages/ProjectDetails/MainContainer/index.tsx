@@ -13,18 +13,61 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { HeaderCard } from './HeaderCard';
 import { ExecutiveSummary } from './ExecutiveSummary';
+import { NotConnected } from './NotConnected';
+import { useGetIsLoggedIn } from '@elrondnetwork/dapp-core/hooks';
+import { ProjectDetails } from './ProjectDetails';
+import { Location } from './Location';
+import { Sponsor } from './Sponsor';
+import { SWOT } from './SWOT';
+import { RefractoRating } from './RefractoRating';
 
-export const MainContainer = ({ project }: { project: ProjectPageDetails }) => {
-  return (
-    <div className='container-fluid p-0'>
-      <div className='row w-100'>
+export const MainContainer = ({
+  project
+}: {
+  project: ProjectPageDetails | FullProjectPageDetails;
+}) => {
+  const isConnected = useGetIsLoggedIn();
+
+  const connectedComponents = () => {
+    return (
+      <>
         <div className='col-12 p-0'>
-          <HeaderCard project={project} />;
+          <ProjectDetails project={project as FullProjectPageDetails} />
         </div>
         <div className='col-12 p-0'>
-          <ExecutiveSummary project={project} />;
+          <Location project={project as FullProjectPageDetails} />
+        </div>
+        <div className='col-12 p-0'>
+          <Sponsor project={project as FullProjectPageDetails} />
+        </div>
+        <div className='col-12 p-0'>
+          <SWOT project={project as FullProjectPageDetails} />
+        </div>
+        {/* <div className='col-12 p-0'>
+          <RefractoRating project={project as FullProjectPageDetails} />
+        </div> */}
+      </>
+    );
+  };
+  return (
+    <>
+      <div className='container-fluid p-0'>
+        <div className='row w-100'>
+          <div className='col-12 p-0'>
+            <HeaderCard project={project} />;
+          </div>
+          <div className='col-12 p-0'>
+            <ExecutiveSummary project={project} />;
+          </div>
+          {!isConnected ? (
+            <div className='col-12 p-0'>
+              <NotConnected />
+            </div>
+          ) : (
+            connectedComponents()
+          )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
