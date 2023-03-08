@@ -2,6 +2,7 @@ import React from 'react';
 import { FullProjectPageDetails } from 'types/projectTypes';
 import { RatingTable } from './RatingTable';
 import { RiskLevelBox } from './RiskLevelBox';
+import './style.css';
 
 export const RefractoRating = ({
   project

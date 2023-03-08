@@ -1,6 +1,7 @@
 import React from 'react';
 import { FullProjectPageDetails } from 'types/projectTypes';
 import { CapitalStructureTable } from './CapitalStructureTable';
+import './style.css';
 
 export const CapitalStructure = ({
   project
