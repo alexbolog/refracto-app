@@ -12,3 +12,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.text-blugray-3 {
+  color: #6F869B;
+}
+
+.text-blugray-4 {
+  color: #364E63;
+}
