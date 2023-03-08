@@ -21,7 +21,7 @@ export const CapitalStructureTable = ({
       {items.map((r, idx) => (
         <div
           className='capital-structure-table-row'
-          key={`refracto-rating-key-${idx}`}
+          key={`capital-structure-key-${idx}`}
         >
           <div className='type'>{r.type}</div>
           <div className='source'>{r.source}</div>
