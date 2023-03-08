@@ -43,9 +43,9 @@ export const MainContainer = ({
         <div className='col-12 p-0'>
           <SWOT project={project as FullProjectPageDetails} />
         </div>
-        {/* <div className='col-12 p-0'>
+        <div className='col-12 p-0'>
           <RefractoRating project={project as FullProjectPageDetails} />
-        </div> */}
+        </div>
       </>
     );
   };
