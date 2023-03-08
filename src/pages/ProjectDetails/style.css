@@ -1,0 +1,262 @@
+.breadcrumbs {
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    line-height: 20px !important;
+    color: #364E63 !important;
+    display: flex;
+    align-items: center;
+    margin-bottom: 13px;
+}
+
+.breadcrumbs .main {
+    margin-right: 8px !important;
+}
+
+.breadcrumbs .sepz {
+    margin-right: 8px !important;
+    width: 8px !important;
+    height: 13px !important;
+}
+
+.card {
+    border: 1px solid #D9D9D9 !important;
+    border-radius: 6px !important;
+}
+
+.card-header {
+    border: none !important;
+}
+
+.main-card-header {
+    width: 100% !important;
+}
+
+.main-card-header h1 {
+    font-weight: 700 !important;
+    font-size: 24px !important;
+    line-height: 32px !important;
+    color: #364E63 !important;
+}
+
+.main-card-header h6 {
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 32px !important;
+    color: #364E63 !important;
+}
+
+.executive-summary-wrapper {
+    padding: 30px;
+}
+
+.executive-summary-wrapper h1 {
+    font-weight: 700 !important;
+    font-size: 24px !important;
+    line-height: 32px !important;
+    color: #364E63 !important;
+}
+
+.executive-summary-wrapper h6 {
+    margin-top: 0;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 26px !important;
+    color: #364E63 !important;
+}
+
+.executive-summary-wrapper.card-body {
+    padding-top: 0px !important;
+    /* margin-top: 0px !important; */
+}
+
+.btn-social {
+    padding: 0 !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 6px !important;
+    border: 1px solid #D5DFE7 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    color: #364E63 !important;
+}
+
+.btn-social.fb {
+    position: absolute;
+    top: 23px;
+    right: 86px;
+}
+
+.btn-social.twt {
+    position: absolute;
+    top: 23px;
+    right: 34px;
+}
+
+#img-slider img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btn-carousel {
+    position: absolute;
+    bottom: 56px;
+    right: 54px;
+    z-index: 2;
+}
+
+.btn-carousel.left {
+    position: absolute;
+    bottom: 56px;
+    right: 88px;
+    margin: 0px;
+}
+
+.project-specs-wrapper {
+    height: auto !important;
+    margin-right: 24px;
+    margin-left: 20px;
+}
+
+.project-specs-wrapper h1 {
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    line-height: 24px !important;
+    color: #364E63 !important;
+}
+
+.project-specs-wrapper .card-header {
+    padding: 0 30px;
+    padding-top: 35px;
+}
+
+
+.project-specs-container .spec-icon {
+    width: 16px;
+    height: 20px;
+    margin-bottom: 18px;
+}
+
+.project-specs-container .spec-type {
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    color: #364E63 !important;
+}
+
+.project-specs-container .spec-value {
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    color: #6F869B !important;
+}
+
+.card-footer {
+    border-top: none !important;
+}
+
+.btn-invest {
+    width: 100% !important;
+    border-radius: 6px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    line-height: 20px !important;
+    color: white !important;
+    margin-bottom: 10px;
+}
+
+.not-connected-wrapper {
+    width: 100% !important;
+    padding: 18px !important;
+    margin-bottom: 20px;
+}
+
+.not-connected-wrapper h3 {
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 32px !important;
+    color: #364E63 !important;
+    margin-bottom: 18px !important;
+}
+
+.not-connected-wrapper .btn-connect {
+    border: none !important;
+    width: 100% !important;
+    background-color: white;
+}
+
+.border-left {
+    border-left: 1px solid #D5DFE7 !important;
+}
+
+.border-bottom {
+    border-left: 1px solid #D5DFE7 !important;
+}
+
+.swot-wrapper {
+    width: 100% !important;
+    display: flex;
+    min-width: 0;
+}
+
+.swot-wrapper .swot-cell {
+    width: 50%;
+    padding: 25px 15px 45px 30px;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 26px !important;
+    color: #364E63 !important;
+
+}
+
+.swot-cell ul {
+    list-style: none;
+}
+
+.swot-cell ul li::before {
+    /* \2022 is the CSS Code/unicode for a bullet */
+    content: "\2022";
+    font-weight: bold;
+    display: inline-block;
+    width: 1.3em;
+    margin-left: -1.3em;
+}
+
+.swot-cell .title {
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    line-height: 32px !important;
+    color: #6F869B !important;
+}
+
+.swot-cell.strenghts {
+    border-right: 1px solid #D5DFE7 !important;
+    border-bottom: 1px solid #D5DFE7 !important;
+}
+
+.swot-cell.weaknesses {
+    border-bottom: 1px solid #D5DFE7 !important;
+}
+
+.swot-cell.opportunities {
+    border-right: 1px solid #D5DFE7 !important;
+}
+
+.refracto-rating-disclaimer {
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 26px !important;
+    color: #6F869B !important;
+    margin-top: 25px;
+}

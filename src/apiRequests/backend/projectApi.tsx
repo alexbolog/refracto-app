@@ -13,15 +13,19 @@ export const getAvailableProjects = (): ProjectListItem[] => {
 };
 
 export const getProjectInfo = (projectId: string): ProjectPageDetails => {
-  return projectInfo.filter(
+  const proj = projectInfo.filter(
     (pi) => pi.projectId === projectId
   )[0] as any as ProjectPageDetails;
+  proj.loanDeadline = proj.crowdfundingDeadline;
+  return proj;
 };
 
 export const getFullProjectInfo = (
   projectId: string
 ): FullProjectPageDetails => {
-  return fullProjectInfo.filter(
+  const proj = fullProjectInfo.filter(
     (pi) => pi.projectId === projectId
   )[0] as any as FullProjectPageDetails;
+  proj.loanDeadline = proj.crowdfundingDeadline;
+  return proj;
 };

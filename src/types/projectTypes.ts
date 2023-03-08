@@ -15,6 +15,7 @@ export interface ActiveProjectInvestment extends ProjectListItem {
 }
 
 export interface ProjectPageDetails extends ProjectListItem {
+  loanDeadline: string;
   images: string[];
   assetClass: string;
   investmentType: string;
@@ -31,7 +32,7 @@ export interface FullProjectPageDetails extends ProjectPageDetails {
   location: Coordinates;
   sponsorInfo: string;
   swotAnalysis: SWOTAnalysis;
-  crowdEstateRating: CrowdestateRatingItem[];
+  refractoRating: RefractoRatingItem[];
   capitalStructure: CapitalStructureItem[];
   repaymentSchedule: RepaymentScheduleEntry[];
   financingDetails: string;
@@ -51,7 +52,7 @@ export interface SWOTAnalysis {
   threats: string[];
 }
 
-export interface CrowdestateRatingItem {
+export interface RefractoRatingItem {
   category: string;
   assesments: string;
 }
