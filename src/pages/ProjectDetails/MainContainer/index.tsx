@@ -20,6 +20,7 @@ import { Location } from './Location';
 import { Sponsor } from './Sponsor';
 import { SWOT } from './SWOT';
 import { RefractoRating } from './RefractoRating';
+import { CapitalStructure } from './CapitalStructure';
 
 export const MainContainer = ({
   project
@@ -45,6 +46,9 @@ export const MainContainer = ({
         </div>
         <div className='col-12 p-0'>
           <RefractoRating project={project as FullProjectPageDetails} />
+        </div>
+        <div className='col-12 p-0'>
+          <CapitalStructure project={project as FullProjectPageDetails} />
         </div>
       </>
     );

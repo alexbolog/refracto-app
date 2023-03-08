@@ -38,17 +38,17 @@
           {
               "type": "Equity",
               "source": "9DR6I04S5BHSJ9X0LC N",
-              "amount": 0
+              "amount": 2500
           },
           {
               "type": "Secured Debt",
               "source": "6TP42Z70Z315SLMDCCLR",
-              "amount": 0
+              "amount": 1500
           },
           {
               "type": "Secured Debt",
               "source": "E30LPIU8WTLRV8LP1GA5",
-              "amount": 0
+              "amount": 1000
           }
       ],
       "repaymentSchedule": [
