@@ -16,6 +16,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ProjectPageDetails, FullProjectPageDetails } from 'types/projectTypes';
 import { formatIso, formatRelativeDate, fromIso } from 'utils';
+import { SpecRow } from './SpecRow';
+import './style.css';
 
 export const ProjectSpecs = ({
   project
@@ -38,196 +40,39 @@ export const ProjectSpecs = ({
 
     return <span className='risk-box risk-box-sm risk-high mb-1'>{value}</span>;
   };
+
+  const components = [
+    {
+      icon: faHourglassEmpty,
+      leftSideComponent: <span>Deadline</span>,
+      rightSideComponent: (
+        <span>
+          {formatIso(project.crowdfundingDeadline, DateTime.DATE_SHORT)}
+        </span>
+      )
+    }
+  ];
   return (
-    <div className='card project-specs-wrapper position-fixed'>
-      <div className='card-header b-0'>
-        <h1>Project details</h1>
-      </div>
-      <div className='card-body p-0 project-specs-container'>
-        <div className='container-fluid'>
-          <div className='row w-100'>
-            <div className='col-1 text-center'>
-              <FontAwesomeIcon
-                icon={faHourglassEmpty}
-                className='text-primary spec-icon'
+    <div className='proj-specs-container'>
+      <div className='project-specs-wrapper'>
+        <div className='card w-100'>
+          <div className='card-header b-0'>
+            <h1>Project details</h1>
+          </div>
+          <div className='card-body p-0'>
+            {components.map((c, idx) => (
+              <SpecRow
+                key={`project-details-specs-idx_${idx}`}
+                icon={c.icon}
+                leftSideComponent={c.leftSideComponent}
+                rightSideComponent={c.rightSideComponent}
               />
-            </div>
-            <div className='col-5 text-start spec-type'>
-              <span>Deadline</span>
-            </div>
-            <div className='col-6 text-end p-0 spec-value'>
-              <span>
-                {formatIso(project.crowdfundingDeadline, DateTime.DATE_SHORT)}
-              </span>
-            </div>
+            ))}
           </div>
-
-          <div className='row w-100'>
-            <div className='col-1 text-center'>
-              <FontAwesomeIcon
-                icon={faFileInvoice}
-                className='text-primary spec-icon'
-              />
-            </div>
-            <div className='col-5 text-start spec-type'>
-              <span>Asset Class</span>
-            </div>
-            <div className='col-6 text-end p-0 spec-value'>
-              <span>{project.assetClass}</span>
-            </div>
-          </div>
-
-          <div className='row w-100'>
-            <div className='col-1 text-center'>
-              <FontAwesomeIcon
-                icon={faPiggyBank}
-                className='text-primary spec-icon'
-              />
-            </div>
-            <div className='col-5 text-start spec-type'>
-              <span>Investment Type</span>
-            </div>
-            <div className='col-6 text-end p-0 spec-value'>
-              <span>{project.investmentType}</span>
-            </div>
-          </div>
-
-          <div className='row w-100'>
-            <div className='col-1 text-center'>
-              <FontAwesomeIcon
-                icon={faArrowTrendUp}
-                className='text-primary spec-icon'
-              />
-            </div>
-            <div className='col-5 text-start spec-type'>
-              <span>Rating</span>
-            </div>
-            <div className='col-6 d-flex justify-content-end p-0 spec-value'>
-              {riskLevelBox(project.riskRatingLevel)}
-            </div>
-          </div>
-
-          <div className='row w-100'>
-            <div className='col-1 text-center'>
-              <FontAwesomeIcon
-                icon={faCalendar}
-                className='text-primary spec-icon'
-              />
-            </div>
-            <div className='col-5 text-start spec-type'>
-              <span>Loan Duration</span>
-            </div>
-            <div className='col-6 d-flex justify-content-end p-0 spec-value'>
-              {formatRelativeDate(fromIso(project.loanDeadline))}
-            </div>
-          </div>
-
-          <div className='row w-100'>
-            <div className='col-1 text-center'>
-              <FontAwesomeIcon
-                icon={faFileInvoiceDollar}
-                className='text-primary spec-icon'
-              />
-            </div>
-            <div className='col-5 text-start spec-type'>
-              <span>Rate of return</span>
-            </div>
-            <div className='col-6 d-flex justify-content-end p-0 spec-value'>
-              {(project.returnPercentage * 100).toLocaleString(
-                undefined,
-                toLocaleStringOptions
-              )}
-              %
-            </div>
-          </div>
-
-          <div className='row w-100'>
-            <div className='col-1 text-center'>
-              <FontAwesomeIcon
-                icon={faFileInvoiceDollar}
-                className='text-primary spec-icon'
-              />
-            </div>
-            <div className='col-5 text-start spec-type'>
-              <span>No. of investors</span>
-            </div>
-            <div className='col-6 d-flex justify-content-end p-0 spec-value'>
-              {project.totalParticipantsCount}
-            </div>
-          </div>
-
-          <div className='row w-100'>
-            <div className='col-1 text-center'>
-              <FontAwesomeIcon
-                icon={faFlag}
-                className='text-primary spec-icon'
-              />
-            </div>
-            <div className='col-5 text-start spec-type'>
-              <span>Goal</span>
-            </div>
-            <div className='col-6 d-flex justify-content-end p-0 spec-value'>
-              €
-              {project.crowdfundingTarget.toLocaleString(
-                undefined,
-                toLocaleStringOptionsNoDecimals
-              )}
-            </div>
-          </div>
-
-          <div className='row w-100'>
-            <div className='col-12 p-0 ml-2'>
-              <CFProgressBar
-                crowdfundedAmount={project.crowdfundedAmount}
-                crowdfundingTarget={project.crowdfundingTarget}
-                deadline={project.crowdfundingDeadline}
-              />
-            </div>
-          </div>
-
-          <div className='row w-100' style={{ marginTop: '30px' }}>
-            <div className='col-6 text-start spec-type'>
-              <span>Project Developer</span>
-            </div>
-            <div className='col-6 text-end spec-value'>
-              <span>
-                <Link to='#'>{project.projectDeveloperName}</Link>
-              </span>
-            </div>
-          </div>
-
-          <div className='row w-100' style={{ marginTop: '12px' }}>
-            <div className='col-6 text-start spec-type'>
-              <span>Final Interest Rate</span>
-            </div>
-            <div className='col-6 text-end spec-value'>
-              <span>
-                {(project.returnPercentage * 100).toLocaleString(
-                  undefined,
-                  toLocaleStringOptions
-                )}
-                %
-              </span>
-            </div>
-          </div>
-          <div className='row w-100' style={{ marginTop: '12px' }}>
-            <div className='col-6 text-start spec-type'>
-              <span>Returned to Investors</span>
-            </div>
-            <div className='col-6 text-end spec-value'>
-              <span>
-                €
-                {project.amountReturnedSoFar.toLocaleString(
-                  undefined,
-                  toLocaleStringOptions
-                )}
-              </span>
-            </div>
+          <div className='card-footer'>
+            <button className='btn btn-primary btn-invest'>Invest</button>
           </div>
         </div>
-      </div>
-      <div className='card-footer'>
-        <button className='btn btn-primary btn-invest'>Invest</button>
       </div>
     </div>
   );

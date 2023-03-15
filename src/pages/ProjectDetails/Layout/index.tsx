@@ -29,7 +29,7 @@ export const ProjectDetailsLayout = ({
         <div className='col-8'>
           <MainContainer project={project} />
         </div>
-        <div className='col-4'>
+        <div className='col-4 p-0'>
           <ProjectSpecs project={project} />
         </div>
       </div>
