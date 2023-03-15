@@ -9,8 +9,17 @@ export const RepaymentScheduleTable = ({
 }: {
   items: RepaymentScheduleEntry[];
 }) => {
-  const totalScheduled = 0;
-  const totalPaid = 0;
+  const totalScheduled = items.reduce(
+    (prev, crt) => (prev += crt.interestAmount + crt.principalAmount),
+    0
+  );
+  const totalPaid = items
+    .filter((i) => i.paymentStatus === 'Done')
+    .reduce(
+      (prev, crt) =>
+        (prev += crt.interestAmount + crt.principalAmount + crt.lateFees),
+      0
+    );
 
   const paymentStatusPillStyling = (status: string) => {
     let baseStyle = 'badge badge-pill ';
@@ -73,7 +82,12 @@ export const RepaymentScheduleTable = ({
                   toLocaleStringOptions
                 )}
               </td>
-              <td>{(0).toLocaleString(undefined, toLocaleStringOptions)}</td>
+              <td>
+                {(row.paymentStatus === 'Done'
+                  ? row.interestAmount + row.principalAmount + row.lateFees
+                  : 0
+                ).toLocaleString(undefined, toLocaleStringOptions)}
+              </td>
             </tr>
           ))}
           <tr className='last-row'>
@@ -93,43 +107,4 @@ export const RepaymentScheduleTable = ({
       </table>
     </div>
   );
-  // return (
-  //   <div className='capital-structure-table-wrapper'>
-  //     <div className='capital-structure-table-row'>
-  //       <div className='t-header'>Type</div>
-  //       <div className='t-header'>Source</div>
-  //       <div className='t-header'>% of total</div>
-  //       <div className='t-header'>Amount</div>
-  //     </div>
-  //     {/* {items.map((r, idx) => (
-  //       <div
-  //         className='capital-structure-table-row'
-  //         key={`capital-structure-key-${idx}`}
-  //       >
-  //         <div className='type'>{r.type}</div>
-  //         <div className='source'>{r.source}</div>
-  //         <div className='percentage'>
-  //           {((r.amount / totalSum) * 100).toLocaleString(
-  //             undefined,
-  //             toLocaleStringOptions
-  //           )}
-  //           %
-  //         </div>
-  //         <div className='amount'>
-  //           {r.amount.toLocaleString(undefined, toLocaleStringOptions)}€
-  //         </div>
-  //       </div>
-  //     ))} */}
-  //     <div className='capital-structure-table-row total'>
-  //       <div className='type' style={{ fontWeight: 700 }}>
-  //         Total
-  //       </div>
-  //       <div className='source'></div>
-  //       <div className='percentage'>100.00%</div>
-  //       <div className='amount'>
-  //         {/* {totalSum.toLocaleString(undefined, toLocaleStringOptions)}€ */}
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 };
