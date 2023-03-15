@@ -8,6 +8,8 @@
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
+    background-color: #F6F9FC;
+    color: #AFBDC9;
 }
 
 .rating-box .rating.low {
