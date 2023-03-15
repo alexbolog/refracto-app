@@ -50,6 +50,58 @@ export const ProjectSpecs = ({
           {formatIso(project.crowdfundingDeadline, DateTime.DATE_SHORT)}
         </span>
       )
+    },
+    {
+      icon: faFileInvoice,
+      leftSideComponent: <span>Asset Class</span>,
+      rightSideComponent: <span>{project.assetClass}</span>
+    },
+    {
+      icon: faPiggyBank,
+      leftSideComponent: <span>Investment Type</span>,
+      rightSideComponent: <span>{project.investmentType}</span>
+    },
+    {
+      icon: faArrowTrendUp,
+      leftSideComponent: <span>Rating</span>,
+      rightSideComponent: <span>{riskLevelBox(project.riskRatingLevel)}</span>
+    },
+    {
+      icon: faCalendar,
+      leftSideComponent: <span>Loan Duration</span>,
+      rightSideComponent: (
+        <span>{formatRelativeDate(fromIso(project.loanDeadline))}</span>
+      )
+    },
+    {
+      icon: faFileInvoiceDollar,
+      leftSideComponent: <span>Rate of return</span>,
+      rightSideComponent: (
+        <span>
+          {(project.returnPercentage * 100).toLocaleString(
+            undefined,
+            toLocaleStringOptions
+          )}
+        </span>
+      )
+    },
+    {
+      icon: faFileInvoiceDollar,
+      leftSideComponent: <span>No. of investors</span>,
+      rightSideComponent: <span>{project.totalParticipantsCount}</span>
+    },
+    {
+      icon: faFlag,
+      leftSideComponent: <span>Goal</span>,
+      rightSideComponent: (
+        <span>
+          €
+          {project.crowdfundingTarget.toLocaleString(
+            undefined,
+            toLocaleStringOptionsNoDecimals
+          )}
+        </span>
+      )
     }
   ];
   return (
@@ -59,7 +111,7 @@ export const ProjectSpecs = ({
           <div className='card-header b-0'>
             <h1>Project details</h1>
           </div>
-          <div className='card-body p-0'>
+          <div className='card-body project-specs-list'>
             {components.map((c, idx) => (
               <SpecRow
                 key={`project-details-specs-idx_${idx}`}
