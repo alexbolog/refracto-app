@@ -1,0 +1,19 @@
+.example {
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 26px;
+    /* or 186% */
+
+    /* blugrey 4 */
+    color: #364E63;
+}
+
+.example strong {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+    color: #364E63;
+}

@@ -22,6 +22,7 @@ import { SWOT } from './SWOT';
 import { RefractoRating } from './RefractoRating';
 import { CapitalStructure } from './CapitalStructure';
 import { RepaymentSchedule } from './RepaymentSchedule';
+import { Finances } from './Finances';
 
 export const MainContainer = ({
   project
@@ -53,6 +54,9 @@ export const MainContainer = ({
         </div>
         <div className='col-12 p-0'>
           <RepaymentSchedule project={project as FullProjectPageDetails} />
+        </div>
+        <div className='col-12 p-0'>
+          <Finances project={project as FullProjectPageDetails} />
         </div>
       </>
     );
