@@ -120,6 +120,44 @@ export const ProjectSpecs = ({
                 rightSideComponent={c.rightSideComponent}
               />
             ))}
+            <CFProgressBar
+              className='proj-specs-progress-bar'
+              crowdfundedAmount={project.crowdfundedAmount}
+              crowdfundingTarget={project.crowdfundingTarget}
+              deadline={project.crowdfundingDeadline}
+            />
+            <SpecRow
+              leftSideComponent={<span>Project Developer</span>}
+              rightSideComponent={
+                <span style={{ color: '#364E63' }}>
+                  {project.projectDeveloperName}
+                </span>
+              }
+            />
+            <SpecRow
+              leftSideComponent={<span>Final Interest Rate</span>}
+              rightSideComponent={
+                <span style={{ color: '#364E63' }}>
+                  {(project.returnPercentage * 100).toLocaleString(
+                    undefined,
+                    toLocaleStringOptions
+                  )}
+                  %
+                </span>
+              }
+            />
+            <SpecRow
+              leftSideComponent={<span>Returned to Investors</span>}
+              rightSideComponent={
+                <span style={{ color: '#364E63' }}>
+                  €
+                  {project.amountReturnedSoFar.toLocaleString(
+                    undefined,
+                    toLocaleStringOptions
+                  )}
+                </span>
+              }
+            />
           </div>
           <div className='card-footer'>
             <button className='btn btn-primary btn-invest'>Invest</button>

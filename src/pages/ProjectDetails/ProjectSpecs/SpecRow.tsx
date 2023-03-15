@@ -7,14 +7,14 @@ export const SpecRow = ({
   leftSideComponent,
   rightSideComponent
 }: {
-  icon: IconDefinition;
+  icon?: IconDefinition;
   leftSideComponent: JSX.Element;
   rightSideComponent: JSX.Element;
 }) => {
   return (
     <div className='project-details-row'>
       <div className='left-side'>
-        <FontAwesomeIcon icon={icon} className='icon text-primary' />
+        {icon && <FontAwesomeIcon icon={icon} className='icon text-primary' />}
         {leftSideComponent}
       </div>
       <div className='right-side'>{rightSideComponent}</div>
