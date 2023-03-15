@@ -41,8 +41,8 @@ export interface FullProjectPageDetails extends ProjectPageDetails {
 }
 
 export interface Coordinates {
-  X: number;
-  Y: number;
+  x: number;
+  y: number;
 }
 
 export interface SWOTAnalysis {
