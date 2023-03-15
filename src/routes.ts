@@ -17,6 +17,7 @@ import { ReactComponent as AgreementsIcon } from 'assets/icons/refracto/handshak
 import { ReactComponent as ProfileIcon } from 'assets/icons/refracto/account_box.svg';
 import Transactions from 'pages/Transactions';
 import ProjectDetails from 'pages/ProjectDetails';
+import { Invest } from 'pages/Invest';
 
 export const routeNames = {
   dashboard: '/dashboard',
@@ -34,7 +35,8 @@ export const routeNames = {
   unlock: '/unlock',
   ledger: '/ledger',
   walletconnect: '/walletconnect',
-  projectPage: '/projects/:id'
+  projectPage: '/projects/:id',
+  invest: '/invest/:id'
   // projectDevelopers: '/developers',
   // projectDeveloperPage: '/developers/:id'
 };
@@ -68,6 +70,13 @@ const routes: Array<any> = [
     path: routeNames.projectPage,
     title: 'Project details',
     component: ProjectDetails,
+    authenticatedRoute: false,
+    displayInNavbar: false
+  },
+  {
+    path: routeNames.invest,
+    title: 'Invest',
+    component: Invest,
     authenticatedRoute: false,
     displayInNavbar: false
   },

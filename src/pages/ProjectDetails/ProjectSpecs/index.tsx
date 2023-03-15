@@ -14,6 +14,7 @@ import { DateTime } from 'luxon';
 import { CFProgressBar } from 'pages/AvailableProjects/Project/CFProgressBar';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { routeNames } from 'routes';
 import { ProjectPageDetails, FullProjectPageDetails } from 'types/projectTypes';
 import { formatIso, formatRelativeDate, fromIso } from 'utils';
 import { SpecRow } from './SpecRow';
@@ -160,7 +161,12 @@ export const ProjectSpecs = ({
             />
           </div>
           <div className='card-footer'>
-            <button className='btn btn-primary btn-invest'>Invest</button>
+            <Link
+              to={`${routeNames.invest.replace(':id', project.projectId)}`}
+              className='btn btn-primary btn-invest'
+            >
+              Invest
+            </Link>
           </div>
         </div>
       </div>
