@@ -21,12 +21,12 @@ export const RefractoRating = ({
           riskLevel={project.riskRatingLevel}
         />
         <div className='refracto-rating-disclaimer'>
-          The above-mentioned rating expresses Refracto&apos;s subjective
-          view on each investment opportunity&apos;s total risk level.
-          Refracto Rating does not account for specific investor&apos;s risk
-          tolerance and is not meant to serve as replacement for individual due
-          diligence. Refracto Rating has no relations to ratings issued by
-          international rating agencies nor to their rating methodologies.
+          The above-mentioned rating expresses Refracto&apos;s subjective view
+          on each investment opportunity&apos;s total risk level. Refracto
+          Rating does not account for specific investor&apos;s risk tolerance
+          and is not meant to serve as replacement for individual due diligence.
+          Refracto Rating has no relations to ratings issued by international
+          rating agencies nor to their rating methodologies.
           <br />
           <br />
           Refracto Rating is an expression of investment opportunity&apos;s

@@ -20,24 +20,29 @@ export const RatingTable = ({
 
     return <span className='risk-box risk-high mb-1'>{value}</span>;
   };
+
   return (
-    <div className='rating-table-wrapper'>
-      <div className='rating-table-row'>
-        <div className='category t-header'>Category</div>
-        <div className='assesments t-header'>Assesments</div>
-      </div>
-      {ratings.map((r, idx) => (
-        <div className='rating-table-row' key={`refracto-rating-key-${idx}`}>
-          <div className='category'>{r.category}</div>
-          <div className='assesments'>{r.assesments}</div>
-        </div>
-      ))}
-      <div className='rating-table-row total'>
-        <div className='category' style={{ fontWeight: 700 }}>
-          Total
-        </div>
-        <div className='assesments'>{riskLevelBox(riskLevel)}</div>
-      </div>
+    <div className='table-responsive mt-4'>
+      <table className='table table-responsive-sm'>
+        <thead>
+          <tr>
+            <th style={{ width: '50%' }}>Category</th>
+            <th>Assesments</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ratings.map((row, idx) => (
+            <tr key={`rating-table-entry_${idx}`}>
+              <td>{row.category}</td>
+              <td>{row.assesments}</td>
+            </tr>
+          ))}
+          <tr className='last-row'>
+            <td>Total</td>
+            <td>{riskLevelBox(riskLevel)}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

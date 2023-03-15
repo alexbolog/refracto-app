@@ -2,7 +2,6 @@ import { toLocaleStringOptions } from 'config';
 import React, { useState } from 'react';
 import { RepaymentScheduleEntry } from 'types/projectTypes';
 import { formatIso } from 'utils';
-import './style.css';
 
 export const RepaymentScheduleTable = ({
   items

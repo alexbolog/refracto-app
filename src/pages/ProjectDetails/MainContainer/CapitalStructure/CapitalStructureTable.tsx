@@ -11,42 +11,43 @@ export const CapitalStructureTable = ({
     items.reduce((prev, crt) => (prev += crt.amount), 0.0)
   );
   return (
-    <div className='capital-structure-table-wrapper'>
-      <div className='capital-structure-table-row'>
-        <div className='type t-header'>Type</div>
-        <div className='source t-header'>Source</div>
-        <div className='percentage t-header'>% of total</div>
-        <div className='amount t-header'>Amount</div>
-      </div>
-      {items.map((r, idx) => (
-        <div
-          className='capital-structure-table-row'
-          key={`capital-structure-key-${idx}`}
-        >
-          <div className='type'>{r.type}</div>
-          <div className='source'>{r.source}</div>
-          <div className='percentage'>
-            {((r.amount / totalSum) * 100).toLocaleString(
-              undefined,
-              toLocaleStringOptions
-            )}
-            %
-          </div>
-          <div className='amount'>
-            {r.amount.toLocaleString(undefined, toLocaleStringOptions)}€
-          </div>
-        </div>
-      ))}
-      <div className='capital-structure-table-row total'>
-        <div className='type' style={{ fontWeight: 700 }}>
-          Total
-        </div>
-        <div className='source'></div>
-        <div className='percentage'>100.00%</div>
-        <div className='amount'>
-          {totalSum.toLocaleString(undefined, toLocaleStringOptions)}€
-        </div>
-      </div>
+    <div className='table-responsive'>
+      <table className='table table-responsive-sm'>
+        <thead>
+          <tr>
+            <th style={{ width: '25%' }}>Type</th>
+            <th style={{ width: '25%' }}>Source</th>
+            <th style={{ width: '25%' }}>% of total</th>
+            <th style={{ width: '25%' }}>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((row, idx) => (
+            <tr key={`capital-structure-entry_${idx}`}>
+              <td>{row.type}</td>
+              <td>{row.source}</td>
+              <td>
+                {((row.amount / totalSum) * 100).toLocaleString(
+                  undefined,
+                  toLocaleStringOptions
+                )}
+                %
+              </td>
+              <td>
+                {row.amount.toLocaleString(undefined, toLocaleStringOptions)}€
+              </td>
+            </tr>
+          ))}
+          <tr className='last-row'>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td>
+              {totalSum.toLocaleString(undefined, toLocaleStringOptions)}€
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
