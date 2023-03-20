@@ -14,9 +14,9 @@
 }
 
 .breadcrumbs .sepz {
-    margin-right: 8px !important;
-    width: 8px !important;
-    height: 13px !important;
+    margin-right: 8px;
+    width: 8px;
+    height: 13px;
 }
 
 .card {
@@ -66,20 +66,20 @@
 }
 
 .executive-summary-wrapper.card-body {
-    padding-top: 0px !important;
+    padding-top: 0 !important;
     /* margin-top: 0px !important; */
 }
 
-.btn-social {
-    padding: 0 !important;
-    width: 32px !important;
-    height: 32px !important;
-    border-radius: 6px !important;
-    border: 1px solid #D5DFE7 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    color: #364E63 !important;
+button.btn-social {
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #D5DFE7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #364E63;
 }
 
 .btn-social.fb {
@@ -112,7 +112,7 @@
     position: absolute;
     bottom: 56px;
     right: 88px;
-    margin: 0px;
+    margin: 0;
 }
 
 .project-specs-wrapper {
@@ -146,13 +146,13 @@
 }
 
 .btn-invest {
-    width: 100% !important;
-    border-radius: 6px !important;
+    width: 100% ;
+    border-radius: 6px;
     font-style: normal !important;
     font-weight: 600 !important;
     font-size: 12px !important;
     line-height: 20px !important;
-    color: white !important;
+    color: white;
     margin-bottom: 10px;
 }
 
@@ -220,28 +220,28 @@
     font-weight: 700 !important;
     font-size: 16px !important;
     line-height: 32px !important;
-    color: #6F869B !important;
+    color: #6F869B;
 }
 
 .swot-cell.strenghts {
-    border-right: 1px solid #D5DFE7 !important;
-    border-bottom: 1px solid #D5DFE7 !important;
+    border-right: 1px solid #D5DFE7;
+    border-bottom: 1px solid #D5DFE7;
 }
 
 .swot-cell.weaknesses {
-    border-bottom: 1px solid #D5DFE7 !important;
+    border-bottom: 1px solid #D5DFE7;
 }
 
 .swot-cell.opportunities {
-    border-right: 1px solid #D5DFE7 !important;
+    border-right: 1px solid #D5DFE7;
 }
 
-.refracto-rating-disclaimer {
-    font-style: normal !important;
-    font-weight: 400 !important;
-    font-size: 12px !important;
-    line-height: 26px !important;
-    color: #6F869B !important;
+div.refracto-rating-disclaimer {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 26px;
+    color: #6F869B;
     margin-top: 25px;
 }
 
@@ -259,12 +259,12 @@ thead tr th {
 }
 
 .last-row td {
-    border-bottom: none !important;
-    font-style: normal !important;
-    font-weight: 700 !important;
-    font-size: 14px !important;
-    line-height: 26px !important;
-    color: #364E63 !important;
+    border-bottom: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 26px;
+    color: #364E63;
 }
 
 tbody tr td {
