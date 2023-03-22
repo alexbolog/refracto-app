@@ -9,7 +9,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-export const ImageGallery = ({ images }: { images: string[] }) => {
+export const ImageGallery = ({
+  images,
+  roundedTop
+}: {
+  images: string[];
+  roundedTop?: boolean;
+}) => {
   const carouselMovePrev = () => {
     const carouselId = 'img-slider';
     const elements = document.getElementsByClassName('swiper-button-prev');
@@ -43,7 +49,7 @@ export const ImageGallery = ({ images }: { images: string[] }) => {
       >
         {images.map((imgSrc, i) => (
           <SwiperSlide key={`img-slider-slide-item-${i}`}>
-            <img src={imgSrc} />
+            <img src={imgSrc} className={roundedTop ? 'rounded-top' : ''} />
           </SwiperSlide>
         ))}
       </Swiper>

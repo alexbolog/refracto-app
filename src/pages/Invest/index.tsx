@@ -8,6 +8,8 @@ import { routeNames } from 'routes';
 import { ImageGallery } from 'components/ImageGallery';
 import { ProjectDetailsCard } from './ProjectDetailsCard';
 import { ProjectSpecs } from 'components/ProjectSpecs';
+import { InvestmentCard } from './InvestmentCard';
+import './style.css';
 
 export const Invest = () => {
   const getProjectId = () => {
@@ -46,6 +48,7 @@ export const Invest = () => {
         </div>
         <div className='col-lg-7 p-0'>
           <ProjectSpecs project={projectDetails} sm />
+          <InvestmentCard project={projectDetails} />
         </div>
       </div>
     </div>

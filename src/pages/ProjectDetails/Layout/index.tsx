@@ -30,7 +30,7 @@ export const ProjectDetailsLayout = ({
           <MainContainer project={project} />
         </div>
         <div className='col-4 p-0'>
-          <ProjectSpecs project={project} />
+          <ProjectSpecs project={project} sticky />
         </div>
       </div>
     </div>

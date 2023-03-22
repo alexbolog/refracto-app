@@ -1,7 +1,6 @@
 import React from 'react';
 import { ProjectPageDetails } from 'types/projectTypes';
 import { ImageGallery } from 'components/ImageGallery';
-import './style.css';
 import { toLocaleStringOptions } from 'config';
 import { formatRelativeDate, fromIso } from 'utils';
 import { SocialButtons } from './SocialButtons';
@@ -14,7 +13,7 @@ export const ProjectDetailsCard = ({
   return (
     <div className='card'>
       <div className='card-header p-0 m-0'>
-        <ImageGallery images={projectDetails.images} />
+        <ImageGallery images={projectDetails.images} roundedTop />
         <SocialButtons />
       </div>
       <div className='card-body'>

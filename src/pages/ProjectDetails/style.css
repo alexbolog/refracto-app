@@ -141,6 +141,11 @@ button.btn-social {
     display: flex !important;
 }
 
+.not-sticky {
+    position: inherit !important;
+    top: 0%;
+}
+
 .card-footer {
     border-top: none !important;
 }

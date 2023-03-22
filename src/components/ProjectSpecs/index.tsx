@@ -22,10 +22,12 @@ import './style.css';
 
 export const ProjectSpecs = ({
   project,
-  sm
+  sm,
+  sticky
 }: {
   project: ProjectPageDetails | FullProjectPageDetails;
   sm?: boolean;
+  sticky?: boolean;
 }) => {
   const components = [
     {
@@ -95,7 +97,7 @@ export const ProjectSpecs = ({
     }
   ];
   return (
-    <div className='proj-specs-container'>
+    <div className={`proj-specs-container ${!sticky? 'not-sticky' : ''}`}>
       <div className='project-specs-wrapper'>
         <div className='card w-100'>
           <div className='card-header b-0'>
