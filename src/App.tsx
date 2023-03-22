@@ -1,11 +1,4 @@
 import React, { useEffect } from 'react';
-import {
-  TransactionsToastList,
-  SignTransactionsModals,
-  NotificationModal
-} from '@elrondnetwork/dapp-core/UI';
-import { DappProvider } from '@elrondnetwork/dapp-core/wrappers';
-
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import Layout from 'components/Layout';
 import PageNotFound from 'pages/PageNotFound';
@@ -15,8 +8,17 @@ import UnlockPage from './pages/UnlockPage';
 import ReactGA from 'react-ga4';
 import { AccountContextProvider } from 'contexts/AccountContext';
 import { ProjectContextProvider } from 'contexts/ProjectContext';
+import { EnvironmentsEnum } from '@multiversx/sdk-dapp/types';
+import {
+  TransactionsToastList,
+  SignTransactionsModals,
+  NotificationModal
+} from '@multiversx/sdk-dapp/UI';
+import {
+  DappProvider,
+} from '@multiversx/sdk-dapp/wrappers';
 
-const environment = 'devnet';
+const environment = EnvironmentsEnum.devnet;
 
 const TRACKING_ID = 'G-M4H6XH3NSB';
 ReactGA.initialize(TRACKING_ID);
