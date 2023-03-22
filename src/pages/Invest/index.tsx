@@ -42,6 +42,11 @@ export const Invest = () => {
           </h3>
         </div>
       </div>
+      <div className='row'>
+        <div className='col'>
+          <h2>Investment Order</h2>
+        </div>
+      </div>
       <div className='row p-0 w-100'>
         <div className='col-lg-6 p-0'>
           <ProjectDetailsCard projectDetails={projectDetails} />

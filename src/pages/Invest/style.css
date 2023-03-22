@@ -72,6 +72,14 @@ h5 {
     line-height: 20px !important;
 }
 
+.investment-card-wrapper h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 20px;
+    color: #364E63;
+}
+
 .investment-card-wrapper .text-success {
     color: #A0FF65 !important;
 }
