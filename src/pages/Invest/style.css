@@ -85,6 +85,18 @@ h5 {
     color: white;
 }
 
+.investment-card-wrapper .btn-primary:active {
+    color: white;
+}
+
+.investment-card-wrapper .btn-primary:focus {
+    color: white !important;
+}
+
+.investment-card-wrapper .btn-primary:visited {
+    color: white !important;
+}
+
 .investment-card-wrapper .card-body {
     padding-bottom: 20px !important;
 }
