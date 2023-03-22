@@ -3,6 +3,7 @@ import { toLocaleStringOptions } from 'config';
 import { DateTime } from 'luxon';
 import { ActiveProjectInvestment } from 'types/projectTypes';
 import { formatIso } from 'utils';
+import { RiskBox } from 'components/RiskBox';
 
 const ProjectInfo = ({
   projectData,
@@ -11,18 +12,6 @@ const ProjectInfo = ({
   hasBorder: boolean;
   projectData: ActiveProjectInvestment;
 }) => {
-  const riskLevelBox = (riskLevel: string) => {
-    const isLowRisk = riskLevel.includes('Low');
-    const isMedRisk = riskLevel.includes('Med');
-    if (isLowRisk) {
-      return <span className='risk-box risk-low mb-1'>{riskLevel}</span>;
-    }
-    if (isMedRisk) {
-      return <span className='risk-box risk-medium mb-1'>{riskLevel}</span>;
-    }
-
-    return <span className='risk-box risk-high mb-1'>{riskLevel}</span>;
-  };
   return (
     <div className={`row ${hasBorder ? 'border-bottom' : ''}`}>
       <div className='col-lg-1 d-flex align-items-center'>
@@ -71,7 +60,7 @@ const ProjectInfo = ({
                   )}
                 </strong>
               </span>
-              {riskLevelBox(projectData.riskRatingLevel)}
+              <RiskBox riskLevel={projectData.riskRatingLevel} />
               <button className='btn btn-primary view-proj-btn mb-1'>
                 View project details
               </button>

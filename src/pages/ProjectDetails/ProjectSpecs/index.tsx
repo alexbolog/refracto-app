@@ -9,6 +9,7 @@ import {
   faPiggyBank
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { RiskBox } from 'components/RiskBox';
 import { toLocaleStringOptions, toLocaleStringOptionsNoDecimals } from 'config';
 import { DateTime } from 'luxon';
 import { CFProgressBar } from 'pages/AvailableProjects/Project/CFProgressBar';
@@ -25,23 +26,6 @@ export const ProjectSpecs = ({
 }: {
   project: ProjectPageDetails | FullProjectPageDetails;
 }) => {
-  const riskLevelBox = (value: string) => {
-    const isLowRisk = value.includes('Low');
-    const isMedRisk = value.includes('Med');
-    if (isLowRisk) {
-      return (
-        <span className='risk-box risk-box-sm risk-low mb-1'>{value}</span>
-      );
-    }
-    if (isMedRisk) {
-      return (
-        <span className='risk-box risk-box-sm risk-medium mb-1'>{value}</span>
-      );
-    }
-
-    return <span className='risk-box risk-box-sm risk-high mb-1'>{value}</span>;
-  };
-
   const components = [
     {
       icon: faHourglassEmpty,
@@ -65,7 +49,11 @@ export const ProjectSpecs = ({
     {
       icon: faArrowTrendUp,
       leftSideComponent: <span>Rating</span>,
-      rightSideComponent: <span>{riskLevelBox(project.riskRatingLevel)}</span>
+      rightSideComponent: (
+        <span>
+          <RiskBox riskLevel={project.riskRatingLevel} />
+        </span>
+      )
     },
     {
       icon: faCalendar,

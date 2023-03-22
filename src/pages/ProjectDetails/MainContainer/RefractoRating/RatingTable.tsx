@@ -1,3 +1,4 @@
+import { RiskBox } from 'components/RiskBox';
 import React from 'react';
 import { RefractoRatingItem } from 'types/projectTypes';
 
@@ -8,19 +9,6 @@ export const RatingTable = ({
   ratings: RefractoRatingItem[];
   riskLevel: string;
 }) => {
-  const riskLevelBox = (value: string) => {
-    const isLowRisk = value.includes('Low');
-    const isMedRisk = value.includes('Med');
-    if (isLowRisk) {
-      return <span className='risk-box risk-low mb-1'>{value}</span>;
-    }
-    if (isMedRisk) {
-      return <span className='risk-box risk-medium mb-1'>{value}</span>;
-    }
-
-    return <span className='risk-box risk-high mb-1'>{value}</span>;
-  };
-
   return (
     <div className='table-responsive mt-4'>
       <table className='table table-responsive-sm'>
@@ -39,7 +27,9 @@ export const RatingTable = ({
           ))}
           <tr className='last-row'>
             <td>Total</td>
-            <td>{riskLevelBox(riskLevel)}</td>
+            <td>
+              <RiskBox riskLevel={riskLevel} />
+            </td>
           </tr>
         </tbody>
       </table>
