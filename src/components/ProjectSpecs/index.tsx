@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   faArrowTrendUp,
   faCalendar,
@@ -5,15 +6,13 @@ import {
   faFileInvoiceDollar,
   faFlag,
   faHourglassEmpty,
-  faLineChart,
+  faPersonArrowUpFromLine,
   faPiggyBank
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { RiskBox } from 'components/RiskBox';
 import { toLocaleStringOptions, toLocaleStringOptionsNoDecimals } from 'config';
 import { DateTime } from 'luxon';
 import { CFProgressBar } from 'pages/AvailableProjects/Project/CFProgressBar';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { routeNames } from 'routes';
 import { ProjectPageDetails, FullProjectPageDetails } from 'types/projectTypes';
@@ -22,9 +21,11 @@ import { SpecRow } from './SpecRow';
 import './style.css';
 
 export const ProjectSpecs = ({
-  project
+  project,
+  sm
 }: {
   project: ProjectPageDetails | FullProjectPageDetails;
+  sm?: boolean;
 }) => {
   const components = [
     {
@@ -75,7 +76,7 @@ export const ProjectSpecs = ({
       )
     },
     {
-      icon: faFileInvoiceDollar,
+      icon: faPersonArrowUpFromLine,
       leftSideComponent: <span>No. of investors</span>,
       rightSideComponent: <span>{project.totalParticipantsCount}</span>
     },
@@ -115,47 +116,53 @@ export const ProjectSpecs = ({
               crowdfundingTarget={project.crowdfundingTarget}
               deadline={project.crowdfundingDeadline}
             />
-            <SpecRow
-              leftSideComponent={<span>Project Developer</span>}
-              rightSideComponent={
-                <span style={{ color: '#364E63' }}>
-                  {project.projectDeveloperName}
-                </span>
-              }
-            />
-            <SpecRow
-              leftSideComponent={<span>Final Interest Rate</span>}
-              rightSideComponent={
-                <span style={{ color: '#364E63' }}>
-                  {(project.returnPercentage * 100).toLocaleString(
-                    undefined,
-                    toLocaleStringOptions
-                  )}
-                  %
-                </span>
-              }
-            />
-            <SpecRow
-              leftSideComponent={<span>Returned to Investors</span>}
-              rightSideComponent={
-                <span style={{ color: '#364E63' }}>
-                  €
-                  {project.amountReturnedSoFar.toLocaleString(
-                    undefined,
-                    toLocaleStringOptions
-                  )}
-                </span>
-              }
-            />
+            {!sm && (
+              <>
+                <SpecRow
+                  leftSideComponent={<span>Project Developer</span>}
+                  rightSideComponent={
+                    <span style={{ color: '#364E63' }}>
+                      {project.projectDeveloperName}
+                    </span>
+                  }
+                />
+                <SpecRow
+                  leftSideComponent={<span>Final Interest Rate</span>}
+                  rightSideComponent={
+                    <span style={{ color: '#364E63' }}>
+                      {(project.returnPercentage * 100).toLocaleString(
+                        undefined,
+                        toLocaleStringOptions
+                      )}
+                      %
+                    </span>
+                  }
+                />
+                <SpecRow
+                  leftSideComponent={<span>Returned to Investors</span>}
+                  rightSideComponent={
+                    <span style={{ color: '#364E63' }}>
+                      €
+                      {project.amountReturnedSoFar.toLocaleString(
+                        undefined,
+                        toLocaleStringOptions
+                      )}
+                    </span>
+                  }
+                />
+              </>
+            )}
           </div>
-          <div className='card-footer'>
-            <Link
-              to={`${routeNames.invest.replace(':id', project.projectId)}`}
-              className='btn btn-primary btn-invest'
-            >
-              Invest
-            </Link>
-          </div>
+          {!sm && (
+            <div className='card-footer'>
+              <Link
+                to={`${routeNames.invest.replace(':id', project.projectId)}`}
+                className='btn btn-primary btn-invest'
+              >
+                Invest
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { routeNames } from 'routes';
 import { ImageGallery } from 'components/ImageGallery';
 import { ProjectDetailsCard } from './ProjectDetailsCard';
+import { ProjectSpecs } from 'components/ProjectSpecs';
 
 export const Invest = () => {
   const getProjectId = () => {
@@ -42,6 +43,9 @@ export const Invest = () => {
       <div className='row p-0 w-100'>
         <div className='col-lg-5 p-0'>
           <ProjectDetailsCard projectDetails={projectDetails} />
+        </div>
+        <div className='col-lg-7 p-0'>
+          <ProjectSpecs project={projectDetails} sm />
         </div>
       </div>
     </div>

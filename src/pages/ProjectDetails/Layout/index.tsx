@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { routeNames } from 'routes';
 import { FullProjectPageDetails, ProjectPageDetails } from 'types/projectTypes';
 import { MainContainer } from '../MainContainer';
-import { ProjectSpecs } from '../ProjectSpecs';
+import { ProjectSpecs } from '../../../components/ProjectSpecs';
 
 export const ProjectDetailsLayout = ({
   project
