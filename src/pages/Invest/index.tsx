@@ -43,10 +43,10 @@ export const Invest = () => {
         </div>
       </div>
       <div className='row p-0 w-100'>
-        <div className='col-lg-5 p-0'>
+        <div className='col-lg-6 p-0'>
           <ProjectDetailsCard projectDetails={projectDetails} />
         </div>
-        <div className='col-lg-7 p-0'>
+        <div className='col-lg-6 p-0'>
           <ProjectSpecs project={projectDetails} sm />
           <InvestmentCard project={projectDetails} />
         </div>
