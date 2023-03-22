@@ -74,6 +74,7 @@ export const ProjectSpecs = ({
             undefined,
             toLocaleStringOptions
           )}
+          %
         </span>
       )
     },
@@ -97,7 +98,7 @@ export const ProjectSpecs = ({
     }
   ];
   return (
-    <div className={`proj-specs-container ${!sticky? 'not-sticky' : ''}`}>
+    <div className={`proj-specs-container ${!sticky ? 'not-sticky' : ''}`}>
       <div className='project-specs-wrapper'>
         <div className='card w-100'>
           <div className='card-header b-0'>
