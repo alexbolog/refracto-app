@@ -6,6 +6,7 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { routeNames } from 'routes';
 import { ImageGallery } from 'components/ImageGallery';
+import { ProjectDetailsCard } from './ProjectDetailsCard';
 
 export const Invest = () => {
   const getProjectId = () => {
@@ -39,12 +40,8 @@ export const Invest = () => {
         </div>
       </div>
       <div className='row p-0 w-100'>
-        <div className='col-5'>
-          <div className='card'>
-            <div className='card-header p-0 m-0'>
-              <ImageGallery images={projectDetails.images} />
-            </div>
-          </div>
+        <div className='col-lg-5 p-0'>
+          <ProjectDetailsCard projectDetails={projectDetails} />
         </div>
       </div>
     </div>

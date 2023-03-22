@@ -1,0 +1,61 @@
+h1 {
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    line-height: 32px !important;
+    color: #364E63 !important;
+}
+
+h5 {
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 22px !important;
+    color: #364E63 !important;
+}
+
+.main-info {
+    width: 100% !important;
+}
+
+.main-info .col-4 {
+    padding: 20px 23px 20px 23px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column;
+}
+
+.important {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.sep {
+    border-right: 1px solid #D5DFE7;
+}
+
+.btn-social.fb.bottom {
+    position: absolute;
+    top: auto;
+    bottom: 24px;
+    left: 20px;
+    z-index: 100;
+    background-color: #fff;
+    border: 1px solid #D5DFE7;
+    border-radius: 6px;
+}
+
+.btn-social.twt.bottom {
+    position: absolute;
+    top: auto;
+    bottom: 24px;
+    left: 66px;
+    z-index: 100;
+    background-color: #fff;
+    border: 1px solid #D5DFE7;
+    border-radius: 6px;
+}
