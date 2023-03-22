@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { routeNames } from 'routes';
-import { Carousel } from './Carousel';
+import { ImageGallery } from 'components/ImageGallery';
 
 export const Invest = () => {
   const getProjectId = () => {
@@ -25,6 +25,7 @@ export const Invest = () => {
   }, [projectId]);
 
   const [projectDetails, setProjectDetails] = useState<ProjectPageDetails>();
+  // TODO: add loading
   return projectDetails === undefined ? null : (
     <div className='container-fluid w-100 p-0'>
       <div className='row'>
@@ -41,7 +42,7 @@ export const Invest = () => {
         <div className='col-5'>
           <div className='card'>
             <div className='card-header p-0 m-0'>
-              <Carousel images={projectDetails.images} />
+              <ImageGallery images={projectDetails.images} />
             </div>
           </div>
         </div>
