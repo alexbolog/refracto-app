@@ -72,6 +72,10 @@ h5 {
     line-height: 20px !important;
 }
 
+.investment-card-wrapper .text-success {
+    color: #A0FF65 !important;
+}
+
 .investment-card-wrapper .btn-primary {
     background-color: white;
 }
