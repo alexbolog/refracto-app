@@ -14,9 +14,8 @@ import {
   SignTransactionsModals,
   NotificationModal
 } from '@multiversx/sdk-dapp/UI';
-import {
-  DappProvider,
-} from '@multiversx/sdk-dapp/wrappers';
+import { DappProvider } from '@multiversx/sdk-dapp/wrappers';
+import { walletConnectV2ProjectId } from 'config';
 
 const environment = EnvironmentsEnum.devnet;
 
@@ -32,7 +31,11 @@ const App = () => {
     <Router>
       <DappProvider
         environment={environment}
-        customNetworkConfig={{ name: 'customConfig', apiTimeout: 6000 }}
+        customNetworkConfig={{
+          name: 'customConfig',
+          apiTimeout: 6000,
+          walletConnectV2ProjectId
+        }}
       >
         <ProjectContextProvider>
           <AccountContextProvider>
