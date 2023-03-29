@@ -3,7 +3,6 @@ import Marketplace from 'pages/Marketplace';
 import AvailableProjects from 'pages/AvailableProjects';
 import withPageTitle from './components/PageTitle';
 import Overview from './pages/Overview';
-import Transaction from './pages/Transaction';
 import Portfolio from './pages/Portfolio';
 import Reports from 'pages/Reports';
 import Agreements from 'pages/Agreements';
@@ -103,12 +102,6 @@ const routes: Array<any> = [
     authenticatedRoute: true,
     displayInNavbar: true,
     icon: ProfileIcon
-  },
-  // required
-  {
-    path: routeNames.transaction,
-    title: 'Transaction',
-    component: Transaction
   }
 ];
 
