@@ -15,8 +15,8 @@ import { DateTime } from 'luxon';
 import { CFProgressBar } from 'pages/AvailableProjects/Project/CFProgressBar';
 import { Link } from 'react-router-dom';
 import { routeNames } from 'routes';
-import { ProjectPageDetails, FullProjectPageDetails } from 'types/projectTypes';
-import { formatIso, formatRelativeDate, fromIso } from 'utils';
+import { FullProjectPageDetails, ProjectPageDetails } from 'types/projectTypes';
+import { formatIso, fromIso } from 'utils';
 import { SpecRow } from './SpecRow';
 import './style.css';
 
@@ -62,7 +62,12 @@ export const ProjectSpecs = ({
       icon: faCalendar,
       leftSideComponent: <span>Loan Duration</span>,
       rightSideComponent: (
-        <span>{formatRelativeDate(fromIso(project.loanDeadline))}</span>
+        <span>
+          {fromIso(project.loanDeadline)
+            .diff(fromIso(project.crowdfundingDeadline))
+            .rescale()
+            .toHuman()}
+        </span>
       )
     },
     {

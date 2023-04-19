@@ -7,6 +7,7 @@ import {
   ProjectListItem,
   ProjectPageDetails
 } from 'types/projectTypes';
+import { fromIso } from '../../utils';
 
 export const getAvailableProjects = (): ProjectListItem[] => {
   return projectList.map((l: any) => l as ProjectListItem);
@@ -16,7 +17,9 @@ export const getProjectInfo = (projectId: string): ProjectPageDetails => {
   const proj = projectInfo.filter(
     (pi) => pi.projectId === projectId
   )[0] as any as ProjectPageDetails;
-  proj.loanDeadline = proj.crowdfundingDeadline;
+  proj.loanDeadline = fromIso(proj.crowdfundingDeadline)
+    .plus({ years: 1 })
+    .toISO();
   return proj;
 };
 
@@ -26,6 +29,8 @@ export const getFullProjectInfo = (
   const proj = fullProjectInfo.filter(
     (pi) => pi.projectId === projectId
   )[0] as any as FullProjectPageDetails;
-  proj.loanDeadline = proj.crowdfundingDeadline;
+  proj.loanDeadline = fromIso(proj.crowdfundingDeadline)
+    .plus({ years: 1 })
+    .toISO();
   return proj;
 };
