@@ -7,6 +7,7 @@ export const DeadlineSelectAndSettings = () => {
   return (
     <div>
       <button
+        id='deadline-select'
         className='btn btn-primary dropdown-toggle dropdown'
         type='button'
         data-bs-toggle='dropdown'

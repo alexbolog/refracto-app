@@ -2,7 +2,7 @@ import React from 'react';
 
 export const RatingSelect = () => {
   return (
-    <div>
+    <div id='rating-select'>
       <button
         className='btn btn-primary dropdown-toggle dropdown'
         type='button'

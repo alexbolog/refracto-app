@@ -33,9 +33,12 @@ export const FilterBox = ({
     return (
       <div className='card w-100 filter-box-wrapper'>
         <div className='card-body border-0'>
-          <div className='container-fluid p-0'>
+          <div className='container-fluid p-0 m-0'>
             <div className='row'>
-              <div className='col-lg-6'>
+              <div
+                className='col-lg-6 col-sm-10 col-md-10 w-auto'
+                style={{ minWidth: '50%' }}
+              >
                 <div className='input-group search-bar-container'>
                   <span className='input-group-text search-icon'>
                     <FontAwesomeIcon
@@ -52,8 +55,8 @@ export const FilterBox = ({
                 </div>
               </div>
               <div
-                className='col-lg-6 d-flex justify-content-end'
-                style={{ gap: '10px' }}
+                className='col-lg-6 col-sm-2 col-md-2 d-flex justify-content-end ml-auto w-auto'
+                id='filter-box-buttons'
               >
                 <ReturnRangeSelect />
                 <RatingSelect />
@@ -97,5 +100,5 @@ export const FilterBox = ({
     );
   };
 
-  return isMobile ? mobileSized() : fullSizedVersion();
+  return fullSizedVersion();
 };
