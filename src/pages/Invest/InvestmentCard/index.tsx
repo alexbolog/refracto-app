@@ -16,11 +16,11 @@ export const InvestmentCard = ({
       {/* TODO: replace bg-primary with primary color circle CSS background from design */}
       <div className='card-body p-0 bg-primary rounded'>
         <div className='container-fluid'>
-          <div className='row p-0 w-100'>
-            <div className='col-lg-6 d-flex justify-content-start align-items-end'>
+          <div className='row '>
+            <div className='col-lg-6 col-sm-12 d-flex justify-content-start align-items-end'>
               <h1 className='text-white'>Make an Investment</h1>
             </div>
-            <div className='col-lg-6 d-flex justify-content-end align-items-end'>
+            <div className='col-lg-6 col-sm-12 d-flex justify-content-end align-items-end' id='available-balance'>
               {isLoggedIn && (
                 <h4 className='text-white'>
                   CASH BALANCE:{' '}
@@ -51,8 +51,8 @@ export const InvestmentCard = ({
                   />
                 </div>
               </div>
-              <div className='col-lg-3 d-flex justify-content-center align-items-end'>
-                <button className='btn btn-primary text-primary btn-sm'>
+              <div className='col-lg-3 col-md-12 d-flex justify-content-center align-items-end'>
+                <button className='btn btn-primary text-primary btn-sm' id='invest-now-button'>
                   Submit Your Order
                 </button>
               </div>

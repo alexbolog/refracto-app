@@ -121,8 +121,7 @@ button.btn-social {
 
 .project-specs-wrapper {
     height: auto !important;
-    margin-right: 24px;
-    margin-left: 20px;
+    width: 100%;
     flex-grow: 1 !important;
 }
 

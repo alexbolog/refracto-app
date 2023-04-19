@@ -18,7 +18,7 @@ export const ProjectDetailsCard = ({
       </div>
       <div className='card-body'>
         <div className='container-fluid w-100 p-0 m-0'>
-          <div className='row w-100 p-0'>
+          <div className='row p-0'>
             <div className='col-12'>
               <h1>{projectDetails.projectTitle}</h1>
             </div>
@@ -26,7 +26,7 @@ export const ProjectDetailsCard = ({
               <h5>{projectDetails.shortDescription}</h5>
             </div>
           </div>
-          <div className='row w-100 p-0 main-info'>
+          <div className='row p-0 main-info'>
             <div className='col-4 sep'>
               <div className='important text-primary'>
                 {(projectDetails.returnPercentage * 100).toLocaleString(

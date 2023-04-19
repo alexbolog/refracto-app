@@ -14,10 +14,6 @@ h5 {
     color: #364E63 !important;
 }
 
-.main-info {
-    width: 100% !important;
-}
-
 .main-info .col-4 {
     padding: 20px 23px 20px 23px;
     display: flex !important;
@@ -43,7 +39,7 @@ h5 {
     top: auto;
     bottom: 24px;
     left: 20px;
-    z-index: 100;
+    z-index: 2;
     background-color: #fff;
     border: 1px solid #D5DFE7;
     border-radius: 6px;
@@ -54,7 +50,7 @@ h5 {
     top: auto;
     bottom: 24px;
     left: 66px;
-    z-index: 100;
+    z-index: 2;
     background-color: #fff;
     border: 1px solid #D5DFE7;
     border-radius: 6px;
@@ -103,4 +99,27 @@ h5 {
 
 .investment-card-wrapper .card-body {
     padding-bottom: 20px !important;
+}
+
+.btn-carousel, .btn-carousel.left {
+    bottom: 24px;
+}
+
+@media only screen and (max-width: 1024px) {
+    #invest-now-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #available-balance {
+        justify-content: left !important;
+    }
+
+    .investment-card-wrapper {
+        margin: 10px 0px 0px 0px;
+    }
+
+    .investment-card-wrapper label {
+        margin-top: 5px;
+    }
 }

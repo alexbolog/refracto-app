@@ -31,7 +31,7 @@ export const Invest = () => {
   const [projectDetails, setProjectDetails] = useState<ProjectPageDetails>();
   // TODO: add loading
   return projectDetails === undefined ? null : (
-    <div className='container-fluid w-100 p-0'>
+    <>
       <div className='row'>
         <div className='col'>
           <h3 className='breadcrumbs'>
@@ -47,15 +47,15 @@ export const Invest = () => {
           <h2>Investment Order</h2>
         </div>
       </div>
-      <div className='row p-0 w-100'>
-        <div className='col-lg-6 p-0'>
+      <div className='row'>
+        <div className='col-lg-6 col-md-12'>
           <ProjectDetailsCard projectDetails={projectDetails} />
         </div>
-        <div className='col-lg-6 p-0'>
+        <div className='col-lg-6 col-md-12'>
           <ProjectSpecs project={projectDetails} sm />
           <InvestmentCard project={projectDetails} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
