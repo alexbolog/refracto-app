@@ -6,7 +6,7 @@ import { ImageGallery } from 'components/ImageGallery';
 
 export const HeaderCard = ({ project }: { project: ProjectPageDetails }) => {
   return (
-    <div className='card'>
+    <div className='card project-details-header-card'>
       <div className='card-header b-0'>
         <div className='main-card-header'>
           <h1>{project.projectTitle}</h1>
@@ -21,6 +21,14 @@ export const HeaderCard = ({ project }: { project: ProjectPageDetails }) => {
       </div>
       <div className='card-body'>
         <ImageGallery images={project.images} />
+        <div className='d-flex'>
+          <button className='btn btn-social fb-sm'>
+            <FontAwesomeIcon icon={faFacebook as any} />
+          </button>
+          <button className='btn btn-social twt-sm'>
+            <FontAwesomeIcon icon={faTwitter as any} />
+          </button>
+        </div>
       </div>
     </div>
   );

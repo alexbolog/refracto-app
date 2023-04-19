@@ -122,6 +122,12 @@ button.btn-social {
     flex-grow: 1 !important;
 }
 
+.project-specs-wrapper .proj-specs-value {
+    word-break: break-all;
+    color: #364E63;
+    text-align: end;
+}
+
 .project-specs-wrapper h1 {
     font-style: normal !important;
     font-weight: 700 !important;
@@ -279,6 +285,14 @@ tbody tr td {
     color: #364E63;
 }
 
+.project-details-header-card {
+    padding: 35px;
+}
+
+.fb-sm, .twt-sm {
+    display: none !important;
+}
+
 #project-specs-floating-panel-mobile {
     display: none !important;
 }
@@ -296,7 +310,37 @@ tbody tr td {
         margin: 0;
         max-width: 100%;
     }
+
     .project-specs-list {
         padding: 30px !important;
+    }
+
+    .main-card-header .btn-social.fb, .btn-social.twt {
+        display: none;
+    }
+
+    .fb-sm {
+        display: block !important;
+        margin-top: 10px;
+    }
+
+    .twt-sm {
+        display: block !important;
+        margin-top: 10px;
+        margin-left: 15px;
+    }
+
+    .btn-carousel {
+        position: absolute;
+        bottom: 66px;
+        right: 54px;
+        z-index: 2;
+    }
+
+    .btn-carousel.left {
+        position: absolute;
+        bottom: 66px;
+        right: 88px;
+        margin: 0;
     }
 }

@@ -124,7 +124,7 @@ export const ProjectSpecs = ({
                 <SpecRow
                   leftSideComponent={<span>Project Developer</span>}
                   rightSideComponent={
-                    <span style={{ color: '#364E63' }}>
+                    <span className='proj-specs-value'>
                       {project.projectDeveloperName}
                     </span>
                   }
@@ -132,7 +132,7 @@ export const ProjectSpecs = ({
                 <SpecRow
                   leftSideComponent={<span>Final Interest Rate</span>}
                   rightSideComponent={
-                    <span style={{ color: '#364E63' }}>
+                    <span className='proj-specs-value'>
                       {(project.returnPercentage * 100).toLocaleString(
                         undefined,
                         toLocaleStringOptions
@@ -144,7 +144,7 @@ export const ProjectSpecs = ({
                 <SpecRow
                   leftSideComponent={<span>Returned to Investors</span>}
                   rightSideComponent={
-                    <span style={{ color: '#364E63' }}>
+                    <span className='proj-specs-value'>
                       €
                       {project.amountReturnedSoFar.toLocaleString(
                         undefined,
