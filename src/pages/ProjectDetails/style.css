@@ -151,7 +151,7 @@ button.btn-social {
 }
 
 .btn-invest {
-    width: 100% ;
+    width: 100%;
     border-radius: 6px;
     font-style: normal !important;
     font-weight: 600 !important;
@@ -277,5 +277,26 @@ tbody tr td {
     font-size: 14px;
     line-height: 26px;
     color: #364E63;
+}
 
+#project-specs-floating-panel-mobile {
+    display: none !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    #project-specs-floating-panel {
+        display: none !important;
+    }
+
+    #project-specs-floating-panel-mobile {
+        display: block !important;
+    }
+
+    .project-specs-wrapper {
+        margin: 0;
+        max-width: 100%;
+    }
+    .project-specs-list {
+        padding: 30px !important;
+    }
 }
