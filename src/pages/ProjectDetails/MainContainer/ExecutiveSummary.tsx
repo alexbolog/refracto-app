@@ -1,5 +1,6 @@
 import React from 'react';
 import { ProjectPageDetails } from 'types/projectTypes';
+import { MobileCollapsibleSection } from './MobileCollapsibleSection';
 
 export const ExecutiveSummary = ({
   project
@@ -7,13 +8,9 @@ export const ExecutiveSummary = ({
   project: ProjectPageDetails;
 }) => {
   return (
-    <div className='card executive-summary-wrapper'>
-      <div className='card-header'>
-        <h1>Executive Summary</h1>
-      </div>
-      <div className='card-body'>
-        <h6>{project.executiveSummary}</h6>
-      </div>
-    </div>
+    <MobileCollapsibleSection
+      header='Executive Summary'
+      body={<h6>{project.executiveSummary}</h6>}
+    />
   );
 };

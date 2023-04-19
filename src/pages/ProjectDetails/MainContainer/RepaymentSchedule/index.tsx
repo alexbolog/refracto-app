@@ -1,6 +1,7 @@
 import React from 'react';
 import { FullProjectPageDetails } from 'types/projectTypes';
 import { RepaymentScheduleTable } from './RepaymentScheduleTable';
+import { MobileCollapsibleSection } from '../MobileCollapsibleSection';
 
 export const RepaymentSchedule = ({
   project
@@ -8,13 +9,9 @@ export const RepaymentSchedule = ({
   project: FullProjectPageDetails;
 }) => {
   return (
-    <div className='card executive-summary-wrapper'>
-      <div className='card-header'>
-        <h1>Repayment Schedule</h1>
-      </div>
-      <div className='card-body'>
-        <RepaymentScheduleTable items={project.repaymentSchedule} />
-      </div>
-    </div>
+    <MobileCollapsibleSection
+      header='Repayment Schedule'
+      body={<RepaymentScheduleTable items={project.repaymentSchedule} />}
+    />
   );
 };

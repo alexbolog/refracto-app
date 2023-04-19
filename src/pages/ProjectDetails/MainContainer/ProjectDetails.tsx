@@ -1,5 +1,6 @@
 import React from 'react';
 import { FullProjectPageDetails, ProjectPageDetails } from 'types/projectTypes';
+import { MobileCollapsibleSection } from './MobileCollapsibleSection';
 
 export const ProjectDetails = ({
   project
@@ -7,13 +8,9 @@ export const ProjectDetails = ({
   project: FullProjectPageDetails;
 }) => {
   return (
-    <div className='card executive-summary-wrapper'>
-      <div className='card-header'>
-        <h1>Project Details</h1>
-      </div>
-      <div className='card-body'>
-        <h6>{project.projectDetails}</h6>
-      </div>
-    </div>
+    <MobileCollapsibleSection
+      header='Project Details'
+      body={<h6>{project.projectDetails}</h6>}
+    />
   );
 };

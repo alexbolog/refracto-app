@@ -46,18 +46,22 @@
     color: #364E63 !important;
 }
 
-.executive-summary-wrapper {
+.project-details-card-wrapper {
     padding: 30px;
 }
 
-.executive-summary-wrapper h1 {
+.project-details-card-wrapper h1 {
     font-weight: 700 !important;
     font-size: 24px !important;
     line-height: 32px !important;
     color: #364E63 !important;
 }
 
-.executive-summary-wrapper h6 {
+.project-details-card-wrapper .btn-collapse {
+    display: none;
+}
+
+.project-details-card-wrapper h6 {
     margin-top: 0;
     font-weight: 400 !important;
     font-size: 14px !important;
@@ -65,7 +69,7 @@
     color: #364E63 !important;
 }
 
-.executive-summary-wrapper.card-body {
+.project-details-card-wrapper.card-body {
     padding-top: 0 !important;
     /* margin-top: 0px !important; */
 }
@@ -129,6 +133,7 @@ button.btn-social {
 }
 
 .project-specs-wrapper h1 {
+    padding-left: 30px;
     font-style: normal !important;
     font-weight: 700 !important;
     font-size: 18px !important;
@@ -137,8 +142,12 @@ button.btn-social {
 }
 
 .project-specs-wrapper .card-header {
-    padding: 0 30px;
+    padding: 0;
     padding-top: 35px;
+}
+
+.project-details-card-wrapper.collapsed {
+    padding-bottom: 10px;
 }
 
 .proj-specs-container {
@@ -286,7 +295,7 @@ tbody tr td {
 }
 
 .project-details-header-card {
-    padding: 35px;
+    padding: 30px;
 }
 
 .fb-sm, .twt-sm {
@@ -315,32 +324,54 @@ tbody tr td {
         padding: 30px !important;
     }
 
-    .main-card-header .btn-social.fb, .btn-social.twt {
+    .main-card-header .btn-social.fb, .btn-social.twt, .breadcrumbs {
         display: none;
     }
 
     .fb-sm {
         display: block !important;
-        margin-top: 10px;
+        margin-top: 20px;
     }
 
     .twt-sm {
         display: block !important;
-        margin-top: 10px;
+        margin-top: 20px;
         margin-left: 15px;
     }
 
     .btn-carousel {
         position: absolute;
-        bottom: 66px;
-        right: 54px;
+        bottom: 45px;
+        right: 25px;
         z-index: 2;
     }
 
     .btn-carousel.left {
         position: absolute;
-        bottom: 66px;
-        right: 88px;
+        bottom: 45px;
+        right: 60px;
         margin: 0;
+    }
+
+    .project-details-card-wrapper {
+        padding: 15px;
+    }
+
+    .project-details-card-wrapper .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    .project-details-card-wrapper h1 {
+        font-size: 18px !important;
+    }
+
+    .project-details-header-card {
+        padding: 15px;
+    }
+
+    .project-details-card-wrapper .btn-collapse {
+        display: block;
     }
 }
