@@ -54,6 +54,7 @@ h5 {
     background-color: #fff;
     border: 1px solid #D5DFE7;
     border-radius: 6px;
+    display: block !important;
 }
 
 .investment-card-wrapper {
