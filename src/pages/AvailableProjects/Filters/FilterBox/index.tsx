@@ -40,6 +40,13 @@ export const FilterBox = ({
     onApplyFilters(co);
   };
 
+  const handleRatingSelectFilterUpdate = (ratings: string[]) => {
+    const co = selectedFilter;
+    co.riskRatingLevels = ratings;
+    setSelectedFilter(co);
+    onApplyFilters(co);
+  };
+
   return (
     <div className='card w-100 filter-box-wrapper'>
       <div className='card-body border-0'>
@@ -66,7 +73,7 @@ export const FilterBox = ({
             </div>
             <div className='col-lg-6 col-sm-2 col-md-2 d-flex justify-content-end ml-auto w-auto filter-box-buttons'>
               <ReturnRangeSelect onChange={handleRangeSelectFilterUpdate} />
-              <RatingSelect />
+              <RatingSelect onChange={handleRatingSelectFilterUpdate} />
               <DeadlineSelectAndSettings />
             </div>
           </div>

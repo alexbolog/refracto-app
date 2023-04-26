@@ -15,8 +15,14 @@ export const AppliedFilter = ({
   return (
     <div className='applied-filter'>
       <span className='filter-type'>
-        {filterText}{filterText.length > 0 && ': '}{filterValue}
-        <CancelButton className='ml-2 mb-1' role='button' onClick={onRemoveFilter} />
+        {filterText}
+        {filterText.length > 0 && ': '}
+        {filterValue}
+        <CancelButton
+          className='ml-2 mb-1'
+          role='button'
+          onClick={onRemoveFilter}
+        />
       </span>
     </div>
   );

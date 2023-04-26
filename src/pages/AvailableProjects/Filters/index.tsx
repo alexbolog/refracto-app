@@ -43,6 +43,7 @@ export const Filters = ({
   };
 
   const handleRemoveFilter = (action: () => void) => {
+    // filter removal does not work
     action();
     handleApplyFilters(getNewFilters());
   };
@@ -69,17 +70,19 @@ export const Filters = ({
               }
             />
           )}
-          {riskRatingLevels !== undefined && riskRatingLevels.length > 0 && (
-            <AppliedFilter
-              filterText='Rating'
-              filterValue={riskRatingLevels.join(',')}
-              onRemoveFilter={() =>
-                handleRemoveFilter(() => {
-                  setRiskRatingLevels([]);
-                })
-              }
-            />
-          )}
+          {riskRatingLevels !== undefined &&
+            riskRatingLevels.length > 0 &&
+            riskRatingLevels.length < 3 && (
+              <AppliedFilter
+                filterText='Rating'
+                filterValue={riskRatingLevels.join(',')}
+                onRemoveFilter={() =>
+                  handleRemoveFilter(() => {
+                    setRiskRatingLevels([]);
+                  })
+                }
+              />
+            )}
           {projectDeadlineStart !== undefined &&
             projectDeadlineEnd === undefined && (
               <AppliedFilter
