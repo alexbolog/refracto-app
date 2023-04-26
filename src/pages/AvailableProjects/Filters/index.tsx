@@ -23,13 +23,19 @@ export const Filters = ({
     number | undefined
   >();
 
-  const getNewFilters = (): ProjectListFilterType => {
+  const getNewFilters = (
+    minRange: number | undefined,
+    maxRange: number | undefined,
+    ratings: string[] | undefined,
+    deadlineStart: number | undefined,
+    deadlineEnd: number | undefined
+  ): ProjectListFilterType => {
     return {
-      minReturnRange: minReturnRange,
-      maxReturnRange: maxReturnRange,
-      riskRatingLevels: riskRatingLevels,
-      projectDeadlineStart: projectDeadlineStart,
-      projectDeadlineEnd: projectDeadlineEnd
+      minReturnRange: minRange,
+      maxReturnRange: maxRange,
+      riskRatingLevels: ratings,
+      projectDeadlineStart: deadlineStart,
+      projectDeadlineEnd: deadlineEnd
     };
   };
 
@@ -42,10 +48,11 @@ export const Filters = ({
     onApplyFilters(newFilters);
   };
 
-  const handleRemoveFilter = (action: () => void) => {
+  const handleRemoveFilter = (
+    createFiltersAction: () => ProjectListFilterType
+  ) => {
     // filter removal does not work
-    action();
-    handleApplyFilters(getNewFilters());
+    handleApplyFilters(createFiltersAction());
   };
 
   return (
@@ -55,7 +62,6 @@ export const Filters = ({
           <FilterBox onApplyFilters={handleApplyFilters} />
         </div>
         <div className='col applied-filters-container'>
-          {/* <AppliedFilter filterText='Return range' filterValue='45%' /> */}
           {(minReturnRange !== undefined || maxReturnRange !== undefined) && (
             <AppliedFilter
               filterText='Return range'
@@ -63,10 +69,15 @@ export const Filters = ({
                 minReturnRange === undefined ? '0' : minReturnRange
               }% - ${maxReturnRange === undefined ? '100' : maxReturnRange}%`}
               onRemoveFilter={() =>
-                handleRemoveFilter(() => {
-                  setMinReturnRange(undefined);
-                  setMaxReturnRange(undefined);
-                })
+                handleRemoveFilter(() =>
+                  getNewFilters(
+                    undefined,
+                    undefined,
+                    riskRatingLevels,
+                    projectDeadlineStart,
+                    projectDeadlineEnd
+                  )
+                )
               }
             />
           )}
@@ -77,9 +88,15 @@ export const Filters = ({
                 filterText='Rating'
                 filterValue={riskRatingLevels.join(',')}
                 onRemoveFilter={() =>
-                  handleRemoveFilter(() => {
-                    setRiskRatingLevels([]);
-                  })
+                  handleRemoveFilter(() =>
+                    getNewFilters(
+                      minReturnRange,
+                      maxReturnRange,
+                      ['Low', 'Medium', 'High'],
+                      projectDeadlineStart,
+                      projectDeadlineEnd
+                    )
+                  )
                 }
               />
             )}
@@ -89,9 +106,15 @@ export const Filters = ({
                 filterText='After'
                 filterValue={'TODO: add value'} //Project deadline start online
                 onRemoveFilter={() =>
-                  handleRemoveFilter(() => {
-                    setProjectDeadlineStart(undefined);
-                  })
+                  handleRemoveFilter(() =>
+                    getNewFilters(
+                      minReturnRange,
+                      maxReturnRange,
+                      riskRatingLevels,
+                      undefined,
+                      projectDeadlineEnd
+                    )
+                  )
                 }
               />
             )}
@@ -101,9 +124,15 @@ export const Filters = ({
                 filterText='Before'
                 filterValue={'TODO: add value'} //Project deadline start online
                 onRemoveFilter={() =>
-                  handleRemoveFilter(() => {
-                    setProjectDeadlineEnd(undefined);
-                  })
+                  handleRemoveFilter(() =>
+                    getNewFilters(
+                      minReturnRange,
+                      maxReturnRange,
+                      riskRatingLevels,
+                      projectDeadlineStart,
+                      undefined
+                    )
+                  )
                 }
               />
             )}
@@ -113,10 +142,15 @@ export const Filters = ({
                 filterText=''
                 filterValue={'full date range here'} //Project deadline start online
                 onRemoveFilter={() =>
-                  handleRemoveFilter(() => {
-                    setProjectDeadlineStart(undefined);
-                    setProjectDeadlineEnd(undefined);
-                  })
+                  handleRemoveFilter(() =>
+                    getNewFilters(
+                      minReturnRange,
+                      maxReturnRange,
+                      riskRatingLevels,
+                      undefined,
+                      undefined
+                    )
+                  )
                 }
               />
             )}
