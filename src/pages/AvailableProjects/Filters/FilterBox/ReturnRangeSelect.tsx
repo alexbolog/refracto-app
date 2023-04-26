@@ -1,6 +1,15 @@
-import React from 'react';
+import MultiRangeSlider from 'components/MultiRangeSlider';
+import React, { useEffect, useState } from 'react';
 
-export const ReturnRangeSelect = () => {
+export const ReturnRangeSelect = ({
+  min,
+  max,
+  onChange
+}: {
+  min?: number;
+  max?: number;
+  onChange: (min: number, max: number) => void;
+}) => {
   return (
     <div className='return-range-select'>
       <button
@@ -11,8 +20,22 @@ export const ReturnRangeSelect = () => {
       >
         Select Return Range
       </button>
-      <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
-        <li>
+      <div
+        className='dropdown-menu'
+        aria-labelledby='dropdownMenuButton1'
+        style={{
+          padding: '0',
+          background: '#fff'
+        }}
+      >
+        <div className='p-3'>
+          <MultiRangeSlider
+            min={min ?? 0}
+            max={max ?? 100}
+            onChange={onChange}
+          />
+        </div>
+        {/* <li>
           <a className='dropdown-item' href='#'>
             Action
           </a>
@@ -26,8 +49,8 @@ export const ReturnRangeSelect = () => {
           <a className='dropdown-item' href='#'>
             Something else here
           </a>
-        </li>
-      </ul>
+        </li> */}
+      </div>
     </div>
   );
 };
