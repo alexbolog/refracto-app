@@ -52,3 +52,29 @@
 .applied-filters-container {
     min-width: 60px;
 }
+
+.filter-box-buttons {
+    gap: 10px;
+}
+
+.filter-box-settings-btn {
+    display: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .search-bar-input {
+        width: auto;
+    }
+
+    .deadline-select, .rating-select, .return-range-select {
+        display: none !important;
+    }
+
+    .filter-box-buttons {
+        margin-top: 2px;
+    }
+
+    .filter-box-settings-btn {
+        display: block !important;
+    }
+}

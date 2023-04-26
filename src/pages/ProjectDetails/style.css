@@ -14,9 +14,9 @@
 }
 
 .breadcrumbs .sepz {
-    margin-right: 8px !important;
-    width: 8px !important;
-    height: 13px !important;
+    margin-right: 8px;
+    width: 8px;
+    height: 13px;
 }
 
 .card {
@@ -46,18 +46,22 @@
     color: #364E63 !important;
 }
 
-.executive-summary-wrapper {
+.project-details-card-wrapper {
     padding: 30px;
 }
 
-.executive-summary-wrapper h1 {
+.project-details-card-wrapper h1 {
     font-weight: 700 !important;
     font-size: 24px !important;
     line-height: 32px !important;
     color: #364E63 !important;
 }
 
-.executive-summary-wrapper h6 {
+.project-details-card-wrapper .btn-collapse {
+    display: none;
+}
+
+.project-details-card-wrapper h6 {
     margin-top: 0;
     font-weight: 400 !important;
     font-size: 14px !important;
@@ -65,21 +69,21 @@
     color: #364E63 !important;
 }
 
-.executive-summary-wrapper.card-body {
-    padding-top: 0px !important;
+.project-details-card-wrapper.card-body {
+    padding-top: 0 !important;
     /* margin-top: 0px !important; */
 }
 
-.btn-social {
-    padding: 0 !important;
-    width: 32px !important;
-    height: 32px !important;
-    border-radius: 6px !important;
-    border: 1px solid #D5DFE7 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    color: #364E63 !important;
+button.btn-social {
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #D5DFE7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #364E63;
 }
 
 .btn-social.fb {
@@ -112,16 +116,23 @@
     position: absolute;
     bottom: 56px;
     right: 88px;
-    margin: 0px;
+    margin: 0;
 }
 
 .project-specs-wrapper {
     height: auto !important;
-    margin-right: 24px;
-    margin-left: 20px;
+    width: 100%;
+    flex-grow: 1 !important;
+}
+
+.project-specs-wrapper .proj-specs-value {
+    word-break: break-all;
+    color: #364E63;
+    text-align: end;
 }
 
 .project-specs-wrapper h1 {
+    padding-left: 30px;
     font-style: normal !important;
     font-weight: 700 !important;
     font-size: 18px !important;
@@ -130,31 +141,23 @@
 }
 
 .project-specs-wrapper .card-header {
-    padding: 0 30px;
+    padding: 0;
     padding-top: 35px;
 }
 
-
-.project-specs-container .spec-icon {
-    width: 16px;
-    height: 20px;
-    margin-bottom: 18px;
+.project-details-card-wrapper.collapsed {
+    padding-bottom: 10px;
 }
 
-.project-specs-container .spec-type {
-    font-style: normal !important;
-    font-weight: 500 !important;
-    font-size: 14px !important;
-    line-height: 24px !important;
-    color: #364E63 !important;
+.proj-specs-container {
+    position: sticky;
+    top: 13%;
+    display: flex !important;
 }
 
-.project-specs-container .spec-value {
-    font-style: normal !important;
-    font-weight: 600 !important;
-    font-size: 14px !important;
-    line-height: 24px !important;
-    color: #6F869B !important;
+.not-sticky {
+    position: inherit !important;
+    top: 0%;
 }
 
 .card-footer {
@@ -162,13 +165,13 @@
 }
 
 .btn-invest {
-    width: 100% !important;
-    border-radius: 6px !important;
+    width: 100%;
+    border-radius: 6px;
     font-style: normal !important;
     font-weight: 600 !important;
     font-size: 12px !important;
     line-height: 20px !important;
-    color: white !important;
+    color: white;
     margin-bottom: 10px;
 }
 
@@ -236,27 +239,138 @@
     font-weight: 700 !important;
     font-size: 16px !important;
     line-height: 32px !important;
-    color: #6F869B !important;
+    color: #6F869B;
 }
 
 .swot-cell.strenghts {
-    border-right: 1px solid #D5DFE7 !important;
-    border-bottom: 1px solid #D5DFE7 !important;
+    border-right: 1px solid #D5DFE7;
+    border-bottom: 1px solid #D5DFE7;
 }
 
 .swot-cell.weaknesses {
-    border-bottom: 1px solid #D5DFE7 !important;
+    border-bottom: 1px solid #D5DFE7;
 }
 
 .swot-cell.opportunities {
-    border-right: 1px solid #D5DFE7 !important;
+    border-right: 1px solid #D5DFE7;
 }
 
-.refracto-rating-disclaimer {
-    font-style: normal !important;
-    font-weight: 400 !important;
-    font-size: 12px !important;
-    line-height: 26px !important;
-    color: #6F869B !important;
+div.refracto-rating-disclaimer {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 26px;
+    color: #6F869B;
     margin-top: 25px;
+}
+
+
+thead {
+    background: transparent !important;
+}
+
+thead tr th {
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    line-height: 32px !important;
+    color: #6F869B !important;
+}
+
+.last-row td {
+    border-bottom: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 26px;
+    color: #364E63;
+}
+
+tbody tr td {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 26px;
+    color: #364E63;
+}
+
+.project-details-header-card {
+    padding: 30px;
+}
+
+.fb-sm, .twt-sm {
+    display: none !important;
+}
+
+.project-specs-floating-panel-mobile {
+    display: none !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    .project-specs-floating-panel {
+        display: none !important;
+    }
+
+    .project-specs-floating-panel-mobile {
+        display: block !important;
+    }
+
+    .project-specs-wrapper {
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .project-specs-list {
+        padding: 30px !important;
+    }
+
+    .main-card-header .btn-social.fb, .btn-social.twt, .breadcrumbs {
+        display: none;
+    }
+
+    .fb-sm {
+        display: block !important;
+        margin-top: 20px;
+    }
+
+    .twt-sm {
+        display: block !important;
+        margin-top: 20px;
+        margin-left: 15px;
+    }
+
+    .btn-carousel {
+        position: absolute;
+        bottom: 45px;
+        right: 25px;
+        z-index: 2;
+    }
+
+    .btn-carousel.left {
+        position: absolute;
+        bottom: 45px;
+        right: 60px;
+        margin: 0;
+    }
+
+    .project-details-card-wrapper {
+        padding: 15px;
+    }
+
+    .project-details-card-wrapper .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    .project-details-card-wrapper h1 {
+        font-size: 18px !important;
+    }
+
+    .project-details-header-card {
+        padding: 15px;
+    }
+
+    .project-details-card-wrapper .btn-collapse {
+        display: block;
+    }
 }

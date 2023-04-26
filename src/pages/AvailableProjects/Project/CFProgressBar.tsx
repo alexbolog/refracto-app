@@ -3,10 +3,12 @@ import { toLocaleStringOptionsNoDecimals } from 'config';
 import { formatRelativeDate, fromIso } from 'utils';
 
 export const CFProgressBar = ({
+  className,
   crowdfundedAmount,
   crowdfundingTarget,
   deadline
 }: {
+  className?: string;
   crowdfundedAmount: number;
   crowdfundingTarget: number;
   deadline: string;
@@ -14,7 +16,7 @@ export const CFProgressBar = ({
   const progressPercentage = (crowdfundedAmount / crowdfundingTarget) * 100;
 
   return (
-    <div>
+    <div className={className}>
       <div className='crowdfunding-progress-wrapper'>
         <span className='crowdfunding-progress-text sum-progress'>
           €

@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const SettingsButton = () => {
   return (
-    <button className='btn btn-outline-primary ml-2 btn-md'>
+    <button
+      className='btn btn-outline-primary ml-2 btn-md filter-box-settings-btn'
+    >
       <FontAwesomeIcon icon={faSlidersH} />
     </button>
   );

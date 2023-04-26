@@ -11,7 +11,7 @@ export const ProjectInfo = ({ project }: { project: ProjectListItem }) => {
   return (
     <div className='project-specs-container'>
       <h3 className='project-info-title'>{project.projectTitle}</h3>
-      <div className='project-specs-wrapper'>
+      <div className='project-specs-wrapper d-flex justify-content-between w-100'>
         <Return value={project.returnPercentage} />
         <Rating value={project.riskRatingLevel} />
         <Goal value={project.crowdfundedAmount / project.crowdfundingTarget} />

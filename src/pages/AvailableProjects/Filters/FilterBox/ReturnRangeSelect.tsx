@@ -2,7 +2,7 @@ import React from 'react';
 
 export const ReturnRangeSelect = () => {
   return (
-    <div>
+    <div className='return-range-select'>
       <button
         className='btn btn-primary dropdown-toggle dropdown'
         type='button'
