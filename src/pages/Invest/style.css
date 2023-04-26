@@ -59,7 +59,6 @@ h5 {
 
 .investment-card-wrapper {
     height: auto !important;
-    margin: 25px 20px 25px 20px;
 }
 
 .investment-card-wrapper h4 {
@@ -107,12 +106,12 @@ h5 {
 }
 
 @media only screen and (max-width: 1024px) {
-    #invest-now-button {
+    .invest-now-button {
         width: 100%;
         margin-top: 10px;
     }
 
-    #available-balance {
+    .available-balance {
         justify-content: left !important;
     }
 

@@ -53,24 +53,28 @@
     min-width: 60px;
 }
 
-#filter-box-buttons {
+.filter-box-buttons {
     gap: 10px;
 }
 
-#filter-box-settings-btn {
-    display: none;
+.filter-box-settings-btn {
+    display: none !important;
 }
 
 @media only screen and (max-width: 768px) {
-    #deadline-select, #rating-select, #return-range-select {
-        display: none;
+    .search-bar-input {
+        width: auto;
     }
 
-    #filter-box-buttons {
+    .deadline-select, .rating-select, .return-range-select {
+        display: none !important;
+    }
+
+    .filter-box-buttons {
         margin-top: 2px;
     }
 
-    #filter-box-settings-btn {
-        display: block;
+    .filter-box-settings-btn {
+        display: block !important;
     }
 }

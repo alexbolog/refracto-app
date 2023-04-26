@@ -301,16 +301,16 @@ tbody tr td {
     display: none !important;
 }
 
-#project-specs-floating-panel-mobile {
+.project-specs-floating-panel-mobile {
     display: none !important;
 }
 
 @media only screen and (max-width: 1024px) {
-    #project-specs-floating-panel {
+    .project-specs-floating-panel {
         display: none !important;
     }
 
-    #project-specs-floating-panel-mobile {
+    .project-specs-floating-panel-mobile {
         display: block !important;
     }
 

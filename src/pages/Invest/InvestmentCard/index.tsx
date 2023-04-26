@@ -20,7 +20,7 @@ export const InvestmentCard = ({
             <div className='col-lg-6 col-sm-12 d-flex justify-content-start align-items-end'>
               <h1 className='text-white'>Make an Investment</h1>
             </div>
-            <div className='col-lg-6 col-sm-12 d-flex justify-content-end align-items-end' id='available-balance'>
+            <div className='col-lg-6 col-sm-12 d-flex justify-content-end align-items-end available-balance'>
               {isLoggedIn && (
                 <h4 className='text-white'>
                   CASH BALANCE:{' '}
@@ -52,7 +52,7 @@ export const InvestmentCard = ({
                 </div>
               </div>
               <div className='col-lg-3 col-md-12 d-flex justify-content-center align-items-end'>
-                <button className='btn btn-primary text-primary btn-sm' id='invest-now-button'>
+                <button className='btn btn-primary text-primary btn-sm invest-now-button'>
                   Submit Your Order
                 </button>
               </div>

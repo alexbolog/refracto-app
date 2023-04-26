@@ -26,7 +26,7 @@ export const ProjectDetailsLayout = ({
       <div className='col-lg-8 col-md-12 col-sm-12'>
         <MainContainer project={project} />
       </div>
-      <div className='col-lg-4 p-0' id='project-specs-floating-panel'>
+      <div className='col-lg-4 p-0 project-specs-floating-panel'>
         <ProjectSpecs project={project} sticky />
       </div>
     </div>

@@ -69,7 +69,7 @@ export const MainContainer = ({
           <div className='col-12'>
             <HeaderCard project={project} />;
           </div>
-          <div className='col-12' id='project-specs-floating-panel-mobile'>
+          <div className='col-12 project-specs-floating-panel-mobile'>
             <ProjectSpecs project={project} />
           </div>
           <div className='col-12'>

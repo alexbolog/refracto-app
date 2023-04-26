@@ -55,8 +55,7 @@ export const FilterBox = ({
                 </div>
               </div>
               <div
-                className='col-lg-6 col-sm-2 col-md-2 d-flex justify-content-end ml-auto w-auto'
-                id='filter-box-buttons'
+                className='col-lg-6 col-sm-2 col-md-2 d-flex justify-content-end ml-auto w-auto filter-box-buttons'
               >
                 <ReturnRangeSelect />
                 <RatingSelect />
