@@ -2,35 +2,24 @@ import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { SettingsButton } from './SettingsButton';
+import DateRangePicker from 'components/DateRangePicker';
+import { DateTime } from 'luxon';
 
-export const DeadlineSelectAndSettings = () => {
+export const DeadlineSelectAndSettings = ({
+  onChange
+}: {
+  onChange: (start: DateTime, end: DateTime) => void;
+}) => {
+  const onDatePick = (startDate: DateTime, endDate: DateTime) => {
+    onChange(startDate, endDate);
+  };
   return (
     <div>
-      <button
-        className='btn btn-primary dropdown-toggle dropdown deadline-select'
-        type='button'
-        data-bs-toggle='dropdown'
-        aria-expanded='false'
-      >
-        Select Deadline
-      </button>
-      <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
-        <li>
-          <a className='dropdown-item' href='#'>
-            Action
-          </a>
-        </li>
-        <li>
-          <a className='dropdown-item' href='#'>
-            Another action
-          </a>
-        </li>
-        <li>
-          <a className='dropdown-item' href='#'>
-            Something else here
-          </a>
-        </li>
-      </ul>
+      <DateRangePicker
+        onChange={onDatePick}
+        customInput='Select Deadline'
+        customBtnClassName='btn btn-primary dropdown-toggle dropdown deadline-select'
+      ></DateRangePicker>
       <SettingsButton />
     </div>
   );

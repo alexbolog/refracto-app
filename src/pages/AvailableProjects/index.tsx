@@ -6,10 +6,10 @@ import { ProjectListFilterType } from './Filters/ProjectListFilterType';
 import { Project } from './Project';
 import { ProjectListItem } from 'types/projectTypes';
 import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-available-projects.svg';
+import { DateTime } from 'luxon';
 
 const AvailableProjects = () => {
   const { availableProjects } = useContext(ProjectContext);
-  // const { availableProjects } = { availableProjects: [] };
 
   const [filteredProjects, setFilteredProjects] =
     useState<ProjectListItem[]>(availableProjects);
@@ -51,6 +51,18 @@ const AvailableProjects = () => {
         ).length > 0;
       shouldDisplay = shouldDisplay && riskLevelCheck;
     }
+
+    const cfDeadline = DateTime.fromISO(project.crowdfundingDeadline);
+    if (currentAppliedFilters.projectDeadlineStart !== undefined) {
+      shouldDisplay =
+        shouldDisplay &&
+        cfDeadline >= currentAppliedFilters.projectDeadlineStart;
+    }
+
+    if (currentAppliedFilters.projectDeadlineEnd !== undefined) {
+      shouldDisplay =
+        shouldDisplay && cfDeadline <= currentAppliedFilters.projectDeadlineEnd;
+    }
     return shouldDisplay;
   };
 
@@ -82,9 +94,11 @@ const AvailableProjects = () => {
                 : 'Ups! Please come back later. More projects coming soon.'}
             </div>
             <div className='col-12 text-center'>
-              <h1 className='text-primary' role='button'>
-                Meanwhile, Check Our Demo!
-              </h1>
+              {availableProjects.length === 0 && (
+                <h1 className='text-primary' role='button'>
+                  Meanwhile, Check Our Demo!
+                </h1>
+              )}
             </div>
             <div className='col-12 text-center'>
               <EmptyPageScreen />

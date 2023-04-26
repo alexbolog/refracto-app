@@ -6,6 +6,7 @@ import { ProjectListFilterType } from '../ProjectListFilterType';
 import { DeadlineSelectAndSettings } from './DeadlineSelectAndSettings';
 import { RatingSelect } from './RatingSelect';
 import { ReturnRangeSelect } from './ReturnRangeSelect';
+import { DateTime } from 'luxon';
 
 export const FilterBox = ({
   onApplyFilters
@@ -47,6 +48,14 @@ export const FilterBox = ({
     onApplyFilters(co);
   };
 
+  const handleDeadlineSelectChange = (start: DateTime, end: DateTime) => {
+    const co = selectedFilter;
+    co.projectDeadlineStart = start;
+    co.projectDeadlineEnd = end;
+    setSelectedFilter(co);
+    onApplyFilters(co);
+  };
+
   return (
     <div className='card w-100 filter-box-wrapper'>
       <div className='card-body border-0'>
@@ -74,7 +83,7 @@ export const FilterBox = ({
             <div className='col-lg-6 col-sm-2 col-md-2 d-flex justify-content-end ml-auto w-auto filter-box-buttons'>
               <ReturnRangeSelect onChange={handleRangeSelectFilterUpdate} />
               <RatingSelect onChange={handleRatingSelectFilterUpdate} />
-              <DeadlineSelectAndSettings />
+              <DeadlineSelectAndSettings onChange={handleDeadlineSelectChange} />
             </div>
           </div>
         </div>

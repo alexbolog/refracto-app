@@ -3,6 +3,8 @@ import { AppliedFilter } from './AppliedFilter';
 import { FilterBox } from './FilterBox';
 import { ProjectListFilterType } from './ProjectListFilterType';
 import './style.css';
+import { DateTime } from 'luxon';
+import { formatDate } from 'utils';
 
 export const Filters = ({
   onApplyFilters
@@ -17,18 +19,18 @@ export const Filters = ({
   const [maxReturnRange, setMaxReturnRange] = useState<number | undefined>();
   const [riskRatingLevels, setRiskRatingLevels] = useState<string[]>([]);
   const [projectDeadlineStart, setProjectDeadlineStart] = useState<
-    number | undefined
+    DateTime | undefined
   >();
   const [projectDeadlineEnd, setProjectDeadlineEnd] = useState<
-    number | undefined
+    DateTime | undefined
   >();
 
   const getNewFilters = (
     minRange: number | undefined,
     maxRange: number | undefined,
     ratings: string[] | undefined,
-    deadlineStart: number | undefined,
-    deadlineEnd: number | undefined
+    deadlineStart: DateTime | undefined,
+    deadlineEnd: DateTime | undefined
   ): ProjectListFilterType => {
     return {
       minReturnRange: minRange,
@@ -104,7 +106,10 @@ export const Filters = ({
             projectDeadlineEnd === undefined && (
               <AppliedFilter
                 filterText='After'
-                filterValue={'TODO: add value'} //Project deadline start online
+                filterValue={formatDate(
+                  projectDeadlineStart,
+                  DateTime.DATE_SHORT
+                )}
                 onRemoveFilter={() =>
                   handleRemoveFilter(() =>
                     getNewFilters(
@@ -122,7 +127,10 @@ export const Filters = ({
             projectDeadlineEnd !== undefined && (
               <AppliedFilter
                 filterText='Before'
-                filterValue={'TODO: add value'} //Project deadline start online
+                filterValue={formatDate(
+                  projectDeadlineEnd,
+                  DateTime.DATE_SHORT
+                )}
                 onRemoveFilter={() =>
                   handleRemoveFilter(() =>
                     getNewFilters(
@@ -140,7 +148,10 @@ export const Filters = ({
             projectDeadlineEnd !== undefined && (
               <AppliedFilter
                 filterText=''
-                filterValue={'full date range here'} //Project deadline start online
+                filterValue={`${formatDate(
+                  projectDeadlineStart,
+                  DateTime.DATE_SHORT
+                )} → ${formatDate(projectDeadlineEnd, DateTime.DATE_SHORT)} `}
                 onRemoveFilter={() =>
                   handleRemoveFilter(() =>
                     getNewFilters(
