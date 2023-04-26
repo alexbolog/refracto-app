@@ -1,7 +1,7 @@
 export interface ProjectListFilterType {
   minReturnRange?: number;
   maxReturnRange?: number;
-  riskRatingLevels?: any[];
+  riskRatingLevels?: string[];
   projectDeadlineStart?: number;
   projectDeadlineEnd?: number;
   nameSearch?: string;
