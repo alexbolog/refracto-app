@@ -1,16 +1,16 @@
 import React from 'react';
-import { useGetLoginInfo } from '@elrondnetwork/dapp-core/hooks';
+import { useGetIsLoggedIn } from '@multiversx/sdk-dapp/hooks';
+import { routeNames } from 'routes';
+import ReactGA from 'react-ga4';
 import {
   ExtensionLoginButton,
   WebWalletLoginButton,
   LedgerLoginButton,
-  WalletConnectLoginButton
-} from '@elrondnetwork/dapp-core/UI';
-import { routeNames } from 'routes';
-import ReactGA from 'react-ga4';
+  WalletConnectLoginButton,
+} from '@multiversx/sdk-dapp/UI';
 
 export const UnlockRoute: () => JSX.Element = () => {
-  const { isLoggedIn } = useGetLoginInfo();
+  const isLoggedIn = useGetIsLoggedIn();
 
   React.useEffect(() => {
     if (isLoggedIn) {
@@ -42,13 +42,13 @@ export const UnlockRoute: () => JSX.Element = () => {
               loginButtonText={'Web wallet'}
             />
             <LedgerLoginButton
-              loginButtonText={'Ledger'}
               callbackRoute={routeNames.dashboard}
-              className={'test-class_name'}
+              loginButtonText={'Ledger'}
             />
             <WalletConnectLoginButton
               callbackRoute={routeNames.dashboard}
-              loginButtonText={'Maiar'}
+              loginButtonText={'xPortal'}
+              isWalletConnectV2={true}
             />
           </div>
         </div>

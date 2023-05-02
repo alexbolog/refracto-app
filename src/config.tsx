@@ -13,3 +13,6 @@ export const toLocaleStringOptionsNoDecimals = {
   minimumFractionDigits: 0,
   maximumFractionDigits: 0
 };
+
+// TODO: generate a new wallet connect id here: https://cloud.walletconnect.com/app
+export const walletConnectV2ProjectId = '9b1a9564f91cb659ffe21b73d5c4e2d8';

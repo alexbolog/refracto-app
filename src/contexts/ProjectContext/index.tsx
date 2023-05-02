@@ -1,4 +1,4 @@
-import { useGetAccountInfo } from '@elrondnetwork/dapp-core/hooks';
+import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
 import React from 'react';
 import { ProjectListItem } from 'types/projectTypes';
 import useGetAvailableProjects from './hooks/useGetAvailableProjects';
