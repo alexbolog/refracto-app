@@ -1,0 +1,39 @@
+.project-specs-list {
+    padding: 22px 32px 28px 32px;
+}
+
+.project-details-row {
+    display: flex;
+    width: 100% !important;
+    padding: 9px 0px 9px 0px;
+    justify-content: space-between;
+    align-items: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #364E63;
+
+}
+
+.project-details-row .left-side .icon {
+    width: 16px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.left-side {
+    display: flex;
+    justify-content: start;
+}
+
+.right-side {
+    justify-content: end;
+    display: flex;
+    font-weight: 600;
+    color: #6F869B;
+}
+
+.proj-specs-progress-bar {
+    padding: 20px 0 20px 0;
+}

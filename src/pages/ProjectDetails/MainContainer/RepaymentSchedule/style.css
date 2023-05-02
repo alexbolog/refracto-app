@@ -1,0 +1,80 @@
+.schedule-table-wrapper {
+    width: 100% !important;
+}
+
+.schedule-table-row {
+    width: 100% !important;
+    display: flex;
+}
+
+.schedule-table-row .t-col {
+    border-top: 1px solid #D5DFE7;
+    width: 12.5% !important;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 26px;
+    color: #364E63;
+
+}
+
+.t-col.long {
+    width: 25% !important;
+}
+
+.t-col .status {
+    background: #D5DFE7;
+    border-radius: 6px;
+    color: #6F869B;
+    /* blugrey-03 */
+}
+
+.status.success {
+    background-color: #75BE48;
+    color: white;
+}
+
+.status.pending {
+    background-color: #D5DFE7;
+}
+
+.status.warning {
+    background-color: #EBBC15;
+    color: white;
+}
+
+.schedule-table-row .amount {
+    text-align: right;
+}
+
+.schedule-table-row .type {
+    text-align: left;
+}
+
+.t-header {
+    align-self: flex-end;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    line-height: 32px !important;
+    color: #6F869B !important;
+    padding: 0px 10px 10px 10px !important;
+    border: none !important;
+    margin-top: 0px;
+    padding-left: 0px !important;
+}
+
+.total .t-col {
+    font-weight: 700 !important;
+    font-size: 14px !important;
+}
+
+.total .t-col:first-child {
+    width: 75% !important;
+    text-align: left;
+    padding-left: 20px;
+}

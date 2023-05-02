@@ -5,16 +5,24 @@ import React from 'react';
 
 export const AppliedFilter = ({
   filterText,
-  filterValue
+  filterValue,
+  onRemoveFilter
 }: {
   filterText: string;
   filterValue: string;
+  onRemoveFilter: () => void;
 }) => {
   return (
     <div className='applied-filter'>
       <span className='filter-type'>
-        {filterText}: {filterValue}
-        <CancelButton className='ml-2 mb-1' role='button' />
+        {filterText}
+        {filterText.length > 0 && ': '}
+        {filterValue}
+        <CancelButton
+          className='ml-2 mb-1'
+          role='button'
+          onClick={onRemoveFilter}
+        />
       </span>
     </div>
   );

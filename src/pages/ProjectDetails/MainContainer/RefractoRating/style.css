@@ -1,0 +1,41 @@
+.rating-box {
+    display: flex;
+    width: 100%;
+}
+
+.rating-box .rating {
+    width: 33% !important;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #F6F9FC;
+    color: #AFBDC9;
+}
+
+.rating-box .rating.low {
+    border-radius: 4px 0px 0px 4px;
+}
+
+.rating-box .rating.med {
+    border-radius: 0px;
+}
+
+.rating-box .rating.high {
+    border-radius: 0px 4px 4px 0px;
+}
+
+.rating.active {
+    color: white;
+}
+
+.rating.low.active {
+    background-color: #75BE48;
+}
+
+.rating.med.active {
+    background-color: #EBBC15;
+}
+
+.rating.high.active {
+    background-color: #CB3737;
+}

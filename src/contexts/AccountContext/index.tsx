@@ -1,6 +1,6 @@
 import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
 import useGetAccountOverview from './hooks/useGetAccountOverview';
-import React from 'react';
+import React, { useState } from 'react';
 import { AccountOverview } from 'types/accountTypes';
 import { ActiveProjectInvestment } from 'types/projectTypes';
 import useGetAccountActiveInvestments from './hooks/useGetAccountActiveInvestments';
@@ -10,10 +10,12 @@ export interface IAccountContext {
   accountOverview?: AccountOverview;
   activeProjectInvestments?: ActiveProjectInvestment[];
   address?: string;
+  availableCashBalance: number;
 }
 
 const defaultState: IAccountContext = {
-  isLoading: true
+  isLoading: true,
+  availableCashBalance: 0
 };
 
 export const AccountContext =
@@ -28,6 +30,7 @@ export const AccountContextProvider = ({
     account: { address }
   } = useGetAccountInfo();
   const [isLoading, setIsLoading] = React.useState(true);
+  const [availableCashBalance, setAvailableCashBalance] = useState(123456.789);
 
   const accountOverview = useGetAccountOverview();
   const activeProjectInvestments = useGetAccountActiveInvestments();
@@ -42,7 +45,8 @@ export const AccountContextProvider = ({
         isLoading,
         accountOverview,
         activeProjectInvestments,
-        address
+        address,
+        availableCashBalance
       }}
     >
       {children}

@@ -11,13 +11,17 @@ import './style.css';
 const DateRangePicker = ({
   onChange,
   defaultStartDate = DateTime.now().minus({ years: 1 }),
-  defaultEndDate = DateTime.now()
+  defaultEndDate = DateTime.now(),
+  customInput,
+  customBtnClassName
 }: {
   startDate?: DateTime;
   endDate?: DateTime;
   onChange?: (startDate: DateTime, endDate: DateTime) => void;
   defaultStartDate?: DateTime;
   defaultEndDate?: DateTime;
+  customInput?: string;
+  customBtnClassName?: string;
 }) => {
   const [firstDate, setFirstDate] = React.useState<Date | null>(null);
   const [secondDate, setSecondDate] = React.useState<Date | null>(null);
@@ -34,12 +38,21 @@ const DateRangePicker = ({
     const intervalEnd = secondDate
       ? DateTime.fromJSDate(secondDate)
       : defaultEndDate;
-    return (
-      <span className='btn btn-outline-primary'>
+    const defaultInput = (
+      <>
         {intervalStart.toLocaleString(DateTime.DATE_MED)}
         <FontAwesomeIcon icon={faArrowRight} className='ml-2 mr-2' />
         {intervalEnd.toLocaleString(DateTime.DATE_MED)}
         <FontAwesomeIcon icon={faCalendar} className='ml-2' />
+      </>
+    );
+    return (
+      <span
+        className={
+          customBtnClassName ? customBtnClassName : 'btn btn-outline-primary'
+        }
+      >
+        {customInput ?? defaultInput}
       </span>
     );
   };

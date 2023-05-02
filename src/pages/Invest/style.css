@@ -1,0 +1,125 @@
+h1 {
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    line-height: 32px !important;
+    color: #364E63 !important;
+}
+
+h5 {
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 22px !important;
+    color: #364E63 !important;
+}
+
+.main-info .col-4 {
+    padding: 20px 23px 20px 23px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column;
+}
+
+.important {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.sep {
+    border-right: 1px solid #D5DFE7;
+}
+
+.btn-social.fb.bottom {
+    position: absolute;
+    top: auto;
+    bottom: 24px;
+    left: 20px;
+    z-index: 2;
+    background-color: #fff;
+    border: 1px solid #D5DFE7;
+    border-radius: 6px;
+}
+
+.btn-social.twt.bottom {
+    position: absolute;
+    top: auto;
+    bottom: 24px;
+    left: 66px;
+    z-index: 2;
+    background-color: #fff;
+    border: 1px solid #D5DFE7;
+    border-radius: 6px;
+    display: block !important;
+}
+
+.investment-card-wrapper {
+    height: auto !important;
+}
+
+.investment-card-wrapper h4 {
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    line-height: 20px !important;
+}
+
+.investment-card-wrapper h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 20px;
+    color: #364E63;
+}
+
+.investment-card-wrapper .text-success {
+    color: #A0FF65 !important;
+}
+
+.investment-card-wrapper .btn-primary {
+    background-color: white;
+}
+
+.investment-card-wrapper .btn-primary:hover {
+    background-color: rgb(57, 129, 199) !important;
+    color: white;
+}
+
+.investment-card-wrapper .btn-primary:active {
+    color: white;
+}
+
+.investment-card-wrapper .btn-primary:focus {
+    color: white !important;
+}
+
+.investment-card-wrapper .card-body {
+    padding-bottom: 20px !important;
+}
+
+.btn-carousel, .btn-carousel.left {
+    bottom: 24px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .invest-now-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .available-balance {
+        justify-content: left !important;
+    }
+
+    .investment-card-wrapper {
+        margin: 10px 0px 0px 0px;
+    }
+
+    .investment-card-wrapper label {
+        margin-top: 5px;
+    }
+}

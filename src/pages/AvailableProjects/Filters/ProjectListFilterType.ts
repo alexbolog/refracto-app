@@ -1,8 +1,10 @@
+import { DateTime } from "luxon";
+
 export interface ProjectListFilterType {
   minReturnRange?: number;
   maxReturnRange?: number;
-  riskRatingLevels?: any[];
-  projectDeadlineStart?: number;
-  projectDeadlineEnd?: number;
+  riskRatingLevels?: string[];
+  projectDeadlineStart?: DateTime;
+  projectDeadlineEnd?: DateTime;
   nameSearch?: string;
 }

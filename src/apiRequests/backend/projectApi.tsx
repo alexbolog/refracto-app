@@ -7,21 +7,30 @@ import {
   ProjectListItem,
   ProjectPageDetails
 } from 'types/projectTypes';
+import { fromIso } from '../../utils';
 
 export const getAvailableProjects = (): ProjectListItem[] => {
   return projectList.map((l: any) => l as ProjectListItem);
 };
 
 export const getProjectInfo = (projectId: string): ProjectPageDetails => {
-  return projectInfo.filter(
+  const proj = projectInfo.filter(
     (pi) => pi.projectId === projectId
   )[0] as any as ProjectPageDetails;
+  proj.loanDeadline = fromIso(proj.crowdfundingDeadline)
+    .plus({ years: 1 })
+    .toISO() ?? '';
+  return proj;
 };
 
 export const getFullProjectInfo = (
   projectId: string
 ): FullProjectPageDetails => {
-  return fullProjectInfo.filter(
+  const proj = fullProjectInfo.filter(
     (pi) => pi.projectId === projectId
   )[0] as any as FullProjectPageDetails;
+  proj.loanDeadline = fromIso(proj.crowdfundingDeadline)
+    .plus({ years: 1 })
+    .toISO() ?? '';
+  return proj;
 };

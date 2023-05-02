@@ -5,11 +5,11 @@ import { Filters } from './Filters';
 import { ProjectListFilterType } from './Filters/ProjectListFilterType';
 import { Project } from './Project';
 import { ProjectListItem } from 'types/projectTypes';
+import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-available-projects.svg';
+import { DateTime } from 'luxon';
 
 const AvailableProjects = () => {
   const { availableProjects } = useContext(ProjectContext);
-  // const [currentAppliedFilters, setCurrentAppliedFilters] =
-  //   useState<ProjectListFilterType>();
 
   const [filteredProjects, setFilteredProjects] =
     useState<ProjectListItem[]>(availableProjects);
@@ -25,10 +25,43 @@ const AvailableProjects = () => {
     currentAppliedFilters: ProjectListFilterType
   ) => {
     let shouldDisplay = true;
-    if (currentAppliedFilters?.nameSearch !== undefined) {
+    if (currentAppliedFilters.nameSearch !== undefined) {
       shouldDisplay =
         shouldDisplay &&
         project.projectTitle.includes(currentAppliedFilters.nameSearch);
+    }
+    if (currentAppliedFilters.minReturnRange !== undefined) {
+      shouldDisplay =
+        shouldDisplay &&
+        project.returnPercentage * 100 >= currentAppliedFilters.minReturnRange;
+    }
+    if (currentAppliedFilters.maxReturnRange !== undefined) {
+      shouldDisplay =
+        shouldDisplay &&
+        project.returnPercentage * 100 <= currentAppliedFilters.maxReturnRange;
+    }
+    if (
+      currentAppliedFilters.riskRatingLevels !== undefined &&
+      currentAppliedFilters.riskRatingLevels.length > 0 &&
+      currentAppliedFilters.riskRatingLevels.length < 3
+    ) {
+      const riskLevelCheck =
+        currentAppliedFilters.riskRatingLevels.filter((lvl: string) =>
+          project.riskRatingLevel.includes(lvl)
+        ).length > 0;
+      shouldDisplay = shouldDisplay && riskLevelCheck;
+    }
+
+    const cfDeadline = DateTime.fromISO(project.crowdfundingDeadline);
+    if (currentAppliedFilters.projectDeadlineStart !== undefined) {
+      shouldDisplay =
+        shouldDisplay &&
+        cfDeadline >= currentAppliedFilters.projectDeadlineStart;
+    }
+
+    if (currentAppliedFilters.projectDeadlineEnd !== undefined) {
+      shouldDisplay =
+        shouldDisplay && cfDeadline <= currentAppliedFilters.projectDeadlineEnd;
     }
     return shouldDisplay;
   };
@@ -36,9 +69,16 @@ const AvailableProjects = () => {
   return (
     <div className='container-fluid w-100 p-0'>
       <div className='row'>
-        <div className='col-12'>
-          <Filters onApplyFilters={handleApplyFilters} />
-        </div>
+        {availableProjects.length > 0 && (
+          <div className='col-12'>
+            <Filters onApplyFilters={handleApplyFilters} />
+          </div>
+        )}
+        {availableProjects.length === 0 && (
+          <div className='col-12'>
+            <h1>Available Projects</h1>
+          </div>
+        )}
 
         {filteredProjects.length > 0 &&
           filteredProjects.map((p, i) => (
@@ -46,6 +86,25 @@ const AvailableProjects = () => {
               <Project project={p} />
             </div>
           ))}
+        {(filteredProjects.length === 0 || availableProjects.length === 0) && (
+          <>
+            <div className='col-12 text-center mb-5 mt-5'>
+              {availableProjects.length > 0
+                ? 'Uh oh! Seems like no project is matching your filters'
+                : 'Ups! Please come back later. More projects coming soon.'}
+            </div>
+            <div className='col-12 text-center'>
+              {availableProjects.length === 0 && (
+                <h1 className='text-primary' role='button'>
+                  Meanwhile, Check Our Demo!
+                </h1>
+              )}
+            </div>
+            <div className='col-12 text-center'>
+              <EmptyPageScreen />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
