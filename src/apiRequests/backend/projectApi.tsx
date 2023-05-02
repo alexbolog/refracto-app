@@ -19,7 +19,7 @@ export const getProjectInfo = (projectId: string): ProjectPageDetails => {
   )[0] as any as ProjectPageDetails;
   proj.loanDeadline = fromIso(proj.crowdfundingDeadline)
     .plus({ years: 1 })
-    .toISO();
+    .toISO() ?? '';
   return proj;
 };
 
@@ -31,6 +31,6 @@ export const getFullProjectInfo = (
   )[0] as any as FullProjectPageDetails;
   proj.loanDeadline = fromIso(proj.crowdfundingDeadline)
     .plus({ years: 1 })
-    .toISO();
+    .toISO() ?? '';
   return proj;
 };
