@@ -1,6 +1,6 @@
 import React from 'react';
-import { useGetAccountInfo } from '@elrondnetwork/dapp-core/hooks';
-import { logout } from '@elrondnetwork/dapp-core/utils';
+import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
+import { logout } from '@multiversx/sdk-dapp/utils';
 import { Link } from 'react-router-dom';
 import { NAVBAR_MENU_ITEMS, routeNames } from 'routes';
 import { faBars, faBoltLightning } from '@fortawesome/free-solid-svg-icons';

@@ -1,0 +1,52 @@
+.balance-stat-card .widget-stat {
+    background-color: #75BE48;
+}
+.total-stat-card .widget-stat {
+    background-color: #48B0BE;
+}
+.invested-stat-card .widget-stat {
+    background-color: #CB3737;
+}
+
+.dashboard-stat-cards .card-body .media .media-body h3{
+    color: white;
+    font-weight: 700!important;
+    font-size: 30px;
+}
+.dashboard-stat-cards p{
+    color: white;
+}
+
+
+.dashboard-stat-cards .widget-stat{
+    overflow: hidden;
+    z-index: 2;
+}
+
+.dashboard-stat-cards .media-body {
+    z-index: 20;
+}
+
+.dashboard-stat-cards .widget-stat::after {
+    content: "";
+    position: absolute;
+    top: -71px;
+    right: -40px;
+    width: 126px;
+    height: 126px;
+    border-radius: 50%;
+    background-color: #FFF;
+    opacity: 0.3;
+}
+
+.dashboard-stat-cards .widget-stat::before {
+    content: "";
+    position: absolute;
+    top: 31px;
+    right: 74px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #FFF;
+    opacity: 0.3;
+}

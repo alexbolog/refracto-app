@@ -1,4 +1,4 @@
-import { useGetAccountInfo } from '@elrondnetwork/dapp-core/hooks';
+import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
 import useGetAccountOverview from './hooks/useGetAccountOverview';
 import React, { useState } from 'react';
 import { AccountOverview } from 'types/accountTypes';

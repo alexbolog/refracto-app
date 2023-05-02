@@ -1,4 +1,4 @@
-import { useGetIsLoggedIn } from '@elrondnetwork/dapp-core/hooks';
+import { useGetIsLoggedIn } from '@multiversx/sdk-dapp/hooks';
 import { toLocaleStringOptions } from 'config';
 import { AccountContext } from 'contexts/AccountContext';
 import React, { useContext } from 'react';

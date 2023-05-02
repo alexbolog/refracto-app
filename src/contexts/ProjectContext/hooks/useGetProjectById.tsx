@@ -1,4 +1,4 @@
-import { useGetAccountInfo } from '@elrondnetwork/dapp-core/hooks';
+import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
 import { getFullProjectInfo, getProjectInfo } from 'apiRequests/backend';
 import React from 'react';
 import { ProjectPageDetails, FullProjectPageDetails } from 'types/projectTypes';
