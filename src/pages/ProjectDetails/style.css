@@ -368,10 +368,6 @@ tbody tr td {
     }
 }
 
-/* #img-slider {
-    max-height: 400px;
-} */
-
 #img-slider img {
     max-height: 400px !important;
 }
