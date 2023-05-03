@@ -100,10 +100,10 @@ const Sidenav = () => {
         <div className='header-content'>
           <nav className='navbar navbar-expand'>
             <div className='collapse navbar-collapse justify-content-between'>
-              {/* <div className='header-left'>
-                <SearchBar />
-              </div> */}
-              {/* <ul className='navbar-nav header-right'>
+              <div className='header-left'>
+                {/* <SearchBar /> */}
+              </div>
+              <ul className='navbar-nav header-right'>
                 <li className='nav-item'>
                   <CurrencyPicker />
                 </li>
@@ -132,7 +132,7 @@ const Sidenav = () => {
                 <li className='nav-item'>
                   <AccountInfo />
                 </li>
-              </ul> */}
+              </ul>
             </div>
           </nav>
         </div>

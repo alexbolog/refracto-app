@@ -27,3 +27,8 @@ code {
   width: auto !important;
   height: auto !important;
 }
+
+.btn.btn-white {
+  background-color: white;
+  color: #364E63;
+}
