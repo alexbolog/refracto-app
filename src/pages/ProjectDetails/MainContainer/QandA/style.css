@@ -8,6 +8,12 @@
     margin-bottom: 30px;
 }
 
+.pending-moderation {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    padding: 10px;
+    border-radius: 0.625rem;
+}
+
 .child .main-review-box {
     margin-top: 15px;
     margin-bottom: 0px;
