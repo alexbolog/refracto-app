@@ -139,7 +139,7 @@
         },
         {
             "id": "2",
-            "parentId": "1",
+            "parentId": "4",
             "ownerFirstName": "Marius",
             "ownerLastName": "Enache",
             "ownerImgSrc": "user.png",
@@ -148,13 +148,21 @@
         },
         {
             "id": "3",
-            "parentId": "1",
+            "parentId": "4",
             "ownerFirstName": "Marius",
             "ownerLastName": "Enache",
             "ownerImgSrc": "user.png",
             "text": "This is a pending moderation message",
             "isPendingModeration": true,
             "insertDate": "2023-03-24T00:00:00"
+        },
+        {
+            "id": "4",
+            "ownerFirstName": "Leona",
+            "ownerLastName": "Pop",
+            "ownerImgSrc": "user.jpg",
+            "text": "Also I'm interested about the Refracto Rating.",
+            "insertDate": "2023-05-03T00:00:00"
         }
       ],
       "images": [
