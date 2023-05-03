@@ -1,12 +1,15 @@
+import { AccountContext } from 'contexts/AccountContext';
 import { AVAILABLE_CURRENCIES } from 'enums';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 const CurrencyPicker = () => {
+  const context = useContext(AccountContext);
   const [selectedCurrency, setSelectedCurrency] =
-    useState<AVAILABLE_CURRENCIES>(AVAILABLE_CURRENCIES.EUR);
+    useState<AVAILABLE_CURRENCIES>(context.selectedCurrency);
   useEffect(() => {
-    console.log(Object.keys(AVAILABLE_CURRENCIES));
-  }, []);
+    context.setSelectedCurrency(selectedCurrency);
+  }, [selectedCurrency]);
+
   return (
     <div className='basic-dropdown'>
       <div className='dropdown'>

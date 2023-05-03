@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { AccountOverview } from 'types/accountTypes';
 import { ActiveProjectInvestment } from 'types/projectTypes';
 import useGetAccountActiveInvestments from './hooks/useGetAccountActiveInvestments';
+import { AVAILABLE_CURRENCIES } from 'enums';
 
 export interface IAccountContext {
   isLoading: boolean;
@@ -11,11 +12,17 @@ export interface IAccountContext {
   activeProjectInvestments?: ActiveProjectInvestment[];
   address?: string;
   availableCashBalance: number;
+  selectedCurrency: AVAILABLE_CURRENCIES;
+  setSelectedCurrency: (newCurrency: AVAILABLE_CURRENCIES) => void;
 }
 
 const defaultState: IAccountContext = {
   isLoading: true,
-  availableCashBalance: 0
+  availableCashBalance: 0,
+  selectedCurrency: AVAILABLE_CURRENCIES.EUR,
+  setSelectedCurrency(_) {
+    console.log('default');
+  }
 };
 
 export const AccountContext =
@@ -31,6 +38,9 @@ export const AccountContextProvider = ({
   } = useGetAccountInfo();
   const [isLoading, setIsLoading] = React.useState(true);
   const [availableCashBalance, setAvailableCashBalance] = useState(123456.789);
+  const [selectedCurrency, setSelectedCurrency] = useState(
+    AVAILABLE_CURRENCIES.EUR
+  );
 
   const accountOverview = useGetAccountOverview();
   const activeProjectInvestments = useGetAccountActiveInvestments();
@@ -46,7 +56,11 @@ export const AccountContextProvider = ({
         accountOverview,
         activeProjectInvestments,
         address,
-        availableCashBalance
+        availableCashBalance,
+        selectedCurrency,
+        setSelectedCurrency(newCurrency) {
+          setSelectedCurrency(newCurrency);
+        }
       }}
     >
       {children}
