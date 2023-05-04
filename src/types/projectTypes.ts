@@ -79,3 +79,15 @@ export interface QuestionAndAnswer {
   questionDate: string; // ISO format
   answerDate: string; // ISO format
 }
+
+export interface MarketplaceListings {
+  projectId: string;
+  projectTitle: string;
+  returnPercentage: number;
+  riskRatingLevel: string;
+  crowdfundingDeadline: string; // ISO format
+  crowdfundingTarget: number;
+  crowdfundedAmount: number;
+  colorCodeHex: string;
+  thumbnailSrc: string;
+}
