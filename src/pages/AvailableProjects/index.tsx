@@ -2,12 +2,9 @@ import * as React from 'react';
 import { ProjectContext } from 'contexts/ProjectContext';
 import { useContext, useState } from 'react';
 import { Filters } from '../../components/Filters';
-import { ProjectListFilterType } from '../../components/Filters/ProjectListFilterType';
 import { Project } from './Project';
 import { ProjectListItem } from 'types/projectTypes';
 import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-available-projects.svg';
-import { DateTime } from 'luxon';
-import { shouldDisplayProject } from 'components/Filters/FilterLogic';
 
 const AvailableProjects = () => {
   const { availableProjects } = useContext(ProjectContext);
@@ -15,10 +12,8 @@ const AvailableProjects = () => {
   const [filteredProjects, setFilteredProjects] =
     useState<ProjectListItem[]>(availableProjects);
 
-  const handleApplyFilters = (filters: ProjectListFilterType) => {
-    setFilteredProjects(
-      availableProjects.filter((p) => shouldDisplayProject(p, filters))
-    );
+  const handleApplyFilters = (filteredItems: ProjectListItem[]) => {
+    setFilteredProjects(filteredItems);
   };
 
   return (
@@ -26,7 +21,10 @@ const AvailableProjects = () => {
       <div className='row'>
         {availableProjects.length > 0 && (
           <div className='col-12'>
-            <Filters onApplyFilters={handleApplyFilters} />
+            <Filters
+              initialItems={availableProjects}
+              onApplyFilters={handleApplyFilters}
+            />
           </div>
         )}
         {availableProjects.length === 0 && (

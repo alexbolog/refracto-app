@@ -5,11 +5,15 @@ import { ProjectListFilterType } from './ProjectListFilterType';
 import './style.css';
 import { DateTime } from 'luxon';
 import { formatDate } from 'utils';
+import { ProjectListItem } from 'types/projectTypes';
+import { shouldDisplayProject } from './FilterLogic';
 
 export const Filters = ({
+  initialItems,
   onApplyFilters
 }: {
-  onApplyFilters: (selectedFilters: ProjectListFilterType) => void;
+  initialItems: ProjectListItem[],
+  onApplyFilters: (filteredItems: ProjectListItem[]) => void;
 }) => {
   // three places to handle filters:
   // 1. filter selector -> FilterBox component
@@ -47,7 +51,8 @@ export const Filters = ({
     setRiskRatingLevels(newFilters.riskRatingLevels ?? []);
     setProjectDeadlineStart(newFilters.projectDeadlineStart);
     setProjectDeadlineEnd(newFilters.projectDeadlineEnd);
-    onApplyFilters(newFilters);
+
+    onApplyFilters(initialItems.filter((item) => shouldDisplayProject(item, newFilters)));
   };
 
   const handleRemoveFilter = (
