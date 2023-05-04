@@ -82,7 +82,7 @@ const AvailableProjects = () => {
 
         {filteredProjects.length > 0 &&
           filteredProjects.map((p, i) => (
-            <div className='col-12' key={`available-project-list-item-${i}`}>
+            <div className='col-12' key={`available-project-list-item-${i}-${p.projectId}`}>
               <Project project={p} />
             </div>
           ))}
