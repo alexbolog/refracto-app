@@ -1,11 +1,13 @@
-import React from 'react';
+import { AccountContext } from 'contexts/AccountContext';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { routeNames } from 'routes';
 
 const AccountInfo = () => {
   const navigate = useNavigate();
-  const [userName, _] = React.useState('Leona Pop');
-  const [userProfileImg, __] = React.useState('user.jpg');
+  const { profileInfo } = useContext(AccountContext);
+  const [userName] = useState(`${profileInfo.firstName} ${profileInfo.lastName}`);
+  const [userProfileImg] = React.useState(profileInfo.profilePictureSrc);
 
   return (
     <div className='dropdown header-profile2'>
