@@ -48,7 +48,7 @@ export const ImageGallery = ({
         id='img-slider'
       >
         {images.map((imgSrc, i) => (
-          <SwiperSlide key={`img-slider-slide-item-${i}`}>
+          <SwiperSlide key={`img-slider-slide-item-${i}`} className='w-100 d-flex justify-content-center align-items-center'>
             <img src={imgSrc} className={roundedTop ? 'rounded-top' : ''} />
           </SwiperSlide>
         ))}
