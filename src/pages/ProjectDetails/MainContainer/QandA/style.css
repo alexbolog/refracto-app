@@ -9,7 +9,7 @@
 }
 
 .pending-moderation {
-    background-color: rgba(0, 0, 0, 0.3) !important;
+    background-color: rgba(0, 0, 0, 0.1) !important;
     padding: 10px;
     border-radius: 0.625rem;
 }
