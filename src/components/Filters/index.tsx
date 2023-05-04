@@ -12,13 +12,12 @@ export const Filters = ({
   initialItems,
   onApplyFilters
 }: {
-  initialItems: ProjectListItem[],
+  initialItems: ProjectListItem[];
   onApplyFilters: (filteredItems: ProjectListItem[]) => void;
 }) => {
-  // three places to handle filters:
+  // 2 places to handle filters:
   // 1. filter selector -> FilterBox component
   // 2. filter state manager -> this component
-  // 3. filter applier -> any component that uses this component
   const [minReturnRange, setMinReturnRange] = useState<number | undefined>();
   const [maxReturnRange, setMaxReturnRange] = useState<number | undefined>();
   const [riskRatingLevels, setRiskRatingLevels] = useState<string[]>([]);
@@ -52,13 +51,14 @@ export const Filters = ({
     setProjectDeadlineStart(newFilters.projectDeadlineStart);
     setProjectDeadlineEnd(newFilters.projectDeadlineEnd);
 
-    onApplyFilters(initialItems.filter((item) => shouldDisplayProject(item, newFilters)));
+    onApplyFilters(
+      initialItems.filter((item) => shouldDisplayProject(item, newFilters))
+    );
   };
 
   const handleRemoveFilter = (
     createFiltersAction: () => ProjectListFilterType
   ) => {
-    // filter removal does not work
     handleApplyFilters(createFiltersAction());
   };
 
