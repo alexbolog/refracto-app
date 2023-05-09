@@ -23,6 +23,7 @@ import 'chartjs-adapter-luxon';
 import DateRangePicker from '../../../components/DateRangePicker';
 import { formatDate } from '../../../utils';
 import ExpandFooter from '../../../components/ExpandFooter';
+import { InvestmentEvent } from '../../../types/investmentEvent';
 
 const GeneralStatisticsGraph = () => {
   Chart.register(
@@ -80,7 +81,7 @@ const GeneralStatisticsGraph = () => {
   const graphDataInvested: any[] = [];
   const graphEvents: any[] = [];
 
-  const mapDashboardData = async (dashboardData: any[]) => {
+  const mapDashboardData = async (dashboardData: InvestmentEvent[]) => {
     dashboardData.forEach((el) => {
       const date = DateTime.fromISO(el.date);
       graphDates.push(date);
