@@ -111,7 +111,7 @@ const GeneralStatisticsGraph = () => {
 
   const getAnnotationForEvent = (el: InvestmentEvent) => {
     switch (el.eventType) {
-      // TODO: change to enum
+      // TODO: change below to enum
       case 'INVEST': {
         return {
           label: 'Invested ' + el.committedDifference + '$',
