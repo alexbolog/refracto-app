@@ -24,6 +24,7 @@ import { formatDate } from '../../../utils';
 import ExpandFooter from '../../../components/ExpandFooter';
 import { InvestmentEvent } from '../../../types/investmentEvent';
 import useGetInvestmentHistory from '../../../contexts/AccountContext/hooks/useGetInvestmentHistory';
+import { INVESTMENT_EVENT_TYPE } from '../../../enums';
 
 const GeneralStatisticsGraph = () => {
   const dashboardGraph: InvestmentEvent[] = useGetInvestmentHistory();
@@ -112,25 +113,25 @@ const GeneralStatisticsGraph = () => {
   const getAnnotationForEvent = (el: InvestmentEvent) => {
     switch (el.eventType) {
       // TODO: change below to enum
-      case 'INVEST': {
+      case INVESTMENT_EVENT_TYPE.INVEST: {
         return {
           label: 'Invested ' + el.committedDifference + '$',
           color: '#6853e8'
         };
       }
-      case 'PAYOUT': {
+      case INVESTMENT_EVENT_TYPE.PAYOUT: {
         return {
           label: 'Payout ' + el.availableDifference + '$',
           color: '#63b179'
         };
       }
-      case 'DEPOSIT': {
+      case INVESTMENT_EVENT_TYPE.DEPOSIT: {
         return {
           label: 'Deposited ' + el.availableDifference + '$',
           color: '#1586D1'
         };
       }
-      case 'WITHDRAW': {
+      case INVESTMENT_EVENT_TYPE.WITHDRAW: {
         return {
           label:
             'Withdrew ' +
