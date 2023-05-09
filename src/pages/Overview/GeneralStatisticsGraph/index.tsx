@@ -1,6 +1,5 @@
 import './style.scss';
 import * as React from 'react';
-import dashboardGraph from '../../../db/dashboardGraph.json';
 import { Line } from 'react-chartjs-2';
 import gradient from 'chartjs-plugin-gradient';
 import {
@@ -24,8 +23,11 @@ import DateRangePicker from '../../../components/DateRangePicker';
 import { formatDate } from '../../../utils';
 import ExpandFooter from '../../../components/ExpandFooter';
 import { InvestmentEvent } from '../../../types/investmentEvent';
+import useGetInvestmentHistory from '../../../contexts/AccountContext/hooks/useGetInvestmentHistory';
 
 const GeneralStatisticsGraph = () => {
+  const dashboardGraph: InvestmentEvent[] = useGetInvestmentHistory();
+
   Chart.register(
     CategoryScale,
     LinearScale,
@@ -107,14 +109,7 @@ const GeneralStatisticsGraph = () => {
     mapDashboardData(dashboardGraph).then(() => resetZoom());
   }, []);
 
-  const getAnnotationForEvent = (el: {
-    availableBalance: number;
-    committedBalance: number;
-    eventType?: string;
-    availableDifference?: number;
-    committedDifference?: number;
-  }) => {
-    // TODO: we can group this in an 'event' nested field
+  const getAnnotationForEvent = (el: InvestmentEvent) => {
     switch (el.eventType) {
       case 'INVEST': {
         return {

@@ -5,7 +5,8 @@ export interface InvestmentEvent {
   availableBalance: number;
   committedBalance: number;
   total: number;
-  eventType: INVESTMENT_EVENT_TYPE;
-  availableDifference: number;
-  committedDifference: number;
+  // TODO: merge below into event field?
+  eventType?: INVESTMENT_EVENT_TYPE;
+  availableDifference?: number;
+  committedDifference?: number;
 }
