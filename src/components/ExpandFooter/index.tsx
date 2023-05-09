@@ -3,11 +3,19 @@ import * as React from 'react';
 
 import './style.scss';
 
-const ExpandFooter = () => {
+const ExpandFooter = ({ onExpandToggle }: { onExpandToggle?: () => void }) => {
+  const onExpand = () => {
+    // TODO: add Google Analytics
+    // TODO: add Animation
+    if (onExpandToggle) {
+      onExpandToggle();
+    }
+  };
+
   return (
     <div
       className='card-footer d-flex justify-content-end expand-footer-spacings'
-      onClick={() => alert('TODO Expand')}
+      onClick={onExpand}
     >
       <p className='text-primary expand-footer-text'>
         Expand <ExpandIcon />

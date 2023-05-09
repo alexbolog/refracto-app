@@ -10,6 +10,8 @@ import DonutProjectList from './donut-project-list';
 import { AccountContext } from '../../contexts/AccountContext';
 
 const DonutChartStatisticsCard = () => {
+  const [isExpanded, setExpanded] = React.useState(false);
+
   const { activeProjectInvestments } = useContext(AccountContext);
   Chart.register(ArcElement);
 
@@ -63,9 +65,10 @@ const DonutChartStatisticsCard = () => {
         <DonutProjectList
           chartData={chartData}
           activeProjectInvestments={activeProjectInvestments}
+          expanded={isExpanded}
         />
       </div>
-      <ExpandFooter />
+      <ExpandFooter onExpandToggle={() => setExpanded(!isExpanded)} />
     </div>
   );
 };
