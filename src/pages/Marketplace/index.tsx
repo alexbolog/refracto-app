@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { ProjectListItem } from 'types/projectTypes';
 import { AvailableListings } from './AvailableListings';
 import './style.css';
+import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-secondary-market.svg';
 
 const Marketplace = () => {
   const { marketplaceProjects } = useContext(ProjectContext);
@@ -24,7 +25,7 @@ const Marketplace = () => {
         </div>
       </div>
       <div className='row'>
-        {marketplaceProjects.length > 0 && (
+        {filteredProjects.length > 0 && (
           <div className='col-12'>
             <Filters
               initialItems={marketplaceProjects}
@@ -53,7 +54,7 @@ const Marketplace = () => {
               )}
             </div>
             <div className='col-12 text-center'>
-              {/* <EmptyPageScreen /> */}
+              <EmptyPageScreen />
             </div>
           </>
         )}
