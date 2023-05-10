@@ -1,6 +1,6 @@
 import './style.scss';
 import * as React from 'react';
-import dashboardGraph from '../../../db/dashboardGraph.json';
+import dashboardGraph from '../../../dbNew/dashboardGraph.json';
 import { Line } from 'react-chartjs-2';
 import gradient from 'chartjs-plugin-gradient';
 import {
