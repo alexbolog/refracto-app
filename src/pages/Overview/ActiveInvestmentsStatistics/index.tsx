@@ -7,7 +7,7 @@ const ActiveInvestmentsStatistics = () => {
   const { accountOverview } = React.useContext(AccountContext);
   return (
     <>
-      <div className='col-lg-12 col-md-12 col-sm-12 d-flex justify-content-start'>
+      <div className='col-sm-12 d-flex justify-content-start'>
         <h3>
           <strong>Active Investments Statistics</strong>
         </h3>

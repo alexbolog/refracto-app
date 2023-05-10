@@ -269,7 +269,7 @@ const GeneralStatisticsGraph = () => {
   };
 
   return (
-    <div className='col-lg-12 col-md-12 col-sm-12'>
+    <div className='col-sm-12'>
       <div className='card'>
         <div className='card-header d-flex justify-content-between'>
           <h3>General Overview Statistics</h3>
