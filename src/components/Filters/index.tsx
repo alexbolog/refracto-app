@@ -107,69 +107,6 @@ export const Filters = ({
                 }
               />
             )}
-          {projectDeadlineStart !== undefined &&
-            projectDeadlineEnd === undefined && (
-              <AppliedFilter
-                filterText='After'
-                filterValue={formatDate(
-                  projectDeadlineStart,
-                  DateTime.DATE_SHORT
-                )}
-                onRemoveFilter={() =>
-                  handleRemoveFilter(() =>
-                    getNewFilters(
-                      minReturnRange,
-                      maxReturnRange,
-                      riskRatingLevels,
-                      undefined,
-                      projectDeadlineEnd
-                    )
-                  )
-                }
-              />
-            )}
-          {projectDeadlineStart === undefined &&
-            projectDeadlineEnd !== undefined && (
-              <AppliedFilter
-                filterText='Before'
-                filterValue={formatDate(
-                  projectDeadlineEnd,
-                  DateTime.DATE_SHORT
-                )}
-                onRemoveFilter={() =>
-                  handleRemoveFilter(() =>
-                    getNewFilters(
-                      minReturnRange,
-                      maxReturnRange,
-                      riskRatingLevels,
-                      projectDeadlineStart,
-                      undefined
-                    )
-                  )
-                }
-              />
-            )}
-          {projectDeadlineStart !== undefined &&
-            projectDeadlineEnd !== undefined && (
-              <AppliedFilter
-                filterText=''
-                filterValue={`${formatDate(
-                  projectDeadlineStart,
-                  DateTime.DATE_SHORT
-                )} → ${formatDate(projectDeadlineEnd, DateTime.DATE_SHORT)} `}
-                onRemoveFilter={() =>
-                  handleRemoveFilter(() =>
-                    getNewFilters(
-                      minReturnRange,
-                      maxReturnRange,
-                      riskRatingLevels,
-                      undefined,
-                      undefined
-                    )
-                  )
-                }
-              />
-            )}
         </div>
       </div>
     </div>

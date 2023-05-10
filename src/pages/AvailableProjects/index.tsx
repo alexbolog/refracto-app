@@ -5,6 +5,7 @@ import { Filters } from '../../components/Filters';
 import { Project } from './Project';
 import { ProjectListItem } from 'types/projectTypes';
 import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-available-projects.svg';
+import { FiltersV2 } from 'components/FiltersV2';
 
 const AvailableProjects = () => {
   const { availableProjects } = useContext(ProjectContext);
@@ -21,9 +22,13 @@ const AvailableProjects = () => {
       <div className='row'>
         {availableProjects.length > 0 && (
           <div className='col-12'>
-            <Filters
+            {/* <Filters
               initialItems={availableProjects}
               onApplyFilters={handleApplyFilters}
+            /> */}
+            <FiltersV2
+              items={availableProjects}
+              onFilterChange={handleApplyFilters}
             />
           </div>
         )}
@@ -35,7 +40,10 @@ const AvailableProjects = () => {
 
         {filteredProjects.length > 0 &&
           filteredProjects.map((p, i) => (
-            <div className='col-12' key={`available-project-list-item-${i}-${p.projectId}`}>
+            <div
+              className='col-12'
+              key={`available-project-list-item-${i}-${p.projectId}`}
+            >
               <Project project={p} />
             </div>
           ))}
