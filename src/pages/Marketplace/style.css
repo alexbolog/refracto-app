@@ -2,6 +2,14 @@
     margin-top: 25px !important;
 }
 
+.listings .mbl {
+    display: none;
+}
+
+.listings .table-header.mbl {
+    border: none !important;
+}
+
 .listings img {
     /* max-width: 60px !important; */
     max-height: 60px !important;
@@ -57,4 +65,28 @@
 
 .listings .table-content.last {
     border: none !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    .dsk.table-header {
+        display: none !important;
+    }
+    .mbl.table-header {
+        display: inline-block;
+        padding: 0;
+    }
+    .listings img {
+        max-height: 100% !important;
+    }
+    .row .table-content {
+        padding: 15px 5px 15px 5px;
+    }
+    .row .table-content .btn {
+        margin-top: 10px;
+    }
+    .listings .table-content .proj-name {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
 }
