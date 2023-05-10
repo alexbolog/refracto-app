@@ -1,4 +1,4 @@
-import dashboardGraph from '../../dbNew/dashboardGraph.json';
+import dashboardGraph from '../../dbNew/investmentHistory.json';
 import { INVESTMENT_EVENT_TYPE } from '../../enums';
 import { InvestmentEvent } from '../../types/investmentEvent';
 
