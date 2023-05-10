@@ -23,7 +23,7 @@ import DateRangePicker from '../../../components/DateRangePicker';
 import { formatDate } from '../../../utils';
 import ExpandFooter from '../../../components/ExpandFooter';
 import { InvestmentEvent } from '../../../types/investmentEvent';
-import useGetInvestmentHistory from '../../../contexts/AccountContext/hooks/useGetInvestmentHistory';
+import useGetInvestmentHistory from '../../../contexts/InvestmentHistory/hooks/useGetInvestmentHistory';
 import { INVESTMENT_EVENT_TYPE } from '../../../enums';
 
 const GeneralStatisticsGraph = () => {
