@@ -3,7 +3,13 @@ import * as React from 'react';
 
 import './style.scss';
 
-const ExpandFooter = ({ onExpandToggle }: { onExpandToggle?: () => void }) => {
+const ExpandFooter = ({
+  onExpandToggle,
+  analyticsEvent = 'expand'
+}: {
+  onExpandToggle?: () => void;
+  analyticsEvent: string;
+}) => {
   const onExpand = () => {
     // TODO: add Google Analytics
     // TODO: add Animation
