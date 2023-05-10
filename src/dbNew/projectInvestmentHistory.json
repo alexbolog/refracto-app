@@ -1,6 +1,7 @@
 [
   {
     "projectId": "d6b99c95-4322-465d-bb48-4e62a035224d",
+    "projectTitle": "Generated Project #0",
     "investments": [
       {
         "date": "2021-01-09",
@@ -39,6 +40,7 @@
   },
   {
     "projectId": "3ab6696e-e6bd-464c-bad9-e32bf34045e5",
+    "projectTitle": "Generated Project #1",
     "investments": [
       {
         "date": "2021-01-09",
