@@ -3,6 +3,14 @@
     border: 1px #D9D9D9 solid !important;
 }
 
+.project-wrapper.mobile-size {
+    display: none;
+}
+
+.project-wrapper.desktop-size {
+    display: block;
+}
+
 .project-wrapper img {
     width: auto;
     height: auto;
@@ -99,6 +107,14 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .project-wrapper.mobile-size {
+        display: block;
+    }
+
+    .project-wrapper.desktop-size {
+        display: none;
+    }
+
     .project-specs {
         margin-top: 15px;
     }

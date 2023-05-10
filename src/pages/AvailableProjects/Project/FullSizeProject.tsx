@@ -20,7 +20,7 @@ export const FullSizeProject = ({ project }: { project: ProjectListItem }) => {
   };
 
   return (
-    <div className='card project-wrapper'>
+    <div className='card project-wrapper desktop-size'>
       <div className='card-body container-fluid pb-1'>
         <div className='row'>
           <div className='col-2 d-flex justify-content-center'>
