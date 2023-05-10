@@ -6,25 +6,8 @@ export const getInvestmentHistory = (): InvestmentEvent[] => {
   console.log('getInvestmentHistory', dashboardGraph);
   return dashboardGraph.map((l: any) => {
     if (l.eventType) {
-      l.eventType = mapStringToInvestmentEventType(l.eventType);
+      l.eventType = l.eventType as INVESTMENT_EVENT_TYPE;
     }
     return l;
   });
-};
-
-const mapStringToInvestmentEventType = (
-  eventTypeString: string
-): INVESTMENT_EVENT_TYPE => {
-  switch (eventTypeString) {
-    case 'DEPOSIT':
-      return INVESTMENT_EVENT_TYPE.DEPOSIT;
-    case 'INVEST':
-      return INVESTMENT_EVENT_TYPE.INVEST;
-    case 'PAYOUT':
-      return INVESTMENT_EVENT_TYPE.PAYOUT;
-    case 'WITHDRAW':
-      return INVESTMENT_EVENT_TYPE.WITHDRAW;
-    default:
-      throw new Error('Invalid investment event type');
-  }
 };
