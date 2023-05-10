@@ -11,6 +11,7 @@
     border: 1px solid #D5DFE7;
     border-radius: 8px;
     box-shadow: 0px 4px 20px 0px #261A7033;
+    max-height: 120px !important;
 }
 
 .project-info-title {
@@ -119,6 +120,7 @@
         border-bottom-left-radius: 0;
         box-shadow: none;
         border: none;
+        max-height: inherit !important;
     }
 
     .project-specs-wrapper {
