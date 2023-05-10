@@ -73,8 +73,15 @@ const InvestmentAndReturnBarCharts = () => {
   };
 
   return (
-    <div id='chart'>
-      <Chart options={options} series={series} type='bar' height={350} />
+    <div className='col-sm-12'>
+      <div className='card'>
+        <div className='card-header d-flex justify-content-between'>
+          <h3>Investments and Returns</h3>
+        </div>
+        <div id='card-body'>
+          <Chart options={options} series={series} type='bar' height={350} />
+        </div>
+      </div>
     </div>
   );
 };
