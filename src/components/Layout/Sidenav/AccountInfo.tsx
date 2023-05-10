@@ -6,7 +6,9 @@ import { routeNames } from 'routes';
 const AccountInfo = () => {
   const navigate = useNavigate();
   const { profileInfo } = useContext(AccountContext);
-  const [userName] = useState(`${profileInfo.firstName} ${profileInfo.lastName}`);
+  const [userName] = useState(
+    `${profileInfo.firstName} ${profileInfo.lastName}`
+  );
   const [userProfileImg] = React.useState(profileInfo.profilePictureSrc);
 
   return (
@@ -21,7 +23,9 @@ const AccountInfo = () => {
         <div className='header-info2 d-flex align-items-center'>
           <img src={userProfileImg} className='rounded-circle' alt='' />
           <div className='d-flex align-items-center sidebar-info'>
-            <h4 className='mb-0 ml-4 text-white' style={{ fontSize: '16px' }}>{userName}</h4>
+            <h4 className='mb-0 ml-4 text-white' style={{ fontSize: '16px' }}>
+              {userName}
+            </h4>
           </div>
         </div>
       </a>
