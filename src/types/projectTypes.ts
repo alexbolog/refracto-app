@@ -80,7 +80,7 @@ export interface QuestionAndAnswer {
   answerDate: string; // ISO format
 }
 
-export interface MarketplaceListings {
+export interface MarketplaceListing {
   projectId: string;
   projectTitle: string;
   returnPercentage: number;

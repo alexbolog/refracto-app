@@ -1,13 +1,13 @@
 import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
 import React from 'react';
-import { ProjectListItem } from 'types/projectTypes';
+import { MarketplaceListing, ProjectListItem } from 'types/projectTypes';
 import useGetAvailableProjects from './hooks/useGetAvailableProjects';
 import useGetMarketplaceProjects from './hooks/useGetMarketplaceProjects';
 
 export interface IProjectContext {
   isLoading: boolean;
   availableProjects: ProjectListItem[];
-  marketplaceProjects: ProjectListItem[];
+  marketplaceProjects: MarketplaceListing[];
 }
 
 const defaultState: IProjectContext = {
