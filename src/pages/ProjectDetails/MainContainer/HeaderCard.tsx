@@ -1,7 +1,7 @@
 import React from 'react';
 import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FullProjectPageDetails, ProjectPageDetails } from 'types/projectTypes';
+import { ProjectPageDetails } from 'types/projectTypes';
 import { ImageGallery } from 'components/ImageGallery';
 
 export const HeaderCard = ({ project }: { project: ProjectPageDetails }) => {

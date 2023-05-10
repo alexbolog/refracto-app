@@ -25,6 +25,7 @@ import { CapitalStructure } from './CapitalStructure';
 import { RepaymentSchedule } from './RepaymentSchedule';
 import { Finances } from './Finances';
 import { ProjectSpecs } from 'components/ProjectSpecs';
+import { QandA } from './QandA';
 
 export const MainContainer = ({
   project
@@ -59,6 +60,9 @@ export const MainContainer = ({
         </div>
         <div className='col-12'>
           <Finances project={project as FullProjectPageDetails} />
+        </div>
+        <div className='col-12'>
+          <QandA project={project as FullProjectPageDetails} />
         </div>
       </>
     );

@@ -98,13 +98,6 @@ button.btn-social {
     right: 34px;
 }
 
-#img-slider img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-}
-
 .btn-carousel {
     position: absolute;
     bottom: 56px;
@@ -373,4 +366,8 @@ tbody tr td {
     .project-details-card-wrapper .btn-collapse {
         display: block;
     }
+}
+
+#img-slider img {
+    max-height: 400px !important;
 }
