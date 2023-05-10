@@ -1,158 +1,356 @@
 [
   {
-    "projectDetails": "X34BO055LETTPVTL15DQSV I BTX5SDJM1GW4ZHIPIWZ5ZJIZBKNV1OB4NZLPC8UNT0C962TQ3Z249W5D3AB7OM4QXCGJK73IOFN48M40O5C4FUL967TF4O2XEW5TI6ZYFA5SU B7CZ10QZF7COP6EKWZMOTYUYT VGPCN6M20XYQX54OQD0S5EM7HTL6QVTHMYO2SKWCWB0A3F2299XCNHSUVUXW27UTZCPHER2M0TNU98A4R4LWK9AIDH55H6C9KXB0DBT81 QEN3MDII1H6ZVMI3PBE0VDWOLCW9 URJPRLTWEIS3GNV 6UM0 QPS 1I RLKWKSQ70BH1LJ4PJ GV4IYLU0B74LJR4HEGP5YY1QLG10GKM DJY8F331TNJC6HZWTWNDZD4R4L1EJQZLW6YWXFY37 P2V0FJK2RLPC3M D6U9ZK6JC85YITUT04TCYGGHLNP0BND6XAES 6N39K8BBPDAZWNNX9U45L5OT23IYH9JCQJ EMIQNGXT6E0RZVSVBSINY6XZR57N64JCMQJF5OIE0YFJRUAN 594ZS4DFLC523W9QD1I Z9UF29B0IMRGPLQVA1E6DF6RASUEIWVNUZFLNJ7KBX4N5N5T61 XN4 O9CDCH9UQAB0IPXCQCBFIPUC3SQT8D0ARYZCYP4ZXX 9GJJ2D7OSYV7364TWE8ZGHWKHEN9ABG7EBHQ9GJAF5W1VDPM2YI1F63T42PC9MCC804Q4IECE5S9HI329VW08C0SZLXZUTI 75GTAX9VSOKKIHP1CQUL8UZ34YP50DV98LI1N2E7EGLE1MOIRXZ34M33JCY0PGA0YZMTOFM4HIJ0PKUKNRW6D RJ1H23H8PK73KFW1D5 NYYEY N71XA28A6YU21T95420KJIUX1WWP 2X39XVEENOUVJV7IVTX6SCR70KQVPCASRCXVSBFH03ZC39XE 6OGZOCHQD NG8P86QH9SBMNUT34Y B3N50212IWFAVVYX",
-    "location": {
-      "x": 15.281846435094398,
-      "y": 19.944113652269806
-    },
-    "sponsorInfo": "PO7 KDS3STIMOGHXSSY6RIDZRAZO0E443F3PA7OIDRCOBZHOA2UWT0SFJZSWR4LE0UIJWRB7V60CTR0FS54WFF ALBJKBYVAUM9BWSMG346IJS 5UT03GDI9MN9NJCJJW6HGNCN7WA35YXU9X8Q2HCZ31HLCJZEVF87M6E PXUDGS00G52VFV7U5DTRGE9CW7068AS J3B6U BTJ142JEOXVU4RUQ 1CSUKXJB47VMW8UATJ46HFJ6WT1R GMPXF0KNVZNR 0FCLIU DIAOLN1145HE0GC1C1JJELTB7C13XCFVHFYBJL47WEPDR9AKTJ8ABKPW6 69ITMMCW8MCSJIQ11OIZX565S69INOLLN69VS93FRTGGX4VJT GX3N77VRQZT7N18MF85LVU2DPGFOR4BYRQBVY1QODVS  AWB6CI DRXX5ITHGEQROWWQCN LXUABIJ9NM0QGK8670N2K7GNDSKBFM UJ2MGOASJGR0VYFSF0ZNMTADK 2U7AE02BULZOXGSOX4Z2B1YWWFTVQHDXKAA64W9LHHZQXWXVHW0FEXGEN7FUV0932756E S08WO7BPDYZO4GZOZ0FS7L6806XT3YG8NH5OKLDC5NLHC08YLN298QG HXP3AZA9X5XTSGHLUGTSUDAPLOKU7DF6MWG3GU5OY5TAP37YN5JSA2BO1VK1 R7J7GI76BBV DQ7ZILM9DZOSQRPH7D6HSWML3NSPK4I0AMOKFU2M K14C5VZIXOJR28OZ1BGJCBP9MVHTV0TQMPEBDPTHTC0KKWNWL5W47AD60UE 724H0 C5MB3QH3VTVEXAXDC221GAAMY2G5ELNKEX88IDKV4K KLYM4VI2TIZTDI 5ANZ2CEZSQGMIP0VG92F9LE4GS68UCWSVNOT12M2YDP43EWEW0S9NCFKO16S07HXP8K3SKX5QEMKZ3E32CJ8ALBZ3HCKMY89KLQLMBE95E 5WS8JQ193O0YIHFLGGTD5B",
-    "swotAnalysis": {
-      "strengths": [
-        "AD0T1G 4949ZU0JBK7GHFY1SHWMGO1YUYBXU7QIDHK7HXOBWDN|ZQIMBLEQYK1A4590ST1CQHLLTVLI9RUDTIUHYIBT4AU6P0AYP7|J1LW0QC070W8XTAA1SZA3A1ZDMGONCP 0HP9GWFCY4 VO04P0L|VOPJAQODI3J 2HV1LA ZYK7I35FMKXVMOHZ7AW4CUWNI396U6V|2HJEY9A2UO5CC14R4F4M0 WZ3QM1DLLQ0IG08MP5VMJC8C29I9|H24Y0CEDERTE6QKKKMI2NKU041UANIG 4JAPO80S Q8UKRI235|S3FPXKM9JOEIGWLSN8IA JXGSWCMGP4K02WMQJ6BZ02ZETUG 8|ZZL9B6R1P7FMWDPM7MPLKPK3CWS3FUD0R84HZ GNVAFA2NK3YQ"
+      "projectDetails": "X34BO055LETTPVTL15DQSV I BTX5SDJM1GW4ZHIPIWZ5ZJIZBKNV1OB4NZLPC8UNT0C962TQ3Z249W5D3AB7OM4QXCGJK73IOFN48M40O5C4FUL967TF4O2XEW5TI6ZYFA5SU B7CZ10QZF7COP6EKWZMOTYUYT VGPCN6M20XYQX54OQD0S5EM7HTL6QVTHMYO2SKWCWB0A3F2299XCNHSUVUXW27UTZCPHER2M0TNU98A4R4LWK9AIDH55H6C9KXB0DBT81 QEN3MDII1H6ZVMI3PBE0VDWOLCW9 URJPRLTWEIS3GNV 6UM0 QPS 1I RLKWKSQ70BH1LJ4PJ GV4IYLU0B74LJR4HEGP5YY1QLG10GKM DJY8F331TNJC6HZWTWNDZD4R4L1EJQZLW6YWXFY37 P2V0FJK2RLPC3M D6U9ZK6JC85YITUT04TCYGGHLNP0BND6XAES 6N39K8BBPDAZWNNX9U45L5OT23IYH9JCQJ EMIQNGXT6E0RZVSVBSINY6XZR57N64JCMQJF5OIE0YFJRUAN 594ZS4DFLC523W9QD1I Z9UF29B0IMRGPLQVA1E6DF6RASUEIWVNUZFLNJ7KBX4N5N5T61 XN4 O9CDCH9UQAB0IPXCQCBFIPUC3SQT8D0ARYZCYP4ZXX 9GJJ2D7OSYV7364TWE8ZGHWKHEN9ABG7EBHQ9GJAF5W1VDPM2YI1F63T42PC9MCC804Q4IECE5S9HI329VW08C0SZLXZUTI 75GTAX9VSOKKIHP1CQUL8UZ34YP50DV98LI1N2E7EGLE1MOIRXZ34M33JCY0PGA0YZMTOFM4HIJ0PKUKNRW6D RJ1H23H8PK73KFW1D5 NYYEY N71XA28A6YU21T95420KJIUX1WWP 2X39XVEENOUVJV7IVTX6SCR70KQVPCASRCXVSBFH03ZC39XE 6OGZOCHQD NG8P86QH9SBMNUT34Y B3N50212IWFAVVYX",
+      "location": {
+          "x": 15.281846435094398,
+          "y": 19.944113652269806
+      },
+      "sponsorInfo": "PO7 KDS3STIMOGHXSSY6RIDZRAZO0E443F3PA7OIDRCOBZHOA2UWT0SFJZSWR4LE0UIJWRB7V60CTR0FS54WFF ALBJKBYVAUM9BWSMG346IJS 5UT03GDI9MN9NJCJJW6HGNCN7WA35YXU9X8Q2HCZ31HLCJZEVF87M6E PXUDGS00G52VFV7U5DTRGE9CW7068AS J3B6U BTJ142JEOXVU4RUQ 1CSUKXJB47VMW8UATJ46HFJ6WT1R GMPXF0KNVZNR 0FCLIU DIAOLN1145HE0GC1C1JJELTB7C13XCFVHFYBJL47WEPDR9AKTJ8ABKPW6 69ITMMCW8MCSJIQ11OIZX565S69INOLLN69VS93FRTGGX4VJT GX3N77VRQZT7N18MF85LVU2DPGFOR4BYRQBVY1QODVS  AWB6CI DRXX5ITHGEQROWWQCN LXUABIJ9NM0QGK8670N2K7GNDSKBFM UJ2MGOASJGR0VYFSF0ZNMTADK 2U7AE02BULZOXGSOX4Z2B1YWWFTVQHDXKAA64W9LHHZQXWXVHW0FEXGEN7FUV0932756E S08WO7BPDYZO4GZOZ0FS7L6806XT3YG8NH5OKLDC5NLHC08YLN298QG HXP3AZA9X5XTSGHLUGTSUDAPLOKU7DF6MWG3GU5OY5TAP37YN5JSA2BO1VK1 R7J7GI76BBV DQ7ZILM9DZOSQRPH7D6HSWML3NSPK4I0AMOKFU2M K14C5VZIXOJR28OZ1BGJCBP9MVHTV0TQMPEBDPTHTC0KKWNWL5W47AD60UE 724H0 C5MB3QH3VTVEXAXDC221GAAMY2G5ELNKEX88IDKV4K KLYM4VI2TIZTDI 5ANZ2CEZSQGMIP0VG92F9LE4GS68UCWSVNOT12M2YDP43EWEW0S9NCFKO16S07HXP8K3SKX5QEMKZ3E32CJ8ALBZ3HCKMY89KLQLMBE95E 5WS8JQ193O0YIHFLGGTD5B",
+      "swotAnalysis": {
+          "strengths": [
+              "AD0T1G 4949ZU0JBK7GHFY1SHWMGO1YUYBXU7QIDHK7HXOBWDN|ZQIMBLEQYK1A4590ST1CQHLLTVLI9RUDTIUHYIBT4AU6P0AYP7|J1LW0QC070W8XTAA1SZA3A1ZDMGONCP 0HP9GWFCY4 VO04P0L|VOPJAQODI3J 2HV1LA ZYK7I35FMKXVMOHZ7AW4CUWNI396U6V|2HJEY9A2UO5CC14R4F4M0 WZ3QM1DLLQ0IG08MP5VMJC8C29I9|H24Y0CEDERTE6QKKKMI2NKU041UANIG 4JAPO80S Q8UKRI235|S3FPXKM9JOEIGWLSN8IA JXGSWCMGP4K02WMQJ6BZ02ZETUG 8|ZZL9B6R1P7FMWDPM7MPLKPK3CWS3FUD0R84HZ GNVAFA2NK3YQ"
+          ],
+          "weaknesses": [
+              "XT49AZLTVYYQ2SBON0M9EAKJUGVNLFTO3N6VY2B7XGQ61A7QZD|FZ1GL9OPV3UK6NPH YDD3OY WC4II YDY26D7S38QOB9YTTYCN|780O635IP0JQVTEK42BYAFS0FTSTRJ86RYD2TRFKM9BPA5VVGG|QLPPWP3H6KJ6QTCKJ64HD5KZZ4NNIGXN5UP9PNXVTXPRCFPZ6B|88RGD 6UIO0JQK14I738QH 43E1BO ZCYPQ8LRR0D 1 JRPS99|8929JHSFLQW5UUHGJM341YINI2113JJUXRS0K8CW20K61FMNHK|B6I GPQU9QZ1LY9Z65KAHT6Q1H2QSYORIX7 UQI8MBIRQSL2PQ"
+          ],
+          "opportunities": [
+              "95VJI8OQR H7FF0WD55R47GB3ZMZXIC2W3LPJHDXLBD1W9QWEX|JGLFP2OC2QD5P VA 8WV DTQDZHBD35I4KTY1X9XHBEI037JF3|IIQRYYMS907NN7TKY7V86N9340DR7XBE8BLN4ZUJAC0GGHNVMQ"
+          ],
+          "threats": [
+              "7SO3ZU7 C2176MO6 GQBBGXTIOMMGBF0GLREZPT9AS3IVSGSR4|EQWW547080404RXWF3PNEY7 7G1A0WTAAMNFWKL4X3GMRZ5QZ9|TXL3JAK0G5XPMU1ZHVQ13FFHV9CTTZSWY6Z6D04DZUWVWCXTX3|RJHEKO84LFGD8U1HK8LPKA3DMKLYQ9T148MP290IY040YR4 K0|RJ9LI470NKAJ2VWMWJTR4S25AA61IJAGKMJMWUEYWWC4YGYP8M|0J2N9EEN Q7 4URQJX8LFTH23WRIVNV63JNTCDXFSZSKSU5V3H|NUTYBY5F1RV4XONDOIOI1 6P10STPCPXRMZE9A0Z1WIHT7OP8M"
+          ]
+      },
+      "refractoRating": [
+          {
+              "category": "1FG1SSJ4RZLNM95O679V",
+              "assesments": "LGIBSKTPECN3M10YB0QS9UP4CVDHMBI KOSR0VLX"
+          },
+          {
+              "category": "BDVNVRJBTIX4WJYHHAO0",
+              "assesments": "TS75 IT77NNYT R3ZWJG21 CUUYQPW6OY ISXK5L"
+          },
+          {
+              "category": "2 7VYJENPFK4N3QJL 3V",
+              "assesments": "EL84 MFAQUGNJM2Q6NAU4X 5V1P6ECPF1IDWCAXG"
+          }
       ],
-      "weaknesses": [
-        "XT49AZLTVYYQ2SBON0M9EAKJUGVNLFTO3N6VY2B7XGQ61A7QZD|FZ1GL9OPV3UK6NPH YDD3OY WC4II YDY26D7S38QOB9YTTYCN|780O635IP0JQVTEK42BYAFS0FTSTRJ86RYD2TRFKM9BPA5VVGG|QLPPWP3H6KJ6QTCKJ64HD5KZZ4NNIGXN5UP9PNXVTXPRCFPZ6B|88RGD 6UIO0JQK14I738QH 43E1BO ZCYPQ8LRR0D 1 JRPS99|8929JHSFLQW5UUHGJM341YINI2113JJUXRS0K8CW20K61FMNHK|B6I GPQU9QZ1LY9Z65KAHT6Q1H2QSYORIX7 UQI8MBIRQSL2PQ"
+      "capitalStructure": [
+          {
+              "type": "Equity",
+              "source": "9DR6I04S5BHSJ9X0LC N",
+              "amount": 2500
+          },
+          {
+              "type": "Secured Debt",
+              "source": "6TP42Z70Z315SLMDCCLR",
+              "amount": 1500
+          },
+          {
+              "type": "Secured Debt",
+              "source": "E30LPIU8WTLRV8LP1GA5",
+              "amount": 1000
+          }
       ],
-      "opportunities": [
-        "95VJI8OQR H7FF0WD55R47GB3ZMZXIC2W3LPJHDXLBD1W9QWEX|JGLFP2OC2QD5P VA 8WV DTQDZHBD35I4KTY1X9XHBEI037JF3|IIQRYYMS907NN7TKY7V86N9340DR7XBE8BLN4ZUJAC0GGHNVMQ"
+      "repaymentSchedule": [
+          {
+              "date": "2030-06-12T00:00:00",
+              "paymentStatus": "Done",
+              "lateFees": 5.604839742641032,
+              "principalAmount": 212857.52619426872,
+              "interestAmount": 113794.58034592758
+          },
+          {
+              "date": "2030-07-12T00:00:00",
+              "paymentStatus": "Done",
+              "lateFees": 61.3894386541787,
+              "principalAmount": 212857.52619426872,
+              "interestAmount": 113794.58034592758
+          },
+          {
+              "date": "2030-08-12T00:00:00",
+              "paymentStatus": "Delayed",
+              "lateFees": 17.00204712382542,
+              "principalAmount": 212857.52619426872,
+              "interestAmount": 113794.58034592758
+          },
+          {
+              "date": "2030-09-12T00:00:00",
+              "paymentStatus": "Done",
+              "lateFees": 48.372539437224255,
+              "principalAmount": 212857.52619426872,
+              "interestAmount": 113794.58034592758
+          },
+          {
+              "date": "2030-10-12T00:00:00",
+              "paymentStatus": "Done",
+              "lateFees": 21.782829070207598,
+              "principalAmount": 212857.52619426872,
+              "interestAmount": 113794.58034592758
+          },
+          {
+              "date": "2030-11-12T00:00:00",
+              "paymentStatus": "Delayed",
+              "lateFees": 53.65810392799098,
+              "principalAmount": 212857.52619426872,
+              "interestAmount": 113794.58034592758
+          },
+          {
+              "date": "2030-12-12T00:00:00",
+              "paymentStatus": "Not processed",
+              "lateFees": 78.75182048433769,
+              "principalAmount": 212857.52619426872,
+              "interestAmount": 113794.58034592758
+          },
+          {
+              "date": "2031-01-12T00:00:00",
+              "paymentStatus": "Not processed",
+              "lateFees": 97.18028688308783,
+              "principalAmount": 212857.52619426872,
+              "interestAmount": 113794.58034592758
+          },
+          {
+              "date": "2031-02-12T00:00:00",
+              "paymentStatus": "Delayed",
+              "lateFees": 60.824710844240585,
+              "principalAmount": 212857.52619426872,
+              "interestAmount": 113794.58034592758
+          },
+          {
+              "date": "2031-03-12T00:00:00",
+              "paymentStatus": "Done",
+              "lateFees": 40.27403047285573,
+              "principalAmount": 212857.52619426872,
+              "interestAmount": 113794.58034592758
+          }
       ],
-      "threats": [
-        "7SO3ZU7 C2176MO6 GQBBGXTIOMMGBF0GLREZPT9AS3IVSGSR4|EQWW547080404RXWF3PNEY7 7G1A0WTAAMNFWKL4X3GMRZ5QZ9|TXL3JAK0G5XPMU1ZHVQ13FFHV9CTTZSWY6Z6D04DZUWVWCXTX3|RJHEKO84LFGD8U1HK8LPKA3DMKLYQ9T148MP290IY040YR4 K0|RJ9LI470NKAJ2VWMWJTR4S25AA61IJAGKMJMWUEYWWC4YGYP8M|0J2N9EEN Q7 4URQJX8LFTH23WRIVNV63JNTCDXFSZSKSU5V3H|NUTYBY5F1RV4XONDOIOI1 6P10STPCPXRMZE9A0Z1WIHT7OP8M"
-      ]
-    },
-    "refractoRating": [
-      {
-        "category": "1FG1SSJ4RZLNM95O679V",
-        "assesments": "LGIBSKTPECN3M10YB0QS9UP4CVDHMBI KOSR0VLX"
+      "financingDetails": "XXF8PRI6M8HDCK68AS5WJDM9D57U8GM61FETXO87PG D02V347IWZ2IEQWNIPKIGZM69ME7PTSDFF2QCIPQ8H8XKO7NA6CCY5LNA9AEO8RI4M1R7FCVIZWK 3BHZWJSXADTB1K0G755765Y81S4L47Q1Z2RLZ0WAUNW0763N P72OUBS07EHN469GLW9192S2QZHAYDFVSDHE3A75I5POTM 270ZW9Q481L41OXP2RDOA41CUG1L46O33UI613UMIQ44RRKL0BMRL3BNIOBP65 ZG3Y27Z61X59Z KL5NV3CBB3NQHVPD41K34JBBIBQ9YTMS856FFX8K5OBA WDQM832 X1F5R870IW85IZBT81DEM8UFKPKU5Y71UFORFEEVKQHK383H1L3D0AAFV UVQKJWJ 70F8B4JCHAF5RGCINUNXSRU3 JRCFCOAAB 4N8RUQ7B L8182B8X5LI5V3O1E 0HIF3WJ  5WFRLWZPNL60VM2IMRWTI4RX87U7YO 16CP QGAQZW1Q3H MFXRKOZAFIZUF9XVGKTJNPF2BYZZJESY4CGSWXB74ZYLFQW0HVP E7XHU0LJ4EVTQULU3BS0CB7KCHOAX1KPV60LNVEEW6Q5BWAQ7LUFVO5VS M1XT6VZTMAMEY4D3ZBC7YOA4LGC7ZGLA6VYA2F4FRVSJD1QAVWUKLWKX7COPYCWYNAAUS7MEBNWUPPNYX7ZB27UMEDB1BUWG1YZL6PEFWKLKQNXNVDZVJ7FC4G6DF8RJUKL6R G6IDHZZ26LFI Z6G27DZX8Q86P9HWAT3QSG 3W1BREQS0FPMC8AGCBZB730S27KDMPRP7PWOEL59JP1HBGE7CT06LGR69LZRYXQXFM4G2RWZ7FZLOMIJTHARXE5DB5U5 I37TKAW274OCS9PZV7AR3B15V7N4G 6QZN7B9KGSANSXL4NIIB1WPO2TNHAAPYV8QRDAPCBVSSL46SVJWUV2MIJWZD9YPEYUY",
+      "attachmentUrls": [
+          "../test-0.pdf",
+          "../test-1.pdf"
+      ],
+      "questionsAndAnswers": [
+        {
+            "id": "1",
+            "ownerFirstName": "Leona",
+            "ownerLastName": "Pop",
+            "ownerImgSrc": "user.jpg",
+            "text": "I would like to know the deadline of the project. Can anyone provide this info?\r\nThank you!",
+            "insertDate": "2023-03-12T00:00:00"
+        },
+        {
+            "id": "2",
+            "parentId": "4",
+            "ownerFirstName": "Marius",
+            "ownerLastName": "Enache",
+            "ownerImgSrc": "user.png",
+            "text": "You can check the Rating Section, there you will find the info.",
+            "insertDate": "2023-03-22T00:00:00"
+        },
+        {
+            "id": "3",
+            "parentId": "4",
+            "ownerFirstName": "Marius",
+            "ownerLastName": "Enache",
+            "ownerImgSrc": "user.png",
+            "text": "This is my random as fuck message",
+            "isPendingModeration": true,
+            "insertDate": "2023-03-24T00:00:00"
+        },
+        {
+            "id": "4",
+            "ownerFirstName": "Leona",
+            "ownerLastName": "Pop",
+            "ownerImgSrc": "user.jpg",
+            "text": "Also I'm interested about the Refracto Rating.",
+            "insertDate": "2023-05-03T00:00:00"
+        }
+      ],
+      "images": [
+          "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg",
+          "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+      ],
+      "assetClass": "Residential",
+      "investmentType": "Development",
+      "totalParticipantsCount": 36,
+      "projectDeveloperId": "13375b07-a2b2-4a80-b80d-c9bcf5dc95e0",
+      "projectDeveloperName": "MWYFJHYM378E10UCRG4BD14ZKE8OQR",
+      "amountReturnedSoFar": 522350.7732283521,
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non neque vitae enim scelerisque tincidunt. In viverra urna tellus, sodales accumsan tortor dictum sagittis. Integer laoreet rhoncus lacus, quis maximus justo suscipit ac. Donec euismod rutrum sem quis aliquam. Fusce molestie ligula vitae neque ornare malesuada.",
+      "executiveSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non neque vitae enim scelerisque tincidunt. In viverra urna tellus, sodales accumsan tortor dictum sagittis. Integer laoreet rhoncus lacus, quis maximus justo suscipit ac. Donec euismod rutrum sem quis aliquam. Fusce molestie ligula vitae neque ornare malesuada. In auctor neque est, sit amet venenatis leo condimentum ac. Pellentesque porttitor eros malesuada nibh blandit, quis elementum diam ultricies. Aliquam tincidunt vulputate mauris, a suscipit nibh fringilla vitae. Nam augue justo, pulvinar at efficitur finibus, auctor id elit. Etiam enim lorem, condimentum id odio eget, tempus dictum purus. Morbi elementum, augue quis dictum tristique, odio justo vulputate quam, eget interdum erat ex eget velit. Nunc hendrerit tempus metus, et condimentum ligula tincidunt vitae. In in tristique libero. Pellentesque tristique nulla eu semper efficitur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque finibus, mi quis consectetur laoreet, velit velit vestibulum orci, ut facilisis metus metus in enim. Praesent eget congue tortor. Mauris vehicula tellus sit amet molestie commodo. Proin at iaculis nunc. Etiam lacinia turpis ac turpis lobortis, nec ornare nibh commodo. Praesent mattis tortor eleifend risus dapibus egestas. Fusce placerat, odio id porta venenatis, est leo fermentum sem, id tempus felis elit ut mauris. Etiam auctor ante quis feugiat dapibus. Etiam feugiat suscipit diam in faucibus. Cras sodales posuere rutrum. Suspendisse potenti. Curabitur ornare viverra convallis. Maecenas porta malesuada ex, non malesuada nibh fringilla a. Aenean quis suscipit risus. Maecenas a leo maximus, dapibus magna in, porta sem. Suspendisse cursus diam et massa fermentum finibus. Donec nec feugiat augue. Integer a ligula vestibulum, pellentesque diam eu, tincidunt ligula. Etiam tincidunt laoreet diam, et lobortis lorem feugiat nec. Maecenas neque sapien, aliquet nec vestibulum in, aliquam vitae nisi. Pellentesque sed nulla justo. Sed in dolor sit amet diam tempus commodo vel a ante. Curabitur eget rutrum lorem, sed ultricies est. Suspendisse nec massa dui. Aliquam porttitor purus eu felis porttitor tempor. Nam mauris sapien, vestibulum a fringilla non, mattis vel quam. Donec lorem nibh, tincidunt et auctor a, porttitor rhoncus justo. Morbi magna nunc, tristique at luctus ac, laoreet et libero. Vivamus quis elit nec ante tristique vestibulum. Morbi eget commodo urna, ac ornare risus. Maecenas nec pharetra orci, id laoreet erat. Nullam felis ante, euismod nec ornare id, molestie sed libero. Fusce id nibh neque. Maecenas venenatis ullamcorper augue, ut cursus lectus placerat id. Praesent sollicitudin felis eget diam ullamcorper accumsan. Ut consectetur rutrum tincidunt. Suspendisse cursus ipsum ligula, ut ullamcorper dui eleifend nec. Sed viverra orci sed metus pellentesque, ac pretium nisi lacinia. Etiam in velit fermentum, iaculis dolor at, pulvinar orci. Nullam molestie et turpis nec congue. Pellentesque vitae neque ac justo imperdiet porttitor. Nullam nulla odio, efficitur sit amet ligula nec, accumsan vehicula lacus. Aenean id malesuada nisi. Cras pretium odio est, vitae hendrerit diam consectetur consequat. In nec tellus gravida velit pulvinar fermentum eu eget libero. Aliquam volutpat efficitur risus, at interdum mauris lacinia ut. Nulla ultrices quis nibh in maximus. Aenean imperdiet, purus ut viverra lobortis, lectus lacus euismod nunc, viverra congue massa eros ac mauris. Nulla dignissim quis risus eget tempor. Aenean nec eleifend felis.",
+      "projectId": "d6b99c95-4322-465d-bb48-4e62a035224d",
+      "currencyId": 0,
+      "currencyName": "USD",
+      "projectTitle": "Generated Project #0",
+      "returnPercentage": 0.534604448245211,
+      "riskRatingLevel": "High Risk",
+      "crowdfundingDeadline": "2030-05-12T00:00:00",
+      "crowdfundingTarget": 2128575.261942687,
+      "crowdfundedAmount": 435411.5263346206,
+      "thumbnailSrc": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "colorCodeHex": "606690"
+  },
+  {
+      "projectDetails": "L3XLT55E9SSP0EAZ2O9B6NF5DMOV2LEVA06SR8M0A7KYV4LW802VLNXE5UOLMMDHJJBW5FJQ0NYR07GJTC1A0BZ 7M89MA7 CELBORKFC3B03BY5SYBFLVMTNVFUGYCLZUAS3DT0R7AM0DN9JQCT4GQ8KVM9WCLZR 12MQ7H34D63FMTQ3JU9YBU5IF3MOE9PHMN3GMCDNYA9R 6JZ66TW25MFNPJ50YVIB5E5DNS0XLAUNT1BNHM2V7D45J0200VVUVI16OB38ZPC2366H30QA80L0HW9TSRARWUEETBKRGXIW5R26H1OD034FXMT3XEIY2ZSCV80V6LRD3969ST7EGTXNMRIPFI937GDZUKD6XWKTJ1JHG Z0DEQX5PXP 0IB3ZTAA5XFQ2RG1377Q52DTHUCQ29BS6BV3HJLFYO80MPMWD87M6I5FPV6Q4QS5IQWNK3C6ALS4ZTH95YMPMLIBS3XBK3S7IP0TDLWQMCME9GWJ540WM A735E2VYWGCFMI6U R433ZXNX6WLKC4QI644UQO4FTTHUH04RRCJNICCSV262ZP8119VO3J1PRILI5SNMUJXUG4V8IT9IUF1VGUWUCX732XEHLXV4VQURI1Z7R5SJM3 JKM4UFH6IQ3 FBVGASD0G8CZPIIUQC2MV9C75D35V4KA88LXNS3TBMWKBTYUXS OAANDTWQL24MA 6BHCF0Z1DJ3VFP96M54I9A24KB6VI1L5RU8PD9LRCLG04IFK80D9 8O717Q1VTTZPHQ1EX6ZABF9V0N6EURROJ6DGQL5S9QNXKC12P2Y9AT7 GTR3CX5LSVQ2NTZD873V23ZTNO9MHN65ZVENXHO13XOJBF9DWC61RNM 5XJLRTQYUA RHVJOAAHL0XPZ0H7SW5QVLJZ63HY9V35Q T155K12FHH1MN3F712V3NIV7ADYYMAYX3BC57P04SIVUI EZGIFNIKYQ0801HZW079C04GVI3DGRQC MI0U",
+      "location": {
+          "x": 32.132358668839345,
+          "y": 39.951364650576075
       },
-      {
-        "category": "BDVNVRJBTIX4WJYHHAO0",
-        "assesments": "TS75 IT77NNYT R3ZWJG21 CUUYQPW6OY ISXK5L"
+      "sponsorInfo": "0 9GV4NX7K6OQKOCVFU3BBID5SM1OQCSZ7XDU0BISHVOTOMX TVMUPIBVZ2AH LQ2PRJ2JBZ3W1XP2KKZCEZM8748PN0P2PSQRA4OJTBGU5WZAFOED8K MAHHJ4FQH7UC1XQRF78UTSXRSVL48CGHSQ1OK9HR7JJQOQD26YXBPIAOUKUAK IZKCHVVX7N3J694Q5J74V I4XY1A8JHZC3THFET8NIXUD KLSC6U5S VPDFY4KJJ43C1LXVC5AH3OJ MXHXEHHQ6 UMZ RZW50OQMA2CSQPQHH6V085SX27ZC2VHX7XSXCZHMY504IHMSLQL4OSTHQ27F714MYDN1GZ85IMZ274WTE5M5N7BTRTIJXTF0JNTHRF6P1VQS 1ELTY1DO1YM4KNSC2MPWH9J39884XURNC1MPA6ENNVZNJ1QD4FAH2TTURT3O9FJNGVIZBH0GNKJ9RZYTTKSKY8J66DBUOV4J9KLGR21Z 4PM67GNYEOGK1XRN33LLF8LFBYG3LFDV0BW9T7Z4IITPV1W 2FTT AHVZTLS1 A2UU2EBIS6XATRKJ29YZQU377925O1CPFO7RKATNAIKUSVV S4LA3AGH3JX4SXTNH9EC4 SS75ITYK363WMG034TC RVQVO3XNYD 5Q6ZA B9B7HZFSLPX4LAC1 BNWZ EOLSQZFZ CXQQR7E90OK5EGZNHIXQP0513PUSTYHRGX4E0FG3PBNKS29XNDUCHJ34C15IA41EMTYSM3BQH4RRLWUR EHADXYO3W6VXV5HLWPEO0WKT9FWOQZTVYOJEBY47H8TK4VNZ2QQN CZM764JU9UMSXNX0LUJ71SBV3W816W 35QUXZB6I3SMCZM575YF7XIRP3 6TQVHGR5WAE1KQDTLW8F6XJS0NA3U6ZEDJDAWE1K5SV5HX043LLFE2BRW1LKEJHAKL2EOB82FLANW3PJTGQGBTX6EXUHM9D6ZBPZ1AD54UVTX0KAOJDJAI0IPY",
+      "swotAnalysis": {
+          "strengths": [
+              ""
+          ],
+          "weaknesses": [
+              "F0A5YGZXGMGVBRIAFL8V 5BW73XT6JTD9Y88T21EMA7KZT9W92|M102KSADT71EYEFPRMCDIHBXLVHCT6A90A9IUYPVR6HTCZK7XR|Q2RTUJ7RB7WCE6JBYSHLE9F7LPEDNFN6DAGGEWGHIX8JASBZKR|QTU65U9FC8B0YIGXMSF3Q86 6KYML38RN1PQ9J3527ZNI8OYOB|6 PWQG4RZ93J557L2LSLNAIAWLC8WZ0AK CZ4UMF898HJ2529M|A 3FDW1WI VV5ST9IV30EK7110ALK11Q1118J0DFACFCG170QB"
+          ],
+          "opportunities": [
+              "G Z11W HMA9NGG2OCDAIK5Y14TGMQHA0O PJZPFZW955DEDKM9|VOZ7I0N01NQP71IU9KY7H8AQ3TF18KSNOL87QSKX7POPB 4SML|S9M2O MVS0VI3U5R95DEW3616FSPER7ZQACAXZZ8M9GQPFPO7P|K5HGQ7KSG1XB6J9NT8BPCQTWY0KQ3F811JLA5FP7AAPAKB8OBO|VTMLHCNUR8GWGUF3G0HFPCIX1MQJNYUMC4W7NBDXQ0EBK7QTUS| 93U7R I0JPWGJQRXJ2EX0MQDX7CW2PTKBZRVSXVDKLKSSN0EF"
+          ],
+          "threats": [
+              ""
+          ]
       },
-      {
-        "category": "2 7VYJENPFK4N3QJL 3V",
-        "assesments": "EL84 MFAQUGNJM2Q6NAU4X 5V1P6ECPF1IDWCAXG"
-      }
-    ],
-    "capitalStructure": [
-      {
-        "type": "Equity",
-        "source": "9DR6I04S5BHSJ9X0LC N",
-        "amount": 2500
-      },
-      {
-        "type": "Secured Debt",
-        "source": "6TP42Z70Z315SLMDCCLR",
-        "amount": 1500
-      },
-      {
-        "type": "Secured Debt",
-        "source": "E30LPIU8WTLRV8LP1GA5",
-        "amount": 1000
-      }
-    ],
-    "repaymentSchedule": [
-      {
-        "date": "2030-06-12T00:00:00",
-        "paymentStatus": "Done",
-        "lateFees": 5.604839742641032,
-        "principalAmount": 212857.52619426872,
-        "interestAmount": 113794.58034592758
-      },
-      {
-        "date": "2030-07-12T00:00:00",
-        "paymentStatus": "Done",
-        "lateFees": 61.3894386541787,
-        "principalAmount": 212857.52619426872,
-        "interestAmount": 113794.58034592758
-      },
-      {
-        "date": "2030-08-12T00:00:00",
-        "paymentStatus": "Delayed",
-        "lateFees": 17.00204712382542,
-        "principalAmount": 212857.52619426872,
-        "interestAmount": 113794.58034592758
-      },
-      {
-        "date": "2030-09-12T00:00:00",
-        "paymentStatus": "Done",
-        "lateFees": 48.372539437224255,
-        "principalAmount": 212857.52619426872,
-        "interestAmount": 113794.58034592758
-      },
-      {
-        "date": "2030-10-12T00:00:00",
-        "paymentStatus": "Done",
-        "lateFees": 21.782829070207598,
-        "principalAmount": 212857.52619426872,
-        "interestAmount": 113794.58034592758
-      },
-      {
-        "date": "2030-11-12T00:00:00",
-        "paymentStatus": "Delayed",
-        "lateFees": 53.65810392799098,
-        "principalAmount": 212857.52619426872,
-        "interestAmount": 113794.58034592758
-      },
-      {
-        "date": "2030-12-12T00:00:00",
-        "paymentStatus": "Not processed",
-        "lateFees": 78.75182048433769,
-        "principalAmount": 212857.52619426872,
-        "interestAmount": 113794.58034592758
-      },
-      {
-        "date": "2031-01-12T00:00:00",
-        "paymentStatus": "Not processed",
-        "lateFees": 97.18028688308783,
-        "principalAmount": 212857.52619426872,
-        "interestAmount": 113794.58034592758
-      },
-      {
-        "date": "2031-02-12T00:00:00",
-        "paymentStatus": "Delayed",
-        "lateFees": 60.824710844240585,
-        "principalAmount": 212857.52619426872,
-        "interestAmount": 113794.58034592758
-      },
-      {
-        "date": "2031-03-12T00:00:00",
-        "paymentStatus": "Done",
-        "lateFees": 40.27403047285573,
-        "principalAmount": 212857.52619426872,
-        "interestAmount": 113794.58034592758
-      }
-    ],
-    "financingDetails": "XXF8PRI6M8HDCK68AS5WJDM9D57U8GM61FETXO87PG D02V347IWZ2IEQWNIPKIGZM69ME7PTSDFF2QCIPQ8H8XKO7NA6CCY5LNA9AEO8RI4M1R7FCVIZWK 3BHZWJSXADTB1K0G755765Y81S4L47Q1Z2RLZ0WAUNW0763N P72OUBS07EHN469GLW9192S2QZHAYDFVSDHE3A75I5POTM 270ZW9Q481L41OXP2RDOA41CUG1L46O33UI613UMIQ44RRKL0BMRL3BNIOBP65 ZG3Y27Z61X59Z KL5NV3CBB3NQHVPD41K34JBBIBQ9YTMS856FFX8K5OBA WDQM832 X1F5R870IW85IZBT81DEM8UFKPKU5Y71UFORFEEVKQHK383H1L3D0AAFV UVQKJWJ 70F8B4JCHAF5RGCINUNXSRU3 JRCFCOAAB 4N8RUQ7B L8182B8X5LI5V3O1E 0HIF3WJ  5WFRLWZPNL60VM2IMRWTI4RX87U7YO 16CP QGAQZW1Q3H MFXRKOZAFIZUF9XVGKTJNPF2BYZZJESY4CGSWXB74ZYLFQW0HVP E7XHU0LJ4EVTQULU3BS0CB7KCHOAX1KPV60LNVEEW6Q5BWAQ7LUFVO5VS M1XT6VZTMAMEY4D3ZBC7YOA4LGC7ZGLA6VYA2F4FRVSJD1QAVWUKLWKX7COPYCWYNAAUS7MEBNWUPPNYX7ZB27UMEDB1BUWG1YZL6PEFWKLKQNXNVDZVJ7FC4G6DF8RJUKL6R G6IDHZZ26LFI Z6G27DZX8Q86P9HWAT3QSG 3W1BREQS0FPMC8AGCBZB730S27KDMPRP7PWOEL59JP1HBGE7CT06LGR69LZRYXQXFM4G2RWZ7FZLOMIJTHARXE5DB5U5 I37TKAW274OCS9PZV7AR3B15V7N4G 6QZN7B9KGSANSXL4NIIB1WPO2TNHAAPYV8QRDAPCBVSSL46SVJWUV2MIJWZD9YPEYUY",
-    "attachmentUrls": ["../test-0.pdf", "../test-1.pdf"],
-    "questionsAndAnswers": [],
-    "images": [
-      "/img-placeholders/dummy_600x400_ffffff_cccccc.png",
-      "/img-placeholders/dummy_1000x1000_ffffff_cccccc.png",
-      "/img-placeholders/dummy_1000x1200_ffffff_cccccc.png",
-      "/img-placeholders/dummy_1000x1400_ffffff_cccccc.png",
-      "/img-placeholders/dummy_1400x800_ffffff_cccccc.png",
-      "/img-placeholders/dummy_1400x1400_ffffff_cccccc.png"
-    ],
-    "assetClass": "Residential",
-    "investmentType": "Development",
-    "totalParticipantsCount": 36,
-    "projectDeveloperId": "13375b07-a2b2-4a80-b80d-c9bcf5dc95e0",
-    "projectDeveloperName": "MWYFJHYM378E10UCRG4BD14ZKE8OQR",
-    "amountReturnedSoFar": 522350.7732283521,
-    "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non neque vitae enim scelerisque tincidunt. In viverra urna tellus, sodales accumsan tortor dictum sagittis. Integer laoreet rhoncus lacus, quis maximus justo suscipit ac. Donec euismod rutrum sem quis aliquam. Fusce molestie ligula vitae neque ornare malesuada.",
-    "executiveSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non neque vitae enim scelerisque tincidunt. In viverra urna tellus, sodales accumsan tortor dictum sagittis. Integer laoreet rhoncus lacus, quis maximus justo suscipit ac. Donec euismod rutrum sem quis aliquam. Fusce molestie ligula vitae neque ornare malesuada. In auctor neque est, sit amet venenatis leo condimentum ac. Pellentesque porttitor eros malesuada nibh blandit, quis elementum diam ultricies. Aliquam tincidunt vulputate mauris, a suscipit nibh fringilla vitae. Nam augue justo, pulvinar at efficitur finibus, auctor id elit. Etiam enim lorem, condimentum id odio eget, tempus dictum purus. Morbi elementum, augue quis dictum tristique, odio justo vulputate quam, eget interdum erat ex eget velit. Nunc hendrerit tempus metus, et condimentum ligula tincidunt vitae. In in tristique libero. Pellentesque tristique nulla eu semper efficitur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque finibus, mi quis consectetur laoreet, velit velit vestibulum orci, ut facilisis metus metus in enim. Praesent eget congue tortor. Mauris vehicula tellus sit amet molestie commodo. Proin at iaculis nunc. Etiam lacinia turpis ac turpis lobortis, nec ornare nibh commodo. Praesent mattis tortor eleifend risus dapibus egestas. Fusce placerat, odio id porta venenatis, est leo fermentum sem, id tempus felis elit ut mauris. Etiam auctor ante quis feugiat dapibus. Etiam feugiat suscipit diam in faucibus. Cras sodales posuere rutrum. Suspendisse potenti. Curabitur ornare viverra convallis. Maecenas porta malesuada ex, non malesuada nibh fringilla a. Aenean quis suscipit risus. Maecenas a leo maximus, dapibus magna in, porta sem. Suspendisse cursus diam et massa fermentum finibus. Donec nec feugiat augue. Integer a ligula vestibulum, pellentesque diam eu, tincidunt ligula. Etiam tincidunt laoreet diam, et lobortis lorem feugiat nec. Maecenas neque sapien, aliquet nec vestibulum in, aliquam vitae nisi. Pellentesque sed nulla justo. Sed in dolor sit amet diam tempus commodo vel a ante. Curabitur eget rutrum lorem, sed ultricies est. Suspendisse nec massa dui. Aliquam porttitor purus eu felis porttitor tempor. Nam mauris sapien, vestibulum a fringilla non, mattis vel quam. Donec lorem nibh, tincidunt et auctor a, porttitor rhoncus justo. Morbi magna nunc, tristique at luctus ac, laoreet et libero. Vivamus quis elit nec ante tristique vestibulum. Morbi eget commodo urna, ac ornare risus. Maecenas nec pharetra orci, id laoreet erat. Nullam felis ante, euismod nec ornare id, molestie sed libero. Fusce id nibh neque. Maecenas venenatis ullamcorper augue, ut cursus lectus placerat id. Praesent sollicitudin felis eget diam ullamcorper accumsan. Ut consectetur rutrum tincidunt. Suspendisse cursus ipsum ligula, ut ullamcorper dui eleifend nec. Sed viverra orci sed metus pellentesque, ac pretium nisi lacinia. Etiam in velit fermentum, iaculis dolor at, pulvinar orci. Nullam molestie et turpis nec congue. Pellentesque vitae neque ac justo imperdiet porttitor. Nullam nulla odio, efficitur sit amet ligula nec, accumsan vehicula lacus. Aenean id malesuada nisi. Cras pretium odio est, vitae hendrerit diam consectetur consequat. In nec tellus gravida velit pulvinar fermentum eu eget libero. Aliquam volutpat efficitur risus, at interdum mauris lacinia ut. Nulla ultrices quis nibh in maximus. Aenean imperdiet, purus ut viverra lobortis, lectus lacus euismod nunc, viverra congue massa eros ac mauris. Nulla dignissim quis risus eget tempor. Aenean nec eleifend felis.",
-    "projectId": "d6b99c95-4322-465d-bb48-4e62a035224d",
-    "currencyId": 0,
-    "currencyName": "USD",
-    "projectTitle": "Generated Project #0",
-    "returnPercentage": 0.534604448245211,
-    "riskRatingLevel": "High Risk",
-    "crowdfundingDeadline": "2030-05-12T00:00:00",
-    "crowdfundingTarget": 2128575.261942687,
-    "crowdfundedAmount": 435411.5263346206,
-    "thumbnailSrc": "/img-placeholders/dummy_600x400_ffffff_cccccc.png",
-    "colorCodeHex": "606690"
+      "refractoRating": [
+          {
+              "category": "Z925YJ1MQAP3HF6TZOXA",
+              "assesments": "XF0DTZ01WRVDHH5NCQMNQZV0OBIOPZ0HDLNVXTTM"
+          }
+      ],
+      "capitalStructure": [
+          {
+              "type": "Equity",
+              "source": "8AH4YLCUJG GEOT8O8OX",
+              "amount": 0
+          },
+          {
+              "type": "Equity",
+              "source": "WUJZSV7I4EB7Z5IAS848",
+              "amount": 0
+          },
+          {
+              "type": "Equity",
+              "source": "QO0TY47JIE7F34 EN8ZB",
+              "amount": 0
+          },
+          {
+              "type": "Equity",
+              "source": "1 PRPBW0RLIXEPNPS44I",
+              "amount": 0
+          },
+          {
+              "type": "Secured Debt",
+              "source": "AVD8OMGH3EQ8BIXWJ2MW",
+              "amount": 0
+          },
+          {
+              "type": "Equity",
+              "source": " LP4MEL6YBPUHD2RLEQN",
+              "amount": 0
+          }
+      ],
+      "repaymentSchedule": [
+          {
+              "date": "2026-06-03T00:00:00",
+              "paymentStatus": "Not processed",
+              "lateFees": 86.01125802145214,
+              "principalAmount": 181353.0792430795,
+              "interestAmount": 6150.760466509201
+          },
+          {
+              "date": "2026-07-03T00:00:00",
+              "paymentStatus": "Done",
+              "lateFees": 44.26262668165665,
+              "principalAmount": 181353.0792430795,
+              "interestAmount": 6150.760466509201
+          },
+          {
+              "date": "2026-08-03T00:00:00",
+              "paymentStatus": "Done",
+              "lateFees": 51.55397523011821,
+              "principalAmount": 181353.0792430795,
+              "interestAmount": 6150.760466509201
+          },
+          {
+              "date": "2026-09-03T00:00:00",
+              "paymentStatus": "Done",
+              "lateFees": 15.9395852763839,
+              "principalAmount": 181353.0792430795,
+              "interestAmount": 6150.760466509201
+          },
+          {
+              "date": "2026-10-03T00:00:00",
+              "paymentStatus": "Done",
+              "lateFees": 56.39635668746496,
+              "principalAmount": 181353.0792430795,
+              "interestAmount": 6150.760466509201
+          },
+          {
+              "date": "2026-11-03T00:00:00",
+              "paymentStatus": "Delayed",
+              "lateFees": 83.79610443353386,
+              "principalAmount": 181353.0792430795,
+              "interestAmount": 6150.760466509201
+          },
+          {
+              "date": "2026-12-03T00:00:00",
+              "paymentStatus": "Delayed",
+              "lateFees": 96.96938293629276,
+              "principalAmount": 181353.0792430795,
+              "interestAmount": 6150.760466509201
+          },
+          {
+              "date": "2027-01-03T00:00:00",
+              "paymentStatus": "Delayed",
+              "lateFees": 11.123898067170618,
+              "principalAmount": 181353.0792430795,
+              "interestAmount": 6150.760466509201
+          },
+          {
+              "date": "2027-02-03T00:00:00",
+              "paymentStatus": "Done",
+              "lateFees": 36.93752681148898,
+              "principalAmount": 181353.0792430795,
+              "interestAmount": 6150.760466509201
+          },
+          {
+              "date": "2027-03-03T00:00:00",
+              "paymentStatus": "Done",
+              "lateFees": 19.415060649577846,
+              "principalAmount": 181353.0792430795,
+              "interestAmount": 6150.760466509201
+          }
+      ],
+      "financingDetails": "GOI2PNDW8 3KHLGVWMCS6XGUTQMB6ITVWNYYRJVVQYEM5X88C6YOQUK9OFL9ULYS99ISGG3YB41R9H9RZWQOG J2BON187FF6XT82YMCMPPKL4INYYXY5XMRASF9CMRZM53ZC7Q5JR RE B1GN9184ZG64G4RC3JPIGVDP5Y4BP9O62SRX9K2FFN6OSX03XUL4KLZ8AOA2F80CL9JOS7JDY6XO90IR 9GTZA96O9DR32O1FM5YOM2GZ2B409FQGJK IZCAILYCNF44Z31KJJ8VR7UZYZU8PMBKHQCYR 0E2DK2ZBSC1FPVKVL2SIVPOLO62YFKCYA0M0W6K7CCC3JOAMFR8NWSBH46N01I1J81OV3X0J  35YT668L36AJXKF0EDLL99 L8MAOE37RLFTJZOZG90CFZ6LPBTBCRUPMOG02MSJM9ZP8WYCTYOY6D04W35KZXGNSH4 L7X UQXMBEYRT 8JQ6HIL6T8JRSLPHF8Q72APWM9SGY4URDNQVK RX1VWT7XO1 LSNNDTHL8B65LGR7P0GOMS0SGFO9SXQXGZPIDB0JFC1BHA0Y6UT8RZOKUE166O5HN8PWDGB5B7 QXH4URD5X5K5S8SX53XLE4ZOPI2PMFI0E94TCGTKO7S9J8GH0Q5JYYIWRT96Y2TAWVTEANWHS3DGAZCFRC OFP5YKOIV3DWBFAGZ32KCCF7N9X6L H3BHQU9WGLM6FDJQWX0MEOQDZMM77CMP VV4KIZ VTQBDJ9EDOSOJM GRK6F3YKJO2CQMUEUCKM5Y3ILYD2N6A9HY7IGZWZAKCYKKJ5HTK0VUQIM NPFLT P45JFR1W7DEWMAD90G0JATPX9 U6OV9WZZCENAF9CONMPQFZKJDM0A7BI8R0M9KTRVTSUXBMHEZP4RLFQPZ4N0JP0JG1LU0N 1T7L05JSM4AG5U6WY21XT0L5SCQ2BRP MRYGWUVBO08YGCDMLTD9EZH2AA07XFTNRIBJF9CM",
+      "attachmentUrls": [
+          "../test-0.pdf",
+          "../test-1.pdf"
+      ],
+      "questionsAndAnswers": [],
+      "images": [
+          "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg",
+          "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+      ],
+      "assetClass": "Residential",
+      "investmentType": "Refurbish",
+      "totalParticipantsCount": 4,
+      "projectDeveloperId": "13375b07-a2b2-4a80-b80d-c9bcf5dc95e0",
+      "projectDeveloperName": "LC15WPZQJ76AKAB3F7WMA35ZJJ8X2Q",
+      "amountReturnedSoFar": 418029.16440539586,
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non neque vitae enim scelerisque tincidunt. In viverra urna tellus, sodales accumsan tortor dictum sagittis. Integer laoreet rhoncus lacus, quis maximus justo suscipit ac. Donec euismod rutrum sem quis aliquam. Fusce molestie ligula vitae neque ornare malesuada.",
+      "executiveSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non neque vitae enim scelerisque tincidunt. In viverra urna tellus, sodales accumsan tortor dictum sagittis. Integer laoreet rhoncus lacus, quis maximus justo suscipit ac. Donec euismod rutrum sem quis aliquam. Fusce molestie ligula vitae neque ornare malesuada. In auctor neque est, sit amet venenatis leo condimentum ac. Pellentesque porttitor eros malesuada nibh blandit, quis elementum diam ultricies. Aliquam tincidunt vulputate mauris, a suscipit nibh fringilla vitae. Nam augue justo, pulvinar at efficitur finibus, auctor id elit. Etiam enim lorem, condimentum id odio eget, tempus dictum purus. Morbi elementum, augue quis dictum tristique, odio justo vulputate quam, eget interdum erat ex eget velit. Nunc hendrerit tempus metus, et condimentum ligula tincidunt vitae. In in tristique libero. Pellentesque tristique nulla eu semper efficitur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque finibus, mi quis consectetur laoreet, velit velit vestibulum orci, ut facilisis metus metus in enim. Praesent eget congue tortor. Mauris vehicula tellus sit amet molestie commodo. Proin at iaculis nunc. Etiam lacinia turpis ac turpis lobortis, nec ornare nibh commodo. Praesent mattis tortor eleifend risus dapibus egestas. Fusce placerat, odio id porta venenatis, est leo fermentum sem, id tempus felis elit ut mauris. Etiam auctor ante quis feugiat dapibus. Etiam feugiat suscipit diam in faucibus. Cras sodales posuere rutrum. Suspendisse potenti. Curabitur ornare viverra convallis. Maecenas porta malesuada ex, non malesuada nibh fringilla a. Aenean quis suscipit risus. Maecenas a leo maximus, dapibus magna in, porta sem. Suspendisse cursus diam et massa fermentum finibus. Donec nec feugiat augue. Integer a ligula vestibulum, pellentesque diam eu, tincidunt ligula. Etiam tincidunt laoreet diam, et lobortis lorem feugiat nec. Maecenas neque sapien, aliquet nec vestibulum in, aliquam vitae nisi. Pellentesque sed nulla justo. Sed in dolor sit amet diam tempus commodo vel a ante. Curabitur eget rutrum lorem, sed ultricies est. Suspendisse nec massa dui. Aliquam porttitor purus eu felis porttitor tempor. Nam mauris sapien, vestibulum a fringilla non, mattis vel quam. Donec lorem nibh, tincidunt et auctor a, porttitor rhoncus justo. Morbi magna nunc, tristique at luctus ac, laoreet et libero. Vivamus quis elit nec ante tristique vestibulum. Morbi eget commodo urna, ac ornare risus. Maecenas nec pharetra orci, id laoreet erat. Nullam felis ante, euismod nec ornare id, molestie sed libero. Fusce id nibh neque. Maecenas venenatis ullamcorper augue, ut cursus lectus placerat id. Praesent sollicitudin felis eget diam ullamcorper accumsan. Ut consectetur rutrum tincidunt. Suspendisse cursus ipsum ligula, ut ullamcorper dui eleifend nec. Sed viverra orci sed metus pellentesque, ac pretium nisi lacinia. Etiam in velit fermentum, iaculis dolor at, pulvinar orci. Nullam molestie et turpis nec congue. Pellentesque vitae neque ac justo imperdiet porttitor. Nullam nulla odio, efficitur sit amet ligula nec, accumsan vehicula lacus. Aenean id malesuada nisi. Cras pretium odio est, vitae hendrerit diam consectetur consequat. In nec tellus gravida velit pulvinar fermentum eu eget libero. Aliquam volutpat efficitur risus, at interdum mauris lacinia ut. Nulla ultrices quis nibh in maximus. Aenean imperdiet, purus ut viverra lobortis, lectus lacus euismod nunc, viverra congue massa eros ac mauris. Nulla dignissim quis risus eget tempor. Aenean nec eleifend felis.",
+      "projectId": "3ab6696e-e6bd-464c-bad9-e32bf34045e5",
+      "currencyId": 0,
+      "currencyName": "USD",
+      "projectTitle": "Generated Project #1",
+      "returnPercentage": 0.0339159417208733,
+      "riskRatingLevel": "High Risk",
+      "crowdfundingDeadline": "2026-05-03T00:00:00",
+      "crowdfundingTarget": 1813530.792430795,
+      "crowdfundedAmount": 1461801.928093435,
+      "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg",
+      "colorCodeHex": "684B69"
   },
   {
     "projectDetails": "L3XLT55E9SSP0EAZ2O9B6NF5DMOV2LEVA06SR8M0A7KYV4LW802VLNXE5UOLMMDHJJBW5FJQ0NYR07GJTC1A0BZ 7M89MA7 CELBORKFC3B03BY5SYBFLVMTNVFUGYCLZUAS3DT0R7AM0DN9JQCT4GQ8KVM9WCLZR 12MQ7H34D63FMTQ3JU9YBU5IF3MOE9PHMN3GMCDNYA9R 6JZ66TW25MFNPJ50YVIB5E5DNS0XLAUNT1BNHM2V7D45J0200VVUVI16OB38ZPC2366H30QA80L0HW9TSRARWUEETBKRGXIW5R26H1OD034FXMT3XEIY2ZSCV80V6LRD3969ST7EGTXNMRIPFI937GDZUKD6XWKTJ1JHG Z0DEQX5PXP 0IB3ZTAA5XFQ2RG1377Q52DTHUCQ29BS6BV3HJLFYO80MPMWD87M6I5FPV6Q4QS5IQWNK3C6ALS4ZTH95YMPMLIBS3XBK3S7IP0TDLWQMCME9GWJ540WM A735E2VYWGCFMI6U R433ZXNX6WLKC4QI644UQO4FTTHUH04RRCJNICCSV262ZP8119VO3J1PRILI5SNMUJXUG4V8IT9IUF1VGUWUCX732XEHLXV4VQURI1Z7R5SJM3 JKM4UFH6IQ3 FBVGASD0G8CZPIIUQC2MV9C75D35V4KA88LXNS3TBMWKBTYUXS OAANDTWQL24MA 6BHCF0Z1DJ3VFP96M54I9A24KB6VI1L5RU8PD9LRCLG04IFK80D9 8O717Q1VTTZPHQ1EX6ZABF9V0N6EURROJ6DGQL5S9QNXKC12P2Y9AT7 GTR3CX5LSVQ2NTZD873V23ZTNO9MHN65ZVENXHO13XOJBF9DWC61RNM 5XJLRTQYUA RHVJOAAHL0XPZ0H7SW5QVLJZ63HY9V35Q T155K12FHH1MN3F712V3NIV7ADYYMAYX3BC57P04SIVUI EZGIFNIKYQ0801HZW079C04GVI3DGRQC MI0U",

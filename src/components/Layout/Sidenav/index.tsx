@@ -1,9 +1,13 @@
 import React from 'react';
 import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
 import { logout } from '@multiversx/sdk-dapp/utils';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { NAVBAR_MENU_ITEMS, routeNames } from 'routes';
-import { faBars, faBoltLightning } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faBoltLightning,
+  faCircleUser
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ReactComponent as Logo } from './../../../assets/icons/refracto/logo.svg';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
@@ -19,7 +23,7 @@ import { getIsMobile } from 'utils';
 const Sidenav = () => {
   const { address } = useGetAccountInfo();
   const [hasNotifications, setHasNotifications] = React.useState(false);
-
+  const navigate = useNavigate();
   const handleLogout = () => {
     logout(`${window.location.origin}/`);
   };
@@ -100,39 +104,56 @@ const Sidenav = () => {
         <div className='header-content'>
           <nav className='navbar navbar-expand'>
             <div className='collapse navbar-collapse justify-content-between'>
-              {/* <div className='header-left'>
-                <SearchBar />
-              </div> */}
-              {/* <ul className='navbar-nav header-right'>
-                <li className='nav-item'>
-                  <CurrencyPicker />
-                </li>
-                <li
-                  className={`nav-item dropdown notification_dropdown ${
-                    hasNotifications ? 'has-notifications' : ''
-                  }`}
-                >
-                  <a
-                    className='nav-link '
-                    href='#'
-                    role='button'
-                    data-bs-toggle='dropdown'
-                    style={{ marginRight: '20px' }}
+              <div className='header-left'>{/* <SearchBar /> */}</div>
+              {isLoggedIn && (
+                <ul className='navbar-nav header-right'>
+                  <li className='nav-item'>
+                    <CurrencyPicker />
+                  </li>
+                  <li
+                    className={`nav-item dropdown notification_dropdown ${
+                      hasNotifications ? 'has-notifications' : ''
+                    }`}
                   >
-                    <NotificationsIcon />
-                  </a>
-                  <NotificationDropDownContent />
-                </li>
+                    <a
+                      className='nav-link '
+                      href='#'
+                      role='button'
+                      data-bs-toggle='dropdown'
+                      style={{ marginRight: '20px' }}
+                    >
+                      <NotificationsIcon />
+                    </a>
+                    <NotificationDropDownContent />
+                  </li>
 
-                <li className='nav-item dropdown notification_dropdown'>
-                  <a className='nav-link ' href='#'>
-                    <HelpIcon />
-                  </a>
-                </li>
-                <li className='nav-item'>
-                  <AccountInfo />
-                </li>
-              </ul> */}
+                  <li className='nav-item dropdown notification_dropdown'>
+                    <a className='nav-link ' href='#'>
+                      <HelpIcon />
+                    </a>
+                  </li>
+                  <li className='nav-item'>
+                    <AccountInfo />
+                  </li>
+                </ul>
+              )}
+              {!isLoggedIn && (
+                <ul className='navbar-nav header-right'>
+                  <li
+                    className='nav-item text-white'
+                    role='button'
+                    onClick={() => navigate(routeNames.unlock)}
+                  >
+                    <FontAwesomeIcon
+                      icon={faCircleUser}
+                      size='2x'
+                      color='white'
+                      className='mr-2'
+                    />
+                    Connect
+                  </li>
+                </ul>
+              )}
             </div>
           </nav>
         </div>
