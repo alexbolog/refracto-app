@@ -1,10 +1,10 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
-import { DateTime } from 'luxon';
 import ProjectInvestmentEvent from '../../../types/projectInvestmentEvent';
 import { useGetProjectInvestmentHistory } from '../../../contexts/InvestmentHistory/hooks/useGetProjectInvestmentHistory';
 import { InvestmentEvent } from '../../../types/investmentEvent';
 import { ApexOptions } from 'apexcharts';
+import { INVESTMENT_EVENT_TYPE } from '../../../enums';
 
 interface SeriesData {
   name: string;
@@ -26,7 +26,7 @@ const InvestmentAndReturnBarCharts = () => {
     let profit = 0;
 
     project.investments.forEach((investment: InvestmentEvent) => {
-      if (investment.eventType === 'INVEST') {
+      if (investment.eventType === INVESTMENT_EVENT_TYPE.INVEST) {
         if (investment.committedDifference) {
           invested += investment.committedDifference;
         }
@@ -39,6 +39,9 @@ const InvestmentAndReturnBarCharts = () => {
     series[0].data.push(invested);
     series[1].data.push(profit);
   });
+
+  // TODO: disable series invested/profit on click
+  // chart.toggleSeries('Income');
 
   const options: ApexOptions = {
     chart: {
