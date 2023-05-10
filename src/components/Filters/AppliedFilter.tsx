@@ -1,6 +1,6 @@
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ReactComponent as CancelButton } from './../../../assets/icons/refracto/cancel.svg';
+import { ReactComponent as CancelButton } from './../../assets/icons/refracto/cancel.svg';
 import React from 'react';
 
 export const AppliedFilter = ({
