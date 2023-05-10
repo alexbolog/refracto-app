@@ -1,19 +1,60 @@
+.listings-wrapper {
+    margin-top: 25px !important;
+}
+
 .listings img {
-    max-width: 60px !important;
+    /* max-width: 60px !important; */
+    max-height: 60px !important;
     border: 1px solid #D5DFE7;
     border-radius: 8px;
     box-shadow: 0px 4px 20px 0px #261A7033;
 }
-.listings td {
-    text-align: center;
+
+.listings .table-header {
+    text-align: start;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 167% */
+
+    /* blugrey 4 */
+    color: #364E63;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #DAE9F4;
 }
 
-.listings .investment-opportunity {
+.listings .table-content {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+    border-bottom: 1px solid #DAE9F4;
+    padding: 10px;
 }
 
-.listings .investment-opportunity div {
-    margin-left: 10px;
+.listings .table-content .proj-name {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    justify-content: start;
+    /* or 157% */
+
+    /* blugrey 4 */
+    color: #364E63;
+}
+
+.listings .table-content {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    /* identical to box height, or 200% */
+
+    /* blugrey-03 */
+    color: #6F869B;
+}
+
+.listings .table-content.last {
+    border: none !important;
 }
