@@ -70,7 +70,7 @@ const InvestmentAndReturnBarCharts = () => {
       text: 'Investment and Profit per Project',
       align: 'left'
     },
-    colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b']
+    colors: ['#6853E8', '#FFA600', '#FF6B45']
   };
 
   return (
@@ -79,8 +79,14 @@ const InvestmentAndReturnBarCharts = () => {
         <div className='card-header d-flex justify-content-between'>
           <h3>Investments and Returns</h3>
         </div>
-        <div id='card-body'>
-          <Chart options={options} series={series} type='bar' height={350} />
+        <div className='card-body row'>
+          <Chart
+            options={options}
+            series={series}
+            type='bar'
+            height={350}
+            className='col-9'
+          />
           <Sidebar />
         </div>
       </div>
