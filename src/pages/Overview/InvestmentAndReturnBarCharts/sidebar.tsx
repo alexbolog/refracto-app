@@ -7,46 +7,6 @@ const Sidebar = () => {
   return (
     <div className='col-3'>
       <div className='statistic-content' style={{ padding: 0 }}>
-        <div className='d-flex justify-content-between'>
-          <select
-            className='image-select default-select dashboard-select primary-light'
-            aria-label='Default'
-          >
-            <option selected>This Month</option>
-            <option value='1'>This Weeks</option>
-            <option value='2'>This Day</option>
-          </select>
-          <div className='dropdown custom-dropdown'>
-            <div className='btn sharp primary-light' data-bs-toggle='dropdown'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                xlinkHref='http://www.w3.org/1999/xlink'
-                width='18px'
-                height='18px'
-                viewBox='0 0 24 24'
-                version='1.1'
-              >
-                <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
-                  <rect x='0' y='0' width='24' height='24'></rect>
-                  <circle fill='#000000' cx='12' cy='5' r='2'></circle>
-                  <circle fill='#000000' cx='12' cy='12' r='2'></circle>
-                  <circle fill='#000000' cx='12' cy='19' r='2'></circle>
-                </g>
-              </svg>
-            </div>
-            <div className='dropdown-menu dropdown-menu-end'>
-              <a className='dropdown-item' href='javascript:void(0);'>
-                Option 1
-              </a>
-              <a className='dropdown-item' href='javascript:void(0);'>
-                Option 2
-              </a>
-              <a className='dropdown-item' href='javascript:void(0);'>
-                Option 3
-              </a>
-            </div>
-          </div>
-        </div>
         <div className='statistic-toggle my-3 text-legend'>
           <div className='toggle-btn'>
             <div>
