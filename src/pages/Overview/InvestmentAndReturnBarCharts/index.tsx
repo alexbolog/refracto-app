@@ -74,7 +74,7 @@ const InvestmentAndReturnBarCharts = () => {
   };
 
   return (
-    <div className='col-sm-12'>
+    <div className='col-12'>
       <div className='card'>
         <div className='card-header d-flex justify-content-between'>
           <h3>Investments and Returns</h3>

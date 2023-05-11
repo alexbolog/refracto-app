@@ -35,10 +35,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <div id='preloader2'>
         <div className='loader2 container'>
           <div className='row' style={{ marginTop: '25%' }}>
-            <div className='col-lg-12 col-sm-12 d-flex justify-content-center'>
+            <div className='col-12 d-flex justify-content-center'>
               <Logo style={{ maxWidth: '35%', maxHeight: '35%' }} />
             </div>
-            <div className='col-lg-12 col-sm-12 d-flex justify-content-center'>
+            <div className='col-12 d-flex justify-content-center'>
               <h2>Loading..</h2>
             </div>
           </div>

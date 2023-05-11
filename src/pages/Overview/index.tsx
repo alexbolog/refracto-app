@@ -53,7 +53,7 @@ const Overview = () => {
     <>
       {hasClaimableCredits && (
         <div className='row'>
-          <div className='col-sm-12'>
+          <div className='col-12'>
             <CustomAlert
               type={'primary'}
               isDismissable={false}
