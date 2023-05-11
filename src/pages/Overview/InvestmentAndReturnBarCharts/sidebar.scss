@@ -10,6 +10,16 @@
   color: #FFFFFF
 }
 
+.toggle-btn label.check {
+  background-color: #6853E8!important;
+  border: 0;
+}
+
+.toggle-btn.expense label.check {
+  background-color: #FFA600!important;
+  border: 0;
+}
+
 .text-legend *{
   color: #364E63!important;
 }
