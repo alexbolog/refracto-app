@@ -13,6 +13,8 @@ interface SeriesData {
 }
 
 const InvestmentAndReturnBarCharts = () => {
+  const chartRef = React.useRef<any>(null);
+
   const projectInvestments: ProjectInvestmentEvent[] =
     useGetProjectInvestmentHistory();
   // Prepare data for the chart
@@ -24,7 +26,6 @@ const InvestmentAndReturnBarCharts = () => {
 
   projectInvestments.forEach((project: ProjectInvestmentEvent) => {
     let invested = 0;
-    let profit = 0;
 
     project.investments.forEach((investment: InvestmentEvent) => {
       if (investment.eventType === INVESTMENT_EVENT_TYPE.INVEST) {
@@ -34,15 +35,16 @@ const InvestmentAndReturnBarCharts = () => {
       }
     });
 
-    profit = invested * project.returnPercentage;
+    let profit = invested * project.returnPercentage;
 
     categories.push(project.projectTitle);
     series[0].data.push(invested);
     series[1].data.push(profit);
   });
 
-  // TODO: disable series invested/profit on click
-  // chart.toggleSeries('Income');
+  const toggleSeries = (seriesName: string) => {
+    chartRef.current?.chart.toggleSeries(seriesName);
+  };
 
   const options: ApexOptions = {
     chart: {
@@ -81,13 +83,14 @@ const InvestmentAndReturnBarCharts = () => {
         </div>
         <div className='card-body row'>
           <Chart
+            ref={chartRef}
             options={options}
             series={series}
             type='bar'
             height={350}
             className='col-9'
           />
-          <Sidebar />
+          <Sidebar toggleSeriesHandler={toggleSeries} />
         </div>
       </div>
     </div>
