@@ -5,6 +5,7 @@ import { useGetProjectInvestmentHistory } from '../../../contexts/InvestmentHist
 import { InvestmentEvent } from '../../../types/investmentEvent';
 import { ApexOptions } from 'apexcharts';
 import { INVESTMENT_EVENT_TYPE } from '../../../enums';
+import Sidebar from './sidebar';
 
 interface SeriesData {
   name: string;
@@ -80,6 +81,7 @@ const InvestmentAndReturnBarCharts = () => {
         </div>
         <div id='card-body'>
           <Chart options={options} series={series} type='bar' height={350} />
+          <Sidebar />
         </div>
       </div>
     </div>
