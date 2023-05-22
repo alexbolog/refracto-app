@@ -1,6 +1,5 @@
-import { Filters } from 'components/Filters';
-import { ProjectContext } from 'contexts/ProjectContext';
 import * as React from 'react';
+import { ProjectContext } from 'contexts/ProjectContext';
 import { useContext } from 'react';
 import { ProjectListItem } from 'types/projectTypes';
 import { AvailableListings } from './AvailableListings';
@@ -8,6 +7,14 @@ import './style.css';
 import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-secondary-market.svg';
 import { FiltersV2 } from 'components/FiltersV2';
 import { EXPECTED_ROR_FILTER } from 'components/FiltersV2/Filters/ExpectedRORFilter';
+import { getExpectedRemainingDaysFilter } from 'components/FiltersV2/Filters/RemainingDaysFilter';
+import { getPriceRangeFilter } from 'components/FiltersV2/Filters/PriceRangeFilter';
+
+const filters = [
+  EXPECTED_ROR_FILTER,
+  getExpectedRemainingDaysFilter(0, 125),
+  getPriceRangeFilter(0, 2000)
+];
 
 const Marketplace = () => {
   const { marketplaceProjects } = useContext(ProjectContext);
@@ -32,7 +39,7 @@ const Marketplace = () => {
             <FiltersV2
               items={marketplaceProjects}
               onFilterChange={handleApplyFilters}
-              filters={[EXPECTED_ROR_FILTER]}
+              filters={filters}
             />
           </div>
         )}

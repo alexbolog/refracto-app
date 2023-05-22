@@ -31,6 +31,8 @@ const ReturnRangeFilter = ({
             min={0}
             max={100}
             onChange={(min, max) => onFilterChange({ min, max })}
+            title='Expected Return Range'
+            description='Drag the slider and selected your expected return range'
           />
         </div>
       </div>

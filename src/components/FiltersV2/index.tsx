@@ -5,6 +5,7 @@ import { RATING_SELECT_FILTER } from './Filters/RatingSelectFilter';
 import { Filter } from './Filters/Filter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import './style.css';
 
 export const FiltersV2 = ({
   items,
@@ -63,7 +64,6 @@ export const FiltersV2 = ({
   const clearFilter = (filter: Filter) => {
     const remainingItems: { [key: string]: any } = {};
     const objKeys = Object.keys(filterState);
-    debugger;
     for (let i = 0; i < objKeys.length; i++) {
       const key = objKeys[i];
       if (key === filter.id) {
@@ -89,13 +89,6 @@ export const FiltersV2 = ({
   }, [searchBarContent]);
 
   return (
-    // <div>
-    //   {filters.map((f, i) => (
-    //     <div className={`filter-box-item-${i}-${f.id}`}>
-    //       {f.filterComponent(f.defaultState, updateFilterState(f.id))}
-    //     </div>
-    //   ))}
-    // </div>
     <div className='container-fluid p-0'>
       <div className='row'>
         <div className='col-12'>
@@ -149,8 +142,4 @@ export const FiltersV2 = ({
       </div>
     </div>
   );
-};
-
-export const FilterRenderer = ({ filters }: { filters: Filter[] }) => {
-  const [state] = useState(filters[0].defaultState);
 };
