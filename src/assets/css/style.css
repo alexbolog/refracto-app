@@ -39236,18 +39236,18 @@ body>* {
     position: relative;
 }
 
-.toggle-btn.expense .check {
-    border: 3px solid #FFFA6F;
-}
+/*.toggle-btn.expense .check {*/
+/*    border: 3px solid #FFFA6F;*/
+/*}*/
 
-.toggle-btn.expense input:checked~.check {
-    background-color: var(--primary);
-    border: 3px solid #FFFA6F;
-}
+/*.toggle-btn.expense input:checked~.check {*/
+/*    background-color: var(--primary);*/
+/*    border: 3px solid #FFFA6F;*/
+/*}*/
 
-.toggle-btn.expense .check:after {
-    background-color: #FFFA6F;
-}
+/*.toggle-btn.expense .check:after {*/
+/*    background-color: #FFFA6F;*/
+/*}*/
 
 .progressbar {
     box-shadow: none;
