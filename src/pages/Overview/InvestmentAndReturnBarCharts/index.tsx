@@ -6,6 +6,7 @@ import { InvestmentEvent } from '../../../types/investmentEvent';
 import { ApexOptions } from 'apexcharts';
 import { INVESTMENT_EVENT_TYPE } from '../../../enums';
 import Sidebar from './sidebar';
+import { toLocaleStringOptions } from '../../../config';
 
 interface SeriesData {
   name: string;
@@ -60,11 +61,15 @@ const InvestmentAndReturnBarCharts = () => {
     chart: {
       type: 'bar',
       height: 350
+      // stacked: true,
     },
     plotOptions: {
       bar: {
+        borderRadius: 6,
         horizontal: false,
-        columnWidth: '5px'
+        columnWidth: '5px',
+        borderRadiusApplication: 'end',
+        rangeBarGroupRows: false
       }
     },
     dataLabels: {
@@ -76,6 +81,9 @@ const InvestmentAndReturnBarCharts = () => {
     yaxis: {
       title: {
         text: 'Amount'
+      },
+      labels: {
+        formatter: (num) => num.toLocaleString(undefined, toLocaleStringOptions)
       }
     },
     title: {

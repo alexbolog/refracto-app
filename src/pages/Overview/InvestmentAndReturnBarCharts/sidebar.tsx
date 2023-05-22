@@ -2,6 +2,7 @@ import React from 'react';
 
 import './sidebar.scss';
 import upArrowIcon from './upArrowIcon';
+import { toLocaleStringOptions } from '../../../config';
 
 const Sidebar = ({
   toggleSeriesHandler,
@@ -66,7 +67,13 @@ const Sidebar = ({
             <div className='students1 d-flex align-items-center justify-content-between '>
               <div className='content'>
                 <span>Invested</span>
-                <h2>€{investedTotal}</h2>
+                <h2>
+                  €
+                  {investedTotal.toLocaleString(
+                    undefined,
+                    toLocaleStringOptions
+                  )}
+                </h2>
                 <h5 className='up'>
                   <span className='text-white'>
                     {upArrowIcon()}
@@ -82,7 +89,9 @@ const Sidebar = ({
             <div className='students1 d-flex align-items-center justify-content-between '>
               <div className='content'>
                 <span>Return on Investment</span>
-                <h2>€{roiTotal}</h2>
+                <h2>
+                  €{roiTotal.toLocaleString(undefined, toLocaleStringOptions)}
+                </h2>
                 <h5 className='up' style={{ color: '#FFFFFF' }}>
                   <span className='text-white'>
                     {upArrowIcon()}
