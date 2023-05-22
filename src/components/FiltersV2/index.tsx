@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppliedFilter } from './AppliedFilter';
 import { DEADLINE_FILTER } from './Filters/DeadlineFilter';
 import { RETURN_RANGE_FILTER } from './Filters/ReturnRangeFilter';
@@ -26,12 +26,14 @@ export const FiltersV2 = ({
     [key: string]: any;
   }>({});
 
+  const [searchBarContent, setSearchBarContent] = useState('');
+
   const updateFilterState = (filterId: string) => (newState: any) => {
     const co = filterState;
     co[filterId] = newState;
     setFilterState(co);
-    applyFilters(co);
-    console.log('update filter state', co);
+    const filtered = applyFiltersAndSearchBar(co);
+    onFilterChange(filtered);
   };
 
   const applyFilters = (newFilters: { [key: string]: any }) => {
@@ -47,18 +49,15 @@ export const FiltersV2 = ({
         }
         shouldDisplay =
           shouldDisplay && currentFilter.shouldDisplay(currentItem, state);
-        console.log('should display', i, shouldDisplay);
       }
       if (shouldDisplay) {
         newItems.push(currentItem);
       }
     }
-    console.log('new items', initialItems);
-    console.log('filtered items', newItems);
-    onFilterChange(newItems);
+    // onFilterChange(newItems);
+    return newItems;
   };
 
-  //TODO: FIX FILTER CLEAR
   const clearFilter = (filter: Filter) => {
     const remainingItems: { [key: string]: any } = {};
     const objKeys = Object.keys(filterState);
@@ -72,8 +71,20 @@ export const FiltersV2 = ({
       }
     }
     setFilterState(remainingItems);
-    applyFilters(remainingItems);
+    const filteredItems = applyFiltersAndSearchBar(remainingItems);
+    onFilterChange(filteredItems);
   };
+
+  const applyFiltersAndSearchBar = (newFilters: { [key: string]: any }) => {
+    const filtered = applyFilters(newFilters);
+    return filtered.filter((f: any) =>
+      f.projectTitle.includes(searchBarContent)
+    );
+  };
+
+  useEffect(() => {
+    onFilterChange(applyFiltersAndSearchBar(filterState));
+  }, [searchBarContent]);
 
   return (
     // <div>
@@ -105,7 +116,7 @@ export const FiltersV2 = ({
                         type='text'
                         className='form-control h-100 search-bar-input'
                         placeholder='Search for a project'
-                        // onChange={(e) => handleUpdateInput(e.target.value)}
+                        onChange={(e) => setSearchBarContent(e.target.value)}
                       />
                     </div>
                   </div>
