@@ -23,6 +23,9 @@
 .text-legend *{
   color: #364E63!important;
 }
+.legend-checkbox {
+  pointer-events: none;
+}
 
 .card.expense.investment {
   background-color: #6853E8!important

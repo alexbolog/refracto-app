@@ -8,16 +8,28 @@ const Sidebar = ({
 }: {
   toggleSeriesHandler: (seriesName: string) => void;
 }) => {
+  const investedCheckboxRef = React.useRef<any>(null);
+  const roiCheckboxRef = React.useRef<any>(null);
+
   return (
     <div className='col-3'>
       <div className='statistic-content' style={{ padding: 0 }}>
         <div className='statistic-toggle my-3 text-legend'>
           <div
             className='toggle-btn'
-            onClick={() => toggleSeriesHandler('Invested')}
+            onClick={() => {
+              toggleSeriesHandler('Invested');
+              investedCheckboxRef.current.checked =
+                !investedCheckboxRef.current.checked;
+            }}
           >
             <div>
-              <input type='checkbox' name='toggle-btn' value='Investment' />
+              <input
+                ref={investedCheckboxRef}
+                type='checkbox'
+                name='toggle-btn'
+                className='legend-checkbox'
+              />
               <label htmlFor='checkbox3' className='check'></label>
             </div>
             <div>
@@ -26,13 +38,17 @@ const Sidebar = ({
           </div>
           <div
             className='toggle-btn expense'
-            onClick={() => toggleSeriesHandler('Profit')}
+            onClick={() => {
+              toggleSeriesHandler('Return on Investment');
+              roiCheckboxRef.current.checked = !roiCheckboxRef.current.checked;
+            }}
           >
             <div>
               <input
+                ref={roiCheckboxRef}
                 type='checkbox'
                 name='toggle-btn'
-                value='Return on Investment'
+                className='legend-checkbox'
               />
               <label htmlFor='checkbox2' className='check'></label>
             </div>

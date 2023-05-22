@@ -20,7 +20,7 @@ const InvestmentAndReturnBarCharts = () => {
   // Prepare data for the chart
   const series: SeriesData[] = [
     { name: 'Invested', data: [] },
-    { name: 'Profit', data: [] }
+    { name: 'Return on Investment', data: [] }
   ];
   const categories: string[] = [];
 
@@ -35,7 +35,7 @@ const InvestmentAndReturnBarCharts = () => {
       }
     });
 
-    let profit = invested * project.returnPercentage;
+    const profit = invested * project.returnPercentage;
 
     categories.push(project.projectTitle);
     series[0].data.push(invested);
