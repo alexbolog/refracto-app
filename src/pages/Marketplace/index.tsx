@@ -25,7 +25,7 @@ const Marketplace = () => {
         </div>
       </div>
       <div className='row'>
-        {filteredProjects.length > 0 && (
+        {marketplaceProjects.length > 0 && (
           <div className='col-12'>
             <Filters
               initialItems={marketplaceProjects}
