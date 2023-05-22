@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
-import ProjectInvestmentEvent from '../../../types/projectInvestmentEvent';
+import ProjectInvestmentHistory from '../../../types/projectInvestmentHistory';
 import { useGetProjectInvestmentHistory } from '../../../contexts/InvestmentHistory/hooks/useGetProjectInvestmentHistory';
 import { InvestmentEvent } from '../../../types/investmentEvent';
 import { ApexOptions } from 'apexcharts';
@@ -15,7 +15,7 @@ interface SeriesData {
 const InvestmentAndReturnBarCharts = () => {
   const chartRef = React.useRef<any>(null);
 
-  const projectInvestments: ProjectInvestmentEvent[] =
+  const projectInvestments: ProjectInvestmentHistory[] =
     useGetProjectInvestmentHistory();
   // Prepare data for the chart
   const series: SeriesData[] = [
@@ -24,23 +24,33 @@ const InvestmentAndReturnBarCharts = () => {
   ];
   const categories: string[] = [];
 
-  projectInvestments.forEach((project: ProjectInvestmentEvent) => {
+  let tempInvestedTotal = 0;
+  let tempRoiTotal = 0;
+
+  projectInvestments.forEach((crtProjectHistory: ProjectInvestmentHistory) => {
     let invested = 0;
 
-    project.investments.forEach((investment: InvestmentEvent) => {
-      if (investment.eventType === INVESTMENT_EVENT_TYPE.INVEST) {
-        if (investment.committedDifference) {
-          invested += investment.committedDifference;
+    crtProjectHistory.investments.forEach((crtInvestment: InvestmentEvent) => {
+      if (crtInvestment.eventType === INVESTMENT_EVENT_TYPE.INVEST) {
+        if (crtInvestment.committedDifference) {
+          invested += crtInvestment.committedDifference;
         }
       }
     });
 
-    const profit = invested * project.returnPercentage;
+    const roi = invested * crtProjectHistory.returnPercentage;
 
-    categories.push(project.projectTitle);
+    tempInvestedTotal += invested;
+    tempRoiTotal += roi;
+
+    categories.push(crtProjectHistory.projectTitle);
     series[0].data.push(invested);
-    series[1].data.push(profit);
+    series[1].data.push(roi);
   });
+
+  const [investedTotal, setInvestedTotal] =
+    React.useState<number>(tempInvestedTotal);
+  const [roiTotal, setRoiTotal] = React.useState<number>(tempRoiTotal);
 
   const toggleSeries = (seriesName: string) => {
     chartRef.current?.chart.toggleSeries(seriesName);
@@ -54,7 +64,7 @@ const InvestmentAndReturnBarCharts = () => {
     plotOptions: {
       bar: {
         horizontal: false,
-        columnWidth: '55%'
+        columnWidth: '5px'
       }
     },
     dataLabels: {
@@ -90,7 +100,11 @@ const InvestmentAndReturnBarCharts = () => {
             height={350}
             className='col-9'
           />
-          <Sidebar toggleSeriesHandler={toggleSeries} />
+          <Sidebar
+            toggleSeriesHandler={toggleSeries}
+            investedTotal={investedTotal}
+            roiTotal={roiTotal}
+          />
         </div>
       </div>
     </div>

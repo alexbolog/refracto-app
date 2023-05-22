@@ -1,9 +1,9 @@
-import ProjectInvestmentEvent from '../../types/projectInvestmentEvent';
+import ProjectInvestmentHistory from '../../types/projectInvestmentHistory';
 import projectInvestmentHistory from '../../dbNew/projectInvestmentHistory.json';
 
-export const getProjectInvestmentHistory = (): ProjectInvestmentEvent[] => {
+export const getProjectInvestmentHistory = (): ProjectInvestmentHistory[] => {
   return projectInvestmentHistory.map((projectInvestment: any) => {
-    projectInvestment = projectInvestment as ProjectInvestmentEvent;
+    projectInvestment = projectInvestment as ProjectInvestmentHistory;
     return projectInvestment;
   });
 };

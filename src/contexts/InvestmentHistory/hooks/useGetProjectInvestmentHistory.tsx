@@ -1,10 +1,11 @@
-import ProjectInvestmentEvent from '../../../types/projectInvestmentEvent';
+import ProjectInvestmentHistory from '../../../types/projectInvestmentHistory';
 import React from 'react';
 import { getProjectInvestmentHistory } from '../../../apiRequests/backend/projectInvestmentHistoryApi';
 
-export const useGetProjectInvestmentHistory = (): ProjectInvestmentEvent[] => {
-  const [projectInvestmentHistory, setProjectInvestmentHistory] =
-    React.useState<ProjectInvestmentEvent[]>(getProjectInvestmentHistory());
+export const useGetProjectInvestmentHistory =
+  (): ProjectInvestmentHistory[] => {
+    const [projectInvestmentHistory, setProjectInvestmentHistory] =
+      React.useState<ProjectInvestmentHistory[]>(getProjectInvestmentHistory());
 
-  return projectInvestmentHistory;
-};
+    return projectInvestmentHistory;
+  };

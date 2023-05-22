@@ -4,9 +4,13 @@ import './sidebar.scss';
 import upArrowIcon from './upArrowIcon';
 
 const Sidebar = ({
-  toggleSeriesHandler
+  toggleSeriesHandler,
+  investedTotal,
+  roiTotal
 }: {
   toggleSeriesHandler: (seriesName: string) => void;
+  investedTotal: number;
+  roiTotal: number;
 }) => {
   const investedCheckboxRef = React.useRef<any>(null);
   const roiCheckboxRef = React.useRef<any>(null);
@@ -62,7 +66,7 @@ const Sidebar = ({
             <div className='students1 d-flex align-items-center justify-content-between '>
               <div className='content'>
                 <span>Invested</span>
-                <h2>$ 12,890,00</h2>
+                <h2>€{investedTotal}</h2>
                 <h5 className='up'>
                   <span className='text-white'>
                     {upArrowIcon()}
@@ -78,7 +82,7 @@ const Sidebar = ({
             <div className='students1 d-flex align-items-center justify-content-between '>
               <div className='content'>
                 <span>Return on Investment</span>
-                <h2>$12,890,00</h2>
+                <h2>€{roiTotal}</h2>
                 <h5 className='up' style={{ color: '#FFFFFF' }}>
                   <span className='text-white'>
                     {upArrowIcon()}
