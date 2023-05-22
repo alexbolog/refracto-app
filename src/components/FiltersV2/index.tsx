@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { AppliedFilter } from './AppliedFilter';
 import { DEADLINE_FILTER } from './Filters/DeadlineFilter';
 import { RETURN_RANGE_FILTER } from './Filters/ReturnRangeFilter';
 import { RATING_SELECT_FILTER } from './Filters/RatingSelectFilter';
@@ -8,12 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 export const FiltersV2 = ({
-  //   filters,
   items,
   onFilterChange,
   filters
 }: {
-  //   filters: Filter[];
   items: any[];
   onFilterChange: (newItems: any[]) => void;
   filters?: Filter[];
