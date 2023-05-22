@@ -10,17 +10,22 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 export const FiltersV2 = ({
   //   filters,
   items,
-  onFilterChange
+  onFilterChange,
+  filters
 }: {
   //   filters: Filter[];
   items: any[];
   onFilterChange: (newItems: any[]) => void;
+  filters?: Filter[];
 }) => {
-  const filters: Filter[] = [
+  const defaultFilters: Filter[] = [
     RETURN_RANGE_FILTER,
     RATING_SELECT_FILTER,
     DEADLINE_FILTER
   ];
+  const [enabledFilters, setEnabledFilters] = useState<Filter[]>(
+    filters ?? defaultFilters
+  );
   const [initialItems] = useState(items);
   const [filterState, setFilterState] = useState<{
     [key: string]: any;
@@ -41,8 +46,8 @@ export const FiltersV2 = ({
     for (let i = 0; i < initialItems.length; i++) {
       const currentItem = initialItems[i];
       let shouldDisplay = true;
-      for (let j = 0; j < filters.length && shouldDisplay; j++) {
-        const currentFilter = filters[j];
+      for (let j = 0; j < enabledFilters.length && shouldDisplay; j++) {
+        const currentFilter = enabledFilters[j];
         const state = newFilters[currentFilter?.id];
         if (state === undefined) {
           continue;
@@ -121,7 +126,7 @@ export const FiltersV2 = ({
                     </div>
                   </div>
                   <div className='col-lg-6 col-sm-2 col-md-2 d-flex justify-content-end ml-auto w-auto filter-box-buttons'>
-                    {filters.map((f, i) => (
+                    {enabledFilters.map((f, i) => (
                       <div key={`filter-box-item-${i}-${f.id}`}>
                         {f.filterComponent(
                           f.defaultState,
@@ -136,7 +141,7 @@ export const FiltersV2 = ({
           </div>
         </div>
         <div className='col applied-filters-container'>
-          {filters.map((f, idx) =>
+          {enabledFilters.map((f, idx) =>
             filterState[f.id] === undefined
               ? null
               : f.appliedFilterComponent(filterState[f.id], () =>

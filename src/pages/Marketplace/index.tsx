@@ -6,6 +6,7 @@ import { ProjectListItem } from 'types/projectTypes';
 import { AvailableListings } from './AvailableListings';
 import './style.css';
 import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-secondary-market.svg';
+import { FiltersV2 } from 'components/FiltersV2';
 
 const Marketplace = () => {
   const { marketplaceProjects } = useContext(ProjectContext);
@@ -27,9 +28,9 @@ const Marketplace = () => {
       <div className='row'>
         {marketplaceProjects.length > 0 && (
           <div className='col-12'>
-            <Filters
-              initialItems={marketplaceProjects}
-              onApplyFilters={handleApplyFilters}
+            <FiltersV2
+              items={marketplaceProjects}
+              onFilterChange={handleApplyFilters}
             />
           </div>
         )}
