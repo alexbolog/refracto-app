@@ -2,28 +2,28 @@ import { DateTime } from 'luxon';
 import DateRangePicker from '../DateRangePicker';
 import * as React from 'react';
 
-const GraphDateFilters = (props: {
+const GraphDateFilters = ({
+  onReset,
+  onDatePick
+}: {
   onReset: () => void;
   onDatePick: (startDate: DateTime, endDate?: DateTime) => void;
 }) => {
   const now = DateTime.now();
 
   const handleOneYearFilter = () => {
-    props.onDatePick(now.minus({ years: 1 }));
+    onDatePick(now.minus({ years: 1 }));
   };
   const handleOneQuarterFilter = () => {
-    props.onDatePick(now.minus({ quarters: 1 }));
+    onDatePick(now.minus({ quarters: 1 }));
   };
   const handleOneMonthFilter = () => {
-    props.onDatePick(now.minus({ months: 1 }));
+    onDatePick(now.minus({ months: 1 }));
   };
 
   return (
     <div>
-      <button
-        className='btn btn-outline-primary mr-2 active'
-        onClick={props.onReset}
-      >
+      <button className='btn btn-outline-primary mr-2 active' onClick={onReset}>
         Reset
       </button>
       <button
@@ -44,7 +44,7 @@ const GraphDateFilters = (props: {
       >
         Last Month
       </button>
-      <DateRangePicker onChange={props.onDatePick}></DateRangePicker>
+      <DateRangePicker onChange={onDatePick}></DateRangePicker>
     </div>
   );
 };
