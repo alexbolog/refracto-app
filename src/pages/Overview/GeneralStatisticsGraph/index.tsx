@@ -25,6 +25,7 @@ import ExpandFooter from '../../../components/ExpandFooter';
 import { InvestmentEvent } from '../../../types/investmentEvent';
 import useGetInvestmentHistory from '../../../contexts/InvestmentHistory/hooks/useGetInvestmentHistory';
 import { INVESTMENT_EVENT_TYPE } from '../../../enums';
+import GraphDateFilters from '../../../components/GraphDateFilters';
 
 const GeneralStatisticsGraph = () => {
   const dashboardGraph: InvestmentEvent[] = useGetInvestmentHistory();
@@ -46,27 +47,10 @@ const GeneralStatisticsGraph = () => {
 
   const chartRef = React.useRef<any>(null);
 
-  const handleOneYearFilter = () => {
-    const now = DateTime.now();
-    const oneYearAgo = now.minus({ years: 1 });
-    chartRef?.current.zoomScale('x', { min: oneYearAgo, max: now }, 'normal');
-  };
-  const handleOneQuarterFilter = () => {
-    const now = DateTime.now();
-    const oneQuarterAgo = now.minus({ quarters: 1 });
-    chartRef?.current.zoomScale(
-      'x',
-      { min: oneQuarterAgo, max: now },
-      'normal'
-    );
-  };
-  const handleOneMonthFilter = () => {
-    const now = DateTime.now();
-    const oneMonthAgo = now.minus({ months: 1 });
-    chartRef?.current.zoomScale('x', { min: oneMonthAgo, max: now }, 'normal');
-  };
-
-  const onDatePick = (startDate: DateTime, endDate: DateTime) => {
+  const onDatePick = (
+    startDate: DateTime,
+    endDate: DateTime = DateTime.now()
+  ) => {
     chartRef?.current.zoomScale(
       'x',
       { min: startDate, max: endDate },
@@ -112,7 +96,6 @@ const GeneralStatisticsGraph = () => {
 
   const getAnnotationForEvent = (el: InvestmentEvent) => {
     switch (el.eventType) {
-      // TODO: change below to enum
       case INVESTMENT_EVENT_TYPE.INVEST: {
         return {
           label: 'Invested ' + el.committedDifference + '$',
@@ -273,33 +256,7 @@ const GeneralStatisticsGraph = () => {
       <div className='card'>
         <div className='card-header d-flex justify-content-between'>
           <h3>General Overview Statistics</h3>
-          <div>
-            <button
-              className='btn btn-outline-primary mr-2 active'
-              onClick={resetZoom}
-            >
-              Reset
-            </button>
-            <button
-              className='btn btn-outline-primary mr-2'
-              onClick={handleOneYearFilter}
-            >
-              Last Year
-            </button>
-            <button
-              className='btn btn-outline-primary mr-2'
-              onClick={handleOneQuarterFilter}
-            >
-              Last Quarter
-            </button>
-            <button
-              className='btn btn-outline-primary mr-2'
-              onClick={handleOneMonthFilter}
-            >
-              Last Month
-            </button>
-            <DateRangePicker onChange={onDatePick}></DateRangePicker>
-          </div>
+          <GraphDateFilters onReset={resetZoom} onDatePick={onDatePick} />
         </div>
         <div
           className='card-body d-flex justify-content-center'

@@ -7,6 +7,8 @@ import { ApexOptions } from 'apexcharts';
 import { INVESTMENT_EVENT_TYPE } from '../../../enums';
 import Sidebar from './sidebar';
 import { toLocaleStringOptions } from '../../../config';
+import GraphDateFilters from '../../../components/GraphDateFilters';
+import { DateTime } from 'luxon';
 
 interface SeriesData {
   name: string;
@@ -93,11 +95,19 @@ const InvestmentAndReturnBarCharts = () => {
     colors: ['#6853E8', '#FFA600', '#FF6B45']
   };
 
+  function resetZoom() {
+    console.log('reset zoom');
+  }
+  function onDatePick(startDate: DateTime, endDate?: DateTime) {
+    console.log('date pick', startDate, endDate);
+  }
+
   return (
     <div className='col-12'>
       <div className='card'>
         <div className='card-header d-flex justify-content-between'>
           <h3>Investments and Returns</h3>
+          <GraphDateFilters onReset={resetZoom} onDatePick={onDatePick} />
         </div>
         <div className='card-body row'>
           <Chart
