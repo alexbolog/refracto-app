@@ -7,8 +7,8 @@ import { ApexOptions } from 'apexcharts';
 import { INVESTMENT_EVENT_TYPE } from '../../../enums';
 import Sidebar from './sidebar';
 import { toLocaleStringOptions } from '../../../config';
-import GraphDateFilters from '../../../components/GraphDateFilters';
 import { DateTime } from 'luxon';
+import Switch from 'react-switch';
 
 interface SeriesData {
   name: string;
@@ -17,6 +17,7 @@ interface SeriesData {
 
 const InvestmentAndReturnBarCharts = () => {
   const chartRef = React.useRef<any>(null);
+  const [showArchivedProjects, setShowArchivedProjects] = React.useState(false);
 
   const projectInvestments: ProjectInvestmentHistory[] =
     useGetProjectInvestmentHistory();
@@ -107,7 +108,19 @@ const InvestmentAndReturnBarCharts = () => {
       <div className='card'>
         <div className='card-header d-flex justify-content-between'>
           <h3>Investments and Returns</h3>
-          <GraphDateFilters onReset={resetZoom} onDatePick={onDatePick} />
+          <Switch
+            checked={showArchivedProjects}
+            onChange={setShowArchivedProjects}
+            checkedIcon={false}
+            uncheckedIcon={false}
+            handleDiameter={24}
+            offColor='#D5DFE7'
+            offHandleColor='#6F869B'
+            onColor='#E0E4FF'
+            onHandleColor='#6853E8'
+            draggable={true}
+            className={'archived-switch'}
+          />
         </div>
         <div className='card-body row'>
           <Chart
