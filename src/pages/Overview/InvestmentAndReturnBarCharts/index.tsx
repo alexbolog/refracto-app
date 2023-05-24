@@ -7,9 +7,9 @@ import { ApexOptions } from 'apexcharts';
 import { InvestmentEventType, isProjectStatusActive } from '../../../enums';
 import Sidebar from './sidebar';
 import { toLocaleStringOptions } from '../../../config';
-import Switch from 'react-switch';
 
 import './style.scss';
+import ToggleSwitch from '../../../components/ToggleSwitch';
 
 interface SeriesData {
   name: string;
@@ -123,18 +123,9 @@ const InvestmentAndReturnBarCharts = () => {
             <label className='archived-switch-label'>
               Show Archived Projects
             </label>
-            <Switch
+            <ToggleSwitch
               checked={showArchivedProjects}
               onChange={setShowArchivedProjects}
-              checkedIcon={false}
-              uncheckedIcon={false}
-              handleDiameter={24}
-              offColor='#D5DFE7'
-              offHandleColor='#6F869B'
-              onColor='#E0E4FF'
-              onHandleColor='#6853E8'
-              draggable={true}
-              className={'archived-switch'}
             />
           </div>
         </div>
