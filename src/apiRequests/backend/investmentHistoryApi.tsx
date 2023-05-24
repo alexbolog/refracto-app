@@ -1,5 +1,5 @@
 import dashboardGraph from '../../dbNew/investmentHistory.json';
-import { INVESTMENT_EVENT_TYPE } from '../../enums';
+import { InvestmentEventType } from '../../enums';
 import { InvestmentEvent } from '../../types/investmentEvent';
 
 export const getInvestmentHistory = (): InvestmentEvent[] => {
@@ -14,16 +14,16 @@ export const getInvestmentHistory = (): InvestmentEvent[] => {
 
 const mapStringToInvestmentEventType = (
   eventTypeString: string
-): INVESTMENT_EVENT_TYPE => {
+): InvestmentEventType => {
   switch (eventTypeString) {
     case 'DEPOSIT':
-      return INVESTMENT_EVENT_TYPE.DEPOSIT;
+      return InvestmentEventType.DEPOSIT;
     case 'INVEST':
-      return INVESTMENT_EVENT_TYPE.INVEST;
+      return InvestmentEventType.INVEST;
     case 'PAYOUT':
-      return INVESTMENT_EVENT_TYPE.PAYOUT;
+      return InvestmentEventType.PAYOUT;
     case 'WITHDRAW':
-      return INVESTMENT_EVENT_TYPE.WITHDRAW;
+      return InvestmentEventType.WITHDRAW;
     default:
       throw new Error('Invalid investment event type');
   }

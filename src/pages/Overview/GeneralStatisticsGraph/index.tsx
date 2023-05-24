@@ -24,7 +24,7 @@ import { formatDate } from '../../../utils';
 import ExpandFooter from '../../../components/ExpandFooter';
 import { InvestmentEvent } from '../../../types/investmentEvent';
 import useGetInvestmentHistory from '../../../contexts/InvestmentHistory/hooks/useGetInvestmentHistory';
-import { INVESTMENT_EVENT_TYPE } from '../../../enums';
+import { InvestmentEventType } from '../../../enums';
 import GraphDateFilters from '../../../components/GraphDateFilters';
 
 const GeneralStatisticsGraph = () => {
@@ -96,25 +96,25 @@ const GeneralStatisticsGraph = () => {
 
   const getAnnotationForEvent = (el: InvestmentEvent) => {
     switch (el.eventType) {
-      case INVESTMENT_EVENT_TYPE.INVEST: {
+      case InvestmentEventType.INVEST: {
         return {
           label: 'Invested ' + el.committedDifference + '$',
           color: '#6853e8'
         };
       }
-      case INVESTMENT_EVENT_TYPE.PAYOUT: {
+      case InvestmentEventType.PAYOUT: {
         return {
           label: 'Payout ' + el.availableDifference + '$',
           color: '#63b179'
         };
       }
-      case INVESTMENT_EVENT_TYPE.DEPOSIT: {
+      case InvestmentEventType.DEPOSIT: {
         return {
           label: 'Deposited ' + el.availableDifference + '$',
           color: '#1586D1'
         };
       }
-      case INVESTMENT_EVENT_TYPE.WITHDRAW: {
+      case InvestmentEventType.WITHDRAW: {
         return {
           label:
             'Withdrew ' +

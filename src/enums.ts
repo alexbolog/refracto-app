@@ -3,6 +3,8 @@ export enum RiskRatingLevel {}
 export enum AssetClass {}
 export enum InvestmentType {}
 
+// TODO: change enums types and members to Camelcase
+//  https://www.typescriptlang.org/docs/handbook/enums.html
 export enum PaymentStatuses {
   CLAIMED = 0,
   EXPECTED = 1,
@@ -14,9 +16,22 @@ export enum AVAILABLE_CURRENCIES {
   USD = 2
 }
 
-export enum INVESTMENT_EVENT_TYPE {
+export enum InvestmentEventType {
   PAYOUT = 'PAYOUT',
   INVEST = 'INVEST',
   DEPOSIT = 'DEPOSIT',
   WITHDRAW = 'WITHDRAW'
+}
+
+export enum ProjectStatus {
+  Planned = 0,
+  Crowdfunding = 1,
+  Cancelled = 2,
+  Active = 3,
+  Delayed = 4,
+  Finished = 5
+}
+
+export function isProjectStatusActive(status: ProjectStatus): boolean {
+  return status === ProjectStatus.Active || status === ProjectStatus.Delayed;
 }

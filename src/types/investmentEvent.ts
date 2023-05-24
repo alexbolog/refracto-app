@@ -1,4 +1,4 @@
-import { INVESTMENT_EVENT_TYPE } from '../enums';
+import { InvestmentEventType } from '../enums';
 
 export interface InvestmentEvent {
   date: string; // ISO format
@@ -6,7 +6,7 @@ export interface InvestmentEvent {
   committedBalance: number;
   total: number;
   // TODO: merge below into event field?
-  eventType?: INVESTMENT_EVENT_TYPE;
+  eventType?: InvestmentEventType;
   availableDifference?: number;
   committedDifference?: number;
 }
