@@ -1,12 +1,10 @@
 import * as React from 'react';
 import { ProjectContext } from 'contexts/ProjectContext';
 import { useContext, useState } from 'react';
-import { Filters } from './Filters';
-import { ProjectListFilterType } from './Filters/ProjectListFilterType';
 import { Project } from './Project';
 import { ProjectListItem } from 'types/projectTypes';
 import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-available-projects.svg';
-import { DateTime } from 'luxon';
+import { FiltersV2 } from 'components/FiltersV2';
 
 const AvailableProjects = () => {
   const { availableProjects } = useContext(ProjectContext);
@@ -14,56 +12,8 @@ const AvailableProjects = () => {
   const [filteredProjects, setFilteredProjects] =
     useState<ProjectListItem[]>(availableProjects);
 
-  const handleApplyFilters = (filters: ProjectListFilterType) => {
-    setFilteredProjects(
-      availableProjects.filter((p) => shouldDisplayProject(p, filters))
-    );
-  };
-
-  const shouldDisplayProject = (
-    project: ProjectListItem,
-    currentAppliedFilters: ProjectListFilterType
-  ) => {
-    let shouldDisplay = true;
-    if (currentAppliedFilters.nameSearch !== undefined) {
-      shouldDisplay =
-        shouldDisplay &&
-        project.projectTitle.includes(currentAppliedFilters.nameSearch);
-    }
-    if (currentAppliedFilters.minReturnRange !== undefined) {
-      shouldDisplay =
-        shouldDisplay &&
-        project.returnPercentage * 100 >= currentAppliedFilters.minReturnRange;
-    }
-    if (currentAppliedFilters.maxReturnRange !== undefined) {
-      shouldDisplay =
-        shouldDisplay &&
-        project.returnPercentage * 100 <= currentAppliedFilters.maxReturnRange;
-    }
-    if (
-      currentAppliedFilters.riskRatingLevels !== undefined &&
-      currentAppliedFilters.riskRatingLevels.length > 0 &&
-      currentAppliedFilters.riskRatingLevels.length < 3
-    ) {
-      const riskLevelCheck =
-        currentAppliedFilters.riskRatingLevels.filter((lvl: string) =>
-          project.riskRatingLevel.includes(lvl)
-        ).length > 0;
-      shouldDisplay = shouldDisplay && riskLevelCheck;
-    }
-
-    const cfDeadline = DateTime.fromISO(project.crowdfundingDeadline);
-    if (currentAppliedFilters.projectDeadlineStart !== undefined) {
-      shouldDisplay =
-        shouldDisplay &&
-        cfDeadline >= currentAppliedFilters.projectDeadlineStart;
-    }
-
-    if (currentAppliedFilters.projectDeadlineEnd !== undefined) {
-      shouldDisplay =
-        shouldDisplay && cfDeadline <= currentAppliedFilters.projectDeadlineEnd;
-    }
-    return shouldDisplay;
+  const handleApplyFilters = (filteredItems: ProjectListItem[]) => {
+    setFilteredProjects(filteredItems);
   };
 
   return (
@@ -71,7 +21,10 @@ const AvailableProjects = () => {
       <div className='row'>
         {availableProjects.length > 0 && (
           <div className='col-12'>
-            <Filters onApplyFilters={handleApplyFilters} />
+            <FiltersV2
+              items={availableProjects}
+              onFilterChange={handleApplyFilters}
+            />
           </div>
         )}
         {availableProjects.length === 0 && (
@@ -82,7 +35,10 @@ const AvailableProjects = () => {
 
         {filteredProjects.length > 0 &&
           filteredProjects.map((p, i) => (
-            <div className='col-12' key={`available-project-list-item-${i}-${p.projectId}`}>
+            <div
+              className='col-12'
+              key={`available-project-list-item-${i}-${p.projectId}`}
+            >
               <Project project={p} />
             </div>
           ))}

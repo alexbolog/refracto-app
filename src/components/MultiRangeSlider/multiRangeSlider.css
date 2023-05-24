@@ -4,6 +4,11 @@
     width: 100%;
     border-radius: 5px;
     margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.custom-track {
+    background-color: blue !important;
 }
 
 /* Styles for the slider thumb */
@@ -13,9 +18,23 @@
     border-radius: 50%;
     background-color: #007bff;
     cursor: grab;
+    margin-bottom: 10px;
 }
 
 /* Styles for the slider active state */
 .slider .thumb.active {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.slider-container {
+    /* background-color: white; */
+    padding: 10px;
+    min-width: 200px;
+}
+
+.slider-header {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
 }

@@ -4,6 +4,7 @@ import projectInfo from '../../dbNew/projectPageNotConnected.json';
 import fullProjectInfo from '../../dbNew/fullProjectPageDetails.json';
 import {
   FullProjectPageDetails,
+  MarketplaceListing,
   ProjectListItem,
   ProjectPageDetails
 } from 'types/projectTypes';
@@ -11,6 +12,10 @@ import { fromIso } from '../../utils';
 
 export const getAvailableProjects = (): ProjectListItem[] => {
   return projectList.map((l: any) => l as ProjectListItem);
+};
+
+export const getMarketplaceListings = (): ProjectListItem[] => {
+  return projectList.map((l: any) => l as MarketplaceListing);
 };
 
 export const getProjectInfo = (projectId: string): ProjectPageDetails => {

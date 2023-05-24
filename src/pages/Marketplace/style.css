@@ -1,0 +1,92 @@
+.listings-wrapper {
+    margin-top: 25px !important;
+}
+
+.listings .mbl {
+    display: none;
+}
+
+.listings .table-header.mbl {
+    border: none !important;
+}
+
+.listings img {
+    /* max-width: 60px !important; */
+    max-height: 60px !important;
+    border: 1px solid #D5DFE7;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px 0px #261A7033;
+}
+
+.listings .table-header {
+    text-align: start;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 167% */
+
+    /* blugrey 4 */
+    color: #364E63;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #DAE9F4;
+}
+
+.listings .table-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #DAE9F4;
+    padding: 10px;
+}
+
+.listings .table-content .proj-name {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    justify-content: start;
+    /* or 157% */
+
+    /* blugrey 4 */
+    color: #364E63;
+}
+
+.listings .table-content {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    /* identical to box height, or 200% */
+
+    /* blugrey-03 */
+    color: #6F869B;
+}
+
+.listings .table-content.last {
+    border: none !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    .dsk.table-header {
+        display: none !important;
+    }
+    .mbl.table-header {
+        display: inline-block;
+        padding: 0;
+    }
+    .listings img {
+        max-height: 100% !important;
+    }
+    .row .table-content {
+        padding: 15px 5px 15px 5px;
+    }
+    .row .table-content .btn {
+        margin-top: 10px;
+    }
+    .listings .table-content .proj-name {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+}
