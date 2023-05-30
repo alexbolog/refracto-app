@@ -22,7 +22,7 @@ const RatingSelectFilter = ({
 
   useEffect(() => {
     onFilterChange(selectedRatings);
-  }, [selectedRatings, onFilterChange]);
+  }, [selectedRatings]);
 
   return (
     <div className='rating-select'>
