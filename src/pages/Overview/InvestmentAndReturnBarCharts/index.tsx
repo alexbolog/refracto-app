@@ -10,6 +10,7 @@ import { toLocaleStringOptions } from '../../../config';
 
 import './style.scss';
 import ToggleSwitch from '../../../components/ToggleSwitch';
+import Dropdown from '../../../components/Dropdown';
 
 interface SeriesData {
   name: string;
@@ -20,12 +21,20 @@ const InvestmentAndReturnBarCharts = () => {
   const chartRef = React.useRef<any>(null);
   const [showArchivedProjects, setShowArchivedProjects] = React.useState(false);
 
-  const [projectNames, setProjectNames] = React.useState<string[]>([]);
+  const [allProjects, setAllProjects] = React.useState<
+    { label: string; value: string }[]
+  >([]);
+  const [filteredProjects, setFilteredProjects] = React.useState<
+    { label: string; value: string }[]
+  >([]);
   const [investedTotal, setInvestedTotal] = React.useState<number>(0);
   const [roiTotal, setRoiTotal] = React.useState<number>(0);
   const projectInvestments: ProjectInvestmentHistory[] =
     useGetProjectInvestmentHistory();
-  // Prepare data for the chart
+
+  const [series, setSeries] = React.useState<SeriesData[]>([]);
+  const [options, setOptions] = React.useState<ApexOptions>({});
+
   const initialSeries = [
     { name: 'Invested', data: [] },
     { name: 'Return on Investment', data: [] }
@@ -67,18 +76,29 @@ const InvestmentAndReturnBarCharts = () => {
     colors: ['#6853E8', '#FFA600', '#FF6B45']
   };
 
-  const [series, setSeries] = React.useState<SeriesData[]>(initialSeries);
-  const [options, setOptions] = React.useState<ApexOptions>({});
-  let tempInvestedTotal = 0;
-  let tempRoiTotal = 0;
-  const tempProjectNamesToShow: string[] = [];
-
   useEffect(() => {
-    projectInvestments
+    const newProjects = projectInvestments
       .filter(
         (crtProjectHistory: ProjectInvestmentHistory) =>
           showArchivedProjects ||
           isProjectStatusActive(crtProjectHistory.status)
+      )
+      .map((crtProjectHistory: ProjectInvestmentHistory) => ({
+        label: crtProjectHistory.projectTitle,
+        value: crtProjectHistory.projectId
+      }));
+    setAllProjects(newProjects);
+    setFilteredProjects(newProjects);
+  }, [showArchivedProjects]);
+
+  useEffect(() => {
+    let tempInvestedTotal = 0;
+    let tempRoiTotal = 0;
+    projectInvestments
+      .filter((crtProjectHistory: ProjectInvestmentHistory) =>
+        filteredProjects.some(
+          (project) => project.value === crtProjectHistory.projectId
+        )
       )
       .forEach((crtProjectHistory: ProjectInvestmentHistory) => {
         let invested = 0;
@@ -100,7 +120,6 @@ const InvestmentAndReturnBarCharts = () => {
 
         tempInvestedTotal += invested;
         tempRoiTotal += roi;
-        tempProjectNamesToShow.push(crtProjectHistory.projectTitle);
 
         newOptions.xaxis?.categories.push(crtProjectHistory.projectTitle);
         newSeries[0].data.push(invested);
@@ -108,34 +127,21 @@ const InvestmentAndReturnBarCharts = () => {
 
         setSeries(newSeries);
         setOptions(newOptions);
-        setProjectNames(tempProjectNamesToShow);
       });
     setInvestedTotal(tempInvestedTotal);
     setRoiTotal(tempRoiTotal);
-  }, [showArchivedProjects]);
+  }, [filteredProjects]);
 
   const toggleSeries = (seriesName: string) => {
     chartRef.current?.chart.toggleSeries(seriesName);
   };
 
-  // const setProjectVisibility = (
-  //   projectName: string,
-  //   visible: boolean
-  // ): void => {
-  //   // hide the x-axis category with the same name
-  //   const tempOptions = options;
-  //   if (visible) {
-  //     tempOptions.xaxis?.categories.push(projectName);
-  //   } else {
-  //     const foundCategoryIndex = options.xaxis?.categories.findIndex(
-  //       (crtCategory: string) => crtCategory === projectName
-  //     );
-  //     if (foundCategoryIndex !== undefined && foundCategoryIndex !== -1) {
-  //       tempOptions.xaxis?.categories.splice(foundCategoryIndex, 1);
-  //     }
-  //   }
-  //   setOptions(tempOptions);
-  // };
+  const onFilterChange = (selectedProjectNames: string[]) => {
+    const newFilteredProjects = allProjects.filter((project) =>
+      selectedProjectNames.includes(project.value)
+    );
+    setFilteredProjects(newFilteredProjects);
+  };
 
   return (
     <div className='col-12'>
@@ -150,7 +156,11 @@ const InvestmentAndReturnBarCharts = () => {
               checked={showArchivedProjects}
               onChange={setShowArchivedProjects}
             />
-            {/*<RatingSelect onChange={() => {}} />*/}
+            <Dropdown
+              options={allProjects}
+              onChange={onFilterChange}
+              label={'Select Projects'}
+            />
           </div>
         </div>
         <div className='card-body row'>
