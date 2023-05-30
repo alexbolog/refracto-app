@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import MultiRangeSlider from 'components/MultiRangeSlider';
 import { Filter } from './Filter';
 import { AppliedFilter } from '../AppliedFilter';
 
@@ -38,6 +37,7 @@ const RatingSelectFilter = ({
         className='btn btn-primary dropdown-toggle dropdown'
         type='button'
         data-bs-toggle='dropdown'
+        data-bs-auto-close='outside'
         aria-expanded='false'
       >
         Select Rating
