@@ -1,92 +1,39 @@
 import React, { useEffect, useState } from 'react';
-import MultiRangeSlider from 'components/MultiRangeSlider';
 import { Filter } from './Filter';
 import { AppliedFilter } from '../AppliedFilter';
+import Dropdown from 'components/Dropdown';
+
+interface RatingSelectFilterProps {
+  state: string[];
+  onFilterChange: (newState: string[]) => void;
+}
 
 const RatingSelectFilter = ({
   state,
   onFilterChange
-}: {
-  state: string[];
-  onFilterChange: (newState: any) => void;
-}) => {
-  const [lowRiskSelected, setLowRiskSelected] = useState(state.includes('Low'));
-  const [mediumRiskSelected, setMediumRiskSelected] = useState(
-    state.includes('Medium')
-  );
-  const [highRiskSelected, setHighRiskSelected] = useState(
-    state.includes('High')
-  );
+}: RatingSelectFilterProps) => {
+  const options = [
+    { label: 'Low Risk', value: 'Low' },
+    { label: 'Medium Risk', value: 'Medium' },
+    { label: 'High Risk', value: 'High' }
+  ];
+
+  const [selectedRatings, setSelectedRatings] = useState<string[]>(state);
 
   useEffect(() => {
-    const ratings = [];
-    if (lowRiskSelected) {
-      ratings.push('Low');
-    }
-    if (mediumRiskSelected) {
-      ratings.push('Medium');
-    }
-    if (highRiskSelected) {
-      ratings.push('High');
-    }
-    onFilterChange(ratings);
-  }, [lowRiskSelected, mediumRiskSelected, highRiskSelected]);
+    onFilterChange(selectedRatings);
+  }, [selectedRatings, onFilterChange]);
 
   return (
     <div className='rating-select'>
-      <button
-        className='btn btn-primary dropdown-toggle dropdown'
-        type='button'
-        data-bs-toggle='dropdown'
-        aria-expanded='false'
-      >
-        Select Rating
-      </button>
-      <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
-        <li>
-          <div className='dropdown-item'>
-            <input
-              type='checkbox'
-              defaultChecked={lowRiskSelected}
-              id='low-risk-checkbox'
-              onChange={() => setLowRiskSelected(!lowRiskSelected)}
-            />
-            <label htmlFor='low-risk-checkbox' className='ml-3'>
-              Low Risk
-            </label>
-          </div>
-        </li>
-        <li>
-          <div className='dropdown-item'>
-            <input
-              type='checkbox'
-              defaultChecked={mediumRiskSelected}
-              id='medium-risk-checkbox'
-              onChange={() => setMediumRiskSelected(!mediumRiskSelected)}
-            />
-            <label htmlFor='medium-risk-checkbox' className='ml-3'>
-              Medium Risk
-            </label>
-          </div>
-        </li>
-        <li>
-          <div className='dropdown-item'>
-            <input
-              type='checkbox'
-              defaultChecked={highRiskSelected}
-              id='high-risk-checkbox'
-              onChange={() => setHighRiskSelected(!highRiskSelected)}
-            />
-            <label htmlFor='high-risk-checkbox' className='ml-3'>
-              High Risk
-            </label>
-          </div>
-        </li>
-      </ul>
+      <Dropdown
+        options={options}
+        onChange={setSelectedRatings}
+        label={'Select Rating'}
+      />
     </div>
   );
 };
-
 export const RATING_SELECT_FILTER: Filter = {
   id: 'risk-rating-filter',
   defaultState: ['Low', 'Medium', 'High'],

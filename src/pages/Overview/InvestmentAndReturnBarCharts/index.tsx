@@ -10,7 +10,6 @@ import { toLocaleStringOptions } from '../../../config';
 
 import './style.scss';
 import ToggleSwitch from '../../../components/ToggleSwitch';
-import { RatingSelect } from '../../AvailableProjects/Filters/FilterBox/RatingSelect';
 
 interface SeriesData {
   name: string;
