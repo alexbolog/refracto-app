@@ -10,6 +10,7 @@ import { toLocaleStringOptions } from '../../../config';
 
 import './style.scss';
 import ToggleSwitch from '../../../components/ToggleSwitch';
+import { RatingSelect } from '../../AvailableProjects/Filters/FilterBox/RatingSelect';
 
 interface SeriesData {
   name: string;
@@ -20,6 +21,7 @@ const InvestmentAndReturnBarCharts = () => {
   const chartRef = React.useRef<any>(null);
   const [showArchivedProjects, setShowArchivedProjects] = React.useState(false);
 
+  const [projectNames, setProjectNames] = React.useState<string[]>([]);
   const [investedTotal, setInvestedTotal] = React.useState<number>(0);
   const [roiTotal, setRoiTotal] = React.useState<number>(0);
   const projectInvestments: ProjectInvestmentHistory[] =
@@ -70,6 +72,7 @@ const InvestmentAndReturnBarCharts = () => {
   const [options, setOptions] = React.useState<ApexOptions>({});
   let tempInvestedTotal = 0;
   let tempRoiTotal = 0;
+  const tempProjectNamesToShow: string[] = [];
 
   useEffect(() => {
     projectInvestments
@@ -98,6 +101,7 @@ const InvestmentAndReturnBarCharts = () => {
 
         tempInvestedTotal += invested;
         tempRoiTotal += roi;
+        tempProjectNamesToShow.push(crtProjectHistory.projectTitle);
 
         newOptions.xaxis?.categories.push(crtProjectHistory.projectTitle);
         newSeries[0].data.push(invested);
@@ -105,6 +109,7 @@ const InvestmentAndReturnBarCharts = () => {
 
         setSeries(newSeries);
         setOptions(newOptions);
+        setProjectNames(tempProjectNamesToShow);
       });
     setInvestedTotal(tempInvestedTotal);
     setRoiTotal(tempRoiTotal);
@@ -113,6 +118,25 @@ const InvestmentAndReturnBarCharts = () => {
   const toggleSeries = (seriesName: string) => {
     chartRef.current?.chart.toggleSeries(seriesName);
   };
+
+  // const setProjectVisibility = (
+  //   projectName: string,
+  //   visible: boolean
+  // ): void => {
+  //   // hide the x-axis category with the same name
+  //   const tempOptions = options;
+  //   if (visible) {
+  //     tempOptions.xaxis?.categories.push(projectName);
+  //   } else {
+  //     const foundCategoryIndex = options.xaxis?.categories.findIndex(
+  //       (crtCategory: string) => crtCategory === projectName
+  //     );
+  //     if (foundCategoryIndex !== undefined && foundCategoryIndex !== -1) {
+  //       tempOptions.xaxis?.categories.splice(foundCategoryIndex, 1);
+  //     }
+  //   }
+  //   setOptions(tempOptions);
+  // };
 
   return (
     <div className='col-12'>
@@ -127,6 +151,7 @@ const InvestmentAndReturnBarCharts = () => {
               checked={showArchivedProjects}
               onChange={setShowArchivedProjects}
             />
+            {/*<RatingSelect onChange={() => {}} />*/}
           </div>
         </div>
         <div className='card-body row'>
