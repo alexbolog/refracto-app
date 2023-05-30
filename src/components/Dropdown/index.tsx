@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface DropdownOption {
   label: string;
@@ -13,6 +13,10 @@ interface DropdownProps {
 
 const Dropdown = ({ options, onChange, label }: DropdownProps) => {
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
+
+  useEffect(() => {
+    setSelectedValues(options.map((option) => option.value));
+  }, [options]);
 
   const handleOptionChange = (value: string) => {
     const updatedSelectedValues = selectedValues.includes(value)
