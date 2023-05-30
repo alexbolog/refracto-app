@@ -1,16 +1,19 @@
 import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
 import React from 'react';
-import { ProjectListItem } from 'types/projectTypes';
+import { MarketplaceListing, ProjectListItem } from 'types/projectTypes';
 import useGetAvailableProjects from './hooks/useGetAvailableProjects';
+import useGetMarketplaceProjects from './hooks/useGetMarketplaceProjects';
 
 export interface IProjectContext {
   isLoading: boolean;
   availableProjects: ProjectListItem[];
+  marketplaceProjects: MarketplaceListing[];
 }
 
 const defaultState: IProjectContext = {
   isLoading: true,
-  availableProjects: []
+  availableProjects: [],
+  marketplaceProjects: []
 };
 
 export const ProjectContext =
@@ -27,6 +30,7 @@ export const ProjectContextProvider = ({
   const [isLoading, setIsLoading] = React.useState(true);
 
   const availableProjects = useGetAvailableProjects();
+  const marketplaceProjects = useGetMarketplaceProjects();
 
   React.useEffect(() => {
     setIsLoading(false);
@@ -36,7 +40,8 @@ export const ProjectContextProvider = ({
     <ProjectContext.Provider
       value={{
         isLoading,
-        availableProjects
+        availableProjects,
+        marketplaceProjects
       }}
     >
       {children}

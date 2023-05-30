@@ -15653,8 +15653,8 @@ svg.pulse-svg .third-circle {
 }
 
 .header-profile2 img {
-    height: 3rem;
-    width: 3rem;
+    height: 3rem !important;
+    width: 3rem !important;
     border-radius: 0.938rem;
     margin-left: 0.8rem;
     object-fit: cover;

@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import './multiRangeSlider.css';
 import Slider from 'react-slider';
+import './multiRangeSlider.css';
 
 const MultiRangeSlider = ({
   min,
   max,
-  onChange
+  onChange,
+  title,
+  description
 }: {
   min: number;
   max: number;
   onChange: (min: number, max: number) => void;
+  title: string;
+  description: string;
 }) => {
   const [values, setValues] = useState([min, max]);
   const handleChange = (newValues: number[]) => {
@@ -17,9 +21,9 @@ const MultiRangeSlider = ({
     onChange(newValues[0], newValues[1]);
   };
   return (
-    <div style={{ background: '#fff' }}>
-      <h2>Return Range</h2>
-      <p>Use the slider to select a rate of return range:</p>
+    <div className='slider-container'>
+      <div className='slider-header'>{title}</div>
+      <div className='slider-description'>{description}</div>
       <Slider
         className='slider'
         value={values}
@@ -27,6 +31,10 @@ const MultiRangeSlider = ({
         min={min}
         max={max}
         step={1}
+        withTracks={true}
+        trackClassName='custom-track'
+        pearling
+        minDistance={1}
       />
     </div>
   );

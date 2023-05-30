@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import MultiRangeSlider from 'components/MultiRangeSlider';
+import { Filter } from './Filter';
+import { AppliedFilter } from '../AppliedFilter';
 
-export const RatingSelect = ({
-  onChange
+const RatingSelectFilter = ({
+  state,
+  onFilterChange
 }: {
-  onChange: (ratings: string[]) => void;
+  state: string[];
+  onFilterChange: (newState: any) => void;
 }) => {
-  const [lowRiskSelected, setLowRiskSelected] = useState(true);
-  const [mediumRiskSelected, setMediumRiskSelected] = useState(true);
-  const [highRiskSelected, setHighRiskSelected] = useState(true);
+  const [lowRiskSelected, setLowRiskSelected] = useState(state.includes('Low'));
+  const [mediumRiskSelected, setMediumRiskSelected] = useState(
+    state.includes('Medium')
+  );
+  const [highRiskSelected, setHighRiskSelected] = useState(
+    state.includes('High')
+  );
 
   useEffect(() => {
     const ratings = [];
@@ -20,7 +29,7 @@ export const RatingSelect = ({
     if (highRiskSelected) {
       ratings.push('High');
     }
-    onChange(ratings);
+    onFilterChange(ratings);
   }, [lowRiskSelected, mediumRiskSelected, highRiskSelected]);
 
   return (
@@ -76,4 +85,31 @@ export const RatingSelect = ({
       </ul>
     </div>
   );
+};
+
+export const RATING_SELECT_FILTER: Filter = {
+  id: 'risk-rating-filter',
+  defaultState: ['Low', 'Medium', 'High'],
+  filterComponent: (_, onFilterChange) => (
+    <RatingSelectFilter state={_} onFilterChange={onFilterChange} />
+  ),
+  appliedFilterComponent: (state, resetState) =>
+    state.length === 3 ? (
+      <></>
+    ) : (
+      <AppliedFilter
+        filterText='Rating'
+        filterValue={state.length === 0 ? 'None' : state.join(', ')}
+        onRemoveFilter={resetState}
+      />
+    ),
+  shouldDisplay: (item, state) => {
+    if (state !== undefined && state.length !== undefined && state.length > 0) {
+      const riskLevelCheck =
+        state.filter((lvl: string) => item.riskRatingLevel.includes(lvl))
+          .length > 0;
+      return riskLevelCheck;
+    }
+    return false;
+  }
 };

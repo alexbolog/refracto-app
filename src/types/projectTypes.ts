@@ -73,9 +73,25 @@ export interface RepaymentScheduleEntry {
 }
 
 export interface QuestionAndAnswer {
-  ownerAddress: string;
-  question: string;
-  answer: string;
-  questionDate: string; // ISO format
-  answerDate: string; // ISO format
+  id: string;
+  parentId?: string;
+  ownerAddress?: string;
+  ownerFirstName?: string;
+  ownerLastName?: string;
+  ownerImgSrc?: string;
+  text: string;
+  insertDate: string; // ISO format
+  isPendingModeration?: boolean
+}
+
+export interface MarketplaceListing {
+  projectId: string;
+  projectTitle: string;
+  returnPercentage: number;
+  riskRatingLevel: string;
+  crowdfundingDeadline: string; // ISO format
+  crowdfundingTarget: number;
+  crowdfundedAmount: number;
+  colorCodeHex: string;
+  thumbnailSrc: string;
 }
