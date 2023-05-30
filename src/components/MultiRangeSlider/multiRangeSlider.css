@@ -8,7 +8,15 @@
 }
 
 .custom-track {
-    background-color: blue !important;
+    height: 3px;
+    margin-top:8px;
+}
+
+.custom-track-0, .custom-track-2 {
+    background-color: #D5DFE7
+}
+.custom-track-1 {
+    background-color: #6853E8
 }
 
 /* Styles for the slider thumb */
@@ -16,7 +24,7 @@
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background-color: #007bff;
+    background-color: #6853E8;
     cursor: grab;
     margin-bottom: 10px;
 }
