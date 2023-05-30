@@ -14,7 +14,7 @@
     z-index: 2 !important;
 }
 
-.dropdown {
+.filter-box-wrapper .dropdown {
     font-weight: 400 !important;
     font-size: 12px !important;
     padding-left: 10px !important;

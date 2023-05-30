@@ -149,18 +149,19 @@ const InvestmentAndReturnBarCharts = () => {
       <div className='card'>
         <div className='card-header d-flex justify-content-between'>
           <h3>Investments and Returns</h3>
-          <div className='barchart-filter-container'>
-            <label className='archived-switch-label'>
+          <div className='barchart-filter-container d-flex'>
+            <label className='archived-switch-label mr-2 mt-3'>
               Show Archived Projects
             </label>
             <ToggleSwitch
               checked={showArchivedProjects}
               onChange={setShowArchivedProjects}
+              className='mr-3 mt-2'
             />
             <Dropdown
               options={allProjects}
               onChange={onFilterChange}
-              label={'Select Projects'}
+              label={'Select Filter'}
             />
           </div>
         </div>

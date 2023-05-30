@@ -3,10 +3,12 @@ import React from 'react';
 
 function ToggleSwitch({
   checked,
-  onChange
+  onChange,
+  className
 }: {
   checked: boolean;
   onChange: (newValue: boolean) => void;
+  className?: string;
 }) {
   return (
     <Switch
@@ -20,7 +22,7 @@ function ToggleSwitch({
       onColor='#E0E4FF'
       onHandleColor='#6853E8'
       draggable={true}
-      className={'archived-switch'}
+      className={'archived-switch ' + className}
     />
   );
 }
