@@ -41,6 +41,9 @@ const InvestmentAndReturnBarCharts = () => {
   ];
 
   const initialOptions: ApexOptions = {
+    noData: {
+      text: 'No projects selected.'
+    },
     chart: {
       type: 'bar',
       height: 350
@@ -94,6 +97,8 @@ const InvestmentAndReturnBarCharts = () => {
   useEffect(() => {
     let tempInvestedTotal = 0;
     let tempRoiTotal = 0;
+    const newSeries: SeriesData[] = initialSeries;
+    const newOptions: ApexOptions = initialOptions;
     projectInvestments
       .filter((crtProjectHistory: ProjectInvestmentHistory) =>
         filteredProjects.some(
@@ -102,9 +107,6 @@ const InvestmentAndReturnBarCharts = () => {
       )
       .forEach((crtProjectHistory: ProjectInvestmentHistory) => {
         let invested = 0;
-
-        const newSeries: SeriesData[] = initialSeries;
-        const newOptions: ApexOptions = initialOptions;
 
         crtProjectHistory.investments.forEach(
           (crtInvestment: InvestmentEvent) => {
@@ -124,10 +126,9 @@ const InvestmentAndReturnBarCharts = () => {
         newOptions.xaxis?.categories.push(crtProjectHistory.projectTitle);
         newSeries[0].data.push(invested);
         newSeries[1].data.push(roi);
-
-        setSeries(newSeries);
-        setOptions(newOptions);
       });
+    setSeries(newSeries);
+    setOptions(newOptions);
     setInvestedTotal(tempInvestedTotal);
     setRoiTotal(tempRoiTotal);
   }, [filteredProjects]);
