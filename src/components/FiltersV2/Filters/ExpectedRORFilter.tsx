@@ -73,7 +73,7 @@ export const EXPECTED_ROR_FILTER: Filter = {
     if (state.max !== undefined) {
       max = state.max;
     }
-    const target = item.returnPercentage * 100;
+    const target = item.expectedRor * 100;
     return min <= target && target <= max;
   }
 };

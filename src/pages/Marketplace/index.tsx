@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ProjectContext } from 'contexts/ProjectContext';
 import { useContext } from 'react';
-import { ProjectListItem } from 'types/projectTypes';
+import { MarketplaceListing, ProjectListItem } from 'types/projectTypes';
 import { AvailableListings } from './AvailableListings';
 import './style.css';
 import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-secondary-market.svg';
@@ -19,10 +19,11 @@ const filters = [
 const Marketplace = () => {
   const { marketplaceProjects } = useContext(ProjectContext);
 
-  const [filteredProjects, setFilteredProjects] =
-    React.useState<ProjectListItem[]>(marketplaceProjects);
+  const [filteredProjects, setFilteredProjects] = React.useState<
+    MarketplaceListing[]
+  >(marketplaceProjects);
 
-  const handleApplyFilters = (filteredItems: ProjectListItem[]) => {
+  const handleApplyFilters = (filteredItems: MarketplaceListing[]) => {
     setFilteredProjects(filteredItems);
   };
 
