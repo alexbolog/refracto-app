@@ -37,7 +37,7 @@ const RemainingDaysFilter = ({
             max={max}
             onChange={(min, max) => onFilterChange({ min, max })}
             title='Remaining Days'
-            description='Drag the slider and selected your remaining days tresholds'
+            description='Drag the slider and select your remaining days tresholds'
           />
         </div>
       </div>

@@ -37,7 +37,7 @@ const PriceRangeFilter = ({
             max={max}
             onChange={(min, max) => onFilterChange({ min, max })}
             title='Price range'
-            description='Drag the slider and selected your desired price range'
+            description='Drag the slider and select your desired price range'
           />
         </div>
       </div>
