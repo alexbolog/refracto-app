@@ -73,7 +73,7 @@ export const getExpectedRemainingDaysFilter = (
         />
       ),
     shouldDisplay: (item, state) => {
-      if (item.returnPercentage === undefined) {
+      if (item.daysLeft === undefined) {
         return false;
       }
       let min = 0;
@@ -85,7 +85,7 @@ export const getExpectedRemainingDaysFilter = (
       if (state.max !== undefined) {
         max = state.max;
       }
-      const target = item.returnPercentage * 100;
+      const target = item.daysLeft;
       return min <= target && target <= max;
     }
   };

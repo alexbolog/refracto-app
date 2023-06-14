@@ -93,4 +93,5 @@ export interface MarketplaceListing {
   price: number;
   repayment: number;
   expectedRor: number;
+  daysLeft: number;
 }

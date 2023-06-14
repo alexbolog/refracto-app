@@ -59,14 +59,14 @@ export const getPriceRangeFilter = (min: number, max: number): Filter => {
       ) : (
         <AppliedFilter
           filterText='Price'
-          filterValue={`${state.min === undefined ? '0' : state.min} - ${
+          filterValue={`${state.min === undefined ? '0' : state.min}$ - ${
             state.max
-          }`}
+          }$`}
           onRemoveFilter={resetState}
         />
       ),
     shouldDisplay: (item, state) => {
-      if (item.returnPercentage === undefined) {
+      if (item.price === undefined) {
         return false;
       }
       let min = 0;
@@ -78,7 +78,7 @@ export const getPriceRangeFilter = (min: number, max: number): Filter => {
       if (state.max !== undefined) {
         max = state.max;
       }
-      const target = item.returnPercentage * 100;
+      const target = item.price;
       return min <= target && target <= max;
     }
   };

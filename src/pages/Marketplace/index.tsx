@@ -10,12 +10,6 @@ import { EXPECTED_ROR_FILTER } from 'components/FiltersV2/Filters/ExpectedRORFil
 import { getExpectedRemainingDaysFilter } from 'components/FiltersV2/Filters/RemainingDaysFilter';
 import { getPriceRangeFilter } from 'components/FiltersV2/Filters/PriceRangeFilter';
 
-const filters = [
-  EXPECTED_ROR_FILTER,
-  getExpectedRemainingDaysFilter(0, 125),
-  getPriceRangeFilter(0, 2000)
-];
-
 const Marketplace = () => {
   const { marketplaceProjects } = useContext(ProjectContext);
 
@@ -26,6 +20,26 @@ const Marketplace = () => {
   const handleApplyFilters = (filteredItems: MarketplaceListing[]) => {
     setFilteredProjects(filteredItems);
   };
+
+  const filters = [
+    EXPECTED_ROR_FILTER,
+    getExpectedRemainingDaysFilter(
+      0,
+      Math.max.apply(
+        null,
+        marketplaceProjects.map((mp) => mp.daysLeft)
+      )
+    ),
+    getPriceRangeFilter(
+      0,
+      Math.round(
+        Math.max.apply(
+          null,
+          marketplaceProjects.map((mp) => mp.price)
+        )
+      )
+    )
+  ];
 
   return (
     <div className='container-fluid w-100 p-0'>
