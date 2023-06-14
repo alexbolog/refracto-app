@@ -30,7 +30,7 @@ const ExpectedRORFilter = ({
         <div className='p-3'>
           <MultiRangeSlider
             title='Expected Rate of Return'
-            description='Drag the slider and selected your expected rate of return'
+            description='Drag the slider and select your expected rate of return'
             min={0}
             max={100}
             onChange={(min, max) => onFilterChange({ min, max })}
