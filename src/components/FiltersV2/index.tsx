@@ -92,40 +92,30 @@ export const FiltersV2 = ({
     <div className='container-fluid p-0'>
       <div className='row'>
         <div className='col-12'>
-          <div className='card w-100 filter-box-wrapper'>
-            <div className='card-body border-0'>
-              <div className='container-fluid p-0 m-0'>
-                <div className='row'>
-                  <div
-                    className='col-lg-6 col-sm-10 col-md-10 w-auto'
-                    style={{ minWidth: '50%' }}
-                  >
-                    <div className='input-group search-bar-container'>
-                      <span className='input-group-text search-icon'>
-                        <FontAwesomeIcon
-                          icon={faMagnifyingGlass}
-                          className='text-primary'
-                        />
-                      </span>
-                      <input
-                        type='text'
-                        className='form-control h-100 search-bar-input'
-                        placeholder='Search for a project'
-                        onChange={(e) => setSearchBarContent(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className='col-lg-6 col-sm-2 col-md-2 d-flex justify-content-end ml-auto w-auto filter-box-buttons'>
-                    {enabledFilters.map((f, i) => (
-                      <div key={`filter-box-item-${i}-${f.id}`}>
-                        {f.filterComponent(
-                          f.defaultState,
-                          updateFilterState(f.id)
-                        )}
-                      </div>
-                    ))}
-                  </div>
+          <div className='card w-100 filter-card-wrapper'>
+            <div className='card-body border-0 filter-box-wrapper'>
+              <div className='filter-input-box'>
+                <div className='input-group search-bar-container'>
+                  <span className='input-group-text search-icon'>
+                    <FontAwesomeIcon
+                      icon={faMagnifyingGlass}
+                      className='text-primary'
+                    />
+                  </span>
+                  <input
+                    type='text'
+                    className='form-control h-100 search-bar-input'
+                    placeholder='Search for a project'
+                    onChange={(e) => setSearchBarContent(e.target.value)}
+                  />
                 </div>
+              </div>
+              <div className='d-flex justify-content-end filter-box-buttons'>
+                {enabledFilters.map((f, i) => (
+                  <div key={`filter-box-item-${i}-${f.id}`}>
+                    {f.filterComponent(f.defaultState, updateFilterState(f.id))}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
