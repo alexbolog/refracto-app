@@ -1,6 +1,6 @@
-import { ActiveProjectInvestment } from '../../types/projectTypes';
-import { toLocaleStringOptions } from '../../config';
-import React, { useCallback } from 'react';
+import {ActiveProjectInvestment} from '../../types/projectTypes';
+import {toLocaleStringOptions} from '../../config';
+import React from 'react';
 
 const DonutProjectList = ({
   chartData,
@@ -17,7 +17,7 @@ const DonutProjectList = ({
   activeProjectInvestments: ActiveProjectInvestment[] | undefined;
   expanded: boolean;
 }) => {
-  const getList = useCallback(() => {
+  const getList = React.useCallback(() => {
     const labels = expanded
       ? chartData?.labels
       : chartData?.labels?.slice(0, 5);

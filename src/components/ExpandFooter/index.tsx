@@ -8,7 +8,7 @@ const ExpandFooter = ({
   analyticsEvent = 'expand'
 }: {
   onExpandToggle?: () => void;
-  analyticsEvent: string;
+  analyticsEvent?: string;
 }) => {
   const onExpand = () => {
     // TODO: add Google Analytics
