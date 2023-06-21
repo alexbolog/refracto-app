@@ -78,7 +78,7 @@ export const RETURN_RANGE_FILTER: Filter = {
   filterComponent: (_, onFilterChange) => (
     <ReturnRangeFilter onFilterChange={onFilterChange} />
   ),
-  appliedFilterComponent: (state, resetState, isMobile) =>
+  appliedFilterComponent: (state, resetState) =>
     (state.min === undefined && state.max === undefined) ||
     (state.min === 0 && state.max === 100) ? (
       <></>
@@ -89,7 +89,6 @@ export const RETURN_RANGE_FILTER: Filter = {
           state.max === undefined ? '100' : state.max
         }%`}
         onRemoveFilter={resetState}
-        isMobile={isMobile}
       />
     ),
   shouldDisplay: (item, state) => {

@@ -147,7 +147,7 @@ export const RATING_SELECT_FILTER: Filter = {
   filterComponent: (_, onFilterChange) => (
     <RatingSelectFilter state={_} onFilterChange={onFilterChange} />
   ),
-  appliedFilterComponent: (state, resetState, isMobile) =>
+  appliedFilterComponent: (state, resetState) =>
     state.length === 3 ? (
       <></>
     ) : (
@@ -155,7 +155,6 @@ export const RATING_SELECT_FILTER: Filter = {
         filterText='Rating'
         filterValue={state.length === 0 ? 'None' : state.join(', ')}
         onRemoveFilter={resetState}
-        isMobile={isMobile}
       />
     ),
   shouldDisplay: (item, state) => {

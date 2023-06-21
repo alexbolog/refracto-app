@@ -40,7 +40,7 @@ export const DEADLINE_FILTER: Filter = {
   filterComponent: (_, onFilterChange) => (
     <DeadlineFilter onFilterChange={onFilterChange} />
   ),
-  appliedFilterComponent: (state, resetState, isMobile) =>
+  appliedFilterComponent: (state, resetState) =>
     state.startDate === undefined && state.endDate === undefined ? (
       <></>
     ) : state.startDate !== undefined && state.endDate === undefined ? (
@@ -48,14 +48,12 @@ export const DEADLINE_FILTER: Filter = {
         filterText='After'
         filterValue={formatDate(state.startDate, DateTime.DATE_SHORT)}
         onRemoveFilter={resetState}
-        isMobile={isMobile}
       />
     ) : state.startDate === undefined && state.endDate !== undefined ? (
       <AppliedFilter
         filterText='Before'
         filterValue={formatDate(state.endDate, DateTime.DATE_SHORT)}
         onRemoveFilter={resetState}
-        isMobile={isMobile}
       />
     ) : (
       <AppliedFilter
@@ -65,7 +63,6 @@ export const DEADLINE_FILTER: Filter = {
           DateTime.DATE_SHORT
         )} → ${formatDate(state.endDate, DateTime.DATE_SHORT)} `}
         onRemoveFilter={resetState}
-        isMobile={isMobile}
       />
     ),
   shouldDisplay: (item, state) => {

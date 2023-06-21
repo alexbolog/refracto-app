@@ -21,10 +21,10 @@ export const FiltersModal = ({
 }) => {
   return (
     <Modal show={showModal} centered size='xl'>
-      <Modal.Header>
+      <Modal.Header style={{ zIndex: 4 }}>
         <h2>Filters</h2>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body style={{ zIndex: 4 }}>
         <div className='container-fluid mbl-filters-modal-wrapper'>
           <div className='row'>
             {filters.map((f, i) => (
@@ -34,15 +34,6 @@ export const FiltersModal = ({
               >
                 <div className='filter-box-buttons mbl w-100 mb-4'>
                   {f.filterComponent(f.defaultState, updateFilterState(f.id))}
-                  <div className='applied-filters-container'>
-                    {filterState[f.id] === undefined
-                      ? null
-                      : f.appliedFilterComponent(
-                          filterState[f.id],
-                          () => clearFilter(f),
-                          true
-                        )}
-                  </div>
                 </div>
               </div>
             ))}

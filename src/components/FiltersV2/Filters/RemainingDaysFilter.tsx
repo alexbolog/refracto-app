@@ -90,7 +90,7 @@ export const getExpectedRemainingDaysFilter = (
         max={max}
       />
     ),
-    appliedFilterComponent: (state, resetState, isMobile) =>
+    appliedFilterComponent: (state, resetState) =>
       (state.min === undefined && state.max === undefined) ||
       (state.min === 0 && state.max === max) ? (
         <></>
@@ -101,7 +101,6 @@ export const getExpectedRemainingDaysFilter = (
             state.max
           }`}
           onRemoveFilter={resetState}
-          isMobile={isMobile}
         />
       ),
     shouldDisplay: (item, state) => {

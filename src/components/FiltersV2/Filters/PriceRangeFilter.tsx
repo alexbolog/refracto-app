@@ -83,7 +83,7 @@ export const getPriceRangeFilter = (min: number, max: number): Filter => {
     filterComponent: (_, onFilterChange) => (
       <PriceRangeFilter onFilterChange={onFilterChange} min={min} max={max} />
     ),
-    appliedFilterComponent: (state, resetState, isMobile) =>
+    appliedFilterComponent: (state, resetState) =>
       (state.min === undefined && state.max === undefined) ||
       (state.min === 0 && state.max === max) ? (
         <></>
@@ -94,7 +94,6 @@ export const getPriceRangeFilter = (min: number, max: number): Filter => {
             state.max
           }$`}
           onRemoveFilter={resetState}
-          isMobile={isMobile}
         />
       ),
     shouldDisplay: (item, state) => {

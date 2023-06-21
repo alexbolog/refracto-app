@@ -48,9 +48,6 @@
     min-width: 60px;
 }
 
-.applied-filter.mbl {
-    display: none;
-}
 
 .filter-box-buttons {
     max-width: 50%;
@@ -113,11 +110,7 @@
         width: 100%;
     }
 
-    .applied-filter.mbl {
-        display: block;
-    }
-
-    .applied-filter.dsk {
-        display: none;
+    .applied-filter {
+        margin: 5px;
     }
 }
