@@ -21,13 +21,6 @@
     font-style: normal !important;
 }
 
-.settings-button {
-    font-weight: 400 !important;
-    font-size: 12px !important;
-    padding-top: 0px !important;
-    padding-bottom: 0px !important;
-}
-
 .filter-card-wrapper {
     border: 1px solid #D9D9D9 !important;
     height: auto !important;
@@ -74,18 +67,12 @@
     justify-content: space-between;
 }
 
-@media only screen and (max-width: 768px) {
-    .search-bar-input {
-        width: auto;
-    }
-
-    .filter-box-buttons {
-        margin-top: 4px !important;
-    }
-
-    .filter-box-settings-btn {
-        display: block !important;
-    }
+.filter-box-settings-btn .btn-settings {
+    background: #FFFFFF;
+    border: 1px solid #D5DFE7;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -95,5 +82,9 @@
 
     .deadline-select, .rating-select, .return-range-select {
         display: none !important;
+    }
+
+    .filter-box-settings-btn {
+        display: block !important;
     }
 }

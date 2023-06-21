@@ -5,6 +5,7 @@ import { RATING_SELECT_FILTER } from './Filters/RatingSelectFilter';
 import { Filter } from './Filters/Filter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { ReactComponent as SettingsIcon } from './../../assets/icons/refracto/settings.svg';
 import './style.css';
 
 export const FiltersV2 = ({
@@ -116,6 +117,11 @@ export const FiltersV2 = ({
                     {f.filterComponent(f.defaultState, updateFilterState(f.id))}
                   </div>
                 ))}
+                <div className='filter-box-settings-btn'>
+                  <button className='btn btn-settings'>
+                    <SettingsIcon />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
