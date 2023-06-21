@@ -32,58 +32,112 @@ const RatingSelectFilter = ({
   }, [lowRiskSelected, mediumRiskSelected, highRiskSelected]);
 
   return (
-    <div className='rating-select'>
-      <button
-        className='btn btn-primary dropdown-toggle dropdown'
-        type='button'
-        data-bs-toggle='dropdown'
-        data-bs-auto-close='outside'
-        aria-expanded='false'
-      >
-        Select Rating
-      </button>
-      <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
-        <li>
-          <div className='dropdown-item'>
-            <input
-              type='checkbox'
-              defaultChecked={lowRiskSelected}
-              id='low-risk-checkbox'
-              onChange={() => setLowRiskSelected(!lowRiskSelected)}
-            />
-            <label htmlFor='low-risk-checkbox' className='ml-3'>
-              Low Risk
-            </label>
-          </div>
-        </li>
-        <li>
-          <div className='dropdown-item'>
-            <input
-              type='checkbox'
-              defaultChecked={mediumRiskSelected}
-              id='medium-risk-checkbox'
-              onChange={() => setMediumRiskSelected(!mediumRiskSelected)}
-            />
-            <label htmlFor='medium-risk-checkbox' className='ml-3'>
-              Medium Risk
-            </label>
-          </div>
-        </li>
-        <li>
-          <div className='dropdown-item'>
-            <input
-              type='checkbox'
-              defaultChecked={highRiskSelected}
-              id='high-risk-checkbox'
-              onChange={() => setHighRiskSelected(!highRiskSelected)}
-            />
-            <label htmlFor='high-risk-checkbox' className='ml-3'>
-              High Risk
-            </label>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <>
+      <div className='rating-select filter-btn dsk'>
+        <button
+          className='btn btn-primary dropdown-toggle dropdown'
+          type='button'
+          data-bs-toggle='dropdown'
+          data-bs-auto-close='outside'
+          aria-expanded='false'
+        >
+          Select Rating
+        </button>
+        <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
+          <li>
+            <div className='dropdown-item'>
+              <input
+                type='checkbox'
+                defaultChecked={lowRiskSelected}
+                id='low-risk-checkbox'
+                onChange={() => setLowRiskSelected(!lowRiskSelected)}
+              />
+              <label htmlFor='low-risk-checkbox' className='ml-3'>
+                Low Risk
+              </label>
+            </div>
+          </li>
+          <li>
+            <div className='dropdown-item'>
+              <input
+                type='checkbox'
+                defaultChecked={mediumRiskSelected}
+                id='medium-risk-checkbox'
+                onChange={() => setMediumRiskSelected(!mediumRiskSelected)}
+              />
+              <label htmlFor='medium-risk-checkbox' className='ml-3'>
+                Medium Risk
+              </label>
+            </div>
+          </li>
+          <li>
+            <div className='dropdown-item'>
+              <input
+                type='checkbox'
+                defaultChecked={highRiskSelected}
+                id='high-risk-checkbox'
+                onChange={() => setHighRiskSelected(!highRiskSelected)}
+              />
+              <label htmlFor='high-risk-checkbox' className='ml-3'>
+                High Risk
+              </label>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div className='rating-select filter-btn mbl'>
+        <button
+          className='btn btn-primary dropdown-toggle dropdown w-100'
+          type='button'
+          data-bs-toggle='dropdown'
+          data-bs-auto-close='outside'
+          aria-expanded='false'
+        >
+          Select Rating
+        </button>
+        <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
+          <li>
+            <div className='dropdown-item'>
+              <input
+                type='checkbox'
+                defaultChecked={lowRiskSelected}
+                id='low-risk-checkbox'
+                onChange={() => setLowRiskSelected(!lowRiskSelected)}
+              />
+              <label htmlFor='low-risk-checkbox' className='ml-3'>
+                Low Risk
+              </label>
+            </div>
+          </li>
+          <li>
+            <div className='dropdown-item'>
+              <input
+                type='checkbox'
+                defaultChecked={mediumRiskSelected}
+                id='medium-risk-checkbox'
+                onChange={() => setMediumRiskSelected(!mediumRiskSelected)}
+              />
+              <label htmlFor='medium-risk-checkbox' className='ml-3'>
+                Medium Risk
+              </label>
+            </div>
+          </li>
+          <li>
+            <div className='dropdown-item'>
+              <input
+                type='checkbox'
+                defaultChecked={highRiskSelected}
+                id='high-risk-checkbox'
+                onChange={() => setHighRiskSelected(!highRiskSelected)}
+              />
+              <label htmlFor='high-risk-checkbox' className='ml-3'>
+                High Risk
+              </label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </>
   );
 };
 
@@ -93,7 +147,7 @@ export const RATING_SELECT_FILTER: Filter = {
   filterComponent: (_, onFilterChange) => (
     <RatingSelectFilter state={_} onFilterChange={onFilterChange} />
   ),
-  appliedFilterComponent: (state, resetState) =>
+  appliedFilterComponent: (state, resetState, isMobile) =>
     state.length === 3 ? (
       <></>
     ) : (
@@ -101,6 +155,7 @@ export const RATING_SELECT_FILTER: Filter = {
         filterText='Rating'
         filterValue={state.length === 0 ? 'None' : state.join(', ')}
         onRemoveFilter={resetState}
+        isMobile={isMobile}
       />
     ),
   shouldDisplay: (item, state) => {

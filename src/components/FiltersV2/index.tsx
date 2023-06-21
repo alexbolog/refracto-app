@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as SettingsIcon } from './../../assets/icons/refracto/settings.svg';
 import './style.css';
+import { FiltersModal } from './FiltersModal';
 
 export const FiltersV2 = ({
   items,
@@ -31,6 +32,7 @@ export const FiltersV2 = ({
   }>({});
 
   const [searchBarContent, setSearchBarContent] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const updateFilterState = (filterId: string) => (newState: any) => {
     const co = filterState;
@@ -118,20 +120,33 @@ export const FiltersV2 = ({
                   </div>
                 ))}
                 <div className='filter-box-settings-btn'>
-                  <button className='btn btn-settings'>
+                  <button
+                    className='btn btn-settings'
+                    onClick={() => setShowModal(true)}
+                  >
                     <SettingsIcon />
                   </button>
                 </div>
+                <FiltersModal
+                  showModal={showModal}
+                  onDismissModal={() => setShowModal(false)}
+                  filters={enabledFilters}
+                  filterState={filterState}
+                  clearFilter={clearFilter}
+                  updateFilterState={updateFilterState}
+                />
               </div>
             </div>
           </div>
         </div>
-        <div className='col applied-filters-container'>
+        <div className='col-12 applied-filters-container'>
           {enabledFilters.map((f, idx) =>
             filterState[f.id] === undefined
               ? null
-              : f.appliedFilterComponent(filterState[f.id], () =>
-                  clearFilter(f)
+              : f.appliedFilterComponent(
+                  filterState[f.id],
+                  () => clearFilter(f),
+                  false
                 )
           )}
         </div>

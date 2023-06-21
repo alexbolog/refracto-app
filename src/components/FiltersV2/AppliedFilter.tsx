@@ -6,14 +6,16 @@ import React from 'react';
 export const AppliedFilter = ({
   filterText,
   filterValue,
-  onRemoveFilter
+  onRemoveFilter,
+  isMobile
 }: {
   filterText: string;
   filterValue: string;
   onRemoveFilter: () => void;
+  isMobile: boolean;
 }) => {
   return (
-    <div className='applied-filter'>
+    <div className={`applied-filter ${isMobile ? 'mbl' : 'dsk'}`}>
       <span className='filter-type'>
         {filterText}
         {filterText.length > 0 && ': '}

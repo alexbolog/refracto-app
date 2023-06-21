@@ -48,9 +48,17 @@
     min-width: 60px;
 }
 
+.applied-filter.mbl {
+    display: none;
+}
+
 .filter-box-buttons {
     max-width: 50%;
     gap: 10px;
+}
+
+.filter-box-buttons.mbl {
+    max-width: 100%;
 }
 
 .filter-box-settings-btn {
@@ -75,16 +83,41 @@
     width: 100%;
 }
 
+.filter-btn.mbl {
+    display: none;
+}
+
 @media only screen and (max-width: 1200px) {
     .filter-input-box {
         width: 100%;
     }
 
-    .deadline-select, .rating-select, .return-range-select {
+    /* .deadline-select, .rating-select, .return-range-select { */
+    .filter-box-buttons .filter-btn.dsk {
         display: none !important;
+    }
+
+    .filter-box-buttons .filter-btn.mbl {
+        display: none !important;
+    }
+
+    .mbl-filters-modal-wrapper .filter-btn.mbl {
+        display: block !important;
     }
 
     .filter-box-settings-btn {
         display: block !important;
+    }
+
+    .filter-btn.mbl .react-datepicker-wrapper {
+        width: 100%;
+    }
+
+    .applied-filter.mbl {
+        display: block;
+    }
+
+    .applied-filter.dsk {
+        display: none;
     }
 }

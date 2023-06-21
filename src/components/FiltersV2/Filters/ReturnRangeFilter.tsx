@@ -9,35 +9,66 @@ const ReturnRangeFilter = ({
   onFilterChange: (newState: any) => void;
 }) => {
   return (
-    <div className='return-range-select'>
-      <button
-        className='btn btn-primary dropdown-toggle dropdown'
-        type='button'
-        data-bs-toggle='dropdown'
-        data-bs-auto-close='outside'
-        aria-expanded='false'
-      >
-        Select Return Range
-      </button>
-      <div
-        className='dropdown-menu'
-        aria-labelledby='dropdownMenuButton1'
-        style={{
-          padding: '0',
-          background: '#fff'
-        }}
-      >
-        <div className='p-3'>
-          <MultiRangeSlider
-            min={0}
-            max={100}
-            onChange={(min, max) => onFilterChange({ min, max })}
-            title='Expected Return Range'
-            description='Drag the slider and select your expected return range'
-          />
+    <>
+      <div className='return-range-select filter-btn dsk'>
+        <button
+          className='btn btn-primary dropdown-toggle dropdown'
+          type='button'
+          data-bs-toggle='dropdown'
+          data-bs-auto-close='outside'
+          aria-expanded='false'
+        >
+          Select Return Range
+        </button>
+        <div
+          className='dropdown-menu'
+          aria-labelledby='dropdownMenuButton1'
+          style={{
+            padding: '0',
+            background: '#fff'
+          }}
+        >
+          <div className='p-3'>
+            <MultiRangeSlider
+              min={0}
+              max={100}
+              onChange={(min, max) => onFilterChange({ min, max })}
+              title='Expected Return Range'
+              description='Drag the slider and select your expected return range'
+            />
+          </div>
         </div>
       </div>
-    </div>
+      <div className='return-range-select filter-btn mbl'>
+        <button
+          className='btn btn-primary dropdown-toggle dropdown w-100'
+          type='button'
+          data-bs-toggle='dropdown'
+          data-bs-auto-close='outside'
+          aria-expanded='false'
+        >
+          Select Return Range
+        </button>
+        <div
+          className='dropdown-menu'
+          aria-labelledby='dropdownMenuButton1'
+          style={{
+            padding: '0',
+            background: '#fff'
+          }}
+        >
+          <div className='p-3'>
+            <MultiRangeSlider
+              min={0}
+              max={100}
+              onChange={(min, max) => onFilterChange({ min, max })}
+              title='Expected Return Range'
+              description='Drag the slider and select your expected return range'
+            />
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
@@ -47,7 +78,7 @@ export const RETURN_RANGE_FILTER: Filter = {
   filterComponent: (_, onFilterChange) => (
     <ReturnRangeFilter onFilterChange={onFilterChange} />
   ),
-  appliedFilterComponent: (state, resetState) =>
+  appliedFilterComponent: (state, resetState, isMobile) =>
     (state.min === undefined && state.max === undefined) ||
     (state.min === 0 && state.max === 100) ? (
       <></>
@@ -58,6 +89,7 @@ export const RETURN_RANGE_FILTER: Filter = {
           state.max === undefined ? '100' : state.max
         }%`}
         onRemoveFilter={resetState}
+        isMobile={isMobile}
       />
     ),
   shouldDisplay: (item, state) => {

@@ -15,14 +15,22 @@ const DeadlineFilter = ({
     onFilterChange({ startDate, endDate });
   };
   return (
-    <div>
-      <DateRangePicker
-        onChange={onDatePick}
-        customInput='Select Deadline'
-        customBtnClassName='btn btn-primary dropdown-toggle dropdown deadline-select'
-      ></DateRangePicker>
-      {/* <SettingsButton /> */}
-    </div>
+    <>
+      <div className='filter-btn dsk'>
+        <DateRangePicker
+          onChange={onDatePick}
+          customInput='Select Deadline'
+          customBtnClassName='btn btn-primary dropdown-toggle dropdown deadline-select'
+        ></DateRangePicker>
+      </div>
+      <div className='filter-btn mbl w-100'>
+        <DateRangePicker
+          onChange={onDatePick}
+          customInput='Select Deadline'
+          customBtnClassName='btn btn-primary dropdown-toggle dropdown deadline-select w-100'
+        ></DateRangePicker>
+      </div>
+    </>
   );
 };
 
@@ -32,7 +40,7 @@ export const DEADLINE_FILTER: Filter = {
   filterComponent: (_, onFilterChange) => (
     <DeadlineFilter onFilterChange={onFilterChange} />
   ),
-  appliedFilterComponent: (state, resetState) =>
+  appliedFilterComponent: (state, resetState, isMobile) =>
     state.startDate === undefined && state.endDate === undefined ? (
       <></>
     ) : state.startDate !== undefined && state.endDate === undefined ? (
@@ -40,12 +48,14 @@ export const DEADLINE_FILTER: Filter = {
         filterText='After'
         filterValue={formatDate(state.startDate, DateTime.DATE_SHORT)}
         onRemoveFilter={resetState}
+        isMobile={isMobile}
       />
     ) : state.startDate === undefined && state.endDate !== undefined ? (
       <AppliedFilter
         filterText='Before'
         filterValue={formatDate(state.endDate, DateTime.DATE_SHORT)}
         onRemoveFilter={resetState}
+        isMobile={isMobile}
       />
     ) : (
       <AppliedFilter
@@ -55,6 +65,7 @@ export const DEADLINE_FILTER: Filter = {
           DateTime.DATE_SHORT
         )} → ${formatDate(state.endDate, DateTime.DATE_SHORT)} `}
         onRemoveFilter={resetState}
+        isMobile={isMobile}
       />
     ),
   shouldDisplay: (item, state) => {
