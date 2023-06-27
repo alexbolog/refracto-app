@@ -25,6 +25,7 @@ import ExpandFooter from '../../../components/ExpandFooter';
 import { InvestmentEvent } from '../../../types/investmentEvent';
 import useGetInvestmentHistory from '../../../contexts/AccountContext/hooks/useGetInvestmentHistory';
 import { INVESTMENT_EVENT_TYPE } from '../../../enums';
+import { toLocaleStringOptions } from '../../../config';
 
 const GeneralStatisticsGraph = () => {
   const dashboardGraph: InvestmentEvent[] = useGetInvestmentHistory();
@@ -112,22 +113,39 @@ const GeneralStatisticsGraph = () => {
 
   const getAnnotationForEvent = (el: InvestmentEvent) => {
     switch (el.eventType) {
-      // TODO: change below to enum
       case INVESTMENT_EVENT_TYPE.INVEST: {
         return {
-          label: 'Invested ' + el.committedDifference + '$',
+          label:
+            'Invested ' +
+            el.committedDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#6853e8'
         };
       }
       case INVESTMENT_EVENT_TYPE.PAYOUT: {
         return {
-          label: 'Payout ' + el.availableDifference + '$',
+          label:
+            'Payout ' +
+            el.availableDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#63b179'
         };
       }
       case INVESTMENT_EVENT_TYPE.DEPOSIT: {
         return {
-          label: 'Deposited ' + el.availableDifference + '$',
+          label:
+            'Deposited ' +
+            el.availableDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#1586D1'
         };
       }
@@ -135,7 +153,10 @@ const GeneralStatisticsGraph = () => {
         return {
           label:
             'Withdrew ' +
-            (el.availableDifference ? -el.availableDifference : -1) +
+            (el.availableDifference
+              ? -el.availableDifference
+              : -1
+            ).toLocaleString(undefined, toLocaleStringOptions) +
             '$',
           color: '#ff6b45'
         };
