@@ -1,6 +1,5 @@
 import './style.scss';
 import * as React from 'react';
-import dashboardGraph from '../../../db/dashboardGraph.json';
 import { Line } from 'react-chartjs-2';
 import gradient from 'chartjs-plugin-gradient';
 import {
@@ -23,8 +22,14 @@ import 'chartjs-adapter-luxon';
 import DateRangePicker from '../../../components/DateRangePicker';
 import { formatDate } from '../../../utils';
 import ExpandFooter from '../../../components/ExpandFooter';
+import { InvestmentEvent } from '../../../types/investmentEvent';
+import useGetInvestmentHistory from '../../../contexts/AccountContext/hooks/useGetInvestmentHistory';
+import { INVESTMENT_EVENT_TYPE } from '../../../enums';
+import { toLocaleStringOptions } from '../../../config';
 
 const GeneralStatisticsGraph = () => {
+  const dashboardGraph: InvestmentEvent[] = useGetInvestmentHistory();
+
   Chart.register(
     CategoryScale,
     LinearScale,
@@ -80,7 +85,7 @@ const GeneralStatisticsGraph = () => {
   const graphDataInvested: any[] = [];
   const graphEvents: any[] = [];
 
-  const mapDashboardData = async (dashboardData: any[]) => {
+  const mapDashboardData = async (dashboardData: InvestmentEvent[]) => {
     dashboardData.forEach((el) => {
       const date = DateTime.fromISO(el.date);
       graphDates.push(date);
@@ -106,38 +111,52 @@ const GeneralStatisticsGraph = () => {
     mapDashboardData(dashboardGraph).then(() => resetZoom());
   }, []);
 
-  const getAnnotationForEvent = (el: {
-    availableBalance: number;
-    committedBalance: number;
-    eventType?: string;
-    availableDifference?: number;
-    committedDifference?: number;
-  }) => {
-    // TODO: we can group this in an 'event' nested field
+  const getAnnotationForEvent = (el: InvestmentEvent) => {
     switch (el.eventType) {
-      case 'INVEST': {
+      case INVESTMENT_EVENT_TYPE.INVEST: {
         return {
-          label: 'Invested ' + el.committedDifference + '$',
+          label:
+            'Invested ' +
+            el.committedDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#6853e8'
         };
       }
-      case 'PAYOUT': {
+      case INVESTMENT_EVENT_TYPE.PAYOUT: {
         return {
-          label: 'Payout ' + el.availableDifference + '$',
+          label:
+            'Payout ' +
+            el.availableDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#63b179'
         };
       }
-      case 'DEPOSIT': {
+      case INVESTMENT_EVENT_TYPE.DEPOSIT: {
         return {
-          label: 'Deposited ' + el.availableDifference + '$',
+          label:
+            'Deposited ' +
+            el.availableDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#1586D1'
         };
       }
-      case 'WITHDRAW': {
+      case INVESTMENT_EVENT_TYPE.WITHDRAW: {
         return {
           label:
             'Withdrew ' +
-            (el.availableDifference ? -el.availableDifference : -1) +
+            (el.availableDifference
+              ? -el.availableDifference
+              : -1
+            ).toLocaleString(undefined, toLocaleStringOptions) +
             '$',
           color: '#ff6b45'
         };

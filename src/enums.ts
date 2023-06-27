@@ -13,3 +13,10 @@ export enum AVAILABLE_CURRENCIES {
   EUR = 1,
   USD = 2
 }
+
+export enum INVESTMENT_EVENT_TYPE {
+  PAYOUT = 'PAYOUT',
+  INVEST = 'INVEST',
+  DEPOSIT = 'DEPOSIT',
+  WITHDRAW = 'WITHDRAW'
+}
