@@ -81,7 +81,11 @@ export const TransactionsTable = ({
                       <div className='td-center'>{tx.operation}</div>
                     </td>
                     <td>{tx.description}</td>
-                    <td>{tx.transactionHash}</td>
+                    <td>
+                      <button className='btn btn-primary w-100 btn-sm'>
+                        See transaction
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
