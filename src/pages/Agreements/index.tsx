@@ -5,7 +5,7 @@ import { AccountContext } from 'contexts/AccountContext';
 import './style.css';
 
 export const Agreements = () => {
-  const { investmentTransactions } = useContext(AccountContext);
+  const { documentAgreements } = useContext(AccountContext);
   return (
     <div className='container-fluid p-0'>
       <div className='row'>
@@ -25,7 +25,7 @@ export const Agreements = () => {
       </div>
       <div className='row'>
         <div className='col-12 mt-4'>
-          <AgreementsTable agreements={investmentTransactions} />
+          <AgreementsTable agreements={documentAgreements} />
         </div>
       </div>
     </div>

@@ -57,3 +57,23 @@ export enum InvestmentTransactionStatus {
   Finished,
   Cancelled
 }
+
+export interface DocumentAgreement {
+  date: string; // ISO format
+  agreementId: string;
+  projectName: string;
+  status: DocumentAgreementStatus;
+  documentType: DocumentAgreementType;
+  filePath: string;
+}
+
+export enum DocumentAgreementStatus {
+  Signed,
+  Unsigned,
+  Cancelled
+}
+
+export enum DocumentAgreementType {
+  Investment = 'Investment',
+  SecondaryMarket = 'Secondary Market'
+}

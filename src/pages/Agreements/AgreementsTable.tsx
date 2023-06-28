@@ -1,22 +1,18 @@
-import { toLocaleStringOptions } from 'config';
 import { DateTime } from 'luxon';
 import React from 'react';
-import {
-  InvestmentTransaction,
-  InvestmentTransactionStatus
-} from 'types/accountTypes';
+import { DocumentAgreement, DocumentAgreementStatus } from 'types/accountTypes';
 import { formatDate } from 'utils';
 
 export const AgreementsTable = ({
   agreements
 }: {
-  agreements: InvestmentTransaction[];
+  agreements: DocumentAgreement[];
 }) => {
-  const getStatusClass = (status: InvestmentTransactionStatus) => {
+  const getStatusClass = (status: DocumentAgreementStatus) => {
     switch (status) {
-      case InvestmentTransactionStatus.Finished:
+      case DocumentAgreementStatus.Signed:
         return 'status-finished';
-      case InvestmentTransactionStatus.Pending:
+      case DocumentAgreementStatus.Unsigned:
         return 'status-pending';
       default:
         return 'status-cancelled';
@@ -27,64 +23,41 @@ export const AgreementsTable = ({
     <div className='card'>
       <div className='card-body'>
         <div className='table-responsive'>
-          <div className='transactions-table'>
+          <div className='agreements-table'>
             <table className='table'>
               <thead>
                 <tr>
                   <th scope='col' className='date'>
                     Date
                   </th>
+                  <th scope='col'>Agreement</th>
+                  <th scope='col'>Investment Opportunity</th>
                   <th scope='col'>Status</th>
-                  <th scope='col'>Project Name</th>
-                  <th scope='col'>Amount</th>
-                  <th scope='col'>Currency</th>
-                  <th scope='col'>Type</th>
-                  <th scope='col'>Operation</th>
-                  <th scope='col'>Description</th>
-                  <th scope='col'>Transaction</th>
+                  <th scope='col'>
+                    <div className='td-center'>Document Type</div>
+                  </th>
+                  <th scope='col'></th>
                 </tr>
               </thead>
               <tbody>
-                {agreements.map((tx, index) => (
+                {agreements.map((docAgr, index) => (
                   <tr
-                    key={`investment-transactions-${index}-${tx.transactionHash}`}
+                    key={`document-agreements-${index}-${docAgr.agreementId}`}
                   >
                     <th scope='row'>
                       {formatDate(
-                        DateTime.fromISO(tx.date),
+                        DateTime.fromISO(docAgr.date),
                         DateTime.DATETIME_SHORT
                       )}
                     </th>
-                    <td>
-                      <div className={`status ${getStatusClass(tx.status)}`}>
-                        {InvestmentTransactionStatus[tx.status]}
-                      </div>
+                    <td>{docAgr.agreementId}</td>
+                    <td>{docAgr.projectName}</td>
+                    <td className={`status ${getStatusClass(docAgr.status)}`}>
+                      {DocumentAgreementStatus[docAgr.status]}
                     </td>
-                    <td>{tx.projectName}</td>
+                    <td className='td-center'>{docAgr.documentType}</td>
                     <td>
-                      <div className='td-center'>
-                        {tx.amount.toLocaleString(
-                          undefined,
-                          toLocaleStringOptions
-                        )}
-                      </div>
-                    </td>
-                    <td>
-                      <div className='td-center'>{tx.currency}</div>
-                    </td>
-                    <td>
-                      <div className='td-center status status-pending'>
-                        {tx.type}
-                      </div>
-                    </td>
-                    <td>
-                      <div className='td-center'>{tx.operation}</div>
-                    </td>
-                    <td>{tx.description}</td>
-                    <td>
-                      <button className='btn btn-primary w-100 btn-sm'>
-                        See transaction
-                      </button>
+                      <a href='#'>Download</a>
                     </td>
                   </tr>
                 ))}
