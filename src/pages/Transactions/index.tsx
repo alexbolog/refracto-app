@@ -1,14 +1,12 @@
 import { FiltersV2 } from 'components/FiltersV2';
-import React from 'react';
+import React, { useContext } from 'react';
 import { TransactionsTable } from './TransactionsTable';
+import { AccountContext } from 'contexts/AccountContext';
+import './style.css';
 
 const Transactions = () => {
+  const { investmentTransactions } = useContext(AccountContext);
   return (
-    // <div className='row'>
-    //   <div className='col-lg-12 col-sm-12 d-flex justify-content-center'>
-    //     <h2>Transactions page coming soon</h2>
-    //   </div>
-    // </div>
     <div className='container-fluid p-0'>
       <div className='row'>
         <div className='col'>
@@ -27,7 +25,7 @@ const Transactions = () => {
       </div>
       <div className='row'>
         <div className='col-12 mt-4'>
-          <TransactionsTable />
+          <TransactionsTable transactions={investmentTransactions} />
         </div>
       </div>
     </div>

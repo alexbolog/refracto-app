@@ -46,6 +46,7 @@ export interface InvestmentTransaction {
   projectName: string;
   currency: 'EUR' | 'USD';
   amount: number;
+  type: 'DEPOSIT';
   operation: string;
   description: string;
   transactionHash: string;

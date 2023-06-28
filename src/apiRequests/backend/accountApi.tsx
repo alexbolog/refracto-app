@@ -31,5 +31,9 @@ export const getActiveProjectInvestments = (): ActiveProjectInvestment[] => {
 };
 
 export const getInvestmentTransactions = (): InvestmentTransaction[] => {
-  return transactionList.map((tl) => tl as InvestmentTransaction);
+  return transactionList.map((tl) => {
+    const obj = tl as InvestmentTransaction;
+    obj.type = 'DEPOSIT';
+    return obj;
+  });
 };
