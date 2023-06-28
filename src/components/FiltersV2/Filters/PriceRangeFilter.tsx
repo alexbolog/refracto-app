@@ -45,7 +45,7 @@ const PriceRangeFilter = ({
       </div>
       <div className='return-range-select filter-btn mbl'>
         <button
-          className='btn btn-primary dropdown-toggle dropdown'
+          className='btn btn-primary dropdown-toggle dropdown w-100'
           type='button'
           data-bs-toggle='dropdown'
           data-bs-auto-close='outside'
