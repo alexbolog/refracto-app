@@ -2,6 +2,7 @@ import { FiltersV2 } from 'components/FiltersV2';
 import React, { useContext } from 'react';
 import { TransactionsTable } from './TransactionsTable';
 import { AccountContext } from 'contexts/AccountContext';
+import { ExportFooter } from './ExportFooter';
 import './style.css';
 
 const Transactions = () => {
@@ -26,6 +27,11 @@ const Transactions = () => {
       <div className='row'>
         <div className='col-12 mt-4'>
           <TransactionsTable transactions={investmentTransactions} />
+        </div>
+      </div>
+      <div className='row'>
+        <div className='col-12'>
+          <ExportFooter />
         </div>
       </div>
     </div>
