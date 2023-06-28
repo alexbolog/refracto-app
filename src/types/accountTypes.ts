@@ -39,3 +39,20 @@ export interface Payment {
   paymentAmount: number;
   xHash?: string;
 }
+
+export interface InvestmentTransaction {
+  date: string; // ISO format
+  status: InvestmentTransactionStatus;
+  projectName: string;
+  currency: 'EUR' | 'USD';
+  amount: number;
+  operation: string;
+  description: string;
+  transactionHash: string;
+}
+
+export enum InvestmentTransactionStatus {
+  Pending,
+  Finished,
+  Cancelled
+}
