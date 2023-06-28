@@ -36,8 +36,8 @@ export const TransactionsTable = ({
                   </th>
                   <th scope='col'>Status</th>
                   <th scope='col'>Project Name</th>
-                  <th scope='col'>Currency</th>
                   <th scope='col'>Amount</th>
+                  <th scope='col'>Currency</th>
                   <th scope='col'>Type</th>
                   <th scope='col'>Operation</th>
                   <th scope='col'>Description</th>
@@ -62,15 +62,15 @@ export const TransactionsTable = ({
                     </td>
                     <td>{tx.projectName}</td>
                     <td>
-                      <div className='td-center'>{tx.currency}</div>
-                    </td>
-                    <td>
                       <div className='td-center'>
                         {tx.amount.toLocaleString(
                           undefined,
                           toLocaleStringOptions
                         )}
                       </div>
+                    </td>
+                    <td>
+                      <div className='td-center'>{tx.currency}</div>
                     </td>
                     <td>
                       <div className='td-center status status-pending'>
