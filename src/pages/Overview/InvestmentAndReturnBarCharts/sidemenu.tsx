@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './sidebar.scss';
+import './sidemenu.scss';
 import upArrowIcon from './upArrowIcon';
 import { toLocaleStringOptions } from '../../../config';
 
-const Sidebar = ({
+const SideMenu = ({
   toggleSeriesHandler,
   investedTotal,
   roiTotal
@@ -64,7 +64,7 @@ const Sidebar = ({
         </div>
         <div className='card expense investment mb-3'>
           <div className='card-body p-3'>
-            <div className='students1 d-flex align-items-center justify-content-between '>
+            <div className='pl-2 d-flex align-items-center justify-content-between '>
               <div className='content'>
                 <span>Invested</span>
                 <h2>
@@ -74,30 +74,30 @@ const Sidebar = ({
                     toLocaleStringOptions
                   )}
                 </h2>
-                <h5 className='up'>
-                  <span className='text-white'>
-                    {upArrowIcon()}
-                    +15%
-                  </span>
-                </h5>
+                {/*<h5 className='up'>*/}
+                {/*  <span className='text-white'>*/}
+                {/*    {upArrowIcon()}*/}
+                {/*    +15%*/}
+                {/*  </span>*/}
+                {/*</h5>*/}
               </div>
             </div>
           </div>
         </div>
         <div className='card expense roi mb-3 '>
           <div className='card-body p-3 '>
-            <div className='students1 d-flex align-items-center justify-content-between '>
+            <div className='pl-2 d-flex align-items-center justify-content-between '>
               <div className='content'>
                 <span>Return on Investment</span>
                 <h2>
                   €{roiTotal.toLocaleString(undefined, toLocaleStringOptions)}
                 </h2>
-                <h5 className='up' style={{ color: '#FFFFFF' }}>
-                  <span className='text-white'>
-                    {upArrowIcon()}
-                    +15%
-                  </span>
-                </h5>
+                {/*<h5 className='up' style={{ color: '#FFFFFF' }}>*/}
+                {/*  <span className='text-white'>*/}
+                {/*    {upArrowIcon()}*/}
+                {/*    +15%*/}
+                {/*  </span>*/}
+                {/*</h5>*/}
               </div>
             </div>
           </div>
@@ -107,4 +107,4 @@ const Sidebar = ({
   );
 };
 
-export default Sidebar;
+export default SideMenu;

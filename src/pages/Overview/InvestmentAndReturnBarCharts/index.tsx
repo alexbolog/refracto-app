@@ -5,7 +5,7 @@ import { useGetProjectInvestmentHistory } from '../../../contexts/InvestmentHist
 import { InvestmentEvent } from '../../../types/investmentEvent';
 import { ApexOptions } from 'apexcharts';
 import { InvestmentEventType, isProjectStatusActive } from '../../../enums';
-import Sidebar from './sidebar';
+import SideMenu from './sidemenu';
 import { toLocaleStringOptions } from '../../../config';
 
 import './style.scss';
@@ -174,7 +174,7 @@ const InvestmentAndReturnBarCharts = () => {
             height={350}
             className='col-9'
           />
-          <Sidebar
+          <SideMenu
             toggleSeriesHandler={toggleSeries}
             investedTotal={investedTotal}
             roiTotal={roiTotal}

@@ -2,7 +2,7 @@
 .font-w600 {
   font-weight: 600!important; }
 
-.students1 h2 {
+.card.expense h2 {
   font-weight: 600!important;
 }
 
@@ -140,28 +140,28 @@
 
 .card.expense {
   border: 0!important}
-.card.expense .students1 .content {
+.card.expense .content {
   color: #fff; }
-.card.expense .students1 .content span {
+.card.expense .content span {
   margin-bottom: 0.5rem;
   display: block; }
-.card.expense .students1 .content h2, .card.expense .students1 .content .h2 {
+.card.expense .content h2, .card.expense .content .h2 {
   font-size: 1.375rem; }
-.card.expense .students1 .content h5, .card.expense .students1 .content .h5 {
+.card.expense .content h5, .card.expense .content .h5 {
   font-size: 1.125rem;
   margin-bottom: 0; }
-.card.expense .students1 .content h5, .card.expense .students1 .content .h5, .card.expense .students1 .content h2, .card.expense .students1 .content .h2 {
+.card.expense .content h5, .card.expense .content .h5, .card.expense .content h2, .card.expense .content .h2 {
   color: #fff; }
-.card.expense .students1 .content .up {
+.card.expense .content .up {
   color: #ffd125; }
 
 
 
 
-.students1 h4, .students1 .h4 {
+.card.expense h4, .card.expense .h4 {
   font-size: 2rem;
   font-weight: 800; }
-.students1 h5, .students1 .h5 {
+.card.expense h5, .card.expense .h5 {
   font-size: 1.125rem;
   font-weight: 700;
   color: #717579; }
@@ -169,7 +169,6 @@
 
 
 .card.expense{
-  .students1{
     .content{
       color: white;
       span{
@@ -191,5 +190,5 @@
 
       }
     }
-  }
+
 }
