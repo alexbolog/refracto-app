@@ -1,0 +1,112 @@
+[
+  {
+    "projectId": "d6b99c95-4322-465d-bb48-4e62a035224d",
+    "projectTitle": "Generated Project #0",
+    "thumbnailSrc": "https://placehold.co/1000x1000",
+    "listingsExpireTimestamp": "2023-08-24T00:00:00.000Z",
+    "remainingPrincipal": 1234.45,
+    "price": 1456.78,
+    "repayment": 897.12,
+    "expectedRor": 0.15,
+    "daysLeft": 71
+  },
+  {
+    "projectId": "371db384-3a49-4bac-ab06-27170db56b66",
+    "projectTitle": "Generated Project #21",
+    "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg",
+    "listingsExpireTimestamp": "2023-09-12T00:00:00.000Z",
+    "remainingPrincipal": 1820.57,
+    "price": 1500.34,
+    "repayment": 1200.21,
+    "expectedRor": 0.2,
+    "daysLeft": 90
+  },
+  {
+    "projectId": "c79a6c29-962d-495a-9660-a16294c8a30d",
+    "projectTitle": "Generated Project #22",
+    "thumbnailSrc": "https://placehold.co/1000x1000",
+    "listingsExpireTimestamp": "2023-10-12T00:00:00.000Z",
+    "remainingPrincipal": 999.99,
+    "price": 1980.56,
+    "repayment": 1654.32,
+    "expectedRor": 0.18,
+    "daysLeft": 120
+  },
+  {
+    "projectId": "92b4c296-2b6a-4eff-bd8e-1f4f11db1a22",
+    "projectTitle": "Generated Project #23",
+    "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg",
+    "listingsExpireTimestamp": "2023-11-11T00:00:00.000Z",
+    "remainingPrincipal": 1456.72,
+    "price": 1720.39,
+    "repayment": 1357.48,
+    "expectedRor": 0.22,
+    "daysLeft": 150
+  },
+  {
+    "projectId": "f33a26e8-3f08-48c4-82b7-c3516d73d72e",
+    "projectTitle": "Generated Project #24",
+    "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+    "listingsExpireTimestamp": "2023-12-11T00:00:00.000Z",
+    "remainingPrincipal": 1346.22,
+    "price": 1642.21,
+    "repayment": 1350.5,
+    "expectedRor": 0.16,
+    "daysLeft": 180
+  },
+  {
+    "projectId": "eda09f6c-9ef9-4a9b-b604-b5f42f37f41c",
+    "projectTitle": "Generated Project #25",
+    "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+    "listingsExpireTimestamp": "2024-01-09T00:00:00.000Z",
+    "remainingPrincipal": 1523.74,
+    "price": 1987.45,
+    "repayment": 1700.0,
+    "expectedRor": 0.25,
+    "daysLeft": 209
+  },
+  {
+    "projectId": "cd90cb38-1123-47cf-8ba0-7f54efae8e8b",
+    "projectTitle": "Generated Project #26",
+    "thumbnailSrc": "https://placehold.co/1000x1000",
+    "listingsExpireTimestamp": "2024-02-08T00:00:00.000Z",
+    "remainingPrincipal": 1056.23,
+    "price": 1850.34,
+    "repayment": 1300.56,
+    "expectedRor": 0.23,
+    "daysLeft": 239
+  },
+  {
+    "projectId": "533e6363-42d6-4fc9-867b-287b814fd169",
+    "projectTitle": "Generated Project #28",
+    "thumbnailSrc": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+    "listingsExpireTimestamp": "2024-03-10T00:00:00.000Z",
+    "remainingPrincipal": 1400.34,
+    "price": 1850.34,
+    "repayment": 1500.56,
+    "expectedRor": 0.27,
+    "daysLeft": 269
+  },
+  {
+    "projectId": "a98d8c77-b5f9-4ebe-b285-a1c1c5de37a7",
+    "projectTitle": "Generated Project #29",
+    "thumbnailSrc": "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg",
+    "listingsExpireTimestamp": "2024-04-09T00:00:00.000Z",
+    "remainingPrincipal": 1123.45,
+    "price": 1500.34,
+    "repayment": 1290.21,
+    "expectedRor": 0.28,
+    "daysLeft": 299
+  },
+  {
+    "projectId": "e85bc17e-91c2-40c2-bc6f-c34e0b824c31",
+    "projectTitle": "Generated Project #30",
+    "thumbnailSrc": "https://placehold.co/1000x1000",
+    "listingsExpireTimestamp": "2024-05-09T00:00:00.000Z",
+    "remainingPrincipal": 1820.57,
+    "price": 1500.34,
+    "repayment": 1200.21,
+    "expectedRor": 0.24,
+    "daysLeft": 330
+  }
+]

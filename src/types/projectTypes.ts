@@ -81,17 +81,17 @@ export interface QuestionAndAnswer {
   ownerImgSrc?: string;
   text: string;
   insertDate: string; // ISO format
-  isPendingModeration?: boolean
+  isPendingModeration?: boolean;
 }
 
 export interface MarketplaceListing {
   projectId: string;
   projectTitle: string;
-  returnPercentage: number;
-  riskRatingLevel: string;
-  crowdfundingDeadline: string; // ISO format
-  crowdfundingTarget: number;
-  crowdfundedAmount: number;
-  colorCodeHex: string;
   thumbnailSrc: string;
+  listingsExpireTimestamp: string;
+  remainingPrincipal: number;
+  price: number;
+  repayment: number;
+  expectedRor: number;
+  daysLeft: number;
 }

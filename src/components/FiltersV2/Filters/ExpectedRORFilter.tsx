@@ -30,7 +30,7 @@ const ExpectedRORFilter = ({
         <div className='p-3'>
           <MultiRangeSlider
             title='Expected Rate of Return'
-            description='Drag the slider and selected your expected rate of return'
+            description='Drag the slider and select your expected rate of return'
             min={0}
             max={100}
             onChange={(min, max) => onFilterChange({ min, max })}
@@ -61,19 +61,19 @@ export const EXPECTED_ROR_FILTER: Filter = {
       />
     ),
   shouldDisplay: (item, state) => {
-    if (item.returnPercentage === undefined) {
+    if (item.expectedRor === undefined) {
       return false;
     }
     let min = 0;
-    let max = 100;
+    let max = 1;
 
     if (state.min !== undefined) {
-      min = state.min;
+      min = state.min / 100;
     }
     if (state.max !== undefined) {
-      max = state.max;
+      max = state.max / 100;
     }
-    const target = item.returnPercentage * 100;
+    const target = item.expectedRor;
     return min <= target && target <= max;
   }
 };

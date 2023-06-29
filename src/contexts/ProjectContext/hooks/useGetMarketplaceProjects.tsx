@@ -1,12 +1,13 @@
-import { getAvailableProjects } from 'apiRequests/backend';
+import { getMarketplaceListings } from 'apiRequests/backend';
 import React from 'react';
 import { MarketplaceListing } from 'types/projectTypes';
 
 const useGetMarketplaceProjects = () => {
-  const [activeProjectInvestments, setActiveProjectInvestments] =
-    React.useState<MarketplaceListing[]>(getAvailableProjects());
+  const [marketplaceListings, setActiveProjectInvestments] = React.useState<
+    MarketplaceListing[]
+  >(getMarketplaceListings());
 
-  return activeProjectInvestments;
+  return marketplaceListings;
 };
 
 export default useGetMarketplaceProjects;
