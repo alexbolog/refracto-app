@@ -23,6 +23,7 @@ import DateRangePicker from '../../../components/DateRangePicker';
 import { formatDate } from '../../../utils';
 import ExpandFooter from '../../../components/ExpandFooter';
 import { InvestmentEvent } from '../../../types/investmentEvent';
+import { toLocaleStringOptions } from '../../../config';
 import useGetInvestmentHistory from '../../../contexts/InvestmentHistory/hooks/useGetInvestmentHistory';
 import { InvestmentEventType } from '../../../enums';
 import GraphDateFilters from '../../../components/GraphDateFilters';
@@ -98,19 +99,37 @@ const GeneralStatisticsGraph = () => {
     switch (el.eventType) {
       case InvestmentEventType.INVEST: {
         return {
-          label: 'Invested ' + el.committedDifference + '$',
+          label:
+            'Invested ' +
+            el.committedDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#6853e8'
         };
       }
       case InvestmentEventType.PAYOUT: {
         return {
-          label: 'Payout ' + el.availableDifference + '$',
+          label:
+            'Payout ' +
+            el.availableDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#63b179'
         };
       }
       case InvestmentEventType.DEPOSIT: {
         return {
-          label: 'Deposited ' + el.availableDifference + '$',
+          label:
+            'Deposited ' +
+            el.availableDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#1586D1'
         };
       }
@@ -118,7 +137,10 @@ const GeneralStatisticsGraph = () => {
         return {
           label:
             'Withdrew ' +
-            (el.availableDifference ? -el.availableDifference : -1) +
+            (el.availableDifference
+              ? -el.availableDifference
+              : -1
+            ).toLocaleString(undefined, toLocaleStringOptions) +
             '$',
           color: '#ff6b45'
         };

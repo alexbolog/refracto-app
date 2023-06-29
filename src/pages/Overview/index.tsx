@@ -73,7 +73,7 @@ const Overview = () => {
       <div className='row'>
         <ActiveInvestmentsStatistics />
       </div>
-      <div className='row'>
+      <div className='row align-items-start'>
         <DoughnutChartRow />
       </div>
       <div className='row'>
