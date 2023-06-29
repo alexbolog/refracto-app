@@ -10,6 +10,7 @@ import ActiveInvestmentsStatistics from './ActiveInvestmentsStatistics';
 import DoughnutChartRow from './DoughnutChartRow';
 import GeneralInvestmentStatistics from './GeneralInvestmentStatistics';
 import GeneralStatisticsGraph from './GeneralStatisticsGraph';
+import InvestmentAndReturnBarCharts from './InvestmentAndReturnBarCharts';
 
 const Overview = () => {
   const [hasClaimableCredits, setHasClaimableCredits] = React.useState(true);
@@ -52,7 +53,7 @@ const Overview = () => {
     <>
       {hasClaimableCredits && (
         <div className='row'>
-          <div className='col-lg-12 col-md-12 col-sm-12'>
+          <div className='col-12'>
             <CustomAlert
               type={'primary'}
               isDismissable={false}
@@ -74,6 +75,9 @@ const Overview = () => {
       </div>
       <div className='row align-items-start'>
         <DoughnutChartRow />
+      </div>
+      <div className='row'>
+        <InvestmentAndReturnBarCharts />
       </div>
       <div className='row'>
         <PaymentStatusContainer />

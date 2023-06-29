@@ -36,3 +36,8 @@ export const getDaysUntil = (isoDate: string): number => {
 export const getIsMobile = (): boolean => {
   return window.innerWidth <= 768;
 };
+
+export const generateIdFromLabel = (label: string): string => {
+  const lowercaseLabel = label.toLowerCase().replace(/\s/g, '-');
+  return `${lowercaseLabel}-${Math.floor(Math.random() * 10000)}`;
+};

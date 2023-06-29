@@ -13,8 +13,8 @@
     border-left: 0 !important;
     z-index: 2 !important;
 }
-
-.dropdown {
+.filter-box-buttons .dropdown-toggle,
+.filter-box-buttons .dropdown {
     font-weight: 400 !important;
     font-size: 12px !important;
     padding-left: 10px !important;

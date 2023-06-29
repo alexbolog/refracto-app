@@ -67,7 +67,7 @@ const ProjectCardItem = ({
           </div>
         </div>
         <div className='card-body row'>
-          <div className='col-lg-12 col-sm-12 col-md-12 d-flex justify-content-between'>
+          <div className='col-12 d-flex justify-content-between'>
             <h5>Return</h5>
             <h5>
               <strong>
@@ -79,7 +79,7 @@ const ProjectCardItem = ({
               </strong>
             </h5>
           </div>
-          <div className='col-lg-12 col-sm-12 col-md-12 d-flex justify-content-between'>
+          <div className='col-12 d-flex justify-content-between'>
             <h5>Crowdfunding Deadline</h5>
             <h5>
               <strong>
@@ -92,7 +92,7 @@ const ProjectCardItem = ({
           </div>
         </div>
         <div className='card-footer row' style={{ border: 'none' }}>
-          <div className='col-lg-12 col-sm-12 col-md-12'>
+          <div className='col-12'>
             <button
               className={`w-100 btn ${
                 isButtonOutline ? 'btn-outline-primary' : 'btn-primary'
