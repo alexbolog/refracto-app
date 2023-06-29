@@ -4,15 +4,14 @@ import { logout } from '@multiversx/sdk-dapp/utils';
 import { Link, useNavigate } from 'react-router-dom';
 import { NAVBAR_MENU_ITEMS, routeNames } from 'routes';
 import {
+  faArrowRightFromBracket,
   faBars,
   faBoltLightning,
   faCircleUser
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ReactComponent as Logo } from './../../../assets/icons/refracto/logo.svg';
-import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import ReactTooltip from 'react-tooltip';
-import SearchBar from 'components/SearchBar';
 import NotificationDropDownContent from './NotificationDropDownContent';
 import CurrencyPicker from 'components/CurrencyPicker';
 import AccountInfo from './AccountInfo';
@@ -120,6 +119,7 @@ const Sidenav = () => {
                       href='#'
                       role='button'
                       data-bs-toggle='dropdown'
+                      data-bs-auto-close='outside'
                       style={{ marginRight: '20px' }}
                     >
                       <NotificationsIcon />

@@ -17,6 +17,7 @@ const AccountInfo = () => {
         className='nav-link'
         role='button'
         data-bs-toggle='dropdown'
+        data-bs-auto-close='outside'
         aria-expanded='false'
         onClick={() => navigate(routeNames.account)}
       >

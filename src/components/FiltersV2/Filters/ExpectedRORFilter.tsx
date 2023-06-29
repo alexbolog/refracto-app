@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import MultiRangeSlider from 'components/MultiRangeSlider';
 import { Filter } from './Filter';
 import { AppliedFilter } from '../AppliedFilter';
@@ -14,6 +14,7 @@ const ExpectedRORFilter = ({
         className='btn btn-primary dropdown-toggle dropdown'
         type='button'
         data-bs-toggle='dropdown'
+        data-bs-auto-close='outside'
         aria-expanded='false'
       >
         Select Expected ROR

@@ -17,6 +17,7 @@ const CurrencyPicker = () => {
           type='button'
           className='btn btn-white dropdown-toggle'
           data-bs-toggle='dropdown'
+          data-bs-auto-close='outside'
           style={{ marginRight: '20px' }}
         >
           {AVAILABLE_CURRENCIES[selectedCurrency]}
