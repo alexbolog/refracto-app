@@ -1,9 +1,10 @@
 
 .font-w600 {
-  font-weight: 600!important; }
+  font-weight: 600 !important;
+}
 
 .card.expense h2 {
-  font-weight: 600!important;
+  font-weight: 600 !important;
 }
 
 .text-white {
@@ -11,72 +12,97 @@
 }
 
 .toggle-btn label.check {
-  background-color: #6853E8!important;
+  background-color: #6853E8 !important;
   border: 0;
 }
 
 .toggle-btn.expense label.check {
-  background-color: #FFA600!important;
+  background-color: #FFA600 !important;
   border: 0;
 }
 
-.text-legend *{
-  color: #364E63!important;
+.text-legend * {
+  color: #364E63 !important;
 }
+
 .legend-checkbox {
   pointer-events: none;
 }
 
 .card.expense.investment {
-  background-color: #6853E8!important
+  background-color: #6853E8 !important
 }
 
 .card.expense.roi {
-  background-color: #FFA600!important;
+  background-color: #FFA600 !important;
 }
 
 .statistic-content .default-select {
   border: none;
-  color: #ffffff; }
+  color: #ffffff;
+}
+
 .statistic-content .bootstrap-select .btn {
   color: #fff;
-  border-color: var(--primary); }
+  border-color: var(--primary);
+}
+
 .statistic-content .default-select {
   background-image: none;
-  position: relative; }
+  position: relative;
+}
+
 .statistic-content .default-select option {
-  color: #2A353A; }
+  color: #2A353A;
+}
+
 .statistic-content .default-select .dropdown-toggle::after {
-  border-color: #fff; }
+  border-color: #fff;
+}
+
 .statistic-content .statistic-toggle {
   display: flex;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+}
+
 @media only screen and (max-width: 74.9375rem) {
   .statistic-content .statistic-toggle {
-    justify-content: flex-start; } }
+    justify-content: flex-start;
+  }
+}
+
 @media only screen and (max-width: 35.9375rem) {
   .statistic-content {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
-    padding-bottom: 14px; } }
-
+    padding-bottom: 14px;
+  }
+}
 
 
 .custom-dropdown {
-  display: inline-block; }
+  display: inline-block;
+}
+
 .custom-dropdown .dropdown-menu {
   border: 0rem;
-  min-width: 10rem; }
+  min-width: 10rem;
+}
 
 .card-action .custom-dropdown {
   margin: 0rem;
-  background: var(--rgba-primary-1); }
+  background: var(--rgba-primary-1);
+}
+
 .card-action .custom-dropdown.show, .card-action .custom-dropdown:focus, .card-action .custom-dropdown:hover {
   background: var(--primary);
-  color: #fff; }
+  color: #fff;
+}
+
 .card-action .custom-dropdown i {
   display: inline-block;
-  padding-top: 0.5625rem; }
+  padding-top: 0.5625rem;
+}
 
 .dropdown .dropdown-dots {
   position: relative;
@@ -84,23 +110,33 @@
   width: 0.3125rem;
   background: rgba(91, 94, 129, 0.4);
   border-radius: 0.3125rem;
-  display: block; }
+  display: block;
+}
+
 .dropdown .dropdown-dots:after, .dropdown .dropdown-dots:before {
   content: "";
   height: 0.3125rem;
   width: 0.3125rem;
   background: rgba(91, 94, 129, 0.4);
   position: absolute;
-  border-radius: 0.3125rem; }
-.dropdown .dropdown-dots:after {
-  right: -0.5rem; }
-.dropdown .dropdown-dots:before {
-  left: -0.5rem; }
-.dropdown .dropdown-dots.text-white {
-  background: rgba(255, 255, 255, 0.7); }
-.dropdown .dropdown-dots.text-white:after, .dropdown .dropdown-dots.text-white:before {
-  background: rgba(255, 255, 255, 0.7); }
+  border-radius: 0.3125rem;
+}
 
+.dropdown .dropdown-dots:after {
+  right: -0.5rem;
+}
+
+.dropdown .dropdown-dots:before {
+  left: -0.5rem;
+}
+
+.dropdown .dropdown-dots.text-white {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.dropdown .dropdown-dots.text-white:after, .dropdown .dropdown-dots.text-white:before {
+  background: rgba(255, 255, 255, 0.7);
+}
 
 
 .widget-timeline .side-border .custom-dropdown {
@@ -108,25 +144,34 @@
   position: relative;
   z-index: 2;
   padding-left: 1.25rem;
-  margin-top: -7px; }
+  margin-top: -7px;
+}
 
 
 .custom-dropdown {
   display: inline-block;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+}
+
 .custom-dropdown .dropdown-menu {
   border: 0rem;
-  min-width: 10rem; }
+  min-width: 10rem;
+}
 
 .card-action .custom-dropdown {
   margin: 0rem;
-  background: var(--rgba-primary-1); }
+  background: var(--rgba-primary-1);
+}
+
 .card-action .custom-dropdown.show, .card-action .custom-dropdown:focus, .card-action .custom-dropdown:hover {
   background: var(--primary);
-  color: #fff; }
+  color: #fff;
+}
+
 .card-action .custom-dropdown i {
   display: inline-block;
-  padding-top: 0.5625rem; }
+  padding-top: 0.5625rem;
+}
 
 .dropdown .dropdown-dots {
   position: relative;
@@ -134,61 +179,79 @@
   width: 0.3125rem;
   background: rgba(110, 110, 110, 0.4);
   border-radius: 0.3125rem;
-  display: block; }
-
+  display: block;
+}
 
 
 .card.expense {
-  border: 0!important}
+  border: 0 !important
+}
+
 .card.expense .content {
-  color: #fff; }
+  color: #fff;
+}
+
 .card.expense .content span {
   margin-bottom: 0.5rem;
-  display: block; }
+  display: block;
+}
+
 .card.expense .content h2, .card.expense .content .h2 {
-  font-size: 1.375rem; }
+  font-size: 1.375rem;
+}
+
 .card.expense .content h5, .card.expense .content .h5 {
   font-size: 1.125rem;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+}
+
 .card.expense .content h5, .card.expense .content .h5, .card.expense .content h2, .card.expense .content .h2 {
-  color: #fff; }
+  color: #fff;
+}
+
 .card.expense .content .up {
-  color: #ffd125; }
-
-
+  color: #ffd125;
+}
 
 
 .card.expense h4, .card.expense .h4 {
   font-size: 2rem;
-  font-weight: 800; }
+  font-weight: 800;
+}
+
 .card.expense h5, .card.expense .h5 {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #717579; }
+  color: #717579;
+}
 
 
+.card.expense {
+  .content {
+    color: white;
 
-.card.expense{
-    .content{
-      color: white;
-      span{
-        margin-bottom: 0.5rem;
-        display: block;
-      }
-      h2{
-        font-size: 1.375rem;
-      }
-      h5{
-        font-size: 1.125rem;
-        margin-bottom: 0;
-      }
-      h5,h2{
-        color: white;
-      }
-      .up{
-        color: #ffd125;
-
-      }
+    span {
+      margin-bottom: 0.5rem;
+      display: block;
     }
+
+    h2 {
+      font-size: 1.375rem;
+    }
+
+    h5 {
+      font-size: 1.125rem;
+      margin-bottom: 0;
+    }
+
+    h5, h2 {
+      color: white;
+    }
+
+    .up {
+      color: #ffd125;
+
+    }
+  }
 
 }

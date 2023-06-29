@@ -74,12 +74,6 @@ const SideMenu = ({
                     toLocaleStringOptions
                   )}
                 </h2>
-                {/*<h5 className='up'>*/}
-                {/*  <span className='text-white'>*/}
-                {/*    {upArrowIcon()}*/}
-                {/*    +15%*/}
-                {/*  </span>*/}
-                {/*</h5>*/}
               </div>
             </div>
           </div>
@@ -92,12 +86,6 @@ const SideMenu = ({
                 <h2>
                   €{roiTotal.toLocaleString(undefined, toLocaleStringOptions)}
                 </h2>
-                {/*<h5 className='up' style={{ color: '#FFFFFF' }}>*/}
-                {/*  <span className='text-white'>*/}
-                {/*    {upArrowIcon()}*/}
-                {/*    +15%*/}
-                {/*  </span>*/}
-                {/*</h5>*/}
               </div>
             </div>
           </div>
