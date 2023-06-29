@@ -14,10 +14,6 @@ interface DropdownProps {
 const Dropdown = ({ options, onChange, label }: DropdownProps) => {
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
-  useEffect(() => {
-    setSelectedValues(options.map((option) => option.value));
-  }, [options]);
-
   const handleOptionChange = (value: string) => {
     const updatedSelectedValues = selectedValues.includes(value)
       ? selectedValues.filter((val) => val !== value)
