@@ -43,7 +43,7 @@ export interface Payment {
 export interface InvestmentTransaction {
   date: string; // ISO format
   status: InvestmentTransactionStatus;
-  projectName: string;
+  projectTitle: string;
   currency: 'EUR' | 'USD';
   amount: number;
   type: 'DEPOSIT';

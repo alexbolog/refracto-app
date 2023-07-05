@@ -2,7 +2,7 @@
   {
     "date": "2023-05-30",
     "status": 1,
-    "projectName": "Project random string to make the project title larger 1",
+    "projectTitle": "Project random string to make the project title larger 1",
     "currency": "USD",
     "amount": 63954.37,
     "operation": "CREDIT",
@@ -12,7 +12,7 @@
   {
     "date": "2023-05-25",
     "status": 0,
-    "projectName": "Project random string to make the project title larger 2",
+    "projectTitle": "Project random string to make the project title larger 2",
     "currency": "EUR",
     "amount": 5432.54,
     "operation": "OTHER",
@@ -22,7 +22,7 @@
   {
     "date": "2023-05-20",
     "status": 2,
-    "projectName": "Project random string to make the project title larger 3",
+    "projectTitle": "Project random string to make the project title larger 3",
     "currency": "USD",
     "amount": 15678.12,
     "operation": "CREDIT",
@@ -32,7 +32,7 @@
   {
     "date": "2023-05-15",
     "status": 1,
-    "projectName": "Project random string to make the project title larger 4",
+    "projectTitle": "Project random string to make the project title larger 4",
     "currency": "EUR",
     "amount": 95682.54,
     "operation": "OTHER",
@@ -42,7 +42,7 @@
   {
     "date": "2023-05-10",
     "status": 0,
-    "projectName": "Project random string to make the project title larger 5",
+    "projectTitle": "Project random string to make the project title larger 5",
     "currency": "USD",
     "amount": 5454.98,
     "operation": "CREDIT",
@@ -52,7 +52,7 @@
   {
     "date": "2023-05-05",
     "status": 2,
-    "projectName": "Project random string to make the project title larger 6",
+    "projectTitle": "Project random string to make the project title larger 6",
     "currency": "EUR",
     "amount": 65354.32,
     "operation": "OTHER",
@@ -62,7 +62,7 @@
   {
     "date": "2023-04-30",
     "status": 1,
-    "projectName": "Project random string to make the project title larger 7",
+    "projectTitle": "Project random string to make the project title larger 7",
     "currency": "USD",
     "amount": 86734.87,
     "operation": "CREDIT",
@@ -72,7 +72,7 @@
   {
     "date": "2023-04-25",
     "status": 0,
-    "projectName": "Project random string to make the project title larger 8",
+    "projectTitle": "Project random string to make the project title larger 8",
     "currency": "EUR",
     "amount": 3543.12,
     "operation": "OTHER",
@@ -82,7 +82,7 @@
   {
     "date": "2023-04-20",
     "status": 2,
-    "projectName": "Project random string to make the project title larger 9",
+    "projectTitle": "Project random string to make the project title larger 9",
     "currency": "USD",
     "amount": 63472.32,
     "operation": "CREDIT",
@@ -92,7 +92,7 @@
   {
     "date": "2023-04-15",
     "status": 1,
-    "projectName": "Project random string to make the project title larger 10",
+    "projectTitle": "Project random string to make the project title larger 10",
     "currency": "EUR",
     "amount": 99483.67,
     "operation": "OTHER",
@@ -102,7 +102,7 @@
   {
     "date": "2023-04-10",
     "status": 0,
-    "projectName": "Project random string to make the project title larger 11",
+    "projectTitle": "Project random string to make the project title larger 11",
     "currency": "USD",
     "amount": 6789.32,
     "operation": "CREDIT",
@@ -112,7 +112,7 @@
   {
     "date": "2023-04-05",
     "status": 2,
-    "projectName": "Project random string to make the project title larger 12",
+    "projectTitle": "Project random string to make the project title larger 12",
     "currency": "EUR",
     "amount": 9658.32,
     "operation": "OTHER",
@@ -122,7 +122,7 @@
   {
     "date": "2023-03-31",
     "status": 1,
-    "projectName": "Project random string to make the project title larger 13",
+    "projectTitle": "Project random string to make the project title larger 13",
     "currency": "USD",
     "amount": 7385.98,
     "operation": "CREDIT",
@@ -132,7 +132,7 @@
   {
     "date": "2023-03-26",
     "status": 0,
-    "projectName": "Project random string to make the project title larger 14",
+    "projectTitle": "Project random string to make the project title larger 14",
     "currency": "EUR",
     "amount": 12345.32,
     "operation": "OTHER",
@@ -142,7 +142,7 @@
   {
     "date": "2023-03-21",
     "status": 2,
-    "projectName": "Project random string to make the project title larger 15",
+    "projectTitle": "Project random string to make the project title larger 15",
     "currency": "USD",
     "amount": 59876.32,
     "operation": "CREDIT",
@@ -152,7 +152,7 @@
   {
     "date": "2023-03-16",
     "status": 1,
-    "projectName": "Project random string to make the project title larger 16",
+    "projectTitle": "Project random string to make the project title larger 16",
     "currency": "EUR",
     "amount": 38652.43,
     "operation": "OTHER",
@@ -162,7 +162,7 @@
   {
     "date": "2023-03-11",
     "status": 0,
-    "projectName": "Project random string to make the project title larger 17",
+    "projectTitle": "Project random string to make the project title larger 17",
     "currency": "USD",
     "amount": 65987.23,
     "operation": "CREDIT",
@@ -172,7 +172,7 @@
   {
     "date": "2023-03-06",
     "status": 2,
-    "projectName": "Project random string to make the project title larger 18",
+    "projectTitle": "Project random string to make the project title larger 18",
     "currency": "EUR",
     "amount": 12365.54,
     "operation": "OTHER",
@@ -182,7 +182,7 @@
   {
     "date": "2023-03-01",
     "status": 1,
-    "projectName": "Project random string to make the project title larger 19",
+    "projectTitle": "Project random string to make the project title larger 19",
     "currency": "USD",
     "amount": 98765.32,
     "operation": "CREDIT",
@@ -192,7 +192,7 @@
   {
     "date": "2023-02-24",
     "status": 0,
-    "projectName": "Project random string to make the project title larger 20",
+    "projectTitle": "Project random string to make the project title larger 20",
     "currency": "EUR",
     "amount": 54321.67,
     "operation": "OTHER",

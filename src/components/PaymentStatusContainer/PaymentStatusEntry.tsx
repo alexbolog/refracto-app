@@ -6,12 +6,12 @@ import { ReactComponent as DoneIcon } from '../../assets/icons/refracto/done.svg
 const PaymentStatusEntry = ({
   paymentStatus,
   amount,
-  projectName,
+  projectTitle,
   date
 }: {
   paymentStatus: PaymentStatuses;
   amount: number;
-  projectName: string;
+  projectTitle: string;
   date: string;
 }) => {
   const handleClaimPayment = () => {
@@ -74,7 +74,7 @@ const PaymentStatusEntry = ({
         <h5>{date}</h5>
       </div>
       <div className='col-lg-3 d-flex justify-content-left p-3'>
-        <h5>{projectName}</h5>
+        <h5>{projectTitle}</h5>
       </div>
       {statusColumnComponent()}
       {paymentAmountComponent()}
