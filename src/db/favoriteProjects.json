@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "projectName": "Bulevardul Timisoarei,  128A Bucharest",
+    "projectTitle": "Bulevardul Timisoarei,  128A Bucharest",
     "return": "45%",
     "isFavorite": true,
     "deadline": "89 days",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "projectName": "Bulevardul Timisoarei,  128A Bucharest",
+    "projectTitle": "Bulevardul Timisoarei,  128A Bucharest",
     "return": "45%",
     "isFavorite": true,
     "deadline": "89 days",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "projectName": "Bulevardul Timisoarei,  128A Bucharest",
+    "projectTitle": "Bulevardul Timisoarei,  128A Bucharest",
     "return": "45%",
     "isFavorite": true,
     "deadline": "89 days",

@@ -47,7 +47,7 @@ const PaymentStatusContainer = () => {
               <PaymentStatusEntry
                 paymentStatus={p.paymentStatus}
                 amount={p.paymentAmount}
-                projectName={p.projectTitle}
+                projectTitle={p.projectTitle}
                 date={formatIso(p.date, DateTime.DATE_FULL)}
                 key={`payment-status-${p.projectId}-${i}`}
               />
