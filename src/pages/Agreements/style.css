@@ -1,25 +1,4 @@
-.agreements-table thead {
-    color: var(--blugrey-4, #364E63);
-    font-size: 12px;
-    /* font-family: Inter; */
-    font-weight: 700;
-    line-height: 20px;
-    border-bottom: 1px #D5DFE7 solid
-}
-
-.agreements-table .date {
-    min-width: 110px;
-}
-
-.agreements-table td, th {
-    color: var(--blugrey-4, #364E63);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 20px;
-    border: none !important;
-}
-
-.agreements-table .status::before {
+.status::before {
     content: '•';
     display: inline-block;
     font-size: 2em;
@@ -30,76 +9,14 @@
     /* margin-left: -1.5em; */
 }
 
-.agreements-table .status-pending::before {
+.status-pending::before {
     color: #EBBC15;
 }
 
-.agreements-table .status-finished::before {
+.status-finished::before {
     color: var(--green-low, #75BE48);
 }
 
-.agreements-table .status-cancelled::before {
+.status-cancelled::before {
     color: red;
-}
-
-.agreements-table .td-center {
-    display: flex;
-    justify-content: center;
-}
-
-.btn-export {
-    padding: 6px 34px !important;
-    font-size: 12px !important;
-}
-
-.footer-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-wrapper .col-stats, .col-actions {
-    display: flex;
-    justify-content: space-between;
-    width: 25%;
-}
-
-.footer-wrapper .col-actions {
-    width: auto;
-}
-
-.footer-wrapper .btn-outline-primary {
-    margin-right: 15px;
-}
-
-@media only screen and (max-width: 1024px) {
-    .footer-wrapper {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .footer-wrapper .col-stats {
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 10px;
-        margin-bottom: 10px;
-    }
-
-    .footer-wrapper .col-actions {
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 10px;
-        margin-bottom: 10px;
-    }
-
-    .btn-export {
-        width: 100%;
-    }
-
-    .footer-wrapper .btn-outline-primary {
-        margin-right: 0px;
-    }
 }

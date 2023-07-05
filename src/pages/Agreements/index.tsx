@@ -1,8 +1,10 @@
 import { FiltersV2 } from 'components/FiltersV2';
 import React, { useContext } from 'react';
-import { AgreementsTable } from './AgreementsTable';
+// import { AgreementsTable } from './AgreementsTable';
 import { AccountContext } from 'contexts/AccountContext';
 import './style.css';
+import { Table } from 'components/Table';
+import { columns } from './AgreementsTable';
 
 export const Agreements = () => {
   const { documentAgreements } = useContext(AccountContext);
@@ -25,7 +27,7 @@ export const Agreements = () => {
       </div>
       <div className='row'>
         <div className='col-12 mt-4'>
-          <AgreementsTable agreements={documentAgreements} />
+          <Table columns={columns} data={documentAgreements} />
         </div>
       </div>
     </div>

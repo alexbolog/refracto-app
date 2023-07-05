@@ -7,15 +7,16 @@ import {
   getSortedRowModel,
   useReactTable
 } from '@tanstack/react-table';
-import { InvestmentTransaction } from 'types/accountTypes';
 import './style.css';
 
 export const Table = ({
   columns,
-  data
+  data,
+  isHeightLimited
 }: {
-  columns: ColumnDef<InvestmentTransaction>[];
-  data: InvestmentTransaction[];
+  columns: ColumnDef<any>[];
+  data: any[];
+  isHeightLimited?: boolean;
 }) => {
   const [sortingState, setSortingState] = React.useState<SortingState>([]);
 
@@ -32,7 +33,11 @@ export const Table = ({
   return (
     <div className='card card-body'>
       <div className='table-responsive'>
-        <div className='transactions-table'>
+        <div
+          className={`custom-table ${
+            isHeightLimited ? 'restricted-height' : ''
+          }`}
+        >
           <table className='table'>
             <thead>
               {table.getHeaderGroups().map((headerGroup) => (

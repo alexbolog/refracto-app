@@ -30,8 +30,7 @@ const Transactions = () => {
       </div>
       <div className='row'>
         <div className='col-12 mt-4'>
-          {/* <TransactionsTable transactions={investmentTransactions} /> */}
-          <Table columns={columns} data={filteredTransactions} />
+          <Table columns={columns} data={filteredTransactions} isHeightLimited />
         </div>
       </div>
       <div className='row'>
