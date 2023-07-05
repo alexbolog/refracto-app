@@ -32,7 +32,6 @@ export const columns: ColumnDef<InvestmentTransaction>[] = [
         </>
       );
     }
-    // cell: (value) => value.getValue() //new Date().toLocaleDateString(),  // format the ISO date string as a local date string
   },
   {
     header: 'Status',
@@ -52,7 +51,6 @@ export const columns: ColumnDef<InvestmentTransaction>[] = [
         </div>
       );
     }
-    // Cell: ({ value }) => InvestmentTransactionStatus[value],  // convert enum value to string
   },
   {
     header: 'Project Name',
@@ -77,7 +75,8 @@ export const columns: ColumnDef<InvestmentTransaction>[] = [
           )}
         </div>
       );
-    }
+    },
+    enableSorting: true
   },
   {
     header: (_) => <div className='td-center'>Type</div>,
@@ -113,6 +112,7 @@ export const columns: ColumnDef<InvestmentTransaction>[] = [
           See transaction
         </a>
       );
-    }
+    },
+    enableSorting: false
   }
 ];

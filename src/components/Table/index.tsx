@@ -1,15 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-
-// import { Table as BTable } from 'react-bootstrap';
-
 import {
   ColumnDef,
+  SortingState,
   flexRender,
   getCoreRowModel,
+  getSortedRowModel,
   useReactTable
 } from '@tanstack/react-table';
 import { InvestmentTransaction } from 'types/accountTypes';
+import './style.css';
 
 export const Table = ({
   columns,
@@ -18,16 +17,19 @@ export const Table = ({
   columns: ColumnDef<InvestmentTransaction>[];
   data: InvestmentTransaction[];
 }) => {
-  const [dataa, setData] = React.useState([]);
+  const [sortingState, setSortingState] = React.useState<SortingState>([]);
 
   const table = useReactTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel()
+    state: {
+      sorting: sortingState
+    },
+    onSortingChange: setSortingState,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel()
   });
   return (
-    // <div className='p-2'>
-    //   <BTable striped bordered hover responsive size='sm'>
     <div className='card card-body'>
       <div className='table-responsive'>
         <div className='transactions-table'>
@@ -37,12 +39,25 @@ export const Table = ({
                 <tr key={headerGroup.id}>
                   {headerGroup.headers.map((header) => (
                     <th key={header.id} colSpan={header.colSpan}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
+                      {header.isPlaceholder ? null : (
+                        <div
+                          className={`${
+                            header.column.getCanSort() ? 'sortable' : ''
+                          } ${
+                            header.column.getIsSorted() === false
+                              ? ''
+                              : header.column.getIsSorted() === 'asc'
+                              ? 'sorted-asc'
+                              : 'sorted-desc'
+                          }`}
+                          onClick={header.column.getToggleSortingHandler()}
+                        >
+                          {flexRender(
                             header.column.columnDef.header,
                             header.getContext()
                           )}
+                        </div>
+                      )}
                     </th>
                   ))}
                 </tr>
@@ -62,22 +77,6 @@ export const Table = ({
                 </tr>
               ))}
             </tbody>
-            <tfoot>
-              {table.getFooterGroups().map((footerGroup) => (
-                <tr key={footerGroup.id}>
-                  {footerGroup.headers.map((header) => (
-                    <th key={header.id} colSpan={header.colSpan}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.footer,
-                            header.getContext()
-                          )}
-                    </th>
-                  ))}
-                </tr>
-              ))}
-            </tfoot>
           </table>
         </div>
       </div>

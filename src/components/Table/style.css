@@ -1,0 +1,56 @@
+.sortable {
+    display: inline-block;
+    position: relative;
+    padding-right: 15px;
+    cursor: pointer;
+    /* Adjusted to position the chevrons closer to the text */
+}
+
+.sortable::before, .sortable::after {
+    content: "▲";
+    /* Up chevron */
+    position: absolute;
+    right: 0;
+    /* Positioned to the right of the text */
+    color: grey;
+    /* Inactive state */
+    font-size: 8px;
+    /* Adjust size of the chevron */
+    line-height: 2.7;
+}
+
+.sortable::before {
+    top: 0;
+    /* Position the up chevron on top */
+    visibility: visible;
+    /* By default, the up chevron is not displayed */
+}
+
+.sortable::after {
+    content: "▼";
+    /* Down chevron */
+    top: 10px;
+    /* Position the down chevron right below the up chevron */
+}
+
+.sortable.sorted-asc::before {
+    visibility: visible;
+    /* Show the up chevron when sort is ascending */
+    color: blue;
+    /* Active state */
+}
+
+.sortable.sorted-asc::after {
+    visibility: hidden;
+    /* Hide the down chevron when sort is ascending */
+}
+
+.sortable.sorted-desc::before {
+    visibility: hidden;
+    /* Hide the up chevron when sort is descending */
+}
+
+.sortable.sorted-desc::after {
+    color: blue;
+    /* Active state */
+}
