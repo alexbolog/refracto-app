@@ -1,12 +1,18 @@
 import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
 import useGetAccountOverview from './hooks/useGetAccountOverview';
 import React, { useState } from 'react';
-import { AccountOverview } from 'types/accountTypes';
+import {
+  AccountOverview,
+  DocumentAgreement,
+  InvestmentTransaction
+} from 'types/accountTypes';
 import { ActiveProjectInvestment } from 'types/projectTypes';
 import useGetAccountActiveInvestments from './hooks/useGetAccountActiveInvestments';
 import { AVAILABLE_CURRENCIES } from 'enums';
 import { ProfileInfo } from './types/ProfileInfo';
 import useGetProfileInfo from './hooks/useGetAccountInfo';
+import useGetInvestmentTransactions from './hooks/useGetInvestmentTransactions';
+import useGetDocumentAgreements from './hooks/useGetDocumentAgreements';
 
 export interface IAccountContext {
   isLoading: boolean;
@@ -17,6 +23,8 @@ export interface IAccountContext {
   selectedCurrency: AVAILABLE_CURRENCIES;
   setSelectedCurrency: (newCurrency: AVAILABLE_CURRENCIES) => void;
   profileInfo: ProfileInfo;
+  investmentTransactions: InvestmentTransaction[];
+  documentAgreements: DocumentAgreement[];
 }
 
 const defaultState: IAccountContext = {
@@ -30,11 +38,14 @@ const defaultState: IAccountContext = {
     firstName: '',
     lastName: '',
     profilePictureSrc: ''
-  }
+  },
+  investmentTransactions: [],
+  documentAgreements: []
 };
 
-export const AccountContext =
-  React.createContext<IAccountContext>(defaultState);
+export const AccountContext = React.createContext<IAccountContext>(
+  defaultState
+);
 
 export const AccountContextProvider = ({
   children
@@ -53,6 +64,8 @@ export const AccountContextProvider = ({
   const accountOverview = useGetAccountOverview();
   const activeProjectInvestments = useGetAccountActiveInvestments();
   const profileInfo = useGetProfileInfo();
+  const investmentTransactions = useGetInvestmentTransactions();
+  const documentAgreements = useGetDocumentAgreements();
 
   React.useEffect(() => {
     setIsLoading(false);
@@ -70,7 +83,9 @@ export const AccountContextProvider = ({
         setSelectedCurrency(newCurrency) {
           setSelectedCurrency(newCurrency);
         },
-        profileInfo
+        profileInfo,
+        investmentTransactions,
+        documentAgreements
       }}
     >
       {children}

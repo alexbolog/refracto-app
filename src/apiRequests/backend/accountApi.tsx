@@ -1,11 +1,17 @@
-import { AccountOverview } from 'types/accountTypes';
+import {
+  AccountOverview,
+  DocumentAgreement,
+  InvestmentTransaction
+} from 'types/accountTypes';
 import { ActiveProjectInvestment } from 'types/projectTypes';
 import accountOverview from '../../dbNew/accountOverview.json';
 import projectDetails from '../../dbNew/projectList.json';
 import projectList from '../../dbNew/projectList.json';
+import transactionList from '../../dbNew/transactions.json';
+import documentAgreements from '../../dbNew/agreements.json';
 
 export const getAccountOverview = (): AccountOverview => {
-  const response = accountOverview as any as AccountOverview;
+  const response = (accountOverview as any) as AccountOverview;
   for (let i = 0; i < response.favoriteProjects.length; i++) {
     response.favoriteProjects[i].projectTitle = projectDetails.filter(
       (pd) => pd.projectId === response.favoriteProjects[i].projectId
@@ -26,5 +32,20 @@ export const getActiveProjectInvestments = (): ActiveProjectInvestment[] => {
     o.amountInvested = 123456.789;
     // o.thumbnailSrc = l.images[0];
     return o;
+  });
+};
+
+export const getInvestmentTransactions = (): InvestmentTransaction[] => {
+  return transactionList.map((tl) => {
+    const obj = tl as InvestmentTransaction;
+    obj.type = 'DEPOSIT';
+    return obj;
+  });
+};
+
+export const getDocumentAgreements = (): DocumentAgreement[] => {
+  return documentAgreements.map((tl) => {
+    const obj = tl as DocumentAgreement;
+    return obj;
   });
 };

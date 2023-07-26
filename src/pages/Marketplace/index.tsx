@@ -79,7 +79,7 @@ const Marketplace = () => {
               )}
             </div>
             <div className='col-12 text-center'>
-              <EmptyPageScreen />
+              <EmptyPageScreen className='img-responsive' />
             </div>
           </>
         )}

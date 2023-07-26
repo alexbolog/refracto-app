@@ -6,6 +6,7 @@ import { ProjectListItem } from 'types/projectTypes';
 import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-available-projects.svg';
 import { FiltersV2 } from 'components/FiltersV2';
 
+
 const AvailableProjects = () => {
   const { availableProjects } = useContext(ProjectContext);
 
@@ -57,7 +58,7 @@ const AvailableProjects = () => {
               )}
             </div>
             <div className='col-12 text-center'>
-              <EmptyPageScreen />
+              <EmptyPageScreen className='img-responsive'/>
             </div>
           </>
         )}

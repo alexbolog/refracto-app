@@ -15,14 +15,22 @@ const DeadlineFilter = ({
     onFilterChange({ startDate, endDate });
   };
   return (
-    <div>
-      <DateRangePicker
-        onChange={onDatePick}
-        customInput='Select Deadline'
-        customBtnClassName='btn btn-primary dropdown-toggle dropdown deadline-select'
-      ></DateRangePicker>
-      {/* <SettingsButton /> */}
-    </div>
+    <>
+      <div className='filter-btn dsk'>
+        <DateRangePicker
+          onChange={onDatePick}
+          customInput='Select Deadline'
+          customBtnClassName='btn btn-primary dropdown-toggle dropdown deadline-select'
+        ></DateRangePicker>
+      </div>
+      <div className='filter-btn mbl w-100'>
+        <DateRangePicker
+          onChange={onDatePick}
+          customInput='Select Deadline'
+          customBtnClassName='btn btn-primary dropdown-toggle dropdown deadline-select w-100'
+        ></DateRangePicker>
+      </div>
+    </>
   );
 };
 

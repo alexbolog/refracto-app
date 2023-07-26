@@ -1,0 +1,110 @@
+.custom-table.restricted-height {
+    height: 50vh;
+}
+
+.custom-table thead {
+    position: sticky;
+    top: 0;
+    background-color: white !important;
+    color: var(--blugrey-4, #364E63);
+    font-size: 12px;
+    /* font-family: Inter; */
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.custom-table .date {
+    min-width: 110px;
+}
+
+.custom-table td, th {
+    color: var(--blugrey-4, #364E63);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.custom-table .status::before {
+    content: '•';
+    display: inline-block;
+    font-size: 2em;
+    vertical-align: middle;
+    /* Add this property to center vertically */
+    margin-right: 4px;
+    /* line-height: 0.5em; */
+    /* margin-left: -1.5em; */
+}
+
+.custom-table .status-pending::before {
+    color: #EBBC15;
+}
+
+.custom-table .status-finished::before {
+    color: var(--green-low, #75BE48);
+}
+
+.custom-table .status-cancelled::before {
+    color: red;
+}
+
+.custom-table .td-center {
+    display: flex;
+    justify-content: center;
+}
+
+.sortable {
+    display: inline-block;
+    position: relative;
+    padding-right: 15px;
+    cursor: pointer;
+    /* Adjusted to position the chevrons closer to the text */
+}
+
+.sortable::before, .sortable::after {
+    content: "▲";
+    /* Up chevron */
+    position: absolute;
+    right: 0;
+    /* Positioned to the right of the text */
+    color: grey;
+    /* Inactive state */
+    font-size: 8px;
+    /* Adjust size of the chevron */
+    line-height: 2.7;
+}
+
+.sortable::before {
+    top: 0;
+    /* Position the up chevron on top */
+    visibility: visible;
+    /* By default, the up chevron is not displayed */
+}
+
+.sortable::after {
+    content: "▼";
+    /* Down chevron */
+    top: 10px;
+    /* Position the down chevron right below the up chevron */
+}
+
+.sortable.sorted-asc::before {
+    visibility: visible;
+    /* Show the up chevron when sort is ascending */
+    color: blue;
+    /* Active state */
+}
+
+.sortable.sorted-asc::after {
+    visibility: hidden;
+    /* Hide the down chevron when sort is ascending */
+}
+
+.sortable.sorted-desc::before {
+    visibility: hidden;
+    /* Hide the up chevron when sort is descending */
+}
+
+.sortable.sorted-desc::after {
+    color: blue;
+    /* Active state */
+}

@@ -39,3 +39,41 @@ export interface Payment {
   paymentAmount: number;
   xHash?: string;
 }
+
+export interface InvestmentTransaction {
+  date: string; // ISO format
+  status: InvestmentTransactionStatus;
+  projectTitle: string;
+  currency: 'EUR' | 'USD';
+  amount: number;
+  type: 'DEPOSIT';
+  operation: string;
+  description: string;
+  transactionHash: string;
+}
+
+export enum InvestmentTransactionStatus {
+  Pending,
+  Finished,
+  Cancelled
+}
+
+export interface DocumentAgreement {
+  date: string; // ISO format
+  agreementId: string;
+  projectName: string;
+  status: DocumentAgreementStatus;
+  documentType: DocumentAgreementType;
+  filePath: string;
+}
+
+export enum DocumentAgreementStatus {
+  Signed,
+  Unsigned,
+  Cancelled
+}
+
+export enum DocumentAgreementType {
+  Investment = 'Investment',
+  SecondaryMarket = 'Secondary Market'
+}

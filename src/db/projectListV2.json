@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "projectName": "Bulevardul Timisoarei,  128A Bucharest",
+    "projectTitle": "Bulevardul Timisoarei,  128A Bucharest",
     "colorCode": "#6853E8",
     "minCrowdfundingTarget": 3789560,
     "ROIAmount": 5789560,
@@ -10,7 +10,7 @@
   },
   {
     "id": 2,
-    "projectName": "Bulevardul Timisoarei,  128A Bucharest",
+    "projectTitle": "Bulevardul Timisoarei,  128A Bucharest",
     "colorCode": "#FFA600",
     "minCrowdfundingTarget": 3789560,
     "ROIAmount": 5789560,
@@ -19,7 +19,7 @@
   },
   {
     "id": 3,
-    "projectName": "Bulevardul Timisoarei,  128A Bucharest",
+    "projectTitle": "Bulevardul Timisoarei,  128A Bucharest",
     "colorCode": "#FF6B45",
     "minCrowdfundingTarget": 3789560,
     "ROIAmount": 5789560,

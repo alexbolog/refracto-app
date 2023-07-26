@@ -1,0 +1,22 @@
+.status::before {
+    content: '•';
+    display: inline-block;
+    font-size: 2em;
+    vertical-align: middle;
+    /* Add this property to center vertically */
+    margin-right: 4px;
+    /* line-height: 0.5em; */
+    /* margin-left: -1.5em; */
+}
+
+.status-pending::before {
+    color: #EBBC15;
+}
+
+.status-finished::before {
+    color: var(--green-low, #75BE48);
+}
+
+.status-cancelled::before {
+    color: red;
+}
