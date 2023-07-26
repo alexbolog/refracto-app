@@ -9,9 +9,9 @@ const ReturnRangeFilter = ({
   onFilterChange: (newState: any) => void;
 }) => {
   return (
-    <div className='return-range-select'>
+    <div className='return-range-select dropdown'>
       <button
-        className='btn btn-primary dropdown-toggle dropdown'
+        className='btn btn-primary dropdown-toggle'
         type='button'
         data-bs-toggle='dropdown'
         data-bs-auto-close='outside'
