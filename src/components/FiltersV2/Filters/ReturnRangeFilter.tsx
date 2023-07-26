@@ -10,61 +10,6 @@ const ReturnRangeFilter = ({
 }) => {
   return (
     <>
-      {/* <div className='return-range-select filter-btn dsk'>
-        <button
-          className='btn btn-primary dropdown-toggle dropdown'
-          type='button'
-          data-bs-toggle='dropdown'
-          data-bs-auto-close='outside'
-          aria-expanded='false'
-        >
-          Select Return Range
-        </button>
-        <div
-          className='dropdown-menu'
-          aria-labelledby='dropdownMenuButton1'
-          style={{
-            padding: '0',
-            background: '#fff'
-          }}
-        >
-          <div className='p-3'>
-            <MultiRangeSlider
-              min={0}
-              max={100}
-              onChange={(min, max) => onFilterChange({ min, max })}
-              title='Expected Return Range'
-              description='Drag the slider and select your expected return range'
-            />
-          </div>
-    <div className='return-range-select dropdown'>
-      <button
-        className='btn btn-primary dropdown-toggle'
-        type='button'
-        data-bs-toggle='dropdown'
-        data-bs-auto-close='outside'
-        aria-expanded='false'
-      >
-        Select Return Range
-      </button>
-      <div
-        className='dropdown-menu'
-        aria-labelledby='dropdownMenuButton1'
-        style={{
-          padding: '0',
-          background: '#fff'
-        }}
-      >
-        <div className='p-3'>
-          <MultiRangeSlider
-            min={0}
-            max={100}
-            onChange={(min, max) => onFilterChange({ min, max })}
-            title='Expected Return Range'
-            description='Drag the slider and select your expected return range'
-          />
-        </div>
-      </div> */}
       <div className='return-range-select filter-btn mbl'>
         <button
           className='btn btn-primary dropdown-toggle dropdown w-100'
