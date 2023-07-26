@@ -10,13 +10,13 @@ const Portfolio = () => {
   return (
     <>
       <div className='row'>
-        <div className='col-lg-12 col-sm-12 d-flex justify-content-center'>
+        <div className='col-12 d-flex justify-content-center'>
           <GeneralStatisticsGraph />
         </div>
       </div>
 
       <div className='row'>
-        <div className='col-lg-12 col-sm-12 d-flex justify-content-center'>
+        <div className='col-12 d-flex justify-content-center'>
           <ProjectList />
         </div>
       </div>

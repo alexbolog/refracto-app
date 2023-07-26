@@ -1,6 +1,6 @@
 import './style.scss';
 import * as React from 'react';
-import dashboardGraph from '../../../db/dashboardGraph.json';
+import dashboardGraph from '../../../dbNew/investmentHistory.json';
 import { Line } from 'react-chartjs-2';
 import gradient from 'chartjs-plugin-gradient';
 import {
@@ -227,8 +227,8 @@ const GeneralStatisticsGraph = () => {
         time: {
           unit: 'month' as const
         },
-        suggestedMin: DateTime.now().minus({ years: 1 }).toISO(),
-        suggestedMax: DateTime.now().toISO()
+        suggestedMin: DateTime.now().minus({ years: 1 }).toISO()!,
+        suggestedMax: DateTime.now().toISO()!
       }
     },
     annotations: graphEvents
