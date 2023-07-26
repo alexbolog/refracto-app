@@ -5,11 +5,13 @@ import { Doughnut } from 'react-chartjs-2';
 import './style.scss';
 import ExpandFooter from '../ExpandFooter';
 import { toLocaleStringOptions } from '../../config';
-import DonutChartOptions from './donut-chart-options';
-import DonutProjectList from './donut-project-list';
+import DonutChartOptions from './donutChartOptions';
+import DonutProjectList from './donutProjectList';
 import { AccountContext } from '../../contexts/AccountContext';
 
 const DonutChartStatisticsCard = () => {
+  const [isExpanded, setExpanded] = React.useState(false);
+
   const { activeProjectInvestments } = useContext(AccountContext);
   Chart.register(ArcElement);
 
@@ -63,9 +65,10 @@ const DonutChartStatisticsCard = () => {
         <DonutProjectList
           chartData={chartData}
           activeProjectInvestments={activeProjectInvestments}
+          expanded={isExpanded}
         />
       </div>
-      <ExpandFooter />
+      <ExpandFooter onExpandToggle={() => setExpanded(!isExpanded)} />
     </div>
   );
 };

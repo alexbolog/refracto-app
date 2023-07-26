@@ -42534,18 +42534,18 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle {
     position: relative;
   }
 
-  .toggle-btn.expense .check {
-    border: 3px solid #fffa6f;
-  }
-
-  .toggle-btn.expense input:checked ~ .check {
-    background-color: var(--primary);
-    border: 3px solid #fffa6f;
-  }
-
-  .toggle-btn.expense .check:after {
-    background-color: #fffa6f;
-  }
+  //.toggle-btn.expense .check {
+  //  border: 3px solid #fffa6f;
+  //}
+  //
+  //.toggle-btn.expense input:checked ~ .check {
+  //  background-color: var(--primary);
+  //  border: 3px solid #fffa6f;
+  //}
+  //
+  //.toggle-btn.expense .check:after {
+  //  background-color: #fffa6f;
+  //}
 
   .progressbar {
     box-shadow: none;
