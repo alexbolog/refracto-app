@@ -13,19 +13,12 @@
     border-left: 0 !important;
     z-index: 2 !important;
 }
+
 .filter-box-buttons .dropdown-toggle,
 .filter-box-buttons .dropdown {
     font-weight: 400 !important;
     font-size: 12px !important;
-    padding-left: 10px !important;
     font-style: normal !important;
-}
-
-.settings-button {
-    font-weight: 400 !important;
-    font-size: 12px !important;
-    padding-top: 0px !important;
-    padding-bottom: 0px !important;
 }
 
 .filter-card-wrapper {
@@ -55,6 +48,7 @@
     min-width: 60px;
 }
 
+
 .filter-box-buttons {
     max-width: 50%;
     gap: 10px;
@@ -74,26 +68,37 @@
     justify-content: space-between;
 }
 
-@media only screen and (max-width: 768px) {
-    .search-bar-input {
-        width: auto;
+.filter-box-settings-btn .btn-settings {
+    background: #FFFFFF;
+    border: 1px solid #D5DFE7;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .filter-input-box, .filter-box-buttons, .filter-btn .btn, .filter-btn .react-datepicker-wrapper {
+        width: 100%;
+        max-width: 100%;
     }
 
-    .filter-box-buttons {
-        margin-top: 4px !important;
+    .filter-box-buttons .filter-btn.dsk {
+        display: none !important;
+    }
+
+    .filter-box-buttons .filter-btn {
+        display: none !important;
+    }
+
+    .mbl-filters-modal-wrapper .filter-btn {
+        display: block !important;
     }
 
     .filter-box-settings-btn {
         display: block !important;
     }
-}
 
-@media only screen and (max-width: 1200px) {
-    .filter-input-box {
-        width: 100%;
-    }
-
-    .deadline-select, .rating-select, .return-range-select {
-        display: none !important;
+    .applied-filter {
+        margin: 5px;
     }
 }
