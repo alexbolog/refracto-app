@@ -10,38 +10,9 @@ const ExpectedRORFilter = ({
 }) => {
   return (
     <>
-      <div className='return-range-select filter-btn dsk'>
+      <div className='return-range-select filter-btn'>
         <button
           className='btn btn-primary dropdown-toggle dropdown'
-          type='button'
-          data-bs-toggle='dropdown'
-          data-bs-auto-close='outside'
-          aria-expanded='false'
-        >
-          Select Expected ROR
-        </button>
-        <div
-          className='dropdown-menu'
-          aria-labelledby='dropdownMenuButton1'
-          style={{
-            padding: '0',
-            background: '#fff'
-          }}
-        >
-          <div className='p-3'>
-            <MultiRangeSlider
-              title='Expected Rate of Return'
-              description='Drag the slider and select your expected rate of return'
-              min={0}
-              max={100}
-              onChange={(min, max) => onFilterChange({ min, max })}
-            />
-          </div>
-        </div>
-      </div>
-      <div className='return-range-select filter-btn mbl'>
-        <button
-          className='btn btn-primary dropdown-toggle dropdown w-100'
           type='button'
           data-bs-toggle='dropdown'
           data-bs-auto-close='outside'

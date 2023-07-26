@@ -10,7 +10,7 @@ const ReturnRangeFilter = ({
 }) => {
   return (
     <>
-      <div className='return-range-select filter-btn mbl'>
+      <div className='return-range-select filter-btn w-100'>
         <button
           className='btn btn-primary dropdown-toggle dropdown w-100'
           type='button'
