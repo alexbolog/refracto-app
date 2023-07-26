@@ -60,12 +60,8 @@ const DateRangePicker = ({
   const onDatePick = (dates: [Date | null, Date | null]) => {
     const startDate = dates[0];
     const endDate = dates[1];
-    if (startDate) {
-      setFirstDate(startDate);
-    }
-    if (endDate) {
-      setSecondDate(endDate);
-    }
+    setFirstDate(startDate);
+    setSecondDate(endDate);
     if (onChange && startDate) {
       onChange(
         DateTime.fromJSDate(startDate),
