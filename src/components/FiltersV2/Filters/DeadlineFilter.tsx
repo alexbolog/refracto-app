@@ -68,11 +68,11 @@ export const DEADLINE_FILTER: Filter = {
   shouldDisplay: (item, state) => {
     const cfDeadline = DateTime.fromISO(item.crowdfundingDeadline);
     let shouldDisplay = true;
-    if (state.startDateDate !== undefined) {
-      shouldDisplay = shouldDisplay && cfDeadline >= state.startDateDate;
+    if (state.startDate !== undefined) {
+      shouldDisplay = shouldDisplay && cfDeadline >= state.startDate;
     }
 
-    if (state.projectDeadlineEnd !== undefined) {
+    if (state.endDate !== undefined) {
       shouldDisplay = shouldDisplay && cfDeadline <= state.endDate;
     }
     return shouldDisplay;

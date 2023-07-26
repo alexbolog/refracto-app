@@ -25,7 +25,7 @@ export const MobileSizeProject = ({
   };
 
   return (
-    <div className='card project-wrapper'>
+    <div className='card project-wrapper mobile-size'>
       <div className='card-header p-0 border-0'>
         <img src={project.thumbnailSrc} />
         <button className='btn btn-fav'>

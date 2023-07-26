@@ -1,6 +1,5 @@
 import './style.scss';
 import * as React from 'react';
-import dashboardGraph from '../../../db/dashboardGraph.json';
 import { Line } from 'react-chartjs-2';
 import gradient from 'chartjs-plugin-gradient';
 import {
@@ -23,8 +22,15 @@ import 'chartjs-adapter-luxon';
 import DateRangePicker from '../../../components/DateRangePicker';
 import { formatDate } from '../../../utils';
 import ExpandFooter from '../../../components/ExpandFooter';
+import { InvestmentEvent } from '../../../types/investmentEvent';
+import { toLocaleStringOptions } from '../../../config';
+import useGetInvestmentHistory from '../../../contexts/InvestmentHistory/hooks/useGetInvestmentHistory';
+import { InvestmentEventType } from '../../../enums';
+import GraphDateFilters from '../../../components/GraphDateFilters';
 
 const GeneralStatisticsGraph = () => {
+  const dashboardGraph: InvestmentEvent[] = useGetInvestmentHistory();
+
   Chart.register(
     CategoryScale,
     LinearScale,
@@ -42,27 +48,10 @@ const GeneralStatisticsGraph = () => {
 
   const chartRef = React.useRef<any>(null);
 
-  const handleOneYearFilter = () => {
-    const now = DateTime.now();
-    const oneYearAgo = now.minus({ years: 1 });
-    chartRef?.current.zoomScale('x', { min: oneYearAgo, max: now }, 'normal');
-  };
-  const handleOneQuarterFilter = () => {
-    const now = DateTime.now();
-    const oneQuarterAgo = now.minus({ quarters: 1 });
-    chartRef?.current.zoomScale(
-      'x',
-      { min: oneQuarterAgo, max: now },
-      'normal'
-    );
-  };
-  const handleOneMonthFilter = () => {
-    const now = DateTime.now();
-    const oneMonthAgo = now.minus({ months: 1 });
-    chartRef?.current.zoomScale('x', { min: oneMonthAgo, max: now }, 'normal');
-  };
-
-  const onDatePick = (startDate: DateTime, endDate: DateTime) => {
+  const onDatePick = (
+    startDate: DateTime,
+    endDate: DateTime = DateTime.now()
+  ) => {
     chartRef?.current.zoomScale(
       'x',
       { min: startDate, max: endDate },
@@ -80,7 +69,7 @@ const GeneralStatisticsGraph = () => {
   const graphDataInvested: any[] = [];
   const graphEvents: any[] = [];
 
-  const mapDashboardData = async (dashboardData: any[]) => {
+  const mapDashboardData = async (dashboardData: InvestmentEvent[]) => {
     dashboardData.forEach((el) => {
       const date = DateTime.fromISO(el.date);
       graphDates.push(date);
@@ -106,38 +95,52 @@ const GeneralStatisticsGraph = () => {
     mapDashboardData(dashboardGraph).then(() => resetZoom());
   }, []);
 
-  const getAnnotationForEvent = (el: {
-    availableBalance: number;
-    committedBalance: number;
-    eventType?: string;
-    availableDifference?: number;
-    committedDifference?: number;
-  }) => {
-    // TODO: we can group this in an 'event' nested field
+  const getAnnotationForEvent = (el: InvestmentEvent) => {
     switch (el.eventType) {
-      case 'INVEST': {
+      case InvestmentEventType.INVEST: {
         return {
-          label: 'Invested ' + el.committedDifference + '$',
+          label:
+            'Invested ' +
+            el.committedDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#6853e8'
         };
       }
-      case 'PAYOUT': {
+      case InvestmentEventType.PAYOUT: {
         return {
-          label: 'Payout ' + el.availableDifference + '$',
+          label:
+            'Payout ' +
+            el.availableDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#63b179'
         };
       }
-      case 'DEPOSIT': {
+      case InvestmentEventType.DEPOSIT: {
         return {
-          label: 'Deposited ' + el.availableDifference + '$',
+          label:
+            'Deposited ' +
+            el.availableDifference?.toLocaleString(
+              undefined,
+              toLocaleStringOptions
+            ) +
+            '$',
           color: '#1586D1'
         };
       }
-      case 'WITHDRAW': {
+      case InvestmentEventType.WITHDRAW: {
         return {
           label:
             'Withdrew ' +
-            (el.availableDifference ? -el.availableDifference : -1) +
+            (el.availableDifference
+              ? -el.availableDifference
+              : -1
+            ).toLocaleString(undefined, toLocaleStringOptions) +
             '$',
           color: '#ff6b45'
         };
@@ -229,8 +232,8 @@ const GeneralStatisticsGraph = () => {
         time: {
           unit: 'month' as const
         },
-        suggestedMin: DateTime.now().minus({ years: 1 }).toISO(),
-        suggestedMax: DateTime.now().toISO()
+        suggestedMin: DateTime.now().minus({ years: 1 }).toISO()!,
+        suggestedMax: DateTime.now().toISO()!
       }
     },
     annotations: graphEvents
@@ -271,37 +274,11 @@ const GeneralStatisticsGraph = () => {
   };
 
   return (
-    <div className='col-lg-12 col-md-12 col-sm-12'>
+    <div className='col-12'>
       <div className='card'>
         <div className='card-header d-flex justify-content-between'>
           <h3>General Overview Statistics</h3>
-          <div>
-            <button
-              className='btn btn-outline-primary mr-2 active'
-              onClick={resetZoom}
-            >
-              Reset
-            </button>
-            <button
-              className='btn btn-outline-primary mr-2'
-              onClick={handleOneYearFilter}
-            >
-              Last Year
-            </button>
-            <button
-              className='btn btn-outline-primary mr-2'
-              onClick={handleOneQuarterFilter}
-            >
-              Last Quarter
-            </button>
-            <button
-              className='btn btn-outline-primary mr-2'
-              onClick={handleOneMonthFilter}
-            >
-              Last Month
-            </button>
-            <DateRangePicker onChange={onDatePick}></DateRangePicker>
-          </div>
+          <GraphDateFilters onReset={resetZoom} onDatePick={onDatePick} />
         </div>
         <div
           className='card-body d-flex justify-content-center'
