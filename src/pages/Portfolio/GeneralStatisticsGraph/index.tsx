@@ -227,8 +227,8 @@ const GeneralStatisticsGraph = () => {
         time: {
           unit: 'month' as const
         },
-        suggestedMin: DateTime.now().minus({ years: 1 }).toISO(),
-        suggestedMax: DateTime.now().toISO()
+        suggestedMin: DateTime.now().minus({ years: 1 }).toISO()!,
+        suggestedMax: DateTime.now().toISO()!
       }
     },
     annotations: graphEvents
