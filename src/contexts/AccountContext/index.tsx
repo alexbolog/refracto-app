@@ -1,12 +1,16 @@
-import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
+import {
+  useGetAccountInfo,
+  useGetIsLoggedIn
+} from '@multiversx/sdk-dapp/hooks';
 import useGetAccountOverview from './hooks/useGetAccountOverview';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AccountOverview } from 'types/accountTypes';
 import { ActiveProjectInvestment } from 'types/projectTypes';
 import useGetAccountActiveInvestments from './hooks/useGetAccountActiveInvestments';
 import { AVAILABLE_CURRENCIES } from 'enums';
 import { ProfileInfo } from './types/ProfileInfo';
 import useGetProfileInfo from './hooks/useGetAccountInfo';
+import { getNewAuthToken } from 'apiRequests/backend/accountApi';
 
 export interface IAccountContext {
   isLoading: boolean;
@@ -17,6 +21,7 @@ export interface IAccountContext {
   selectedCurrency: AVAILABLE_CURRENCIES;
   setSelectedCurrency: (newCurrency: AVAILABLE_CURRENCIES) => void;
   profileInfo: ProfileInfo;
+  authToken: string;
 }
 
 const defaultState: IAccountContext = {
@@ -30,7 +35,8 @@ const defaultState: IAccountContext = {
     firstName: '',
     lastName: '',
     profilePictureSrc: ''
-  }
+  },
+  authToken: ''
 };
 
 export const AccountContext =
@@ -44,11 +50,13 @@ export const AccountContextProvider = ({
   const {
     account: { address }
   } = useGetAccountInfo();
+  const isLoggedIn = useGetIsLoggedIn();
   const [isLoading, setIsLoading] = React.useState(true);
   const [availableCashBalance, setAvailableCashBalance] = useState(123456.789);
   const [selectedCurrency, setSelectedCurrency] = useState(
     AVAILABLE_CURRENCIES.EUR
   );
+  const [authToken, setAuthToken] = useState('');
 
   const accountOverview = useGetAccountOverview();
   const activeProjectInvestments = useGetAccountActiveInvestments();
@@ -56,6 +64,13 @@ export const AccountContextProvider = ({
 
   React.useEffect(() => {
     setIsLoading(false);
+  }, [address]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      return;
+    }
+    getNewAuthToken().then((newToken) => setAuthToken(newToken));
   }, [address]);
 
   return (
@@ -70,7 +85,8 @@ export const AccountContextProvider = ({
         setSelectedCurrency(newCurrency) {
           setSelectedCurrency(newCurrency);
         },
-        profileInfo
+        profileInfo,
+        authToken
       }}
     >
       {children}

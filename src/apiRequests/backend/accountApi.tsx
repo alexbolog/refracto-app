@@ -28,3 +28,7 @@ export const getActiveProjectInvestments = (): ActiveProjectInvestment[] => {
     return o;
   });
 };
+
+export const getNewAuthToken = async () => {
+  return '';
+};
