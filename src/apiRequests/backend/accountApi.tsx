@@ -3,6 +3,8 @@ import { ActiveProjectInvestment } from 'types/projectTypes';
 import accountOverview from '../../dbNew/accountOverview.json';
 import projectDetails from '../../dbNew/projectList.json';
 import projectList from '../../dbNew/projectList.json';
+import { createClient } from '@supabase/supabase-js';
+import { supabaseConfig } from 'config';
 
 export const getAccountOverview = (): AccountOverview => {
   const response = accountOverview as any as AccountOverview;
@@ -30,5 +32,11 @@ export const getActiveProjectInvestments = (): ActiveProjectInvestment[] => {
 };
 
 export const getNewAuthToken = async () => {
-  return '';
+  const supabase = createClient(supabaseConfig.url, supabaseConfig.anonKey);
+  const { data, error } = await supabase.rpc('generate_nonce_string');
+  if (error) {
+    console.error(error);
+    return '';
+  }
+  return data;
 };

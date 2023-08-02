@@ -16,3 +16,9 @@ export const toLocaleStringOptionsNoDecimals = {
 
 // TODO: generate a new wallet connect id here: https://cloud.walletconnect.com/app
 export const walletConnectV2ProjectId = '9b1a9564f91cb659ffe21b73d5c4e2d8';
+
+export const supabaseConfig = {
+  url: 'https://ovzvepwxbmkdpomlubgd.supabase.co',
+  anonKey:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92enZlcHd4Ym1rZHBvbWx1YmdkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODkxNjY3NjUsImV4cCI6MjAwNDc0Mjc2NX0.zYKGpyf8FAYg0zN7mAmmCQu0EU6B5w_jYFEQdJ4cktk'
+};
