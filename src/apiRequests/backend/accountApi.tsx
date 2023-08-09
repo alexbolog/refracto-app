@@ -5,6 +5,7 @@ import projectDetails from '../../dbNew/projectList.json';
 import projectList from '../../dbNew/projectList.json';
 import { createClient } from '@supabase/supabase-js';
 import { supabaseConfig } from 'config';
+import axios from 'axios';
 
 export const getAccountOverview = (): AccountOverview => {
   const response = accountOverview as any as AccountOverview;
@@ -34,9 +35,33 @@ export const getActiveProjectInvestments = (): ActiveProjectInvestment[] => {
 export const getNewAuthToken = async () => {
   const supabase = createClient(supabaseConfig.url, supabaseConfig.anonKey);
   const { data, error } = await supabase.rpc('generate_nonce_string');
+  console.log('get auth token', data);
+  console.log('get auth token err', error);
   if (error) {
     console.error(error);
     return '';
   }
   return data;
+};
+
+export const getSupabaseAuthHeaders = async (
+  address: string,
+  token: string,
+  signature: string
+) => {
+  const payload = {
+    address,
+    hashed_message: token,
+    signature
+  };
+  console.log('Validation payload', payload);
+  try {
+    const response = await axios.post(
+      'https://19fpyascua.execute-api.eu-west-1.amazonaws.com/prod/',
+      payload
+    );
+    console.log('wallet auth', response);
+  } catch (err) {
+    console.log('wallet auth err', err);
+  }
 };

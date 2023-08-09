@@ -1,6 +1,8 @@
 import {
   useGetAccountInfo,
-  useGetIsLoggedIn
+  useGetAccountProvider,
+  useGetIsLoggedIn,
+  useGetLoginInfo
 } from '@multiversx/sdk-dapp/hooks';
 import useGetAccountOverview from './hooks/useGetAccountOverview';
 import React, { useEffect, useState } from 'react';
@@ -11,6 +13,7 @@ import { AVAILABLE_CURRENCIES } from 'enums';
 import { ProfileInfo } from './types/ProfileInfo';
 import useGetProfileInfo from './hooks/useGetAccountInfo';
 import { getNewAuthToken } from 'apiRequests/backend/accountApi';
+import { ExtensionProvider } from '@multiversx/sdk-extension-provider';
 
 export interface IAccountContext {
   isLoading: boolean;
@@ -48,7 +51,7 @@ export const AccountContextProvider = ({
   children: React.ReactNode;
 }) => {
   const {
-    account: { address }
+    account: { address, assets }
   } = useGetAccountInfo();
   const isLoggedIn = useGetIsLoggedIn();
   const [isLoading, setIsLoading] = React.useState(true);
@@ -61,7 +64,28 @@ export const AccountContextProvider = ({
   const accountOverview = useGetAccountOverview();
   const activeProjectInvestments = useGetAccountActiveInvestments();
   const profileInfo = useGetProfileInfo();
-
+  // useEffect(() => {
+  //   switch (provider.providerType) {
+  //     case 'extension':
+  //       console.log(
+  //         'cast attempt',
+  //         (provider.provider as ExtensionProvider).account.signature
+  //       );
+  //       const instance = ExtensionProvider.getInstance();
+  //       if (!instance.isInitialized()) {
+  //         instance.init();
+  //       }
+  //       console.log('provider signature extension', instance.account.signature);
+  //       break;
+  //     case 'ledger':
+  //     case 'walletconnect':
+  //     case 'walletconnectv2':
+  //     case 'wallet':
+  //     case 'opera':
+  //     case 'extra':
+  //       break;
+  //   }
+  // }, [address]);
   React.useEffect(() => {
     setIsLoading(false);
   }, [address]);
