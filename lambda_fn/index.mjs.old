@@ -1,0 +1,133 @@
+import { UserVerifier } from "@multiversx/sdk-wallet";
+import { Address, SignableMessage, Transaction } from "@multiversx/sdk-core";
+import { createClient } from "@supabase/supabase-js";
+import { createHmac } from "crypto";
+
+// const secretSalt = "MYsuperSecretSalt";
+const secretSalt = process.env.SECRET_SALT;
+
+export const handler = async (event) => {
+  let supabase = await getAuthenticatedSupabaseClient();
+  let isMessageBackendGenerated = await checkMessageValidity(
+    supabase,
+    event.address,
+    event.hashed_message
+  );
+
+  if (!isMessageBackendGenerated) {
+    return {
+      statusCode: 401,
+      reason: "invalid message",
+    };
+  }
+
+  const userVerifier = UserVerifier.fromAddress(new Address(event.address));
+
+  const message = new SignableMessage({
+    message: Buffer.from(event.hashed_message),
+  });
+  const serializedMessage = message.serializeForSigning();
+  const messageSignature = Buffer.from(event.signature, "hex");
+  const is_valid_signature = userVerifier.verify(
+    serializedMessage,
+    messageSignature
+  );
+
+  if (!is_valid_signature) {
+    return {
+      statusCode: 401,
+      body: JSON.stringify({
+        reason: "invalid signature",
+      }),
+    };
+  }
+
+  let supabase_access_token = await getSupabaseApiAccessToken(
+    supabase,
+    event.address
+  );
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      accessToken: supabase_access_token,
+    }),
+  };
+  return response;
+};
+
+const getAuthenticatedSupabaseClient = async () => {
+  const supabase = createClient(
+    process.env.SUPABASE_PROJ_URL,
+    process.env.SUPABASE_SERVICE_ROLE,
+    // "https://ovzvepwxbmkdpomlubgd.supabase.co",
+    // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92enZlcHd4Ym1rZHBvbWx1YmdkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODkxNjY3NjUsImV4cCI6MjAwNDc0Mjc2NX0.zYKGpyf8FAYg0zN7mAmmCQu0EU6B5w_jYFEQdJ4cktk",
+    {
+      auth: {
+        persistSession: false,
+      },
+    }
+  );
+
+  await supabase.auth.signInWithPassword({
+    // email: "aws-lambda@refracto.io",
+    // password: "aws_lambda_acc_pwd",
+    email: process.env.SUPABASE_EMAIL,
+    password: process.env.SUPABASE_PWD,
+  });
+
+  return supabase;
+};
+
+const checkMessageValidity = async (
+  supabaseClient,
+  address,
+  hashed_message
+) => {
+  const { data } = await supabaseClient.rpc("check_nonce_string", {
+    input_address: address,
+    input_hashed_message: hashed_message,
+  });
+  return data;
+};
+
+function generatePasswordForWallet(walletAddress) {
+  const hash = createHmac("sha256", secretSalt)
+    .update(walletAddress)
+    .digest("hex");
+  return hash;
+}
+
+const getSupabaseApiAccessToken = async (supabase, walletAddress) => {
+  // map walletAddress to a unique email
+  const email = `${walletAddress}@refracto.gen.com`;
+  const password = generatePasswordForWallet(walletAddress); // You'll need to implement these functions
+
+  // try to log in with the email and password
+  const signInResult = await supabase.auth.signInWithPassword({
+    email: email,
+    password: password,
+  });
+  console.log("signInResult", signInResult);
+
+  // if the user does not exist, sign up
+  if (signInResult.error) {
+    const signUpResult = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    });
+    if (signUpResult.error) {
+      throw signUpResult.error; // handle error
+    }
+    console.log("signUpResult", signUpResult);
+    return signUpResult.data.session.access_token;
+  }
+  return signInResult.data.session.access_token;
+};
+
+// handler({
+//   address: "erd1tztluf08g90max7jkr4jtac9w5qv7qacgkhh57q9nz2erq9y2p3sd5njkg", // <-- the wallet address of the user
+//   hashed_message:
+//     "5462cd28cc47142a72c1e54da74b43cc53a06b10346969bf7b06aa7d722d9026", // <-- the hashed message to be signed by the user on a successful wallet auth; this is retrieved from supabase through rpc.generate_nonce_string(walletAddress)
+//   signature:
+//     "28f63af5435b37dbf02e67ba3c87a2ad05d48004a2ca3c219d653a0e7b132b4d7f38f35db821e6456d5ff6e55337cc99d82d3d29aa364320bbe9396c1be67e0f", // <-- the signature obtained on a successful login
+// }).then((res) => console.log(res));
