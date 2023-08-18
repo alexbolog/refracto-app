@@ -13,7 +13,6 @@ import { AVAILABLE_CURRENCIES } from 'enums';
 import { ProfileInfo } from './types/ProfileInfo';
 import useGetProfileInfo from './hooks/useGetAccountInfo';
 import { getNewAuthToken } from 'apiRequests/backend/accountApi';
-import Cookies from 'js-cookie';
 
 export interface IAccountContext {
   isLoading: boolean;
@@ -24,6 +23,7 @@ export interface IAccountContext {
   selectedCurrency: AVAILABLE_CURRENCIES;
   setSelectedCurrency: (newCurrency: AVAILABLE_CURRENCIES) => void;
   profileInfo: ProfileInfo;
+  authToken: string;
 }
 
 const defaultState: IAccountContext = {
@@ -37,7 +37,8 @@ const defaultState: IAccountContext = {
     firstName: '',
     lastName: '',
     profilePictureSrc: ''
-  }
+  },
+  authToken: ''
 };
 
 export const AccountContext =
@@ -57,6 +58,7 @@ export const AccountContextProvider = ({
   const [selectedCurrency, setSelectedCurrency] = useState(
     AVAILABLE_CURRENCIES.EUR
   );
+  const [authToken, setAuthToken] = useState('');
 
   const accountOverview = useGetAccountOverview();
   const activeProjectInvestments = useGetAccountActiveInvestments();
@@ -71,9 +73,7 @@ export const AccountContextProvider = ({
       return;
     }
     getNewAuthToken().then((newToken) => {
-      if (!Cookies.get('authToken')) {
-        Cookies.set('authToken', newToken);
-      }
+      setAuthToken(newToken);
     });
   }, [address, isLoggedIn]);
 
@@ -89,7 +89,8 @@ export const AccountContextProvider = ({
         setSelectedCurrency(newCurrency) {
           setSelectedCurrency(newCurrency);
         },
-        profileInfo
+        profileInfo,
+        authToken
       }}
     >
       {children}
