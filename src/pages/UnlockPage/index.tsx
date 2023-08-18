@@ -20,10 +20,11 @@ import { environment, relayUrl, walletConnectV2ProjectId } from 'config';
 import qs from 'qs';
 import QRCode from 'qrcode';
 import { Modal } from 'react-bootstrap';
+import Cookies from 'js-cookie';
 
 export const UnlockRoute: () => JSX.Element = () => {
   const isLoggedIn = useGetIsLoggedIn();
-  const { authToken } = useContext(AccountContext);
+  const authToken = Cookies.get('authToken') ?? '';
   const dispatch = useDispatch();
   React.useEffect(() => {
     if (isLoggedIn) {

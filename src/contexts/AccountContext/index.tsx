@@ -13,7 +13,7 @@ import { AVAILABLE_CURRENCIES } from 'enums';
 import { ProfileInfo } from './types/ProfileInfo';
 import useGetProfileInfo from './hooks/useGetAccountInfo';
 import { getNewAuthToken } from 'apiRequests/backend/accountApi';
-import { ExtensionProvider } from '@multiversx/sdk-extension-provider';
+import Cookies from 'js-cookie';
 
 export interface IAccountContext {
   isLoading: boolean;
@@ -24,7 +24,6 @@ export interface IAccountContext {
   selectedCurrency: AVAILABLE_CURRENCIES;
   setSelectedCurrency: (newCurrency: AVAILABLE_CURRENCIES) => void;
   profileInfo: ProfileInfo;
-  authToken: string;
 }
 
 const defaultState: IAccountContext = {
@@ -38,8 +37,7 @@ const defaultState: IAccountContext = {
     firstName: '',
     lastName: '',
     profilePictureSrc: ''
-  },
-  authToken: ''
+  }
 };
 
 export const AccountContext =
@@ -59,33 +57,11 @@ export const AccountContextProvider = ({
   const [selectedCurrency, setSelectedCurrency] = useState(
     AVAILABLE_CURRENCIES.EUR
   );
-  const [authToken, setAuthToken] = useState('');
 
   const accountOverview = useGetAccountOverview();
   const activeProjectInvestments = useGetAccountActiveInvestments();
   const profileInfo = useGetProfileInfo();
-  // useEffect(() => {
-  //   switch (provider.providerType) {
-  //     case 'extension':
-  //       console.log(
-  //         'cast attempt',
-  //         (provider.provider as ExtensionProvider).account.signature
-  //       );
-  //       const instance = ExtensionProvider.getInstance();
-  //       if (!instance.isInitialized()) {
-  //         instance.init();
-  //       }
-  //       console.log('provider signature extension', instance.account.signature);
-  //       break;
-  //     case 'ledger':
-  //     case 'walletconnect':
-  //     case 'walletconnectv2':
-  //     case 'wallet':
-  //     case 'opera':
-  //     case 'extra':
-  //       break;
-  //   }
-  // }, [address]);
+
   React.useEffect(() => {
     setIsLoading(false);
   }, [address]);
@@ -94,8 +70,12 @@ export const AccountContextProvider = ({
     if (isLoggedIn) {
       return;
     }
-    getNewAuthToken().then((newToken) => setAuthToken(newToken));
-  }, [address]);
+    getNewAuthToken().then((newToken) => {
+      if (!Cookies.get('authToken')) {
+        Cookies.set('authToken', newToken);
+      }
+    });
+  }, [address, isLoggedIn]);
 
   return (
     <AccountContext.Provider
@@ -109,8 +89,7 @@ export const AccountContextProvider = ({
         setSelectedCurrency(newCurrency) {
           setSelectedCurrency(newCurrency);
         },
-        profileInfo,
-        authToken
+        profileInfo
       }}
     >
       {children}
