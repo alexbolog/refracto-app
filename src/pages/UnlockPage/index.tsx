@@ -46,14 +46,19 @@ export const UnlockRoute: () => JSX.Element = () => {
   const handleExtensionConnect = async () => {
     const provider = ExtensionProvider.getInstance();
     provider.init();
-    const address = await provider.login({ token: authToken });
-    await validateConnection(
+    const address = await provider.login({
+      token: authToken
+    });
+    const isAuthValid = await validateConnection(
       address,
       authToken,
       provider.account.signature ?? ''
     );
-    // console.log('signed token', provider.account.signature);
-    // dispatch(loginAction({ address, loginMethod: LoginMethodsEnum.extension }));
+    if (isAuthValid) {
+      dispatch(
+        loginAction({ address, loginMethod: LoginMethodsEnum.extension })
+      );
+    }
   };
 
   const validateConnection = async (
@@ -61,7 +66,7 @@ export const UnlockRoute: () => JSX.Element = () => {
     token: string,
     signature: string
   ) => {
-    await getSupabaseAuthHeaders(address, token, signature);
+    return await getSupabaseAuthHeaders(address, token, signature);
   };
 
   return (

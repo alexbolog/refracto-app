@@ -3,9 +3,9 @@ import { ActiveProjectInvestment } from 'types/projectTypes';
 import accountOverview from '../../dbNew/accountOverview.json';
 import projectDetails from '../../dbNew/projectList.json';
 import projectList from '../../dbNew/projectList.json';
-import { createClient } from '@supabase/supabase-js';
 import { supabaseConfig } from 'config';
 import axios from 'axios';
+import { setSupabaseAccessToken, supabase } from 'apiRequests/supabaseClient';
 
 export const getAccountOverview = (): AccountOverview => {
   const response = accountOverview as any as AccountOverview;
@@ -33,15 +33,17 @@ export const getActiveProjectInvestments = (): ActiveProjectInvestment[] => {
 };
 
 export const getNewAuthToken = async () => {
-  const supabase = createClient(supabaseConfig.url, supabaseConfig.anonKey);
-  const { data, error } = await supabase.rpc('generate_nonce_string');
-  console.log('get auth token', data);
-  console.log('get auth token err', error);
-  if (error) {
-    console.error(error);
-    return '';
+  try {
+    const { data, error } = await supabase.rpc('generate_nonce_string');
+    if (error) {
+      console.error(error);
+      return '';
+    }
+    return data;
+  } catch (error) {
+    console.log('Exception:', error);
   }
-  return data;
+  return '';
 };
 
 export const getSupabaseAuthHeaders = async (
@@ -60,8 +62,18 @@ export const getSupabaseAuthHeaders = async (
       'https://19fpyascua.execute-api.eu-west-1.amazonaws.com/prod/',
       payload
     );
-    console.log('wallet auth', response);
+    const { data, status } = response;
+    if (
+      status !== 200 ||
+      data?.accessToken === undefined ||
+      data?.accessToken === null
+    ) {
+      throw 'Unauthorized';
+    }
+    setSupabaseAccessToken(data.accessToken);
+    return true;
   } catch (err) {
     console.log('wallet auth err', err);
   }
+  return false;
 };
