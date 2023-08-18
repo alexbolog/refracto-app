@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useGetIsLoggedIn } from '@multiversx/sdk-dapp/hooks';
 import { routeNames } from 'routes';
 import ReactGA from 'react-ga4';
@@ -13,17 +13,18 @@ import { useExtensionConnect } from './hooks/useExtensionConnect';
 import { useWebWalletConnect } from './hooks/useWebWalletConnect';
 import { useHardwareWalletConnect } from './hooks/useHardwareWalletConnect';
 import { useXPortalConnect } from './hooks/useXPortalConnect';
+import XPortalConnectModal from './components/XPortalConnectModal';
 
 export const UnlockRoute: () => JSX.Element = () => {
   const isLoggedIn = useGetIsLoggedIn();
   const { authToken } = useContext(AccountContext);
+  const [showXPortalConnectModal, setShowXPortalConnectModal] = useState(false);
 
   const dispatch = useDispatch();
-  React.useEffect(() => {
+  useEffect(() => {
     if (isLoggedIn) {
       window.location.href = routeNames.dashboard;
     } else {
-      console.log('User went to login page');
       ReactGA.event({
         category: 'engagement',
         action: 'login_1',
@@ -51,12 +52,12 @@ export const UnlockRoute: () => JSX.Element = () => {
     authToken,
     dispatchSuccessfulLogin
   );
-  const [
-    handleXPortalConnect,
-    qrcodeSvg,
-    showXPortalConnectModal,
-    hideXPortalConnectModal
-  ] = useXPortalConnect(authToken, dispatchSuccessfulLogin);
+  const [handleXPortalConnect, qrcodeSvg] = useXPortalConnect(
+    authToken,
+    dispatchSuccessfulLogin,
+    () => setShowXPortalConnectModal(true),
+    () => setShowXPortalConnectModal(false)
+  );
 
   return (
     <div className='home d-flex flex-fill align-items-center'>
@@ -86,26 +87,11 @@ export const UnlockRoute: () => JSX.Element = () => {
             <button className='btn btn-primary' onClick={handleXPortalConnect}>
               Wallet connect test
             </button>
-            <Modal show={showXPortalConnectModal} centered size='xl'>
-              <Modal.Header>XPortal Connect</Modal.Header>
-              <Modal.Body>
-                <div>
-                  <img
-                    src={`data:image/svg+xml;utf8,${encodeURIComponent(
-                      qrcodeSvg
-                    )}`}
-                  />
-                </div>
-              </Modal.Body>
-              <Modal.Footer>
-                <button
-                  className='btn btn-danger'
-                  onClick={hideXPortalConnectModal}
-                >
-                  Dismiss
-                </button>
-              </Modal.Footer>
-            </Modal>
+            <XPortalConnectModal
+              show={showXPortalConnectModal}
+              onHide={() => setShowXPortalConnectModal(false)}
+              qrcodeSvg={qrcodeSvg}
+            />
           </div>
         </div>
       </div>
