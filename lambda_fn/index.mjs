@@ -1,23 +1,27 @@
-import { UserVerifier } from "@multiversx/sdk-wallet";
-import { Address, SignableMessage } from "@multiversx/sdk-core";
-import { createClient } from "@supabase/supabase-js";
-import { createHmac, sign } from "crypto";
-import dotenv from "dotenv";
+import { UserVerifier } from '@multiversx/sdk-wallet';
+import { Address, SignableMessage } from '@multiversx/sdk-core';
+import { createClient } from '@supabase/supabase-js';
+import { createHmac, sign } from 'crypto';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 const secretSalt = process.env.SECRET_SALT;
 
 const verifyUserSignature = (address, hashed_message, signature) => {
-  if (signature.startsWith("0x")) {
+  if (signature.startsWith('0x')) {
     signature = signature.substring(2);
   }
-  const userVerifier = UserVerifier.fromAddress(new Address(address));
-  const message = new SignableMessage({ message: Buffer.from(hashed_message) });
-  const serializedMessage = message.serializeForSigning();
-  const messageSignature = Buffer.from(signature, "hex");
+  const verifier = UserVerifier.fromAddress(new Address(address));
 
-  return userVerifier.verify(serializedMessage, messageSignature);
+  const rawMsg = address + hashed_message + '{}';
+  const data = new SignableMessage({
+    message: Buffer.from(rawMsg)
+  }).serializeForSigning();
+
+  const sign = Buffer.from(signature, 'hex');
+
+  return verifier.verify(data, sign);
 };
 
 const getAuthenticatedSupabaseClient = async () => {
@@ -25,29 +29,29 @@ const getAuthenticatedSupabaseClient = async () => {
     SUPABASE_PROJ_URL,
     SUPABASE_SERVICE_ROLE,
     SUPABASE_EMAIL,
-    SUPABASE_PWD,
+    SUPABASE_PWD
   } = process.env;
 
   const supabase = createClient(SUPABASE_PROJ_URL, SUPABASE_SERVICE_ROLE, {
-    auth: { persistSession: false },
+    auth: { persistSession: false }
   });
 
   await supabase.auth.signInWithPassword({
     email: SUPABASE_EMAIL,
-    password: SUPABASE_PWD,
+    password: SUPABASE_PWD
   });
   return supabase;
 };
 
 const checkMessageValidity = async (supabaseClient, hashed_message) =>
   (
-    await supabaseClient.rpc("check_nonce_string", {
-      input_nonce: hashed_message,
+    await supabaseClient.rpc('check_nonce_string', {
+      input_nonce: hashed_message
     })
   ).data;
 
 const generatePasswordForWallet = (walletAddress) =>
-  createHmac("sha256", secretSalt).update(walletAddress).digest("hex");
+  createHmac('sha256', secretSalt).update(walletAddress).digest('hex');
 
 const getSupabaseApiAccessToken = async (supabase, walletAddress) => {
   const email = `${walletAddress}@refracto.gen.com`;
@@ -55,29 +59,39 @@ const getSupabaseApiAccessToken = async (supabase, walletAddress) => {
 
   const {
     error,
-    data: { session },
+    data: { session }
   } = await supabase.auth.signInWithPassword({ email, password });
 
   if (error) {
     const {
       error: signUpError,
-      data: { session: signUpSession },
+      data: { session: signUpSession }
     } = await supabase.auth.signUp({ email, password });
 
-    if (signUpError) throw signUpError;
-    return signUpSession.access_token;
+    if (signUpError)
+      return {
+        success: false,
+        error: signUpError
+      };
+    return {
+      success: true,
+      token: signUpSession.access_token
+    };
   }
-  return session.access_token;
+  return {
+    success: true,
+    token: session.access_token
+  };
 };
 
 const createRequestResponse = (statusCode, body) => {
   return {
     statusCode,
     headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(body)
   };
 };
 
@@ -99,14 +113,20 @@ export const handler = async (event) => {
     hashed_message,
     signature
   );
-  if (!isSignatureValid) return createErrorResponse("Invalid signature.");
+  if (!isSignatureValid) return createErrorResponse('Invalid signature.');
 
   const isMessageValid = await checkMessageValidity(supabase, hashed_message);
-  if (!isMessageValid) return createErrorResponse("Invalid message.");
+  if (!isMessageValid) return createErrorResponse('Invalid message.');
 
-  const accessToken = await getSupabaseApiAccessToken(supabase, address);
+  const { success, token, error } = await getSupabaseApiAccessToken(
+    supabase,
+    address
+  );
 
-  return createSuccessResponse(accessToken);
+  if (!success) {
+    return createErrorResponse(JSON.stringify(error));
+  }
+  return createSuccessResponse(token);
 };
 
 // handler({
