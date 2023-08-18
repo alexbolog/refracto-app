@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   useExtensionLogin,
   useGetAccountProvider,
@@ -16,15 +16,19 @@ import {
 import { AccountContext } from 'contexts/AccountContext';
 import { ExtensionProvider } from '@multiversx/sdk-extension-provider';
 import {
-  setAccount,
-  setAddress,
-  setTokenLoginSignature
-} from '@multiversx/sdk-dapp/reduxStore/slices';
+  WalletProvider,
+  WALLET_PROVIDER_DEVNET,
+  WALLET_PROVIDER_MAINNET,
+  WALLET_PROVIDER_TESTNET
+} from '@multiversx/sdk-web-wallet-provider';
+import { HWProvider } from '@multiversx/sdk-hw-provider';
 import { useDispatch } from '@multiversx/sdk-dapp/reduxStore/DappProviderContext';
 import { loginAction } from '@multiversx/sdk-dapp/reduxStore/commonActions';
-import { LoginMethodsEnum } from '@multiversx/sdk-dapp/types';
-import { setAccountProvider } from '@multiversx/sdk-dapp/providers/accountProvider';
+import { EnvironmentsEnum, LoginMethodsEnum } from '@multiversx/sdk-dapp/types';
 import { getSupabaseAuthHeaders } from 'apiRequests/backend/accountApi';
+import { environment } from 'config';
+import qs from 'qs';
+import QRCode from 'qrcode';
 
 export const UnlockRoute: () => JSX.Element = () => {
   const isLoggedIn = useGetIsLoggedIn();
@@ -43,6 +47,7 @@ export const UnlockRoute: () => JSX.Element = () => {
     }
   }, [isLoggedIn]);
 
+  /* EXTENSION CONNECT */
   const handleExtensionConnect = async () => {
     const provider = ExtensionProvider.getInstance();
     provider.init();
@@ -60,6 +65,70 @@ export const UnlockRoute: () => JSX.Element = () => {
       );
     }
   };
+
+  /* WEB WALLET CONNECT */
+  const handleWebWalletConnect = async () => {
+    const WALLET_PROVIDER_ENV =
+      environment === EnvironmentsEnum.mainnet
+        ? WALLET_PROVIDER_MAINNET
+        : environment === EnvironmentsEnum.devnet
+        ? WALLET_PROVIDER_DEVNET
+        : WALLET_PROVIDER_TESTNET;
+    const provider = new WalletProvider(WALLET_PROVIDER_ENV);
+    const callbackUrl = window.location.href.split('?')[0];
+    await provider.login({ callbackUrl, token: authToken });
+  };
+
+  useEffect(() => {
+    const queryString = window.location.search.slice(1);
+    const params = qs.parse(queryString);
+    if (params.address === undefined || params.signature === undefined) {
+      // not web wallet auth
+      return;
+    }
+    const address = params.address.toString();
+    validateConnection(address, authToken, params.signature.toString()).then(
+      (isAuthValid) => {
+        if (isAuthValid) {
+          dispatch(
+            loginAction({
+              address,
+              loginMethod: LoginMethodsEnum.wallet
+            })
+          );
+        }
+      }
+    );
+  }, []);
+
+  /* LEDGER CONNECT */
+  const handleHardwareWalletConnect = async () => {
+    const provider = new HWProvider();
+    provider.init();
+
+    const addresses = await provider.getAccounts();
+    //TODO: display them in a modal
+    console.log('Ledger addresses', addresses);
+
+    //TODO: let the user select the address index based on addresses field above
+    const chosenAddressIndex = 3;
+    const { address, signature } = await provider.tokenLogin({
+      addressIndex: chosenAddressIndex,
+      token: Buffer.from(`${authToken}{}`)
+    });
+    const isAuthValid = await validateConnection(
+      address,
+      authToken,
+      signature.hex()
+    );
+
+    if (isAuthValid) {
+      dispatch(loginAction({ address, loginMethod: LoginMethodsEnum.ledger }));
+    }
+  };
+
+  /* XPORTAL CONNECT */
+  
 
   const validateConnection = async (
     address: string,
@@ -94,12 +163,24 @@ export const UnlockRoute: () => JSX.Element = () => {
               token={authToken}
               nativeAuth={true}
             />
+            <button
+              className='btn btn-primary'
+              onClick={handleWebWalletConnect}
+            >
+              Web wallet test
+            </button>
             <LedgerLoginButton
               callbackRoute={routeNames.dashboard}
               loginButtonText={'Ledger'}
               token={authToken}
               nativeAuth={true}
             />
+            <button
+              className='btn btn-primary'
+              onClick={handleHardwareWalletConnect}
+            >
+              Ledger wallet test
+            </button>
             <WalletConnectLoginButton
               callbackRoute={routeNames.dashboard}
               loginButtonText={'xPortal'}
