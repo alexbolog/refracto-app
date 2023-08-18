@@ -1,18 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {
-  useExtensionLogin,
-  useGetAccountProvider,
-  useGetIsLoggedIn,
-  useGetLoginInfo
-} from '@multiversx/sdk-dapp/hooks';
+import { useGetIsLoggedIn } from '@multiversx/sdk-dapp/hooks';
 import { routeNames } from 'routes';
 import ReactGA from 'react-ga4';
-import {
-  ExtensionLoginButton,
-  WebWalletLoginButton,
-  LedgerLoginButton,
-  WalletConnectLoginButton
-} from '@multiversx/sdk-dapp/UI';
 import { AccountContext } from 'contexts/AccountContext';
 import { ExtensionProvider } from '@multiversx/sdk-extension-provider';
 import {
@@ -23,7 +12,6 @@ import {
 } from '@multiversx/sdk-web-wallet-provider';
 import { HWProvider } from '@multiversx/sdk-hw-provider';
 import { WalletConnectV2Provider } from '@multiversx/sdk-wallet-connect-provider';
-
 import { useDispatch } from '@multiversx/sdk-dapp/reduxStore/DappProviderContext';
 import { loginAction } from '@multiversx/sdk-dapp/reduxStore/commonActions';
 import { EnvironmentsEnum, LoginMethodsEnum } from '@multiversx/sdk-dapp/types';
