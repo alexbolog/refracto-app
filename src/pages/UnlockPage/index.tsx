@@ -22,13 +22,16 @@ import {
   WALLET_PROVIDER_TESTNET
 } from '@multiversx/sdk-web-wallet-provider';
 import { HWProvider } from '@multiversx/sdk-hw-provider';
+import { WalletConnectV2Provider } from '@multiversx/sdk-wallet-connect-provider';
+
 import { useDispatch } from '@multiversx/sdk-dapp/reduxStore/DappProviderContext';
 import { loginAction } from '@multiversx/sdk-dapp/reduxStore/commonActions';
 import { EnvironmentsEnum, LoginMethodsEnum } from '@multiversx/sdk-dapp/types';
 import { getSupabaseAuthHeaders } from 'apiRequests/backend/accountApi';
-import { environment } from 'config';
+import { environment, relayUrl, walletConnectV2ProjectId } from 'config';
 import qs from 'qs';
 import QRCode from 'qrcode';
+import { Modal } from 'react-bootstrap';
 
 export const UnlockRoute: () => JSX.Element = () => {
   const isLoggedIn = useGetIsLoggedIn();
@@ -128,7 +131,63 @@ export const UnlockRoute: () => JSX.Element = () => {
   };
 
   /* XPORTAL CONNECT */
-  
+  const [qrcodeSvg, setQrcodeSvg] = useState('');
+  const [showXPortalConnectModal, setShowXPortalConnectModal] = useState(false);
+
+  const handleXPortalConnect = async () => {
+    const chainId =
+      environment === 'mainnet' ? '1' : environment === 'devnet' ? 'D' : 'T';
+
+    const callbacks = {
+      onClientLogin: async function () {
+        // closeModal() is defined above
+        setShowXPortalConnectModal(false);
+        // const address = await provider.getAddress();
+        // console.log('Address:', address);
+      },
+      onClientLogout: async function () {
+        console.log('onClientLogout()');
+      },
+      onClientEvent: async function (event: any) {
+        console.log('onClientEvent()', event);
+      }
+    };
+
+    const provider = new WalletConnectV2Provider(
+      callbacks,
+      chainId,
+      relayUrl,
+      walletConnectV2ProjectId
+    );
+
+    provider.init();
+    const { uri, approval } = await provider.connect();
+    await handleOpenXPortalConnectModal(uri ?? '');
+    await provider.login({ approval, token: authToken });
+
+    console.log(provider.address);
+    console.log(provider.signature);
+
+    const isAuthValid = await validateConnection(
+      provider.address,
+      authToken,
+      provider.signature
+    );
+
+    if (isAuthValid) {
+      dispatch(
+        loginAction({
+          address: provider.address,
+          loginMethod: LoginMethodsEnum.walletconnectv2
+        })
+      );
+    }
+  };
+
+  const handleOpenXPortalConnectModal = async (uri: string) => {
+    setQrcodeSvg(await QRCode.toString(uri, { type: 'svg' }));
+    setShowXPortalConnectModal(true);
+  };
 
   const validateConnection = async (
     address: string,
@@ -145,49 +204,47 @@ export const UnlockRoute: () => JSX.Element = () => {
           <div className='card-body py-4 px-2 px-sm-2 mx-lg-4'>
             <h4 className='mb-4'>Login</h4>
             <p className='mb-4'>pick a login method</p>
-            <ExtensionLoginButton
-              callbackRoute={routeNames.dashboard}
-              loginButtonText={'Extension'}
-              token={authToken}
-              nativeAuth={true}
-            />
             <button
               className='btn btn-primary'
               onClick={handleExtensionConnect}
             >
               Extension test
             </button>
-            <WebWalletLoginButton
-              callbackRoute={routeNames.dashboard}
-              loginButtonText={'Web wallet'}
-              token={authToken}
-              nativeAuth={true}
-            />
             <button
               className='btn btn-primary'
               onClick={handleWebWalletConnect}
             >
               Web wallet test
             </button>
-            <LedgerLoginButton
-              callbackRoute={routeNames.dashboard}
-              loginButtonText={'Ledger'}
-              token={authToken}
-              nativeAuth={true}
-            />
             <button
               className='btn btn-primary'
               onClick={handleHardwareWalletConnect}
             >
               Ledger wallet test
             </button>
-            <WalletConnectLoginButton
-              callbackRoute={routeNames.dashboard}
-              loginButtonText={'xPortal'}
-              isWalletConnectV2={true}
-              token={authToken}
-              nativeAuth={true}
-            />
+            <button className='btn btn-primary' onClick={handleXPortalConnect}>
+              Wallet connect test
+            </button>
+            <Modal show={showXPortalConnectModal} centered size='xl'>
+              <Modal.Header>XPortal Connect</Modal.Header>
+              <Modal.Body>
+                <div>
+                  <img
+                    src={`data:image/svg+xml;utf8,${encodeURIComponent(
+                      qrcodeSvg
+                    )}`}
+                  />
+                </div>
+              </Modal.Body>
+              <Modal.Footer>
+                <button
+                  className='btn btn-danger'
+                  onClick={() => setShowXPortalConnectModal(false)}
+                >
+                  Dismiss
+                </button>
+              </Modal.Footer>
+            </Modal>
           </div>
         </div>
       </div>
