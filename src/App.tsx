@@ -15,9 +15,7 @@ import {
   NotificationModal
 } from '@multiversx/sdk-dapp/UI';
 import { DappProvider } from '@multiversx/sdk-dapp/wrappers';
-import { walletConnectV2ProjectId } from 'config';
-
-const environment = EnvironmentsEnum.devnet;
+import { environment, walletConnectV2ProjectId } from 'config';
 
 const TRACKING_ID = 'G-M4H6XH3NSB';
 ReactGA.initialize(TRACKING_ID);

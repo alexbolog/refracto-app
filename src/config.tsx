@@ -1,3 +1,7 @@
+import { EnvironmentsEnum } from '@multiversx/sdk-dapp/types';
+
+export const environment = EnvironmentsEnum.devnet;
+
 export const contractAddress =
   'erd1qqqqqqqqqqqqqpgq4gdcg0k83u7lpv4s4532w3au9y9h0vm70eqq6m8qk2';
 
