@@ -77,29 +77,29 @@ export const UnlockRoute: () => JSX.Element = () => {
             <h4 className='mb-4'>Login</h4>
             <p className='mb-4'>pick a login method</p>
             <button
-              className='btn btn-primary'
+              className='btn btn-primary m-3'
               onClick={handleExtensionConnect}
             >
-              Extension test
+              Extension
             </button>
             <button
-              className='btn btn-primary'
+              className='btn btn-primary m-3'
               onClick={handleWebWalletConnect}
             >
-              Web wallet test
+              Web Wallet
             </button>
             <button
-              className='btn btn-primary'
+              className='btn btn-primary m-3'
               onClick={handleHardwareWalletConnect}
             >
-              Ledger wallet test
+              Ledger
             </button>
-            <button className='btn btn-primary' onClick={handleXPortalConnect}>
-              Wallet connect test
+            <button
+              className='btn btn-primary m-3'
+              onClick={handleXPortalConnect}
+            >
+              xPortal
             </button>
-            <WalletConnectLoginButton isWalletConnectV2={true}>
-              WC
-            </WalletConnectLoginButton>
             <XPortalConnectModal
               show={showXPortalConnectModal}
               onHide={() => setShowXPortalConnectModal(false)}
