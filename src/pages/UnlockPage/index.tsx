@@ -55,7 +55,14 @@ export const UnlockRoute: () => JSX.Element = () => {
     authToken,
     dispatchSuccessfulLogin
   );
-  const [handleXPortalConnect, qrcodeSvg] = useXPortalConnect(
+  const [
+    handleXPortalConnect,
+    qrcodeSvg,
+    deepLink,
+    existingPairings,
+    handleExistingPairLogin,
+    handleRemoveExistingPairing
+  ] = useXPortalConnect(
     authToken,
     dispatchSuccessfulLogin,
     () => setShowXPortalConnectModal(true),
@@ -97,6 +104,10 @@ export const UnlockRoute: () => JSX.Element = () => {
               show={showXPortalConnectModal}
               onHide={() => setShowXPortalConnectModal(false)}
               qrcodeSvg={qrcodeSvg}
+              deepLink={deepLink}
+              existingPairings={existingPairings}
+              onExistingPairConnect={handleExistingPairLogin}
+              onRemoveExistingPair={handleRemoveExistingPairing}
             />
           </div>
         </div>
