@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
+import './style.css';
 
 const XPortalConnectModal = ({
   show,
@@ -14,7 +15,10 @@ const XPortalConnectModal = ({
     <Modal.Header>XPortal Connect</Modal.Header>
     <Modal.Body>
       <div>
-        <img src={`data:image/svg+xml;utf8,${encodeURIComponent(qrcodeSvg)}`} />
+        <img
+          src={`data:image/svg+xml;utf8,${encodeURIComponent(qrcodeSvg)}`}
+          className='qr-code'
+        />
       </div>
     </Modal.Body>
     <Modal.Footer>

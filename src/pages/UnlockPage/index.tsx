@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useGetIsLoggedIn } from '@multiversx/sdk-dapp/hooks';
+import {
+  useGetIsLoggedIn,
+  useWalletConnectV2Login
+} from '@multiversx/sdk-dapp/hooks';
 import { routeNames } from 'routes';
 import ReactGA from 'react-ga4';
 import { AccountContext } from 'contexts/AccountContext';
@@ -14,12 +17,12 @@ import { useWebWalletConnect } from './hooks/useWebWalletConnect';
 import { useHardwareWalletConnect } from './hooks/useHardwareWalletConnect';
 import { useXPortalConnect } from './hooks/useXPortalConnect';
 import XPortalConnectModal from './components/XPortalConnectModal';
+import { WalletConnectLoginButton } from '@multiversx/sdk-dapp/UI';
 
 export const UnlockRoute: () => JSX.Element = () => {
   const isLoggedIn = useGetIsLoggedIn();
   const { authToken } = useContext(AccountContext);
   const [showXPortalConnectModal, setShowXPortalConnectModal] = useState(false);
-
   const dispatch = useDispatch();
   useEffect(() => {
     if (isLoggedIn) {
@@ -87,6 +90,9 @@ export const UnlockRoute: () => JSX.Element = () => {
             <button className='btn btn-primary' onClick={handleXPortalConnect}>
               Wallet connect test
             </button>
+            <WalletConnectLoginButton isWalletConnectV2={true}>
+              WC
+            </WalletConnectLoginButton>
             <XPortalConnectModal
               show={showXPortalConnectModal}
               onHide={() => setShowXPortalConnectModal(false)}

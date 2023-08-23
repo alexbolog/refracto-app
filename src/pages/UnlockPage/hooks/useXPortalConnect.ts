@@ -1,9 +1,16 @@
 import { useCallback, useState } from 'react';
-import { WalletConnectV2Provider } from '@multiversx/sdk-wallet-connect-provider';
+import {
+  WalletConnectV2Provider,
+  PairingTypes
+} from '@multiversx/sdk-wallet-connect-provider';
 import { LoginMethodsEnum } from '@multiversx/sdk-dapp/types';
 import { getChainId, validateConnection } from '../utils';
 import QRCode from 'qrcode';
-import { relayUrl, walletConnectV2ProjectId } from 'config';
+import {
+  relayUrl,
+  walletConnectV2ProjectId,
+  walletConnectDeepLink
+} from 'config';
 
 export const useXPortalConnect = (
   authToken: string,

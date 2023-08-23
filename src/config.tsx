@@ -21,7 +21,8 @@ export const toLocaleStringOptionsNoDecimals = {
 // TODO: generate a new wallet connect id here: https://cloud.walletconnect.com/app
 export const walletConnectV2ProjectId = '9b1a9564f91cb659ffe21b73d5c4e2d8';
 export const relayUrl = 'wss://relay.walletconnect.com';
-
+export const walletConnectDeepLink =
+  'https://maiar.page.link/?apn=com.elrond.maiar.wallet&isi=1519405832&ibi=com.elrond.maiar.wallet&link=https://xportal.com/';
 export const supabaseConfig = {
   url: 'https://ovzvepwxbmkdpomlubgd.supabase.co',
   anonKey:
