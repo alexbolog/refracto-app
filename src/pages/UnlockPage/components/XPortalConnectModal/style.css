@@ -36,3 +36,9 @@
 .existing-pairing:active {
     background-color: gray;
 }
+
+.existing-pairing .confirmation-message {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+}
