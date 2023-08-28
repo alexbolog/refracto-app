@@ -17,12 +17,14 @@ import { useWebWalletConnect } from './hooks/useWebWalletConnect';
 import { useHardwareWalletConnect } from './hooks/useHardwareWalletConnect';
 import { useXPortalConnect } from './hooks/useXPortalConnect';
 import XPortalConnectModal from './components/XPortalConnectModal';
-import { WalletConnectLoginButton } from '@multiversx/sdk-dapp/UI';
+import { HarwareWalletConnectModal } from './components/HarwareWalletConnectModal';
 
 export const UnlockRoute: () => JSX.Element = () => {
   const isLoggedIn = useGetIsLoggedIn();
   const { authToken } = useContext(AccountContext);
   const [showXPortalConnectModal, setShowXPortalConnectModal] = useState(false);
+  const [showLedgerConnectModal, setShowLedgerConnectModal] = useState(false);
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (isLoggedIn) {
@@ -51,10 +53,13 @@ export const UnlockRoute: () => JSX.Element = () => {
     authToken,
     dispatchSuccessfulLogin
   );
-  const handleHardwareWalletConnect = useHardwareWalletConnect(
-    authToken,
-    dispatchSuccessfulLogin
-  );
+  const [
+    initHardwareWalletConnect,
+    hardwareWalletConnect,
+    availableAddresses,
+    harwareWalletConnectErrorMessage,
+    cleanErrorMessage
+  ] = useHardwareWalletConnect(authToken, dispatchSuccessfulLogin);
   const [
     handleXPortalConnect,
     qrcodeSvg,
@@ -90,7 +95,10 @@ export const UnlockRoute: () => JSX.Element = () => {
             </button>
             <button
               className='btn btn-primary m-3'
-              onClick={handleHardwareWalletConnect}
+              onClick={() => {
+                initHardwareWalletConnect();
+                setShowLedgerConnectModal(true);
+              }}
             >
               Ledger
             </button>
@@ -108,6 +116,18 @@ export const UnlockRoute: () => JSX.Element = () => {
               existingPairings={existingPairings}
               onExistingPairConnect={handleExistingPairLogin}
               onRemoveExistingPair={handleRemoveExistingPairing}
+            />
+            <HarwareWalletConnectModal
+              show={showLedgerConnectModal}
+              onHide={() => {
+                setShowLedgerConnectModal(false);
+                cleanErrorMessage();
+              }}
+              addresses={availableAddresses}
+              errorMessage={harwareWalletConnectErrorMessage}
+              onSelectAddress={(addressIndex) =>
+                hardwareWalletConnect(addressIndex)
+              }
             />
           </div>
         </div>

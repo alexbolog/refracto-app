@@ -1,8 +1,11 @@
 import * as React from 'react';
 import Actions from './Actions';
 import TopInfo from './TopInfo';
+import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
 
 const Account = () => {
+  const { address } = useGetAccountInfo();
+
   return (
     <div className='container py-4'>
       <div className='row'>
@@ -18,6 +21,7 @@ const Account = () => {
               <Transactions /> */}
               <div>
                 <h1>Welcome to the Account page</h1>
+                <span>{address}</span>
               </div>
             </div>
           </div>
