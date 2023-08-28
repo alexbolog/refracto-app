@@ -11,9 +11,11 @@ import {
   ProjectPageDetails
 } from 'types/projectTypes';
 import { fromIso } from '../../utils';
+import { getProjectList } from 'db/projects';
 
-export const getAvailableProjects = (): ProjectListItem[] => {
-  return projectList.map((l: any) => l as ProjectListItem);
+export const getAvailableProjects = async (): Promise<ProjectListItem[]> => {
+  // return projectList.map((l: any) => l as ProjectListItem);
+  return await getProjectList();
 };
 
 export const getMarketplaceListings = (): MarketplaceListing[] => {

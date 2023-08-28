@@ -17,7 +17,6 @@ import { useWebWalletConnect } from './hooks/useWebWalletConnect';
 import { useHardwareWalletConnect } from './hooks/useHardwareWalletConnect';
 import { useXPortalConnect } from './hooks/useXPortalConnect';
 import XPortalConnectModal from './components/XPortalConnectModal';
-import { WalletConnectLoginButton } from '@multiversx/sdk-dapp/UI';
 
 export const UnlockRoute: () => JSX.Element = () => {
   const isLoggedIn = useGetIsLoggedIn();

@@ -73,7 +73,7 @@ export const AccountContextProvider = ({
       return;
     }
     getNewAuthToken().then((newToken) => {
-      setAuthToken(newToken);
+      setAuthToken(newToken ?? '');
     });
   }, [address, isLoggedIn]);
 

@@ -164,7 +164,10 @@ export const ProjectSpecs = ({
           {!sm && (
             <div className='card-footer'>
               <Link
-                to={`${routeNames.invest.replace(':id', project.projectId)}`}
+                to={`${routeNames.invest.replace(
+                  ':id',
+                  project.projectId
+                )}`}
                 className='btn btn-primary btn-invest'
               >
                 Invest

@@ -18,6 +18,7 @@ import AccountInfo from './AccountInfo';
 import { ReactComponent as NotificationsIcon } from '../../../assets/icons/refracto/notifications.svg';
 import { ReactComponent as HelpIcon } from '../../../assets/icons/refracto/help.svg';
 import { getIsMobile } from 'utils';
+import insertProjects from 'mock-scripts/projects';
 
 const Sidenav = () => {
   const { address } = useGetAccountInfo();
@@ -127,6 +128,11 @@ const Sidenav = () => {
                     <NotificationDropDownContent />
                   </li>
 
+                  <li className='nav-item dropdown notification_dropdown'>
+                    <button className='nav-link ' onClick={insertProjects}>
+                      MIGRATE
+                    </button>
+                  </li>
                   <li className='nav-item dropdown notification_dropdown'>
                     <a className='nav-link ' href='#'>
                       <HelpIcon />

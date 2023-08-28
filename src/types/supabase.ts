@@ -27,6 +27,31 @@ export interface Database {
         }
         Relationships: []
       }
+      FavoriteProjects: {
+        Row: {
+          id: number
+          projectId: number
+          wallet_address: string
+        }
+        Insert: {
+          id?: number
+          projectId: number
+          wallet_address: string
+        }
+        Update: {
+          id?: number
+          projectId?: number
+          wallet_address?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "FavoriteProjects_projectId_fkey"
+            columns: ["projectId"]
+            referencedRelation: "Projects"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       MarketplaceListings: {
         Row: {
           amount: string
@@ -281,6 +306,20 @@ export interface Database {
             }
             Returns: string
           }
+      read_project_data: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          id: number
+          title: string
+          returnpercentage: number
+          riskratinglevel: Database["public"]["Enums"]["riskratinglevel"]
+          crowdfundingdeadline: string
+          crowdfundingtarget: number
+          crowdfundedamount: number
+          colorcodehex: string
+          thumbnailsrc: string
+        }[]
+      }
     }
     Enums: {
       assetclass: "Residential" | "Industrial" | "Commercial"

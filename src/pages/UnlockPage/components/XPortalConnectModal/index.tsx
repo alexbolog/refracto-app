@@ -22,6 +22,7 @@ const XPortalConnectModal = ({
   onExistingPairConnect: (topic: string) => void;
   onRemoveExistingPair: (topic: string) => void;
 }) => {
+  console.log('existingPairings', existingPairings);
   return (
     <Modal show={show} centered size='lg'>
       <Modal.Body>
