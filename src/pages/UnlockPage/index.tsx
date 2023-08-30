@@ -18,6 +18,7 @@ import { useHardwareWalletConnect } from './hooks/useHardwareWalletConnect';
 import { useXPortalConnect } from './hooks/useXPortalConnect';
 import XPortalConnectModal from './components/XPortalConnectModal';
 import { HarwareWalletConnectModal } from './components/HarwareWalletConnectModal';
+import AuthenticationModal from './components/AuthenticationModal';
 
 export const UnlockRoute: () => JSX.Element = () => {
   const isLoggedIn = useGetIsLoggedIn();
@@ -129,6 +130,7 @@ export const UnlockRoute: () => JSX.Element = () => {
                 hardwareWalletConnect(addressIndex)
               }
             />
+            <AuthenticationModal />
           </div>
         </div>
       </div>

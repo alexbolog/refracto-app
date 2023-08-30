@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 import {
   WalletConnectV2Provider,
   PairingTypes
@@ -12,6 +12,8 @@ import {
   walletConnectDeepLink
 } from 'config';
 import { SessionTypes } from '@multiversx/sdk-wallet-connect-provider';
+import { AccountContext } from 'contexts/AccountContext';
+import { ConnectionValidationStatus } from '../components/AuthenticationModal';
 
 export const useXPortalConnect = (
   authToken: string,
@@ -29,6 +31,8 @@ export const useXPortalConnect = (
   (topic: string) => Promise<void>,
   (topic: string) => Promise<void>
 ] => {
+  const { setConnectionValidationStatus } = useContext(AccountContext);
+
   const [qrcodeSvg, setQrcodeSvg] = useState<string>('');
   const [deepLink, setDeepLink] = useState<string>('');
   const [existingPairings, setExistingPairings] = useState<any[]>([]);
@@ -90,6 +94,7 @@ export const useXPortalConnect = (
   const handleLogin = async (approval: () => Promise<SessionTypes.Struct>) => {
     await provider.login({ approval, token: authToken });
 
+    setConnectionValidationStatus(ConnectionValidationStatus.STARTED);
     const isAuthValid = await validateConnection(
       provider.address,
       authToken,
@@ -101,6 +106,9 @@ export const useXPortalConnect = (
         provider.address,
         LoginMethodsEnum.walletconnectv2
       );
+      setConnectionValidationStatus(ConnectionValidationStatus.SUCCESSFUL);
+    } else {
+      setConnectionValidationStatus(ConnectionValidationStatus.FAILED);
     }
   };
 

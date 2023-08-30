@@ -13,6 +13,7 @@ import { AVAILABLE_CURRENCIES } from 'enums';
 import { ProfileInfo } from './types/ProfileInfo';
 import useGetProfileInfo from './hooks/useGetAccountInfo';
 import { getNewAuthToken } from 'apiRequests/backend/accountApi';
+import { ConnectionValidationStatus } from 'pages/UnlockPage/components/AuthenticationModal';
 
 export interface IAccountContext {
   isLoading: boolean;
@@ -24,6 +25,10 @@ export interface IAccountContext {
   setSelectedCurrency: (newCurrency: AVAILABLE_CURRENCIES) => void;
   profileInfo: ProfileInfo;
   authToken: string;
+  connectionValidationStatus: ConnectionValidationStatus;
+  setConnectionValidationStatus: (
+    newStatus: ConnectionValidationStatus
+  ) => void;
 }
 
 const defaultState: IAccountContext = {
@@ -38,7 +43,11 @@ const defaultState: IAccountContext = {
     lastName: '',
     profilePictureSrc: ''
   },
-  authToken: ''
+  authToken: '',
+  connectionValidationStatus: ConnectionValidationStatus.NOT_STARTED,
+  setConnectionValidationStatus: (_) => {
+    console.log('default');
+  }
 };
 
 export const AccountContext =
@@ -59,6 +68,9 @@ export const AccountContextProvider = ({
     AVAILABLE_CURRENCIES.EUR
   );
   const [authToken, setAuthToken] = useState('');
+  const [connectionValidationStatus, setConnectionValidationStatus] = useState(
+    ConnectionValidationStatus.NOT_STARTED
+  );
 
   const accountOverview = useGetAccountOverview();
   const activeProjectInvestments = useGetAccountActiveInvestments();
@@ -90,7 +102,9 @@ export const AccountContextProvider = ({
           setSelectedCurrency(newCurrency);
         },
         profileInfo,
-        authToken
+        authToken,
+        connectionValidationStatus,
+        setConnectionValidationStatus
       }}
     >
       {children}

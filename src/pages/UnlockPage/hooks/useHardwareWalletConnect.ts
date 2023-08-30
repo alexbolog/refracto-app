@@ -1,8 +1,10 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 import { HWProvider } from '@multiversx/sdk-hw-provider';
 import { LoginMethodsEnum } from '@multiversx/sdk-dapp/types';
 import { loginAction } from '@multiversx/sdk-dapp/reduxStore/commonActions';
 import { validateConnection } from '../utils';
+import { AccountContext } from 'contexts/AccountContext';
+import { ConnectionValidationStatus } from '../components/AuthenticationModal';
 
 // Error handling function
 const handleError =
@@ -23,6 +25,7 @@ export const useHardwareWalletConnect = (
   string | undefined,
   () => void
 ] => {
+  const { setConnectionValidationStatus } = useContext(AccountContext);
   const [availableAddresses, setAvailableAddresses] = useState<string[]>([]);
   const [provider] = useState<HWProvider>(new HWProvider());
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
@@ -51,8 +54,12 @@ export const useHardwareWalletConnect = (
           signature.hex()
         );
 
+        setConnectionValidationStatus(ConnectionValidationStatus.STARTED);
         if (isAuthValid) {
           dispatchSuccessfulLogin(address, LoginMethodsEnum.ledger);
+          setConnectionValidationStatus(ConnectionValidationStatus.SUCCESSFUL);
+        } else {
+          setConnectionValidationStatus(ConnectionValidationStatus.FAILED);
         }
       } catch (e: any) {
         handleError(setErrorMessage)(e);
