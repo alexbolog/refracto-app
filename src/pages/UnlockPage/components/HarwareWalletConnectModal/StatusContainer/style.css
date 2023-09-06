@@ -1,0 +1,14 @@
+.ledger-modal.address-box {
+    border: 1px solid #e5e5e5;
+    border-radius: .625rem;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.ledger-modal.address-box .value {
+    font-weight: 600;
+}
