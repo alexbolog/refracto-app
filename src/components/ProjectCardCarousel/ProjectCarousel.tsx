@@ -89,8 +89,8 @@ const ProjectCardCarousel = ({
             spaceBetween={20}
             slidesPerView={width <= 768 ? 1 : 4}
             navigation={true}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
+            // onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log('slide change')}
             id={isFavoritesOnly ? 'fav-swiper' : 'sgst-swiper'}
           >
             {projects.map((project, i) => (
