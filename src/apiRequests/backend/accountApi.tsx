@@ -70,7 +70,7 @@ export const getSupabaseAuthHeaders = async (
     ) {
       throw 'Unauthorized';
     }
-    setSupabaseAccessToken(data.accessToken);
+    await setSupabaseAccessToken(data.accessToken, data.refreshToken);
     return true;
   } catch (err) {
     console.log('wallet auth err', err);

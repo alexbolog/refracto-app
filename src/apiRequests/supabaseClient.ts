@@ -8,14 +8,12 @@ export const supabase: SupabaseClient<Database> = createClient(
   supabaseConfig.anonKey
 );
 
-export function setSupabaseAccessToken(accessToken: string) {
-  supabase.auth.setSession({
+export async function setSupabaseAccessToken(
+  accessToken: string,
+  refreshToken: string
+) {
+  await supabase.auth.setSession({
     access_token: accessToken,
-    refresh_token: ''
+    refresh_token: refreshToken
   });
-  //   supabase.auth.session = () => ({
-  //     user: null, // or provide user details if available.
-  //     expires_at: null,
-  //     provider_token: null
-  //   });
 }
