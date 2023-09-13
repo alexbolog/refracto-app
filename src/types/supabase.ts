@@ -306,6 +306,37 @@ export interface Database {
             }
             Returns: string
           }
+      get_project_details_by_id: {
+        Args: {
+          p_id: number
+        }
+        Returns: {
+          id: number
+          title: string
+          returnpercentage: number
+          riskratinglevel: Database["public"]["Enums"]["riskratinglevel"]
+          crowdfundingdeadline: string
+          crowdfundingtarget: number
+          crowdfundedamount: number
+          colorcodehex: string
+          thumbnailsrc: string
+          loandeadline: string
+          images: string[]
+          projectdeveloperid: number
+          assetclass: Database["public"]["Enums"]["assetclass"]
+          investmenttype: Database["public"]["Enums"]["investmenttype"]
+          shortdescription: string
+          executivesummary: string
+          details: string
+          location: unknown
+          sponsorinfo: string
+          analysis: Database["public"]["CompositeTypes"]["swot_analysis"]
+          refractorating: Database["public"]["CompositeTypes"]["refracto_rating_item"][]
+          capitalstructure: Database["public"]["CompositeTypes"]["capital_structure_item"][]
+          financingdetails: string
+          attachmenturls: string[]
+        }[]
+      }
       read_project_data: {
         Args: Record<PropertyKey, never>
         Returns: {

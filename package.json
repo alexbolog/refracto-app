@@ -46,7 +46,8 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext js,ts,tsx src"
+    "lint": "eslint --ext js,ts,tsx src",
+    "update-types": "npx supabase gen types typescript --project-id ovzvepwxbmkdpomlubgd > src/types/supabase.ts"
   },
   "browserslist": [
     ">0.2%",
