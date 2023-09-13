@@ -21,7 +21,7 @@ export const MobileSizeProject = ({
 
   const navigate = useNavigate();
   const handleShowProjectDetails = () => {
-    navigate(`${routeNames.projectPage.replace(':id', project.projectId)}`);
+    navigate(`${routeNames.projectPage.replace(':id', project.projectId.toString())}`);
   };
 
   return (

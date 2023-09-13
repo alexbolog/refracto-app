@@ -1,5 +1,5 @@
 export interface ProjectListItem {
-  projectId: string;
+  projectId: number;
   projectTitle: string;
   returnPercentage: number;
   riskRatingLevel: string;

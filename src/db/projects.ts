@@ -70,7 +70,7 @@ const parseProjectListResponse = (
   }[]
 ): ProjectListItem[] => {
   return response.map((r) => ({
-    projectId: r.id.toString(),
+    projectId: r.id,
     projectTitle: r.title,
     returnPercentage: r.returnpercentage,
     riskRatingLevel: r.riskratinglevel,

@@ -166,7 +166,7 @@ export const ProjectSpecs = ({
               <Link
                 to={`${routeNames.invest.replace(
                   ':id',
-                  project.projectId
+                  project.projectId.toString()
                 )}`}
                 className='btn btn-primary btn-invest'
               >

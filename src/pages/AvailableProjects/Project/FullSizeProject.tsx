@@ -16,7 +16,7 @@ export const FullSizeProject = ({ project }: { project: ProjectListItem }) => {
 
   const navigate = useNavigate();
   const handleShowProjectDetails = () => {
-    navigate(`${routeNames.projectPage.replace(':id', project.projectId)}`);
+    navigate(`${routeNames.projectPage.replace(':id', project.projectId.toString())}`);
   };
 
   return (
