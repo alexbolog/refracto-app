@@ -23,7 +23,7 @@ export const Invest = () => {
   const [projectId, _] = useState(getProjectId());
   const getProjectById = useGetProjectById();
   useEffect(() => {
-    getProjectById(projectId).then((res) => {
+    getProjectById(parseInt(projectId)).then((res) => {
       setProjectDetails(res);
     });
   }, [projectId]);
