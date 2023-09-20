@@ -281,6 +281,13 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
+      add_favorite_project: {
+        Args: {
+          wallet: string
+          proj_id: number
+        }
+        Returns: undefined
+      }
       check_nonce_string:
         | {
             Args: {
@@ -295,12 +302,6 @@ export interface Database {
             }
             Returns: boolean
           }
-      delete_favorite_project: {
-        Args: {
-          p_projectid: number
-        }
-        Returns: undefined
-      }
       generate_nonce_string:
         | {
             Args: Record<PropertyKey, never>
@@ -313,9 +314,15 @@ export interface Database {
             Returns: string
           }
       get_favorite_projects: {
-        Args: Record<PropertyKey, never>
+        Args: {
+          p_wallet_address: string
+        }
         Returns: {
           projectid: number
+          returnpercentage: number
+          crowdfundingdeadline: string
+          thumbnailsrc: string
+          projecttitle: string
         }[]
       }
       get_project_details_by_id: {
@@ -349,12 +356,6 @@ export interface Database {
           attachmenturls: string[]
         }[]
       }
-      insert_favorite_project: {
-        Args: {
-          p_projectid: number
-        }
-        Returns: undefined
-      }
       read_project_data: {
         Args: Record<PropertyKey, never>
         Returns: {
@@ -368,6 +369,13 @@ export interface Database {
           colorcodehex: string
           thumbnailsrc: string
         }[]
+      }
+      remove_favorite_project: {
+        Args: {
+          wallet: string
+          proj_id: number
+        }
+        Returns: undefined
       }
     }
     Enums: {

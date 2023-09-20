@@ -20,7 +20,7 @@ export interface ActiveInvestmentsStatistics {
 }
 
 export interface FavoriteProject {
-  projectId: string;
+  projectId: number;
   returnPercentage: number;
   crowdfundingDeadline: string; // ISO format
   thumbnailSrc: string;

@@ -1,16 +1,31 @@
-import { getAccountOverview } from 'apiRequests/backend/accountApi';
-import React from 'react';
-import { AccountOverview } from 'types/accountTypes';
+import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
+import { getAccountOverview as getAccountOverviewApiCall } from 'apiRequests/backend/accountApi';
+import { readFavoriteProjects } from 'db/favoriteProjects';
+import React, { useEffect } from 'react';
+import { AccountOverview, FavoriteProject } from 'types/accountTypes';
 
 const useGetAccountOverview = () => {
-  const [accountOverview, setAccountOverview] = React.useState<AccountOverview>(
-    getAccountOverview()
-  );
-  //   React.useEffect(() => {
-  //     setAccountOverview(getAccountOverview());
-  //   }, []);
+  const [accountOverview, setAccountOverview] =
+    React.useState<AccountOverview>();
+  const { address } = useGetAccountInfo();
+  useEffect(() => {
+    getAccountOverview().then((data) => setAccountOverview(data));
+  }, [address]);
 
-  return accountOverview;
+  const getAccountOverview = async () => {
+    const accountOverview = getAccountOverviewApiCall();
+    const favoriteProjects = await readFavoriteProjects(address);
+    console.log('loaded favorite projects', favoriteProjects);
+    accountOverview.favoriteProjects = favoriteProjects;
+    return accountOverview;
+  };
+
+  const refreshAccountOverview = async () => {
+    const accountOverview = await getAccountOverview();
+    setAccountOverview(accountOverview);
+  };
+
+  return { accountOverview, refreshAccountOverview };
 };
 
 export default useGetAccountOverview;

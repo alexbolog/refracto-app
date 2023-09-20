@@ -29,6 +29,7 @@ export interface IAccountContext {
   setConnectionValidationStatus: (
     newStatus: ConnectionValidationStatus
   ) => void;
+  refreshAccountOverview: () => Promise<void>;
 }
 
 const defaultState: IAccountContext = {
@@ -46,6 +47,9 @@ const defaultState: IAccountContext = {
   authToken: '',
   connectionValidationStatus: ConnectionValidationStatus.NOT_STARTED,
   setConnectionValidationStatus: (_) => {
+    console.log('default');
+  },
+  refreshAccountOverview: async () => {
     console.log('default');
   }
 };
@@ -72,11 +76,11 @@ export const AccountContextProvider = ({
     ConnectionValidationStatus.NOT_STARTED
   );
 
-  const accountOverview = useGetAccountOverview();
+  const { accountOverview, refreshAccountOverview } = useGetAccountOverview();
   const activeProjectInvestments = useGetAccountActiveInvestments();
   const profileInfo = useGetProfileInfo();
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsLoading(false);
   }, [address]);
 
@@ -104,7 +108,8 @@ export const AccountContextProvider = ({
         profileInfo,
         authToken,
         connectionValidationStatus,
-        setConnectionValidationStatus
+        setConnectionValidationStatus,
+        refreshAccountOverview
       }}
     >
       {children}

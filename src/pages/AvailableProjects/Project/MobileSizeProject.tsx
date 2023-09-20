@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ProjectListItem } from 'types/projectTypes';
 import { ProjectInfo } from './ProjectInfo';
 import './style.css';
@@ -7,21 +7,26 @@ import { ReactComponent as FavoriteEnabled } from './../../../assets/icons/refra
 import { CFProgressBar } from './CFProgressBar';
 import { useNavigate } from 'react-router-dom';
 import { routeNames } from 'routes';
+import { AccountContext } from 'contexts/AccountContext';
+import {
+  createFavoriteProject,
+  deleteFavoriteProject
+} from 'db/favoriteProjects';
 
 export const MobileSizeProject = ({
-  project
+  project,
+  isFavoriteEnabled,
+  toggleFavorite
 }: {
   project: ProjectListItem;
+  isFavoriteEnabled: boolean;
+  toggleFavorite: () => void;
 }) => {
-  const [isFavoriteEnabled, setIsFavoriteEnabled] = React.useState(false);
-  const toggleFavorite = () => {
-    // onToggleFavorite(projectDetails.projectId, !isFavoriteEnabled);
-    setIsFavoriteEnabled(!isFavoriteEnabled);
-  };
-
   const navigate = useNavigate();
   const handleShowProjectDetails = () => {
-    navigate(`${routeNames.projectPage.replace(':id', project.projectId.toString())}`);
+    navigate(
+      `${routeNames.projectPage.replace(':id', project.projectId.toString())}`
+    );
   };
 
   return (

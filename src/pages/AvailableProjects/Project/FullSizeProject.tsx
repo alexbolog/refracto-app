@@ -7,16 +7,20 @@ import { ReactComponent as FavoriteEnabled } from './../../../assets/icons/refra
 import { useNavigate } from 'react-router-dom';
 import { routeNames } from 'routes';
 
-export const FullSizeProject = ({ project }: { project: ProjectListItem }) => {
-  const [isFavoriteEnabled, setIsFavoriteEnabled] = React.useState(false);
-  const toggleFavorite = () => {
-    // onToggleFavorite(projectDetails.projectId, !isFavoriteEnabled);
-    setIsFavoriteEnabled(!isFavoriteEnabled);
-  };
-
+export const FullSizeProject = ({
+  project,
+  isFavoriteEnabled,
+  toggleFavorite
+}: {
+  project: ProjectListItem;
+  isFavoriteEnabled: boolean;
+  toggleFavorite: () => void;
+}) => {
   const navigate = useNavigate();
   const handleShowProjectDetails = () => {
-    navigate(`${routeNames.projectPage.replace(':id', project.projectId.toString())}`);
+    navigate(
+      `${routeNames.projectPage.replace(':id', project.projectId.toString())}`
+    );
   };
 
   return (

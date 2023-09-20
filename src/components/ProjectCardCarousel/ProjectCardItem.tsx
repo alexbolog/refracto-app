@@ -23,7 +23,7 @@ const ProjectCardItem = ({
     projectDetails.isFavorite
   );
   const toggleFavorite = () => {
-    onToggleFavorite(projectDetails.projectId, !isFavoriteEnabled);
+    // onToggleFavorite(projectDetails.projectId, !isFavoriteEnabled);
     setIsFavoriteEnabled(!isFavoriteEnabled);
   };
 
