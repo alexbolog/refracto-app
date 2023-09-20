@@ -295,6 +295,12 @@ export interface Database {
             }
             Returns: boolean
           }
+      delete_favorite_project: {
+        Args: {
+          p_projectid: number
+        }
+        Returns: undefined
+      }
       generate_nonce_string:
         | {
             Args: Record<PropertyKey, never>
@@ -306,6 +312,12 @@ export interface Database {
             }
             Returns: string
           }
+      get_favorite_projects: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          projectid: number
+        }[]
+      }
       get_project_details_by_id: {
         Args: {
           p_id: number
@@ -336,6 +348,12 @@ export interface Database {
           financingdetails: string
           attachmenturls: string[]
         }[]
+      }
+      insert_favorite_project: {
+        Args: {
+          p_projectid: number
+        }
+        Returns: undefined
       }
       read_project_data: {
         Args: Record<PropertyKey, never>
