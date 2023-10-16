@@ -11,9 +11,9 @@ const useGetProjectById = () => {
   ): Promise<ProjectPageDetails | FullProjectPageDetails | undefined> => {
     const isLoggedIn = Boolean(address);
     if (isLoggedIn) {
-      return getFullProjectInfo(projectId);
     }
-    return getProjectInfo(projectId);
+    return getFullProjectInfo(projectId);
+    // return getProjectInfo(projectId);
   };
 
   return getProjectById;

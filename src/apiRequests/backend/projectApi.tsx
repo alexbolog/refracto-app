@@ -9,7 +9,8 @@ import {
   FullProjectPageDetails,
   MarketplaceListing,
   ProjectListItem,
-  ProjectPageDetails
+  ProjectPageDetails,
+  RefractoRatingItem
 } from 'types/projectTypes';
 import { fromIso } from '../../utils';
 import { getProjectList } from 'db/projects';
@@ -24,10 +25,20 @@ export const getMarketplaceListings = (): MarketplaceListing[] => {
   return secondaryMarketProjects.map((l: any) => l as MarketplaceListing);
 };
 
+<<<<<<< Updated upstream
 export const getProjectInfo = async (
   projectId: number
 ): Promise<ProjectPageDetails> => {
   return (await getFullProjectInfo(projectId)) as ProjectPageDetails;
+=======
+export const getProjectInfo = (projectId: string): ProjectPageDetails => {
+  const proj = projectInfo.filter(
+    (pi) => pi.projectId === projectId
+  )[0] as any as ProjectPageDetails;
+  proj.loanDeadline =
+    fromIso(proj.crowdfundingDeadline).plus({ years: 1 }).toISO() ?? '';
+  return proj;
+>>>>>>> Stashed changes
 };
 
 export const getFullProjectInfo = async (

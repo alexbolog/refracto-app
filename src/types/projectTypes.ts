@@ -54,7 +54,7 @@ export interface SWOTAnalysis {
 
 export interface RefractoRatingItem {
   category: string;
-  assesments: string;
+  assessments: string;
 }
 
 export interface CapitalStructureItem {

@@ -22,7 +22,7 @@ export const RatingTable = ({
           {ratings.map((row, idx) => (
             <tr key={`rating-table-entry_${idx}`}>
               <td>{row.category}</td>
-              <td>{row.assesments}</td>
+              <td>{row.assessments}</td>
             </tr>
           ))}
           <tr className='last-row'>
