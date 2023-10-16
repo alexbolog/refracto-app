@@ -20,5 +20,5 @@ export const useGetSmartContract = () => {
     return contract;
   };
 
-  return getContract;
+  return getContract();
 };
