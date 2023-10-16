@@ -16,7 +16,8 @@ const useGetAccountOverview = () => {
     const accountOverview = getAccountOverviewApiCall();
     const favoriteProjects = await readFavoriteProjects(address);
     console.log('loaded favorite projects', favoriteProjects);
-    accountOverview.favoriteProjects = favoriteProjects;
+    //TODO: add favorite projects to accountOverview
+    // accountOverview.favoriteProjects = favoriteProjects;
     return accountOverview;
   };
 
