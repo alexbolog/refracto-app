@@ -1,6 +1,6 @@
 import { ResultsParser } from '@multiversx/sdk-core/out';
 import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGetProxyProvider } from 'sc/helpers/hooks/useGetProxyProvider';
 import { useGetSmartContract } from 'sc/helpers/hooks/useGetSmartContract';
 
@@ -9,7 +9,9 @@ export const useGetIsKycCompliant = () => {
   const smartContract = useGetSmartContract();
   const proxy = useGetProxyProvider();
 
-  const isKycCompliant = async () => {
+  const [isKycCompliant, setIsKycCompliant] = useState(false);
+
+  const getIsKycCompliant = async () => {
     if (!address || !address.startsWith('erd1')) {
       return false;
     }
@@ -28,6 +30,12 @@ export const useGetIsKycCompliant = () => {
     }
     return firstValue?.valueOf();
   };
+
+  useEffect(() => {
+    getIsKycCompliant().then((result) => {
+      setIsKycCompliant(result);
+    });
+  }, [address]);
 
   return isKycCompliant;
 };
