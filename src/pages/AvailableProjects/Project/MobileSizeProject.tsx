@@ -12,6 +12,7 @@ import {
   createFavoriteProject,
   deleteFavoriteProject
 } from 'db/favoriteProjects';
+import { useGetIsLoggedIn } from '@multiversx/sdk-dapp/hooks';
 
 export const MobileSizeProject = ({
   project,
@@ -22,6 +23,7 @@ export const MobileSizeProject = ({
   isFavoriteEnabled: boolean;
   toggleFavorite: () => void;
 }) => {
+  const isLoggedIn = useGetIsLoggedIn();
   const navigate = useNavigate();
   const handleShowProjectDetails = () => {
     navigate(
@@ -33,22 +35,24 @@ export const MobileSizeProject = ({
     <div className='card project-wrapper mobile-size'>
       <div className='card-header p-0 border-0'>
         <img src={project.thumbnailSrc} />
-        <button className='btn btn-fav'>
-          {isFavoriteEnabled && (
-            <FavoriteEnabled
-              height={16}
-              width={16.8}
-              onClick={toggleFavorite}
-            />
-          )}
-          {!isFavoriteEnabled && (
-            <FavoriteDisabled
-              height={16}
-              width={16.8}
-              onClick={toggleFavorite}
-            />
-          )}
-        </button>
+        {isLoggedIn && (
+          <button className='btn btn-fav'>
+            {isFavoriteEnabled && (
+              <FavoriteEnabled
+                height={16}
+                width={16.8}
+                onClick={toggleFavorite}
+              />
+            )}
+            {!isFavoriteEnabled && (
+              <FavoriteDisabled
+                height={16}
+                width={16.8}
+                onClick={toggleFavorite}
+              />
+            )}
+          </button>
+        )}
       </div>
       <div className='card-body container-fluid p-0'>
         <div className='row w-100' style={{ padding: '0 20px' }}>

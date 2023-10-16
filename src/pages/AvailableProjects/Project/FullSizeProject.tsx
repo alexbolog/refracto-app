@@ -6,6 +6,7 @@ import { ReactComponent as FavoriteDisabled } from './../../../assets/icons/refr
 import { ReactComponent as FavoriteEnabled } from './../../../assets/icons/refracto/favorite-fill.svg';
 import { useNavigate } from 'react-router-dom';
 import { routeNames } from 'routes';
+import { useGetIsLoggedIn } from '@multiversx/sdk-dapp/hooks';
 
 export const FullSizeProject = ({
   project,
@@ -16,6 +17,7 @@ export const FullSizeProject = ({
   isFavoriteEnabled: boolean;
   toggleFavorite: () => void;
 }) => {
+  const isLoggedIn = useGetIsLoggedIn();
   const navigate = useNavigate();
   const handleShowProjectDetails = () => {
     navigate(
@@ -34,22 +36,24 @@ export const FullSizeProject = ({
             <ProjectInfo project={project} />
           </div>
           <div className='col-2 d-grid'>
-            <button className='btn btn-fav'>
-              {isFavoriteEnabled && (
-                <FavoriteEnabled
-                  height={16}
-                  width={16.8}
-                  onClick={toggleFavorite}
-                />
-              )}
-              {!isFavoriteEnabled && (
-                <FavoriteDisabled
-                  height={16}
-                  width={16.8}
-                  onClick={toggleFavorite}
-                />
-              )}
-            </button>
+            {isLoggedIn && (
+              <button className='btn btn-fav'>
+                {isFavoriteEnabled && (
+                  <FavoriteEnabled
+                    height={16}
+                    width={16.8}
+                    onClick={toggleFavorite}
+                  />
+                )}
+                {!isFavoriteEnabled && (
+                  <FavoriteDisabled
+                    height={16}
+                    width={16.8}
+                    onClick={toggleFavorite}
+                  />
+                )}
+              </button>
+            )}
             <button
               className='btn btn-primary align-self-end btn-details'
               onClick={handleShowProjectDetails}
