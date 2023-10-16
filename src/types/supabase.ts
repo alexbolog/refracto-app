@@ -314,6 +314,7 @@ export interface Database {
             Returns: string
           }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       get_favorite_projects: {
         Args: {
           p_wallet_address: string
@@ -326,6 +327,8 @@ export interface Database {
           projecttitle: string
         }[]
       }
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
       get_project_details_by_id: {
@@ -374,6 +377,7 @@ export interface Database {
         }[]
       }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       remove_favorite_project: {
         Args: {
           wallet: string
@@ -381,6 +385,8 @@ export interface Database {
         }
         Returns: undefined
       }
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     }
