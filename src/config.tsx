@@ -3,7 +3,7 @@ import { EnvironmentsEnum } from '@multiversx/sdk-dapp/types';
 export const environment: EnvironmentsEnum = EnvironmentsEnum.devnet;
 
 export const contractAddress =
-  'erd1qqqqqqqqqqqqqpgq4gdcg0k83u7lpv4s4532w3au9y9h0vm70eqq6m8qk2';
+  'erd1qqqqqqqqqqqqqpgqc4zs6lyfxutp4a0u293dsemne07xmgrv6ppszrjd48';
 
 export const dAppName = 'Refracto';
 export const NUMBER_OF_SHARES_PER_PROJECT = 1_000_000;
