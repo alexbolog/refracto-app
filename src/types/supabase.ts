@@ -360,6 +360,62 @@ export interface Database {
           attachmenturls: string[]
         }[]
       }
+      insert_project:
+        | {
+            Args: {
+              p_title: string
+              p_return_percentage: number
+              p_crowdfunding_deadline: string
+              p_crowdfunding_target: number
+              p_crowdfunded_amount: number
+              p_color_code_hex: string
+              p_thumbnail_src: string
+              p_loan_deadline: string
+              p_images: string[]
+              p_project_developer_id: number
+              p_risk_rating_level: Database["public"]["Enums"]["riskratinglevel"]
+              p_asset_class: Database["public"]["Enums"]["assetclass"]
+              p_investment_type: Database["public"]["Enums"]["investmenttype"]
+              p_short_description: string
+              p_executive_summary: string
+              p_details: string
+              p_location: unknown
+              p_sponsor_info: string
+              p_refracto_rating: Database["public"]["CompositeTypes"]["refracto_rating_item"][]
+              p_capital_structure: Database["public"]["CompositeTypes"]["capital_structure_item"][]
+              p_financing_details: string
+              p_attachment_urls: string[]
+            }
+            Returns: number
+          }
+        | {
+            Args: {
+              p_title: string
+              p_return_percentage: number
+              p_crowdfunding_deadline: string
+              p_crowdfunding_target: number
+              p_crowdfunded_amount: number
+              p_color_code_hex: string
+              p_thumbnail_src: string
+              p_loan_deadline: string
+              p_images: string[]
+              p_project_developer_id: number
+              p_risk_rating_level: Database["public"]["Enums"]["riskratinglevel"]
+              p_asset_class: Database["public"]["Enums"]["assetclass"]
+              p_investment_type: Database["public"]["Enums"]["investmenttype"]
+              p_short_description: string
+              p_executive_summary: string
+              p_details: string
+              p_location: unknown
+              p_sponsor_info: string
+              p_refracto_rating: Database["public"]["CompositeTypes"]["refracto_rating_item"][]
+              p_capital_structure: Database["public"]["CompositeTypes"]["capital_structure_item"][]
+              p_financing_details: string
+              p_attachment_urls: string[]
+              p_analysis: Database["public"]["CompositeTypes"]["swot_analysis"]
+            }
+            Returns: number
+          }
       read_project_data: {
         Args: Record<PropertyKey, never>
         Returns: {
