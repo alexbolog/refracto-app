@@ -32,3 +32,5 @@ export const supabaseConfig = {
 
 export const DEMO_USDC_FAUCET_SC_ADDRESS =
   'erd1qqqqqqqqqqqqqpgq7p640kwtw22m9m9y0kwew0zvp8zh542z6ppsrqjaap';
+
+export const USDC_TOKEN_ID = 'RUSDC-8cb8ee';
