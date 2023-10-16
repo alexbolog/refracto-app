@@ -2,26 +2,42 @@ import * as React from 'react';
 import Actions from './Actions';
 import TopInfo from './TopInfo';
 import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
+import { useGetIsKycCompliant } from 'sc/queries/useGetIsKycCompliant';
+import { useMockKyc } from 'sc/transactions/useMockKyc';
 
 const Account = () => {
   const { address } = useGetAccountInfo();
+  const hasKyc = useGetIsKycCompliant();
+  const mockKyc = useMockKyc();
 
   return (
-    <div className='container py-4'>
+    <div className='container-fluid'>
       <div className='row'>
-        <div className='col-12 col-md-10 mx-auto'>
-          <div className='card shadow-sm rounded border-0'>
-            <div className='card-body p-1'>
-              {/* <div className='card rounded border-0 bg-primary'>
-                <div className='card-body text-center p-4'>
-                  <TopInfo />
-                  <Actions />
+        <div className='col-12 text-start'>
+          <div className='card'>
+            <div className='card-header'>
+              <h2>Account Information</h2>
+            </div>
+            <div className='card-body container-fluid'>
+              <div className='row'>
+                <div className='col-lg-12 text-start'>
+                  Address: <code className='text-black'>{address}</code>
+                </div>
+                <div className='col-lg-12 text-start'>
+                  KYC Status:{' '}
+                  {!hasKyc && <span className='text-black'>Not done</span>}
+                  {hasKyc && <span className='text-success'>Done</span>}
                 </div>
               </div>
-              <Transactions /> */}
-              <div>
-                <h1>Welcome to the Account page</h1>
-                <span>{address}</span>
+
+              <div className='row mt-2'>
+                {!hasKyc && (
+                  <div className='col-lg-6 col-md-12'>
+                    <button className='btn btn-primary' onClick={mockKyc}>
+                      Mock Successful KYC
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
