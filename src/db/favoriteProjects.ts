@@ -4,53 +4,45 @@ import { FavoriteProject } from 'types/accountTypes';
 
 // Create a new favorite project
 export const createFavoriteProject = async (
-  walletAddress: string,
-  projectId: number
+  projectId: number,
+  wallet_address: string
 ) => {
-  console.log(await supabase.auth.getUser());
-  const { error } = await supabase.rpc('add_favorite_project', {
-    wallet: walletAddress,
-    proj_id: projectId
-  });
-  if (error) {
-    console.error('Error saving favorite project to db: ', error);
-  }
+  const { data, error } = await supabase
+    .from('FavoriteProjects')
+    .insert([{ projectId: projectId, wallet_address: wallet_address }]);
+  if (error) console.log('Error: ', error);
+  else return data;
 };
 
-// Read favorite projects
-export const readFavoriteProjects = async (
-  walletAddress: string
-): Promise<FavoriteProject[]> => {
-  const { data, error } = await supabase.rpc('get_favorite_projects', {
-    p_wallet_address: walletAddress
-  });
-  if (error || data === null) {
-    console.error('Error fetching favorite projects from db: ', error);
-    return [];
-  }
-  return data.map(parseFavoriteProject);
+// Read favorite projects for a specific wallet address
+export const readFavoriteProjects = async (wallet_address: string) => {
+  const { data, error } = await supabase
+    .from('FavoriteProjects')
+    .select('*')
+    .eq('wallet_address', wallet_address);
+  if (error) console.log('Error: ', error);
+  else return data;
+};
+
+// Update a favorite project
+export const updateFavoriteProject = async (
+  id: number,
+  newProjectId: number
+) => {
+  const { data, error } = await supabase
+    .from('FavoriteProjects')
+    .update({ projectId: newProjectId })
+    .eq('id', id);
+  if (error) console.log('Error: ', error);
+  else return data;
 };
 
 // Delete a favorite project
-export const deleteFavoriteProject = async (
-  walletAddress: string,
-  id: number
-) => {
-  const { error } = await supabase.rpc('remove_favorite_project', {
-    wallet: walletAddress,
-    proj_id: id
-  });
-  if (error) {
-    console.error('Error saving favorite project to db: ', error);
-  }
-};
-
-const parseFavoriteProject = (project: any): FavoriteProject => {
-  return {
-    projectId: project.projectid,
-    returnPercentage: project.returnpercentage,
-    crowdfundingDeadline: project.crowdfundingdeadline,
-    thumbnailSrc: project.thumbnailsrc,
-    projectTitle: project.projecttitle
-  };
+export const deleteFavoriteProject = async (id: number) => {
+  const { data, error } = await supabase
+    .from('FavoriteProjects')
+    .delete()
+    .eq('id', id);
+  if (error) console.log('Error: ', error);
+  else return data;
 };
