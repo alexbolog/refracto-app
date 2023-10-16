@@ -1,24 +1,30 @@
 import React from 'react';
 import scAbi from '../../abi/loan-crowdfund-sc.abi.json';
+import faucetScAbi from '../../abi/demo-usdc-faucet.abi.json';
+
 import {
   AbiRegistry,
   Address,
   SmartContract,
   SmartContractAbi
 } from '@multiversx/sdk-core/out';
-import { contractAddress } from 'config';
+import { DEMO_USDC_FAUCET_SC_ADDRESS, contractAddress } from 'config';
+
+const getContract = (abiJson: any, address: string) => {
+  const abiRegistry = AbiRegistry.create(abiJson);
+  const abi = new SmartContractAbi(abiRegistry);
+  const contract = new SmartContract({
+    address: new Address(address),
+    abi
+  });
+
+  return contract;
+};
 
 export const useGetSmartContract = () => {
-  const getContract = () => {
-    const abiRegistry = AbiRegistry.create(scAbi);
-    const abi = new SmartContractAbi(abiRegistry);
-    const contract = new SmartContract({
-      address: new Address(contractAddress),
-      abi
-    });
+  return getContract(scAbi, contractAddress);
+};
 
-    return contract;
-  };
-
-  return getContract();
+export const useGetFaucetSmartContract = () => {
+  return getContract(faucetScAbi, DEMO_USDC_FAUCET_SC_ADDRESS);
 };
