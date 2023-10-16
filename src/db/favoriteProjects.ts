@@ -1,5 +1,4 @@
 import { supabase } from 'apiRequests/supabaseClient';
-import { FavoriteProject } from 'types/accountTypes';
 // CRUD operations for FavoriteProjects
 
 // Create a new favorite project
