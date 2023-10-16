@@ -15,7 +15,9 @@ export const useGetIsKycCompliant = () => {
     if (!address || !address.startsWith('erd1')) {
       return false;
     }
-    const interaction = smartContract.methods.isKycCompliant([address]).check();
+    const interaction = smartContract.methods
+      .getIsKycCompliant([address])
+      .check();
     const query = await interaction.buildQuery();
     const queryResponse = await proxy.queryContract(query);
     const { firstValue, returnCode, returnMessage } =
