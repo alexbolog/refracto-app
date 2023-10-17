@@ -11,6 +11,7 @@ import DoughnutChartRow from './DoughnutChartRow';
 import GeneralInvestmentStatistics from './GeneralInvestmentStatistics';
 import GeneralStatisticsGraph from './GeneralStatisticsGraph';
 import InvestmentAndReturnBarCharts from './InvestmentAndReturnBarCharts';
+import './style.css';
 
 const Overview = () => {
   const [hasClaimableCredits, setHasClaimableCredits] = React.useState(true);
@@ -67,7 +68,10 @@ const Overview = () => {
       <div className='row'>
         <GeneralInvestmentStatistics />
       </div>
-      <div className='row'>
+      <div className='row overlay-wrapper'>
+        <div className='overlay rounded'>
+          <div className='overlay-content'>Coming soon</div>
+        </div>
         <GeneralStatisticsGraph />
       </div>
       <div className='row'>
@@ -76,16 +80,25 @@ const Overview = () => {
       <div className='row align-items-start'>
         <DoughnutChartRow />
       </div>
-      <div className='row'>
+      <div className='row overlay-wrapper'>
+        <div className='overlay rounded'>
+          <div className='overlay-content'>Coming soon</div>
+        </div>
         <InvestmentAndReturnBarCharts />
       </div>
-      <div className='row'>
+      <div className='row overlay-wrapper'>
+        <div className='overlay rounded'>
+          <div className='overlay-content'>Coming soon</div>
+        </div>
         <PaymentStatusContainer />
       </div>
       <div className='row'>
         <FavoriteProjectCarousel />
       </div>
-      <div className='row'>
+      <div className='row overlay-wrapper'>
+        <div className='overlay rounded'>
+          <div className='overlay-content'>Coming soon</div>
+        </div>
         <SuggestedProjectsCarousel />
       </div>
     </>
