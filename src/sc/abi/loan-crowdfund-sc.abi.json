@@ -293,10 +293,6 @@
         {
           "name": "loan_duration",
           "type": "u64"
-        },
-        {
-          "name": "loan_start_timestamp",
-          "type": "u64"
         }
       ],
       "outputs": []

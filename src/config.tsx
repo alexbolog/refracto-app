@@ -34,3 +34,5 @@ export const DEMO_USDC_FAUCET_SC_ADDRESS =
   'erd1qqqqqqqqqqqqqpgq7p640kwtw22m9m9y0kwew0zvp8zh542z6ppsrqjaap';
 
 export const USDC_TOKEN_ID = 'RUSDC-8cb8ee';
+export const INTEREST_RATE_DENOMINATION = 1_000_000_000;
+export const ONE_DENOMINATED_USDC = 1_000_000;
