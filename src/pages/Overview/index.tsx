@@ -14,7 +14,7 @@ import InvestmentAndReturnBarCharts from './InvestmentAndReturnBarCharts';
 import './style.css';
 
 const Overview = () => {
-  const [hasClaimableCredits, setHasClaimableCredits] = React.useState(true);
+  const [hasClaimableCredits, setHasClaimableCredits] = React.useState(false);
 
   const isLastUrlSegmentEqualTo = (urlSegment: string) => {
     const prevPage = document.referrer;
@@ -54,7 +54,10 @@ const Overview = () => {
     <>
       {hasClaimableCredits && (
         <div className='row'>
-          <div className='col-12'>
+          <div className='col-12 overlay-wrapper'>
+            <div className='overlay rounded'>
+              <div className='overlay-content'>Coming soon</div>
+            </div>
             <CustomAlert
               type={'primary'}
               isDismissable={false}
