@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { LoremIpsum } from './LoremIpsum';
 import { toLocaleStringOptions } from 'config';
+import { useInvest } from 'sc/transactions/useInvest';
 
 export const InvestmentModalButton = ({
   amount,
@@ -11,8 +12,10 @@ export const InvestmentModalButton = ({
   projectId: number;
 }) => {
   const [showAgreementModal, setShowAgreementModal] = useState(false);
-  const handleInvest = async () => {
-    setShowAgreementModal(true);
+  const invest = useInvest();
+  const handleInvestButton = async () => {
+    await invest(projectId, amount);
+    setShowAgreementModal(false);
   };
 
   return (
@@ -42,7 +45,7 @@ export const InvestmentModalButton = ({
           >
             Decline
           </button>
-          <button className='btn btn-success' onClick={handleInvest}>
+          <button className='btn btn-success' onClick={handleInvestButton}>
             Accept & Invest
           </button>
         </Modal.Footer>
