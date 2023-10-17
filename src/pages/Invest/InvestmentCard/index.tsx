@@ -1,7 +1,7 @@
 import { useGetIsLoggedIn } from '@multiversx/sdk-dapp/hooks';
 import { toLocaleStringOptions } from 'config';
 import { AccountContext } from 'contexts/AccountContext';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ProjectPageDetails, FullProjectPageDetails } from 'types/projectTypes';
 import { InvestmentModalButton } from './InvestmentModalButton';
 
@@ -11,6 +11,16 @@ export const InvestmentCard = ({
   project: ProjectPageDetails | FullProjectPageDetails;
 }) => {
   const { availableCashBalance } = useContext(AccountContext);
+  const [investmentAmount, setInvestmentAmount] = useState<number>();
+  const handleUpdateInvestmentAmount = (e: any) => {
+    const amount = parseFloat(e.target.value);
+    if (amount > availableCashBalance || amount < 0) {
+      setInvestmentAmount(availableCashBalance);
+    } else {
+      setInvestmentAmount(amount);
+    }
+  };
+
   const isLoggedIn = useGetIsLoggedIn();
 
   return (
@@ -50,12 +60,14 @@ export const InvestmentCard = ({
                     className='form-control input-default w-100'
                     placeholder='Example: €500'
                     step={10}
+                    value={investmentAmount}
+                    onChange={handleUpdateInvestmentAmount}
                   />
                 </div>
               </div>
               <div className='col-lg-3 col-md-12 d-flex justify-content-center align-items-end'>
                 <InvestmentModalButton
-                  amount={0}
+                  amount={investmentAmount ?? 0}
                   projectId={project.projectId}
                 />
               </div>

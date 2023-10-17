@@ -31,8 +31,8 @@ export const supabaseConfig = {
 };
 
 export const DEMO_USDC_FAUCET_SC_ADDRESS =
-  'erd1qqqqqqqqqqqqqpgq7p640kwtw22m9m9y0kwew0zvp8zh542z6ppsrqjaap';
+  'erd1qqqqqqqqqqqqqpgqc9uqjcp8q8v8lcxvtcuz6hr7zpf42tfk6ppsawfpn5';
 
-export const USDC_TOKEN_ID = 'RUSDC-8cb8ee';
+export const USDC_TOKEN_ID = 'RUSDC-70a54c';
 export const INTEREST_RATE_DENOMINATION = 1_000_000_000;
 export const ONE_DENOMINATED_USDC = 1_000_000;

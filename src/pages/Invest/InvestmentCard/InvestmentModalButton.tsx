@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { LoremIpsum } from './LoremIpsum';
+import { toLocaleStringOptions } from 'config';
 
 export const InvestmentModalButton = ({
   amount,
@@ -27,10 +28,11 @@ export const InvestmentModalButton = ({
           <h2>Investment Agreement</h2>
         </Modal.Header>
         <Modal.Body>
-          <h3>
-            Read and accept the following agreement to proceed with your
+          <h5 className='mb-3'>
+            Read and accept the following agreement to proceed with your €
+            {amount.toLocaleString(undefined, toLocaleStringOptions)}{' '}
             investment.
-          </h3>
+          </h5>
           <LoremIpsum />
         </Modal.Body>
         <Modal.Footer>
