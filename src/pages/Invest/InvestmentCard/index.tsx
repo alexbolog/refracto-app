@@ -3,6 +3,7 @@ import { toLocaleStringOptions } from 'config';
 import { AccountContext } from 'contexts/AccountContext';
 import React, { useContext } from 'react';
 import { ProjectPageDetails, FullProjectPageDetails } from 'types/projectTypes';
+import { InvestmentModalButton } from './InvestmentModalButton';
 
 export const InvestmentCard = ({
   project
@@ -11,6 +12,7 @@ export const InvestmentCard = ({
 }) => {
   const { availableCashBalance } = useContext(AccountContext);
   const isLoggedIn = useGetIsLoggedIn();
+
   return (
     <div className='card investment-card-wrapper'>
       {/* TODO: replace bg-primary with primary color circle CSS background from design */}
@@ -52,9 +54,10 @@ export const InvestmentCard = ({
                 </div>
               </div>
               <div className='col-lg-3 col-md-12 d-flex justify-content-center align-items-end'>
-                <button className='btn btn-primary text-primary btn-sm invest-now-button'>
-                  Submit Your Order
-                </button>
+                <InvestmentModalButton
+                  amount={0}
+                  projectId={project.projectId}
+                />
               </div>
             </div>
           ) : (
