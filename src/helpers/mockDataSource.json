@@ -1,0 +1,50 @@
+{
+  "attachmentUrls": [
+    "https://www.example.com/attachment1.pdf",
+    "https://www.example.com/attachment2.pdf",
+    "https://www.example.com/attachment3.pdf"
+  ],
+  "thumbnailUrls": [
+    "https://www.example.com/image1.jpg",
+    "https://www.example.com/image2.jpg",
+    "https://www.example.com/image3.jpg"
+  ],
+  "riskRatingLevels": ["Low", "Medium", "High"],
+  "assetClasses": ["Residential", "Industrial", "Commercial"],
+  "investmentTypes": ["Development", "Refurbish"],
+  "shortDescriptions": [
+    "Short description 1",
+    "Short description 2",
+    "Short description 3"
+  ],
+  "executiveSummaries": [
+    "Executive summary 1",
+    "Executive summary 2",
+    "Executive summary 3"
+  ],
+  "details": ["Details 1", "Details 2", "Details 3"],
+  "locations": ["(0,0)", "(1,1)", "(2,2)"],
+  "sponsorInfos": ["Sponsor info 1", "Sponsor info 2", "Sponsor info 3"],
+  "refractoRatings": [
+    { "category": "Category 1", "assessments": "Assessments 1" },
+    { "category": "Category 2", "assessments": "Assessments 2" },
+    { "category": "Category 3", "assessments": "Assessments 3" }
+  ],
+  "capitalStructures": [
+    { "type": "Type 1", "source": "Source 1", "amount": 100000 },
+    { "type": "Type 1", "source": "Source 1", "amount": 100000 },
+    { "type": "Type 2", "source": "Source 2", "amount": 200000 },
+    { "type": "Type 3", "source": "Source 3", "amount": 300000 }
+  ],
+  "financingDetails": [
+    "Financing details 1",
+    "Financing details 2",
+    "Financing details 3"
+  ],
+  "analysis": {
+    "strengths": ["Strengths 1", "Strengths 2", "Strengths 3"],
+    "weaknesses": ["Weaknesses 1", "Weaknesses 2", "Weaknesses 3"],
+    "opportunities": ["Opportunities 1", "Opportunities 2", "Opportunities 3"],
+    "threats": ["Threats 1", "Threats 2", "Threats 3"]
+  }
+}

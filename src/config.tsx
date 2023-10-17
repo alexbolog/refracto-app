@@ -3,7 +3,7 @@ import { EnvironmentsEnum } from '@multiversx/sdk-dapp/types';
 export const environment: EnvironmentsEnum = EnvironmentsEnum.devnet;
 
 export const contractAddress =
-  'erd1qqqqqqqqqqqqqpgq4gdcg0k83u7lpv4s4532w3au9y9h0vm70eqq6m8qk2';
+  'erd1qqqqqqqqqqqqqpgqc4zs6lyfxutp4a0u293dsemne07xmgrv6ppszrjd48';
 
 export const dAppName = 'Refracto';
 export const NUMBER_OF_SHARES_PER_PROJECT = 1_000_000;
@@ -29,3 +29,10 @@ export const supabaseConfig = {
   anonKey:
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92enZlcHd4Ym1rZHBvbWx1YmdkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODkxNjY3NjUsImV4cCI6MjAwNDc0Mjc2NX0.zYKGpyf8FAYg0zN7mAmmCQu0EU6B5w_jYFEQdJ4cktk'
 };
+
+export const DEMO_USDC_FAUCET_SC_ADDRESS =
+  'erd1qqqqqqqqqqqqqpgq7p640kwtw22m9m9y0kwew0zvp8zh542z6ppsrqjaap';
+
+export const USDC_TOKEN_ID = 'RUSDC-8cb8ee';
+export const INTEREST_RATE_DENOMINATION = 1_000_000_000;
+export const ONE_DENOMINATED_USDC = 1_000_000;
