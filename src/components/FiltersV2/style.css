@@ -58,10 +58,6 @@
     display: none !important;
 }
 
-.filter-input-box {
-    width: 50%;
-}
-
 .filter-box-wrapper {
     width: 100%;
     display: flex;
@@ -77,10 +73,6 @@
 }
 
 @media only screen and (max-width: 1200px) {
-    .filter-input-box, .filter-box-buttons, .filter-btn .btn, .filter-btn .react-datepicker-wrapper {
-        width: 100%;
-        max-width: 100%;
-    }
 
     .filter-box-buttons .filter-btn.dsk {
         display: none !important;
