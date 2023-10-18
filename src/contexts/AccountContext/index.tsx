@@ -2,7 +2,8 @@ import {
   useGetAccountInfo,
   useGetAccountProvider,
   useGetIsLoggedIn,
-  useGetLoginInfo
+  useGetLoginInfo,
+  useGetPendingTransactions
 } from '@multiversx/sdk-dapp/hooks';
 import useGetAccountOverview from './hooks/useGetAccountOverview';
 import React, { useEffect, useState } from 'react';
@@ -14,6 +15,10 @@ import { ProfileInfo } from './types/ProfileInfo';
 import useGetProfileInfo from './hooks/useGetAccountInfo';
 import { getNewAuthToken } from 'apiRequests/backend/accountApi';
 import { ConnectionValidationStatus } from 'pages/UnlockPage/components/AuthenticationModal';
+import { getAccountBalance } from '@multiversx/sdk-dapp/utils';
+import BigNumber from 'bignumber.js';
+import { getAccountEsdtBalance } from 'apiRequests/multiversx';
+import { USDC_TOKEN_ID } from 'config';
 
 export interface IAccountContext {
   isLoading: boolean;
@@ -67,7 +72,7 @@ export const AccountContextProvider = ({
   } = useGetAccountInfo();
   const isLoggedIn = useGetIsLoggedIn();
   const [isLoading, setIsLoading] = React.useState(true);
-  const [availableCashBalance, setAvailableCashBalance] = useState(123456.789);
+  const [availableCashBalance, setAvailableCashBalance] = useState(0);
   const [selectedCurrency, setSelectedCurrency] = useState(
     AVAILABLE_CURRENCIES.EUR
   );
@@ -79,10 +84,17 @@ export const AccountContextProvider = ({
   const { accountOverview, refreshAccountOverview } = useGetAccountOverview();
   const activeProjectInvestments = useGetAccountActiveInvestments();
   const profileInfo = useGetProfileInfo();
+  const { hasPendingTransactions } = useGetPendingTransactions();
 
   useEffect(() => {
     setIsLoading(false);
-  }, [address]);
+  }, [address, hasPendingTransactions]);
+
+  useEffect(() => {
+    getAccountEsdtBalance(address, USDC_TOKEN_ID).then((balance) => {
+      setAvailableCashBalance(new BigNumber(balance).shiftedBy(-6).toNumber());
+    });
+  }, [address, hasPendingTransactions]);
 
   useEffect(() => {
     if (isLoggedIn) {

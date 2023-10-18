@@ -75,6 +75,22 @@
       "outputs": []
     },
     {
+      "name": "getProjectDetails",
+      "mutability": "readonly",
+      "inputs": [
+        {
+          "name": "project_ids",
+          "type": "variadic<u64>",
+          "multi_arg": true
+        }
+      ],
+      "outputs": [
+        {
+          "type": "List<CrowdfundingStateContext>"
+        }
+      ]
+    },
+    {
       "name": "addAdmins",
       "mutability": "mutable",
       "inputs": [
@@ -332,6 +348,18 @@
         {
           "name": "token_ticker",
           "type": "bytes"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "setTransferRole",
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "address",
+          "type": "optional<Address>",
+          "multi_arg": true
         }
       ],
       "outputs": []
