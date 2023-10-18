@@ -1,8 +1,8 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { ReactComponent as LeftArrow } from '../../assets/icons/refracto/arrow_right_alt-3.svg';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { ReactComponent as RightArrow } from '../../assets/icons/refracto/arrow_right_alt-2.svg';
+import { ReactComponent as LeftArrow } from '../../assets/icons/refracto/arrow_right_alt-3.svg';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -39,7 +39,7 @@ export const ImageGallery = ({
     }
   };
   return (
-    <>
+    <div style={{ minHeight: 100 }}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         slidesPerView={1}
@@ -48,7 +48,10 @@ export const ImageGallery = ({
         id='img-slider'
       >
         {images.map((imgSrc, i) => (
-          <SwiperSlide key={`img-slider-slide-item-${i}`} className='w-100 d-flex justify-content-center align-items-center'>
+          <SwiperSlide
+            key={`img-slider-slide-item-${i}`}
+            className='w-100 d-flex justify-content-center align-items-center'
+          >
             <img src={imgSrc} className={roundedTop ? 'rounded-top' : ''} />
           </SwiperSlide>
         ))}
@@ -59,6 +62,6 @@ export const ImageGallery = ({
       <button className='btn-carousel' onClick={carouselMoveNext}>
         <RightArrow />
       </button>
-    </>
+    </div>
   );
 };

@@ -5,9 +5,9 @@
     "https://www.example.com/attachment3.pdf"
   ],
   "thumbnailUrls": [
-    "https://www.example.com/image1.jpg",
-    "https://www.example.com/image2.jpg",
-    "https://www.example.com/image3.jpg"
+    "https://placehold.co/1000x1000",
+    "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg",
+    "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
   ],
   "riskRatingLevels": ["Low", "Medium", "High"],
   "assetClasses": ["Residential", "Industrial", "Commercial"],
