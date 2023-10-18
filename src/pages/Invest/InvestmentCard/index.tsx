@@ -4,6 +4,8 @@ import { AccountContext } from 'contexts/AccountContext';
 import React, { useContext, useState } from 'react';
 import { ProjectPageDetails, FullProjectPageDetails } from 'types/projectTypes';
 import { InvestmentModalButton } from './InvestmentModalButton';
+import { useNavigate } from 'react-router-dom';
+import { routeNames } from 'routes';
 
 export const InvestmentCard = ({
   project
@@ -12,6 +14,9 @@ export const InvestmentCard = ({
 }) => {
   const { availableCashBalance } = useContext(AccountContext);
   const [investmentAmount, setInvestmentAmount] = useState<number>();
+
+  const navigate = useNavigate();
+
   const handleUpdateInvestmentAmount = (e: any) => {
     let amount = parseFloat(e.target.value);
     if (amount > availableCashBalance || amount < 0) {
@@ -25,6 +30,10 @@ export const InvestmentCard = ({
   };
 
   const isLoggedIn = useGetIsLoggedIn();
+
+  const handleNavigateToAllProjects = () => {
+    navigate(routeNames.home);
+  };
 
   return (
     <div className='card investment-card-wrapper'>
@@ -52,28 +61,45 @@ export const InvestmentCard = ({
           </div>
           {isLoggedIn ? (
             <div className='row'>
-              <div className='col-lg-9 d-flex justify-content-start align-items-end'>
-                <div className='w-100'>
-                  <label htmlFor='investment-input' className='text-white'>
-                    Your Investment Amount
-                  </label>
-                  <input
-                    id='investment-input'
-                    type='number'
-                    className='form-control input-default w-100'
-                    placeholder='Example: €500'
-                    step={10}
-                    value={investmentAmount}
-                    onChange={handleUpdateInvestmentAmount}
-                  />
+              {project.crowdfundedAmount < project.crowdfundingTarget ? (
+                <>
+                  <div className='col-lg-9 d-flex justify-content-start align-items-end'>
+                    <div className='w-100'>
+                      <label htmlFor='investment-input' className='text-white'>
+                        Your Investment Amount
+                      </label>
+                      <input
+                        id='investment-input'
+                        type='number'
+                        className='form-control input-default w-100'
+                        placeholder='Example: €500'
+                        step={10}
+                        value={investmentAmount}
+                        onChange={handleUpdateInvestmentAmount}
+                      />
+                    </div>
+                  </div>
+                  <div className='col-lg-3 col-md-12 d-flex justify-content-center align-items-end'>
+                    <InvestmentModalButton
+                      amount={investmentAmount ?? 0}
+                      projectId={project.projectId}
+                    />
+                  </div>
+                </>
+              ) : (
+                <div className='col-lg-12 text-center'>
+                  <span className='text-white'>
+                    The crowdfunding target of this project is currently
+                    reached.
+                  </span>
+                  <button
+                    className='btn btn-primary text-primary btn-sm invest-now-button'
+                    onClick={handleNavigateToAllProjects}
+                  >
+                    Discover other opportunities
+                  </button>
                 </div>
-              </div>
-              <div className='col-lg-3 col-md-12 d-flex justify-content-center align-items-end'>
-                <InvestmentModalButton
-                  amount={investmentAmount ?? 0}
-                  projectId={project.projectId}
-                />
-              </div>
+              )}
             </div>
           ) : (
             <div className='row'>
