@@ -6,7 +6,6 @@ import { ProjectListItem } from 'types/projectTypes';
 import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-available-projects.svg';
 import { FiltersV2 } from 'components/FiltersV2';
 
-
 const AvailableProjects = () => {
   const { availableProjects } = useContext(ProjectContext);
 
@@ -16,6 +15,10 @@ const AvailableProjects = () => {
   const handleApplyFilters = (filteredItems: ProjectListItem[]) => {
     setFilteredProjects(filteredItems);
   };
+
+  React.useEffect(() => {
+    setFilteredProjects(availableProjects);
+  }, [availableProjects]);
 
   return (
     <div className='container-fluid w-100 p-0'>
@@ -58,7 +61,7 @@ const AvailableProjects = () => {
               )}
             </div>
             <div className='col-12 text-center'>
-              <EmptyPageScreen className='img-responsive'/>
+              <EmptyPageScreen className='img-responsive' />
             </div>
           </>
         )}
