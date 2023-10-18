@@ -22,7 +22,7 @@ export const routeNames = {
   dashboard: '/dashboard',
   portfolio: '/portfolio',
 
-  home: '/projects',
+  home: '/',
   marketplace: '/marketplace',
 
   reports: '/reports',

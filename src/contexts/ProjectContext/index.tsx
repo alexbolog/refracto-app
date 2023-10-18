@@ -1,20 +1,29 @@
 import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
 import React, { useEffect, useState } from 'react';
-import { MarketplaceListing, ProjectListItem } from 'types/projectTypes';
+import {
+  FullProjectPageDetails,
+  MarketplaceListing,
+  ProjectListItem
+} from 'types/projectTypes';
 import useGetAvailableProjects from './hooks/useGetAvailableProjects';
 import useGetMarketplaceProjects from './hooks/useGetMarketplaceProjects';
 import { useGetScProjectDetails } from 'sc/queries/useGetScProjectDetails';
+import { getFullProjectInfo } from 'apiRequests/backend';
 
 export interface IProjectContext {
   isLoading: boolean;
   availableProjects: ProjectListItem[];
   marketplaceProjects: MarketplaceListing[];
+  getProjectById: (
+    projectId: number
+  ) => Promise<FullProjectPageDetails | undefined>;
 }
 
 const defaultState: IProjectContext = {
   isLoading: true,
   availableProjects: [],
-  marketplaceProjects: []
+  marketplaceProjects: [],
+  getProjectById: async (_) => undefined
 };
 
 export const ProjectContext =
@@ -37,12 +46,22 @@ export const ProjectContextProvider = ({
   const marketplaceProjects = useGetMarketplaceProjects();
   const getScProjects = useGetScProjectDetails();
 
-  React.useEffect(() => {
-    setIsLoading(false);
-  }, [address]);
-
   const getAvailableScProjectData = async () => {
     return await getScProjects(dbProjects.map((ap) => ap.projectId));
+  };
+
+  const getProjectById = async (
+    projectId: number
+  ): Promise<FullProjectPageDetails | undefined> => {
+    const scProject = await getScProjects([projectId]);
+    const dbProject = await getFullProjectInfo(projectId);
+    if (scProject === undefined || dbProject === undefined) {
+      return undefined;
+    }
+
+    dbProject.crowdfundedAmount = scProject[0].cf_progress;
+
+    return dbProject;
   };
 
   const handleUpdateProjectData = (scProjects: any[]) => {
@@ -62,6 +81,7 @@ export const ProjectContextProvider = ({
       updatedAvailableProjects.push(dbProject);
     }
     setAvailableProjects(updatedAvailableProjects);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -78,7 +98,8 @@ export const ProjectContextProvider = ({
       value={{
         isLoading,
         availableProjects,
-        marketplaceProjects
+        marketplaceProjects,
+        getProjectById
       }}
     >
       {children}
