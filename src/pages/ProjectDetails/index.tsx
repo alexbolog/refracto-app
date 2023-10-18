@@ -18,7 +18,7 @@ const ProjectDetails = () => {
   };
 
   const [projectId, _] = useState(getProjectId());
-  const { getProjectById } = useContext(ProjectContext);
+  const { getProjectById, availableProjects } = useContext(ProjectContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const ProjectDetails = () => {
       }
       setProjectDetails(res);
     });
-  }, [projectId]);
+  }, [projectId, availableProjects]);
 
   const [projectDetails, setProjectDetails] = useState<ProjectPageDetails>();
 
