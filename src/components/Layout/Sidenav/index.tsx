@@ -21,6 +21,8 @@ import AccountInfo from './AccountInfo';
 import NotificationDropDownContent from './NotificationDropDownContent';
 // import { randomizeInsertProject } from 'db/projects';
 
+import './style.scss';
+
 const Sidenav = () => {
   const { address } = useGetAccountInfo();
   const [hasNotifications, setHasNotifications] = React.useState(false);
