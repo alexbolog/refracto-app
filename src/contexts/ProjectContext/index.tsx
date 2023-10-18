@@ -1,4 +1,7 @@
-import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
+import {
+  useGetAccountInfo,
+  useGetPendingTransactions
+} from '@multiversx/sdk-dapp/hooks';
 import React, { useEffect, useState } from 'react';
 import {
   FullProjectPageDetails,
@@ -9,6 +12,7 @@ import useGetAvailableProjects from './hooks/useGetAvailableProjects';
 import useGetMarketplaceProjects from './hooks/useGetMarketplaceProjects';
 import { useGetScProjectDetails } from 'sc/queries/useGetScProjectDetails';
 import { getFullProjectInfo } from 'apiRequests/backend';
+import { getLoanShareHoldersAmount } from 'apiRequests/multiversx';
 
 export interface IProjectContext {
   isLoading: boolean;
@@ -45,6 +49,7 @@ export const ProjectContextProvider = ({
   const dbProjects = useGetAvailableProjects();
   const marketplaceProjects = useGetMarketplaceProjects();
   const getScProjects = useGetScProjectDetails();
+  const { hasPendingTransactions } = useGetPendingTransactions();
 
   const getAvailableScProjectData = async () => {
     return await getScProjects(dbProjects.map((ap) => ap.projectId));
@@ -59,10 +64,14 @@ export const ProjectContextProvider = ({
       return undefined;
     }
 
+    const holders = await getLoanShareHoldersAmount(
+      scProject[0].share_token_nonce.toNumber() - 1 // crowdfunding contract should not be counted as an investor
+    );
+
     dbProject.crowdfundedAmount = scProject[0].cf_progress
       .shiftedBy(-6)
       .toNumber();
-
+    dbProject.totalParticipantsCount = holders;
     return dbProject;
   };
 
@@ -93,7 +102,7 @@ export const ProjectContextProvider = ({
     getAvailableScProjectData().then((scProjects) =>
       handleUpdateProjectData(scProjects)
     );
-  }, [dbProjects]);
+  }, [dbProjects, hasPendingTransactions]);
 
   return (
     <ProjectContext.Provider

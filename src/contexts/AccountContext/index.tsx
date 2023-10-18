@@ -2,7 +2,8 @@ import {
   useGetAccountInfo,
   useGetAccountProvider,
   useGetIsLoggedIn,
-  useGetLoginInfo
+  useGetLoginInfo,
+  useGetPendingTransactions
 } from '@multiversx/sdk-dapp/hooks';
 import useGetAccountOverview from './hooks/useGetAccountOverview';
 import React, { useEffect, useState } from 'react';
@@ -83,16 +84,17 @@ export const AccountContextProvider = ({
   const { accountOverview, refreshAccountOverview } = useGetAccountOverview();
   const activeProjectInvestments = useGetAccountActiveInvestments();
   const profileInfo = useGetProfileInfo();
+  const { hasPendingTransactions } = useGetPendingTransactions();
 
   useEffect(() => {
     setIsLoading(false);
-  }, [address]);
+  }, [address, hasPendingTransactions]);
 
   useEffect(() => {
     getAccountEsdtBalance(address, USDC_TOKEN_ID).then((balance) => {
       setAvailableCashBalance(new BigNumber(balance).shiftedBy(-6).toNumber());
     });
-  }, [address]);
+  }, [address, hasPendingTransactions]);
 
   useEffect(() => {
     if (isLoggedIn) {
