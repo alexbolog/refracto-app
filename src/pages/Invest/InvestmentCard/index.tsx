@@ -13,12 +13,15 @@ export const InvestmentCard = ({
   const { availableCashBalance } = useContext(AccountContext);
   const [investmentAmount, setInvestmentAmount] = useState<number>();
   const handleUpdateInvestmentAmount = (e: any) => {
-    const amount = parseFloat(e.target.value);
+    let amount = parseFloat(e.target.value);
     if (amount > availableCashBalance || amount < 0) {
-      setInvestmentAmount(availableCashBalance);
-    } else {
-      setInvestmentAmount(amount);
+      amount = availableCashBalance;
     }
+    if (amount > project.crowdfundingTarget - project.crowdfundedAmount) {
+      amount = project.crowdfundingTarget - project.crowdfundedAmount;
+    }
+
+    setInvestmentAmount(amount);
   };
 
   const isLoggedIn = useGetIsLoggedIn();
