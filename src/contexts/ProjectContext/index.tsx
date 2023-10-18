@@ -59,7 +59,9 @@ export const ProjectContextProvider = ({
       return undefined;
     }
 
-    dbProject.crowdfundedAmount = scProject[0].cf_progress;
+    dbProject.crowdfundedAmount = scProject[0].cf_progress
+      .shiftedBy(-6)
+      .toNumber();
 
     return dbProject;
   };

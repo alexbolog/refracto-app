@@ -24,6 +24,8 @@ const ProjectDetails = () => {
   useEffect(() => {
     getProjectById(parseInt(projectId)).then((res) => {
       if (res === undefined) {
+        // TODO: add redirect to 404 soon
+        // something went wrong
         navigate(routeNames.home);
       }
       setProjectDetails(res);
@@ -33,7 +35,9 @@ const ProjectDetails = () => {
   const [projectDetails, setProjectDetails] = useState<ProjectPageDetails>();
 
   //TODO: add loading screen
-  return projectDetails === undefined ? null : (
+  return projectDetails === undefined ? (
+    <h1>Loading..</h1>
+  ) : (
     <ProjectDetailsLayout project={projectDetails} />
   );
 };
