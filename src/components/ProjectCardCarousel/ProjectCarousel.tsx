@@ -11,6 +11,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Link } from 'react-router-dom';
+import { routeNames } from 'routes';
 
 const ProjectCardCarousel = ({
   title,
@@ -83,30 +85,41 @@ const ProjectCardCarousel = ({
             )}
           </div>
         </div>
-        <div className='col-12 mt-3'>
-          <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={20}
-            slidesPerView={width <= 768 ? 1 : 4}
-            navigation={true}
-            // onSwiper={(swiper) => console.log(swiper)}
-            // onSlideChange={() => console.log('slide change')}
-            id={isFavoritesOnly ? 'fav-swiper' : 'sgst-swiper'}
-          >
-            {projects.map((project, i) => (
-              <SwiperSlide
-                key={`${isFavoritesOnly ? 'fav' : 'sgg'}-slide-item-${i}`}
-              >
-                <ProjectCardItem
-                  projectDetails={project}
-                  onToggleFavorite={handleToggleFavorite}
-                  isButtonOutline={!isFavoritesOnly}
-                  buttonText={isFavoritesOnly ? 'Invest' : 'View Details'}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        {projects.length > 0 && (
+          <div className='col-12 mt-3'>
+            <Swiper
+              modules={[Navigation, Pagination, Scrollbar, A11y]}
+              spaceBetween={20}
+              slidesPerView={width <= 768 ? 1 : 4}
+              navigation={true}
+              // onSwiper={(swiper) => console.log(swiper)}
+              // onSlideChange={() => console.log('slide change')}
+              id={isFavoritesOnly ? 'fav-swiper' : 'sgst-swiper'}
+            >
+              {projects.map((project, i) => (
+                <SwiperSlide
+                  key={`${isFavoritesOnly ? 'fav' : 'sgg'}-slide-item-${i}`}
+                >
+                  <ProjectCardItem
+                    projectDetails={project}
+                    onToggleFavorite={handleToggleFavorite}
+                    isButtonOutline={!isFavoritesOnly}
+                    buttonText={isFavoritesOnly ? 'Invest' : 'View Details'}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        )}
+        {projects.length === 0 && isFavoritesOnly && (
+          <div className='col-12 mt-3 mb-5 text-start'>
+            <h5>
+              You have no favorite projects,{' '}
+              <Link to={routeNames.home}>check our current listings here</Link>{' '}
+              to find one.
+            </h5>
+          </div>
+        )}
       </div>
     </div>
   );

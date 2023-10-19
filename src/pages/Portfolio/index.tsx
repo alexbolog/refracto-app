@@ -27,7 +27,10 @@ const Portfolio = () => {
       <div className='row'>
         <FavoriteProjectCarousel />
       </div>
-      <div className='row'>
+      <div className='row overlay-wrapper'>
+        <div className='overlay rounded'>
+          <div className='overlay-content'>Coming soon</div>
+        </div>
         <SuggestedProjectsCarousel />
       </div>
     </>
