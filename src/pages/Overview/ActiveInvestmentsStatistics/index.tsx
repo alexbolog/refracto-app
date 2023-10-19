@@ -1,7 +1,7 @@
+import React from 'react';
 import SimpleCardWidget from 'components/CardWidgets/SimpleCardWidget';
 import { toLocaleStringOptions } from 'config';
 import { AccountContext } from 'contexts/AccountContext';
-import React from 'react';
 
 const ActiveInvestmentsStatistics = () => {
   const { accountOverview } = React.useContext(AccountContext);
@@ -18,7 +18,9 @@ const ActiveInvestmentsStatistics = () => {
           content={`€${(
             accountOverview?.activeInvestments?.totalInvested ?? 0
           ).toLocaleString(undefined, toLocaleStringOptions)}`}
-          infoMessage={'Total invested tooltip message'}
+          infoMessage={
+            'The total amount of funds invested in projects on Refracto since you started'
+          }
         />
       </div>
       <div className='col-lg-4 col-md-12 col-sm-12'>
@@ -27,7 +29,9 @@ const ActiveInvestmentsStatistics = () => {
           content={`€${(
             accountOverview?.activeInvestments?.returnedToDate ?? 0
           ).toLocaleString(undefined, toLocaleStringOptions)}`}
-          infoMessage={'Returned to date tooltip message'}
+          infoMessage={
+            'The total amount of profit you have obtained using Refracto since you started'
+          }
         />
       </div>
       <div className='col-lg-4 col-md-12 col-sm-12'>
@@ -36,7 +40,9 @@ const ActiveInvestmentsStatistics = () => {
           content={`${(
             (accountOverview?.activeInvestments?.lifetimeReturn ?? 0) * 100
           ).toLocaleString(undefined, toLocaleStringOptions)}%`}
-          infoMessage={'lifetime return tooltip message'}
+          infoMessage={
+            'The average return on investment across all your investments on Refracto since you started'
+          }
         />
       </div>
       <div className='col-lg-4 col-md-12 col-sm-12'>
@@ -45,7 +51,9 @@ const ActiveInvestmentsStatistics = () => {
           content={`€${(
             accountOverview?.activeInvestments?.expectedTotalReturn ?? 0
           ).toLocaleString(undefined, toLocaleStringOptions)}`}
-          infoMessage={'expected total return tooltip message'}
+          infoMessage={
+            'The amount you will receive once all your active investments are completed'
+          }
         />
       </div>
       <div className='col-lg-4 col-md-12 col-sm-12'>
@@ -54,7 +62,9 @@ const ActiveInvestmentsStatistics = () => {
           content={`€${(
             accountOverview?.activeInvestments?.expectedTotalProfit ?? 0
           ).toLocaleString(undefined, toLocaleStringOptions)}`}
-          infoMessage={'expected total profit tooltip message'}
+          infoMessage={
+            'The total profit you will receive once all your active investments are completed'
+          }
         />
       </div>
       <div className='col-lg-4 col-md-12 col-sm-12'>
@@ -64,7 +74,9 @@ const ActiveInvestmentsStatistics = () => {
             (accountOverview?.activeInvestments?.averageExpectedReturn ?? 0) *
             100
           ).toLocaleString(undefined, toLocaleStringOptions)}%`}
-          infoMessage={'avg expected return tooltip message'}
+          infoMessage={
+            'The average percentage return on investment you will receive from your active investments'
+          }
         />
       </div>
     </>

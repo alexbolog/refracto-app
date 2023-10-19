@@ -1,12 +1,11 @@
 import React from 'react';
 import { DateTime } from 'luxon';
+import { useNavigate } from 'react-router-dom';
 import { RiskBox } from 'components/RiskBox';
 import { toLocaleStringOptions } from 'config';
-import { ActiveProjectInvestment } from 'types/projectTypes';
-import { formatIso } from 'utils';
-import { Investment } from 'types/accountTypes';
-import { useNavigate } from 'react-router-dom';
 import { routeNames } from 'routes';
+import { Investment } from 'types/accountTypes';
+import { formatIso } from 'utils';
 
 const ProjectInfo = ({
   investmentData,
@@ -29,7 +28,11 @@ const ProjectInfo = ({
   return (
     <div className={`row ${hasBorder ? 'border-bottom' : ''}`}>
       <div className='col-lg-1 d-flex align-items-center'>
-        <img src={investmentData.projectInfo.thumbnailSrc} className='thumb' />
+        <img
+          src={investmentData.projectInfo.thumbnailSrc}
+          className='thumb'
+          alt='projectThumbnail'
+        />
       </div>
       <div className='col-lg-11 mb-3'>
         <div className='container-fluid w-100'>
@@ -77,6 +80,7 @@ const ProjectInfo = ({
               </strong>
             </div>
             <div className='col mb-1'>
+              Risk Rating{' '}
               <RiskBox riskLevel={investmentData.projectInfo.riskRatingLevel} />
             </div>
             <div className='col mb-1'>
