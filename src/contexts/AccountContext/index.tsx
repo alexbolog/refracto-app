@@ -19,6 +19,7 @@ import { getAccountBalance } from '@multiversx/sdk-dapp/utils';
 import BigNumber from 'bignumber.js';
 import { getAccountEsdtBalance } from 'apiRequests/multiversx';
 import { USDC_TOKEN_ID } from 'config';
+import { USDC_DECIMALS_AMOUNT, denominatedAmountToAmount } from 'helpers/utils';
 
 export interface IAccountContext {
   isLoading: boolean;
@@ -92,7 +93,9 @@ export const AccountContextProvider = ({
 
   useEffect(() => {
     getAccountEsdtBalance(address, USDC_TOKEN_ID).then((balance) => {
-      setAvailableCashBalance(new BigNumber(balance).shiftedBy(-6).toNumber());
+      setAvailableCashBalance(
+        denominatedAmountToAmount(balance, USDC_DECIMALS_AMOUNT)
+      );
     });
   }, [address, hasPendingTransactions]);
 
