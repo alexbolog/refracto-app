@@ -4,18 +4,32 @@ import { RiskBox } from 'components/RiskBox';
 import { toLocaleStringOptions } from 'config';
 import { ActiveProjectInvestment } from 'types/projectTypes';
 import { formatIso } from 'utils';
+import { Investment } from 'types/accountTypes';
+import { useNavigate } from 'react-router-dom';
+import { routeNames } from 'routes';
 
 const ProjectInfo = ({
-  projectData,
+  investmentData,
   hasBorder
 }: {
   hasBorder: boolean;
-  projectData: ActiveProjectInvestment;
+  investmentData: Investment;
 }) => {
+  const navigate = useNavigate();
+
+  const handleNavigateToProjectDetails = () => {
+    navigate(
+      `${routeNames.projectPage.replace(
+        ':id',
+        investmentData.projectInfo.projectId.toString()
+      )}`
+    );
+  };
+
   return (
     <div className={`row ${hasBorder ? 'border-bottom' : ''}`}>
       <div className='col-lg-1 d-flex align-items-center'>
-        <img src={projectData.thumbnailSrc} className='thumb' />
+        <img src={investmentData.projectInfo.thumbnailSrc} className='thumb' />
       </div>
       <div className='col-lg-11 mb-3'>
         <div className='container-fluid w-100'>
@@ -24,11 +38,11 @@ const ProjectInfo = ({
               <div
                 className='square'
                 style={{
-                  backgroundColor: `#${projectData.colorCodeHex}`
+                  backgroundColor: `#${investmentData.projectInfo.colorCodeHex}`
                 }}
               ></div>
               <span className='ml-2'>
-                <strong>{projectData.projectTitle}</strong>
+                <strong>{investmentData.projectInfo.projectTitle}</strong>
               </span>
             </div>
           </div>
@@ -37,7 +51,7 @@ const ProjectInfo = ({
               Invested{' '}
               <strong>
                 €
-                {projectData.amountInvested.toLocaleString(
+                {investmentData.balance.toLocaleString(
                   undefined,
                   toLocaleStringOptions
                 )}
@@ -48,7 +62,8 @@ const ProjectInfo = ({
               <strong>
                 €
                 {(
-                  projectData.returnPercentage * projectData.amountInvested
+                  investmentData.projectInfo.returnPercentage *
+                  investmentData.balance
                 ).toLocaleString(undefined, toLocaleStringOptions)}
               </strong>
             </div>
@@ -56,16 +71,19 @@ const ProjectInfo = ({
               Deadline{' '}
               <strong>
                 {formatIso(
-                  projectData.crowdfundingDeadline,
+                  investmentData.projectInfo.crowdfundingDeadline,
                   DateTime.DATE_SHORT
                 )}
               </strong>
             </div>
             <div className='col mb-1'>
-              <RiskBox riskLevel={projectData.riskRatingLevel} />
+              <RiskBox riskLevel={investmentData.projectInfo.riskRatingLevel} />
             </div>
             <div className='col mb-1'>
-              <button className='btn btn-primary view-proj-btn mb-1'>
+              <button
+                className='btn btn-primary view-proj-btn mb-1'
+                onClick={handleNavigateToProjectDetails}
+              >
                 View project details
               </button>
             </div>
