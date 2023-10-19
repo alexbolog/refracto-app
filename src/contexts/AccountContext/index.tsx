@@ -19,7 +19,7 @@ import { getAccountBalance } from '@multiversx/sdk-dapp/utils';
 import BigNumber from 'bignumber.js';
 import { getAccountEsdtBalance } from 'apiRequests/multiversx';
 import { USDC_TOKEN_ID } from 'config';
-import { USDC_DECIMALS_AMOUNT, denominatedAmountToAmount } from 'helpers/utils';
+import { USDC_DECIMALS_AMOUNT, denominatedAmountToAmount } from 'utils';
 
 export interface IAccountContext {
   isLoading: boolean;

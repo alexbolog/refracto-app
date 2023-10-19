@@ -9,12 +9,17 @@ import { readFavoriteProjects } from 'db/favoriteProjects';
 import React, { useContext, useEffect } from 'react';
 import {
   AccountOverview,
+  ActiveInvestmentsStatistics,
   FavoriteProject,
   Investment
 } from 'types/accountTypes';
 import BigNumber from 'bignumber.js';
 import { ProjectContext } from 'contexts/ProjectContext';
-import { denominatedAmountToAmount } from 'helpers/utils';
+import {
+  denominatedAmountToAmount,
+  getAccruedInterest,
+  getExpectedReturnAmount
+} from 'utils';
 
 const useGetAccountOverview = () => {
   const [accountOverview, setAccountOverview] =
@@ -43,20 +48,17 @@ const useGetAccountOverview = () => {
       6
     );
     const accountShares = await getAccountSharesBalance(address);
-    const investments = await getInvestments(accountShares);
+    const investments = await getAccountSharesData(accountShares);
 
-    const committedfunds = investments.reduce(
-      (crt, prev) => (crt += prev.balance),
-      0
-    );
+    const activeInvestmentsStatistics = getActiveInvestments(investments);
 
     const favoriteProjects = await readFavoriteProjects(address);
     return {
       availableBalance: cashBalance,
-      accountValue: 0, //TODO
-      committedfunds,
-      // activeInvestments?: ActiveInvestmentsStatistics; //TODO
-      favoriteProjects, //favoriteProjects,
+      accountValue: activeInvestmentsStatistics.expectedTotalReturn,
+      committedfunds: activeInvestmentsStatistics.totalInvested,
+      activeInvestments: activeInvestmentsStatistics,
+      favoriteProjects,
       suggestedProjects: [],
       payments: [],
       investments
@@ -68,7 +70,7 @@ const useGetAccountOverview = () => {
     setAccountOverview(accountOverview);
   };
 
-  const getInvestments = async (sharesBalance: any[]) => {
+  const getAccountSharesData = async (sharesBalance: any[]) => {
     console.log('All available project', projectContext.availableProjects);
     const investments: Investment[] = [];
     for (let i = 0; i < sharesBalance.length; i++) {
@@ -87,6 +89,42 @@ const useGetAccountOverview = () => {
       });
     }
     return investments;
+  };
+
+  const getActiveInvestments = (
+    investments: Investment[]
+  ): ActiveInvestmentsStatistics => {
+    const totalInvested = investments.reduce(
+      (prev, crt) => (prev += crt.balance),
+      0
+    );
+    const returnedToDate = 0;
+    const lifetimeReturn = 0;
+
+    const expectedTotalProfit = investments.reduce(
+      (prev, crt) =>
+        (prev += getExpectedReturnAmount(
+          crt.balance,
+          crt.projectInfo.returnPercentage
+        )),
+      0
+    );
+
+    const expectedTotalReturn = totalInvested + expectedTotalProfit;
+    const averageExpectedReturn =
+      investments.reduce(
+        (prev, crt) => (prev += crt.projectInfo.returnPercentage),
+        0
+      ) / investments.length;
+
+    return {
+      totalInvested,
+      returnedToDate,
+      lifetimeReturn,
+      expectedTotalReturn,
+      expectedTotalProfit,
+      averageExpectedReturn
+    };
   };
 
   return { accountOverview, refreshAccountOverview };
