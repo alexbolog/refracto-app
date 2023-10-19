@@ -5,8 +5,8 @@ import ProjectInfo from './ProjectInfo';
 import './style.css';
 
 const ProjectList = () => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
-  const COLLAPSE_BREAK_POINT = 4;
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const COLLAPSE_BREAK_POINT = 1000;
   const { activeProjectInvestments, isLoading } = useContext(AccountContext);
   const shouldShowBorder = (index: number) => {
     return isCollapsed
@@ -27,7 +27,7 @@ const ProjectList = () => {
           )
         )}
       </div>
-      <div className='card-footer'>Expand footer</div>
+      {/* <div className='card-footer'>Expand footer</div> */}
     </div>
   );
 };
