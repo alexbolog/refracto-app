@@ -10,7 +10,10 @@ const Portfolio = () => {
   return (
     <>
       <div className='row'>
-        <div className='col-12 d-flex justify-content-center'>
+        <div className='col-12 d-flex justify-content-center overlay-wrapper'>
+          <div className='overlay rounded'>
+            <div className='overlay-content'>Coming soon</div>
+          </div>
           <GeneralStatisticsGraph />
         </div>
       </div>
