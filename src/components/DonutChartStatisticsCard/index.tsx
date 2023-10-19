@@ -106,11 +106,9 @@ const DonutChartStatisticsCard = ({
             <label className='fat-number'>{bigNumberLabel}</label>
           </div>
         </div>
-        <DonutProjectList
-          chartData={chartData}
-          investments={investments}
-          expanded={isExpanded}
-        />
+        {investments!.length > 0 && (
+          <DonutProjectList investments={investments} expanded={isExpanded} />
+        )}
       </div>
       <ExpandFooter onExpandToggle={() => setExpanded(!isExpanded)} />
     </div>
