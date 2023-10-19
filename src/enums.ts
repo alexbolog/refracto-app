@@ -16,6 +16,12 @@ export enum AVAILABLE_CURRENCIES {
   USD = 2
 }
 
+export enum DonutChartType {
+  INVESTED = 'Total Invested',
+  ROI = 'Total Expected Return',
+  APR = 'Average Percentage Return'
+}
+
 export enum InvestmentEventType {
   PAYOUT = 'PAYOUT',
   INVEST = 'INVEST',
