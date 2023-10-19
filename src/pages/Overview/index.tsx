@@ -11,7 +11,6 @@ import DoughnutChartRow from './DoughnutChartRow';
 import GeneralInvestmentStatistics from './GeneralInvestmentStatistics';
 import GeneralStatisticsGraph from './GeneralStatisticsGraph';
 import InvestmentAndReturnBarCharts from './InvestmentAndReturnBarCharts';
-import './style.css';
 
 const Overview = () => {
   const [hasClaimableCredits, setHasClaimableCredits] = React.useState(false);
