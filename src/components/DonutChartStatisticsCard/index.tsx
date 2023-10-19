@@ -3,16 +3,21 @@ import { ArcElement, Chart } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
 import './style.scss';
-import ExpandFooter from '../ExpandFooter';
 import { toLocaleStringOptions } from '../../config';
+import { Investment } from '../../types/accountTypes';
+import ExpandFooter from '../ExpandFooter';
 import DonutChartOptions from './donutChartOptions';
 import DonutProjectList from './donutProjectList';
-import { AccountContext } from '../../contexts/AccountContext';
 
-const DonutChartStatisticsCard = () => {
+const DonutChartStatisticsCard = ({
+  investments,
+  title
+}: {
+  investments: Investment[] | undefined;
+  title: string;
+}) => {
   const [isExpanded, setExpanded] = React.useState(false);
 
-  const { activeProjectInvestments } = useContext(AccountContext);
   Chart.register(ArcElement);
 
   const hexToRgb = (hex: string) => {
@@ -31,17 +36,17 @@ const DonutChartStatisticsCard = () => {
     return `rgb(${rgb?.r}, ${rgb?.g}, ${rgb?.b})` ?? 'rgb(0,0,0)';
   };
 
-  const totalInvested = activeProjectInvestments
-    ?.map((project) => project.amountInvested)
+  const totalInvested = investments
+    ?.map((project) => project.projectInfo.crowdfundedAmount)
     .reduce((partialSum, crtAmount) => partialSum + crtAmount, 0);
 
   const chartData = {
-    labels: activeProjectInvestments?.map((pl) => pl.projectTitle),
+    labels: investments?.map((pl) => pl?.projectInfo?.projectTitle),
     datasets: [
       {
-        data: activeProjectInvestments?.map((pl) => pl.amountInvested),
-        backgroundColor: activeProjectInvestments!.map((pl) =>
-          hexToRgbString(pl.colorCodeHex)
+        data: investments?.map((pl) => pl?.projectInfo?.crowdfundedAmount),
+        backgroundColor: investments?.map((pl) =>
+          hexToRgbString(pl?.projectInfo?.colorCodeHex)
         )
       }
     ]
@@ -51,7 +56,7 @@ const DonutChartStatisticsCard = () => {
     <div className='card'>
       <div className='card-body row'>
         <h3>
-          <strong>Proportion of Investments</strong>
+          <strong>{title}</strong>
         </h3>
         <div className='donut-container d-flex justify-content-center'>
           <Doughnut data={chartData} options={DonutChartOptions} />
@@ -64,7 +69,7 @@ const DonutChartStatisticsCard = () => {
         </div>
         <DonutProjectList
           chartData={chartData}
-          activeProjectInvestments={activeProjectInvestments}
+          investments={investments}
           expanded={isExpanded}
         />
       </div>
