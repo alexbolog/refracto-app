@@ -21,13 +21,15 @@ export interface IProjectContext {
   getProjectById: (
     projectId: number
   ) => Promise<FullProjectPageDetails | undefined>;
+  getProjectByLoanShareNonce: (nonce: number) => ProjectListItem | undefined;
 }
 
 const defaultState: IProjectContext = {
   isLoading: true,
   availableProjects: [],
   marketplaceProjects: [],
-  getProjectById: async (_) => undefined
+  getProjectById: async (_) => undefined,
+  getProjectByLoanShareNonce: (_) => undefined
 };
 
 export const ProjectContext =
@@ -45,6 +47,7 @@ export const ProjectContextProvider = ({
   const [availableProjects, setAvailableProjects] = useState<ProjectListItem[]>(
     []
   );
+  const [scProjects, setScProjects] = useState<any[]>([]);
 
   const dbProjects = useGetAvailableProjects();
   const marketplaceProjects = useGetMarketplaceProjects();
@@ -64,9 +67,10 @@ export const ProjectContextProvider = ({
       return undefined;
     }
 
-    const holders = await getLoanShareHoldersAmount(
-      scProject[0].share_token_nonce.toNumber() - 1 // crowdfunding contract should not be counted as an investor
-    );
+    const holders =
+      (await getLoanShareHoldersAmount(
+        scProject[0].share_token_nonce.toNumber() // crowdfunding contract should not be counted as an investor
+      )) - 1;
 
     dbProject.crowdfundedAmount = scProject[0].cf_progress
       .shiftedBy(-6)
@@ -76,6 +80,7 @@ export const ProjectContextProvider = ({
   };
 
   const handleUpdateProjectData = (scProjects: any[]) => {
+    setScProjects(scProjects);
     const updatedAvailableProjects = [];
     for (let i = 0; i < scProjects.length; i++) {
       const project = scProjects[i];
@@ -95,6 +100,21 @@ export const ProjectContextProvider = ({
     setIsLoading(false);
   };
 
+  const getProjectByLoanShareNonce = (
+    nonce: number
+  ): ProjectListItem | undefined => {
+    const scProject = scProjects.find(
+      (p) => p.share_token_nonce.toNumber() === nonce
+    );
+    if (scProject === undefined) {
+      return undefined;
+    }
+    const dbProject = dbProjects.find(
+      (dbp) => dbp.projectId === scProject.project_id.toNumber()
+    );
+    return dbProject;
+  };
+
   useEffect(() => {
     if (dbProjects.length === 0) {
       return;
@@ -110,7 +130,8 @@ export const ProjectContextProvider = ({
         isLoading,
         availableProjects,
         marketplaceProjects,
-        getProjectById
+        getProjectById,
+        getProjectByLoanShareNonce
       }}
     >
       {children}

@@ -1,4 +1,5 @@
 import { PaymentStatuses } from 'enums';
+import { ProjectListItem } from './projectTypes';
 
 export interface AccountOverview {
   availableBalance: number;
@@ -8,6 +9,7 @@ export interface AccountOverview {
   favoriteProjects: FavoriteProject[];
   suggestedProjects: SuggestedProject[];
   payments: Payment[];
+  investments: Investment[];
 }
 
 export interface ActiveInvestmentsStatistics {
@@ -38,4 +40,10 @@ export interface Payment {
   paymentStatus: PaymentStatuses;
   paymentAmount: number;
   xHash?: string;
+}
+
+export interface Investment {
+  nonce: number;
+  balance: number;
+  projectInfo: ProjectListItem; // TODO: add type
 }

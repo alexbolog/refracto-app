@@ -1,13 +1,52 @@
-import { AccountOverview } from 'types/accountTypes';
+import { AccountOverview, Investment } from 'types/accountTypes';
 import { ActiveProjectInvestment } from 'types/projectTypes';
 import accountOverview from '../../dbNew/accountOverview.json';
 import projectDetails from '../../dbNew/projectList.json';
 import projectList from '../../dbNew/projectList.json';
-import { supabaseConfig } from 'config';
+import { USDC_TOKEN_ID, supabaseConfig } from 'config';
 import axios from 'axios';
 import { setSupabaseAccessToken, supabase } from 'apiRequests/supabaseClient';
+import {
+  getAccountEsdtBalance,
+  getAccountSharesBalance
+} from 'apiRequests/multiversx';
+import BigNumber from 'bignumber.js';
 
-export const getAccountOverview = (): AccountOverview => {
+export const getAccountOverview = async (
+  address: string
+): Promise<AccountOverview> => {
+  // const response = accountOverview as any as AccountOverview;
+  // for (let i = 0; i < response.favoriteProjects.length; i++) {
+  //   response.favoriteProjects[i].projectTitle = projectDetails.filter(
+  //     (pd) => pd.projectId === response.favoriteProjects[i].projectId.toString()
+  //   )[0].projectTitle;
+  // }
+
+  // for (let i = 0; i < response.suggestedProjects.length; i++) {
+  //   response.suggestedProjects[i].projectTitle = projectDetails.filter(
+  //     (pd) =>
+  //       pd.projectId === response.suggestedProjects[i].projectId.toString()
+  //   )[0].projectTitle;
+  // }
+
+  const availableBalance = await getAccountEsdtBalance(address, USDC_TOKEN_ID);
+  return getAccountOverviewObsolete();
+  // return {
+  //   availableBalance
+  // };
+};
+
+// const getActiveInvestments = async (address: string): Promise<Investment[]> => {
+//   const accountShares = await getAccountSharesBalance(address);
+//   return accountShares.map((as: any) => ({
+//     nonce: as.nonce,
+//     balance: new BigNumber(as.balance).shiftedBy(-18).toNumber(),
+//     projectId: 
+//     pricePerShare
+//   }));
+// };
+
+export const getAccountOverviewObsolete = (): AccountOverview => {
   const response = accountOverview as any as AccountOverview;
   for (let i = 0; i < response.favoriteProjects.length; i++) {
     response.favoriteProjects[i].projectTitle = projectDetails.filter(

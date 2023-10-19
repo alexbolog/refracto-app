@@ -1,4 +1,5 @@
 import { supabase } from 'apiRequests/supabaseClient';
+import { FavoriteProject } from 'types/accountTypes';
 // CRUD operations for FavoriteProjects
 
 // Create a new favorite project
@@ -17,7 +18,9 @@ export const createFavoriteProject = async (
 };
 
 // Read favorite projects for a specific wallet address
-export const readFavoriteProjects = async (wallet_address: string) => {
+export const readFavoriteProjects = async (
+  wallet_address: string
+): Promise<FavoriteProject[]> => {
   const { data, error } = await supabase.rpc('get_favorite_projects', {
     p_wallet_address: wallet_address
   });
@@ -25,7 +28,15 @@ export const readFavoriteProjects = async (wallet_address: string) => {
     console.log('Error: ', error);
     return [];
   } else {
-    return data;
+    return (
+      data?.map((d) => ({
+        projectId: d.projectid,
+        returnPercentage: d.returnpercentage,
+        crowdfundingDeadline: d.crowdfundingdeadline,
+        thumbnailSrc: d.thumbnailsrc,
+        projectTitle: d.projecttitle
+      })) ?? []
+    );
   }
 };
 

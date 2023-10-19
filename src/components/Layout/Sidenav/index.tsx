@@ -110,9 +110,9 @@ const Sidenav = () => {
               <div className='header-left'>{/* <SearchBar /> */}</div>
               {isLoggedIn && (
                 <ul className='navbar-nav header-right'>
-                  {/*<li className='nav-item'>*/}
-                  {/*  <CurrencyPicker />*/}
-                  {/*</li>*/}
+                  {/* <li className='nav-item'>
+                    <CurrencyPicker />
+                  </li>
                   <li
                     className={`nav-item dropdown notification_dropdown ${
                       hasNotifications ? 'has-notifications' : ''
@@ -129,13 +129,13 @@ const Sidenav = () => {
                       <NotificationsIcon />
                     </a>
                     <NotificationDropDownContent />
-                  </li>
+                  </li> */}
 
-                  <li className='nav-item dropdown notification_dropdown'>
+                  {/* <li className='nav-item dropdown notification_dropdown'>
                     <a className='nav-link ' href='#'>
                       <HelpIcon />
                     </a>
-                  </li>
+                  </li> */}
                   <li className='nav-item'>
                     <AccountInfo />
                   </li>
