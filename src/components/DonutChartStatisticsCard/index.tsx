@@ -110,7 +110,9 @@ const DonutChartStatisticsCard = ({
           <DonutProjectList investments={investments} expanded={isExpanded} />
         )}
       </div>
-      <ExpandFooter onExpandToggle={() => setExpanded(!isExpanded)} />
+      {investments!.length > 5 && (
+        <ExpandFooter onExpandToggle={() => setExpanded(!isExpanded)} />
+      )}
     </div>
   );
 };
