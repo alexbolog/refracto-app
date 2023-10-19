@@ -7,9 +7,12 @@ export const Location = ({ project }: { project: FullProjectPageDetails }) => {
     <MobileCollapsibleSection
       header='Location'
       body={
-        <h6>
-          {project.location.x},{project.location.y}
-        </h6>
+        <>
+          <h6>
+            {project.location.x},{project.location.y}
+          </h6>
+          <img src='coordinates-map.png' />
+        </>
       }
     />
   );

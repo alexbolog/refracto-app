@@ -1,16 +1,17 @@
-import { toLocaleStringOptions } from 'config';
 import React, { useContext } from 'react';
-import { SuggestedProject } from 'types/accountTypes';
-import { ReactComponent as FavoriteDisabled } from './../../assets/icons/refracto/favorite-empty.svg';
-import { ReactComponent as FavoriteEnabled } from './../../assets/icons/refracto/favorite-fill.svg';
-import { formatIso } from '../../utils';
-import { DateTime } from 'luxon';
 import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
+import { DateTime } from 'luxon';
+import { toLocaleStringOptions } from 'config';
 import { AccountContext } from 'contexts/AccountContext';
 import {
   deleteFavoriteProject,
   createFavoriteProject
 } from 'db/favoriteProjects';
+import { SuggestedProject } from 'types/accountTypes';
+import { formatIso } from '../../utils';
+import { ReactComponent as FavoriteDisabled } from './../../assets/icons/refracto/favorite-empty.svg';
+import { ReactComponent as FavoriteEnabled } from './../../assets/icons/refracto/favorite-fill.svg';
+import './style.css';
 
 const ProjectCardItem = ({
   projectDetails,

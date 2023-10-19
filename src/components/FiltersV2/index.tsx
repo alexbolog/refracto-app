@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { DEADLINE_FILTER } from './Filters/DeadlineFilter';
-import { RETURN_RANGE_FILTER } from './Filters/ReturnRangeFilter';
-import { RATING_SELECT_FILTER } from './Filters/RatingSelectFilter';
-import { Filter } from './Filters/Filter';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ReactComponent as SettingsIcon } from './../../assets/icons/refracto/settings.svg';
+import { DEADLINE_FILTER } from './Filters/DeadlineFilter';
+import { Filter } from './Filters/Filter';
+import { RATING_SELECT_FILTER } from './Filters/RatingSelectFilter';
+import { RETURN_RANGE_FILTER } from './Filters/ReturnRangeFilter';
 import './style.css';
 import { FiltersModal } from './FiltersModal';
 
@@ -96,8 +96,8 @@ export const FiltersV2 = ({
       <div className='row'>
         <div className='col-12'>
           <div className='card w-100 filter-card-wrapper'>
-            <div className='card-body border-0 filter-box-wrapper'>
-              <div className='filter-input-box'>
+            <div className='card-body border-0 filter-box-wrapper row'>
+              <div className='filter-input-box col-11 col-xl-6'>
                 <div className='input-group search-bar-container'>
                   <span className='input-group-text search-icon'>
                     <FontAwesomeIcon
@@ -113,7 +113,7 @@ export const FiltersV2 = ({
                   />
                 </div>
               </div>
-              <div className='d-flex justify-content-end filter-box-buttons'>
+              <div className='d-flex justify-content-end filter-box-buttons col-1 col-xl-6'>
                 {enabledFilters.map((f, i) => (
                   <div key={`filter-box-item-${i}-${f.id}`}>
                     {f.filterComponent(f.defaultState, updateFilterState(f.id))}

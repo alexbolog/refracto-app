@@ -1,8 +1,4 @@
 import React from 'react';
-import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
-import { logout } from '@multiversx/sdk-dapp/utils';
-import { Link, useNavigate } from 'react-router-dom';
-import { NAVBAR_MENU_ITEMS, routeNames } from 'routes';
 import {
   faArrowRightFromBracket,
   faBars,
@@ -10,16 +6,22 @@ import {
   faCircleUser
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ReactComponent as Logo } from './../../../assets/icons/refracto/logo.svg';
+import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
+import { logout } from '@multiversx/sdk-dapp/utils';
+import { Link, useNavigate } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import NotificationDropDownContent from './NotificationDropDownContent';
 import CurrencyPicker from 'components/CurrencyPicker';
-import AccountInfo from './AccountInfo';
-import { ReactComponent as NotificationsIcon } from '../../../assets/icons/refracto/notifications.svg';
-import { ReactComponent as HelpIcon } from '../../../assets/icons/refracto/help.svg';
-import { getIsMobile } from 'utils';
 import insertProjects from 'mock-scripts/projects';
+import { NAVBAR_MENU_ITEMS, routeNames } from 'routes';
+import { getIsMobile } from 'utils';
+import { ReactComponent as HelpIcon } from '../../../assets/icons/refracto/help.svg';
+import { ReactComponent as NotificationsIcon } from '../../../assets/icons/refracto/notifications.svg';
+import { ReactComponent as Logo } from './../../../assets/icons/refracto/logo.svg';
+import AccountInfo from './AccountInfo';
+import NotificationDropDownContent from './NotificationDropDownContent';
 // import { randomizeInsertProject } from 'db/projects';
+
+import './style.scss';
 
 const Sidenav = () => {
   const { address } = useGetAccountInfo();

@@ -1,22 +1,22 @@
+import { ReactComponent as ProfileIcon } from 'assets/icons/refracto/account_box.svg';
+import { ReactComponent as AvailableProjectsIcon } from 'assets/icons/refracto/checklist.svg';
+import { ReactComponent as AgreementsIcon } from 'assets/icons/refracto/handshake.svg';
+import { ReactComponent as PortfolioIcon } from 'assets/icons/refracto/import_contacts.svg';
+import { ReactComponent as OverviewIcon } from 'assets/icons/refracto/insights.svg';
+import { ReactComponent as TransactionsIcon } from 'assets/icons/refracto/paid.svg';
+import { ReactComponent as MarketIcon } from 'assets/icons/refracto/store.svg';
+import { ReactComponent as ReportsIcon } from 'assets/icons/refracto/summarize.svg';
 import Account from 'pages/Account';
-import Marketplace from 'pages/Marketplace';
+import Agreements from 'pages/Agreements';
 import AvailableProjects from 'pages/AvailableProjects';
+import { Invest } from 'pages/Invest';
+import Marketplace from 'pages/Marketplace';
+import ProjectDetails from 'pages/ProjectDetails';
+import Reports from 'pages/Reports';
+import Transactions from 'pages/Transactions';
 import withPageTitle from './components/PageTitle';
 import Overview from './pages/Overview';
 import Portfolio from './pages/Portfolio';
-import Reports from 'pages/Reports';
-import Agreements from 'pages/Agreements';
-import { ReactComponent as OverviewIcon } from 'assets/icons/refracto/insights.svg';
-import { ReactComponent as PortfolioIcon } from 'assets/icons/refracto/import_contacts.svg';
-import { ReactComponent as AvailableProjectsIcon } from 'assets/icons/refracto/checklist.svg';
-import { ReactComponent as MarketIcon } from 'assets/icons/refracto/store.svg';
-import { ReactComponent as ReportsIcon } from 'assets/icons/refracto/summarize.svg';
-import { ReactComponent as TransactionsIcon } from 'assets/icons/refracto/paid.svg';
-import { ReactComponent as AgreementsIcon } from 'assets/icons/refracto/handshake.svg';
-import { ReactComponent as ProfileIcon } from 'assets/icons/refracto/account_box.svg';
-import Transactions from 'pages/Transactions';
-import ProjectDetails from 'pages/ProjectDetails';
-import { Invest } from 'pages/Invest';
 
 export const routeNames = {
   dashboard: '/dashboard',
@@ -25,9 +25,9 @@ export const routeNames = {
   home: '/',
   marketplace: '/marketplace',
 
-  reports: '/reports',
-  transactions: '/transactions',
-  agreements: '/agreements',
+  // reports: '/reports',
+  // transactions: '/transactions',
+  // agreements: '/agreements',
   account: '/profile',
 
   transaction: '/transaction',
@@ -87,30 +87,30 @@ const routes: Array<any> = [
     displayInNavbar: true,
     icon: MarketIcon
   },
-  {
-    path: routeNames.reports,
-    title: 'Reports',
-    component: Reports,
-    authenticatedRoute: true,
-    displayInNavbar: true,
-    icon: ReportsIcon
-  },
-  {
-    path: routeNames.transactions,
-    title: 'Transactions',
-    component: Transactions,
-    authenticatedRoute: true,
-    displayInNavbar: true,
-    icon: TransactionsIcon
-  },
-  {
-    path: routeNames.agreements,
-    title: 'Agreements',
-    component: Agreements,
-    authenticatedRoute: true,
-    displayInNavbar: true,
-    icon: AgreementsIcon
-  },
+  // {
+  //   path: routeNames.reports,
+  //   title: 'Reports',
+  //   component: Reports,
+  //   authenticatedRoute: true,
+  //   displayInNavbar: true,
+  //   icon: ReportsIcon
+  // },
+  // {
+  //   path: routeNames.transactions,
+  //   title: 'Transactions',
+  //   component: Transactions,
+  //   authenticatedRoute: true,
+  //   displayInNavbar: true,
+  //   icon: TransactionsIcon
+  // },
+  // {
+  //   path: routeNames.agreements,
+  //   title: 'Agreements',
+  //   component: Agreements,
+  //   authenticatedRoute: true,
+  //   displayInNavbar: true,
+  //   icon: AgreementsIcon
+  // },
 
   {
     path: routeNames.account,
