@@ -44,8 +44,15 @@ export const useCreateMockProject = () => {
     return color;
   }
 
+  function getRefractoRating(ratingsData: any) {
+    return ratingsData.map((rd: any) => ({
+      category: rd.category,
+      assessments: getRandomItem(rd.assessments)
+    }));
+  }
+
   async function randomizeInsertProject(): Promise<CreateProjectPayload> {
-    const titles = ['Project A', 'Project B', 'Project C'];
+    const titles = mockData.titles;
     const crowdfundingTargets = Array.from(
       { length: 10 },
       (_, i) => (i + 2) * 10000
@@ -101,9 +108,7 @@ export const useCreateMockProject = () => {
     const randomDetails = getRandomItem(details);
     const randomLocation = getRandomItem(locations);
     const randomSponsorInfo = getRandomItem(sponsorInfos);
-    const randomRefractoRatings = Array.from({ length: 3 }, () =>
-      getRandomItem(refractoRatings)
-    );
+    const randomRefractoRatings = getRefractoRating(refractoRatings);
     const randomCapitalStructures = Array.from({ length: 3 }, () =>
       getRandomItem(capitalStructures)
     );

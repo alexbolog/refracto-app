@@ -6,6 +6,7 @@ import { useGetIsKycCompliant } from 'sc/queries/useGetIsKycCompliant';
 import { useMockKyc } from 'sc/transactions/useMockKyc';
 import { useMintDemoUSDC } from 'sc/transactions/useMintDemoUSDC';
 import { useCreateMockProject } from 'helpers/useCreateMockProject';
+import { TEMP_ADMIN_WALLETS } from 'config';
 
 const Account = () => {
   const { address } = useGetAccountInfo();
@@ -34,13 +35,15 @@ const Account = () => {
                 </div>
               </div>
 
-              <div className='row mt-2'>
-                <div className='col-lg-6 col-md-12'>
-                  <button className='btn btn-primary' onClick={mockProject}>
-                    Insert Random Project
-                  </button>
+              {TEMP_ADMIN_WALLETS.includes(address) && (
+                <div className='row mt-2'>
+                  <div className='col-lg-6 col-md-12'>
+                    <button className='btn btn-primary' onClick={mockProject}>
+                      Insert Random Project
+                    </button>
+                  </div>
                 </div>
-              </div>
+              )}
               <div className='row mt-2'>
                 {!hasKyc && (
                   <div className='col-lg-6 col-md-12'>

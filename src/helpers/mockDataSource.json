@@ -1,50 +1,127 @@
 {
+  "titles": [
+    "Bulevardul Saturn,  216 Bucharest, Romania",
+    "Strada Popovici Maer, 1A Iasi, Romania",
+    "14 Rue Condorcet,  Bagnolet, Paris, France",
+    "Seebekring 2A, 229877 Hamburg, Germania",
+    "R. Dr. Teixeira Sousa 31, 2335-26 Rio Tinto, Portugalia"
+  ],
   "attachmentUrls": [
     "https://www.example.com/attachment1.pdf",
     "https://www.example.com/attachment2.pdf",
     "https://www.example.com/attachment3.pdf"
   ],
   "thumbnailUrls": [
-    "https://placehold.co/1000x1000",
-    "https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg",
-    "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+    "https://sekoconstruction.com/wp-content/uploads/2022/08/What-is-industrial-construction-SEKO-Construction.jpg",
+    "https://cdn2.penguin.com.au/covers/original/9780143573357.jpg",
+    "https://www.home-designing.com/wp-content/uploads/2022/12/black-couch-living-room.jpg",
+    "https://www.decorilla.com/online-decorating/wp-content/uploads/2023/05/Dramatic-all-black-kitchen-design.jpg",
+    "https://www.mydomaine.com/thmb/3b9tEyy9erQDDxRN6bQEpYbyTLM=/2400x0/filters:no_upscale():strip_icc()/helfordln-1-7556f8609cb94144b0fca16114979ecb.jpg",
+    "https://www.decorilla.com/online-decorating/wp-content/uploads/2020/07/Coastal-house-interior-design.jpg",
+    "https://www.homebunch.com/wp-content/uploads/2018/04/Stonington-Shoot-March-19th-2018-1.jpg",
+    "https://images.thewest.com.au/publication/C-4056921/ddbdece1b8ed3fbf58acbc7db4f1da4bc018cbe0-16x9-x0y130w2500h1406.jpg",
+    "https://houseandhome.com/wp-content/uploads/2021/05/crop-HMI_227Burgundy_1129_HH_MAY21_68-1.jpg"
   ],
   "riskRatingLevels": ["Low", "Medium", "High"],
   "assetClasses": ["Residential", "Industrial", "Commercial"],
   "investmentTypes": ["Development", "Refurbish"],
   "shortDescriptions": [
-    "Short description 1",
-    "Short description 2",
-    "Short description 3"
+    "Distinctive high-end retreat offering an exquisite blend of contemporary design, eco-consciousness, and opulence in a serene backdrop.",
+    "An avant-garde development exuding both modernity and environmental consciousness. Situated just 4 minutes from the Eiffel Tower, it presents 85 state-of-the-art residential apartments within 6 individual buildings.",
+    "Upscale development that merges cutting-edge design with eco-sustainability, located just 5 minutes from Lisbon's city center. The project encompasses 110 lavish residences in 7 distinct blocks.",
+    "Located 4 minutes from Brasov's city center, the complex features 95 deluxe apartments spread across 8 standalone structures.",
+    "A development that strikes a harmonious balance between contemporary luxury and environmental reverence. A mere 3-minute drive from Rouen, it houses 100 opulent apartments in 9 individual edifices."
   ],
   "executiveSummaries": [
-    "Executive summary 1",
-    "Executive summary 2",
-    "Executive summary 3"
+    "The loan is acquired for the initiation of new construction phases.<br />Repayment of the loan will be sourced from rental revenue of the finished development.<br />A first rank mortgage safeguards the loan.<br />The borrower's management board member will offer personal surety equivalent to the complete mortgage amount.<br />As the property's market value augments, the borrower has the flexibility to procure more funds if deemed necessary.<br />A mortgage was previously set up in an earlier financing cycle and will extend to envelop future funding phases.<br />Before progressing to the subsequent financing phase, an independent assessor will determine the property's market value, while construction oversight validates the accomplished work.<br />The LTV at stage 12 stands at 60.0%, with a potential rise up to 65.0% in upcoming stages.",
+    "The loan's primary purpose is to expedite the ongoing construction activities.<br />The loan will be settled using the revenue obtained from the property's rental income upon completion.<br />A first rank mortgage ensures the loan's security.<br />A key stakeholder in the borrower's company has pledged personal surety, matching the entire mortgage amount.<br />With an escalating property valuation, the borrower retains the option to secure additional funds.<br />The earlier financing cycle had established a mortgage, which will also encompass subsequent funding rounds.<br />A third-party valuation and validation of completed construction are prerequisites before the next funding phase.<br />The LTV during the 9th stage is 59.0% and has the latitude to increase to 65.0% in the stages that follow.",
+    "The loan is designated for both the refinancing of existing debts and to catalyze further development.<br />Anticipated sales of finished units will be the primary source for loan repayment.<br />The loan's safety net is the first rank mortgage.<br />Personal surety, equivalent to the mortgage amount, will be furnished by a member of the borrower's executive committee.<br />The borrower can solicit additional funds contingent on the rise in the property's market valuation.<br />The mortgage's foundation was during an antecedent financing round and is structured to include future financing phases.<br />Prior to advancing to the next round, there's a mandate for third-party property valuation and affirmation of completed construction.<br />The LTV for the 15th stage sits at 61.5%, with room for escalation to 65.0% in the next phases.",
+    "The loan is channeled to supplement construction efforts and refinance previous liabilities.<br />The loan will be squared off using the inflow from the sale of the development post-completion.<br />Security for the loan is established via a first rank mortgage.<br />An executive from the borrowing entity has committed to personal surety, mirroring the full mortgage amount.<br />As the property's appraisal value mounts, the borrower can contemplate raising additional capital.<br />The existing mortgage, rooted in a past financing stage, is intended to extend over subsequent rounds of funding.<br />Before transitioning to the next financing round, a check on completed construction and an external market value assessment are pivotal.<br />The LTV at the 18th stage is gauged at 62.5%, but it's projected to possibly touch 65.0% in the ensuing stages.",
+    "The loan is procured primarily to give momentum to the construction trajectory.<br />Revenue from property leasing post-completion will be the main reservoir for repaying the loan.<br />The cornerstone of the loan's security is a first rank mortgage.<br />A board member from the borrower's side will provide a personal guarantee matching the total mortgage sum.<br />With potential increases in property market valuations, the borrower retains avenues to amass supplementary capital.<br />The mortgage, germinated in a prior phase of financing, is designed to cascade to future rounds.<br />A nod from construction inspection and an independent property valuation are imperative before embarking on the next financing lap.<br />The LTV during the 11th stage is marked at 58.0%, with a provision to climb up to 65.0% in subsequent stages."
   ],
-  "details": ["Details 1", "Details 2", "Details 3"],
-  "locations": ["(0,0)", "(1,1)", "(2,2)"],
-  "sponsorInfos": ["Sponsor info 1", "Sponsor info 2", "Sponsor info 3"],
+  "details": [
+    "Is a distinctive high-end retreat offering an exquisite blend of contemporary design, eco-consciousness, and opulence in a serene backdrop. Located just 3 minutes from the heart of Munich, the development boasts 120 luxurious holiday apartments in 8 detached villas.<br />Over 60% of the area is dedicated to greenery and park spaces. The buildings are designed to have a low density, thus ensuring an ideal leisure environment.",
+    "An avant-garde development exuding both modernity and environmental consciousness. Situated just 4 minutes from the Eiffel Tower, it presents 85 state-of-the-art residential apartments within 6 individual buildings.<br />Sustainability and environmental harmony take precedence in this development. Around 58% of the land area is allocated to green spaces and recreational areas.<br />Premium materials will form the core of this development, promising unmatched luxury to its residents. Environmentally friendly features, including solar panels and rainwater harvesting, highlight the commitment to eco-responsibility.",
+    "Upscale development that merges cutting-edge design with eco-sustainability, located just 5 minutes from Lisbon's city center. The project encompasses 110 lavish residences in 7 distinct blocks.<br />Emphasizing ecological balance, over 57% of the project's territory is reserved for verdant spaces and leisure zones.<br />High-end materials underscore the quality and luxury ethos of the development. Green features, such as waste recycling and green roofs, further strengthen its eco-friendly credentials.",
+
+    "Is a prestigious enclave designed to offer a blend of modern aesthetics, luxury, and eco-awareness. Located 4 minutes from Brasov's city center, the complex features 95 deluxe apartments spread across 8 standalone structures.<br />Over 59% of the development's expanse is devoted to lush green areas and recreational facilities.<br />The development will employ premium materials to ensure the ultimate luxury experience for its residents. The inclusion of green technologies, such as geothermal heating, testifies to its commitment to the environment.",
+
+    "Is a plush development that strikes a harmonious balance between contemporary luxury and environmental reverence. A mere 3-minute drive from Rouen, it houses 100 opulent apartments in 9 individual edifices.<br />A whopping 61% of the project area is consecrated to green landscapes and relaxation areas, creating a true natural haven.<br />With a focus on material quality, the development ensures an elevated level of luxury for its inhabitants. The addition of features such as vertical gardens reinforces its commitment to sustainability.<br />Presents an unparalleled investment opportunity, combining French elegance, modern design, and an eco-conscious ethos in the heart of Normandy."
+  ],
+  "locations": [
+    "(41.166861, -8.547892)",
+    "(53.566206, 9.986568)",
+    "(48.871038, 2.424173)",
+    "47.173579, 27.583529",
+    "44.373633, 26.161673"
+  ],
+  "sponsorInfos": [
+    "Lisboa Landscapes Lda.<br />Number of Employees: 1,000<br />Headquarters: Lisbon, Portugal<br />Foundation Year: 1995<br />Operational Country: Portugal",
+
+    "Marseille Masonry & More S.A.<br />Number of Employees: 2,100<br />Headquarters: Marseille, France<br />Foundation Year: 1982<br />Operational Country: France",
+
+    "Lyon Legacy Constructions S.A.<br />Number of Employees: 1,800<br />Headquarters: Lyon, France<br />Foundation Year: 1990<br />Operational Country: France",
+
+    "Bergbau Construction GmbH<br />Number of Employees: 2,500<br />Headquarters: Berlin, Germany<br />Foundation Year: 1975<br />Operational Country: Germany",
+
+    "București Builders Ltd.<br />Number of Employees: 1,200<br />Headquarters: Bucharest, Romania<br />Foundation Year: 1989<br />Operational Country: Romania"
+  ],
   "refractoRatings": [
-    { "category": "Category 1", "assessments": "Assessments 1" },
-    { "category": "Category 2", "assessments": "Assessments 2" },
-    { "category": "Category 3", "assessments": "Assessments 3" }
+    { "category": "Capital senior", "assessments": ["1%"] },
+    { "category": "Capital junior", "assessments": [">20%", "<83%"] },
+    {
+      "category": "Location",
+      "assessments": ["Principal", "Seconday", "Third"]
+    },
+    { "category": "Cash", "assessments": ["CFO", "CFI", "CFF"] },
+
+    {
+      "category": "Development phase",
+      "assessments": ["pre-development", "construction", "operation"]
+    }
   ],
   "capitalStructures": [
-    { "type": "Type 1", "source": "Source 1", "amount": 100000 },
-    { "type": "Type 1", "source": "Source 1", "amount": 100000 },
-    { "type": "Type 2", "source": "Source 2", "amount": 200000 },
-    { "type": "Type 3", "source": "Source 3", "amount": 300000 }
+    { "type": "Equity", "source": "Sponsor", "amount": 100000 },
+    { "type": "Senior loan", "source": "Refracto", "amount": 100000 },
+    { "type": "Junior loan", "source": "J.P. Morgan", "amount": 200000 },
+    {
+      "type": "Other ivestments",
+      "source": "Private Investor",
+      "amount": 300000
+    }
   ],
   "financingDetails": [
-    "Financing details 1",
-    "Financing details 2",
-    "Financing details 3"
+    "Start the sale process of the remaining 7 houses to end buyers.<br />By doing it this way, the cash flow needed for this project is extremely low; hence the Project Owner needs it only to conclude the allotment infrastructure works. The construction of each house is assumed by the end buyer and their own equity or a bank loan. This means a possible early exit for our investors, depending only on sales.<br />According to the attached appraisal, considering this tranche's value, the ratio of the project's short-term liabilities to the collateral value (LTV) is 41%. <br />The loan period is 12 months, with a Project Owner's option to extend it by 6 months with the obligation to increase the interest rate by 2% for the extended period.<br />The principal and interest payments will be made as a bullet payment at the end of the loan period. Or earlier if some of the plots are sold before the end of the loan period.<br />The source of loan repayment is  the sale of real estate plots, or off-plan twin houses, or with the Project Owner's own capital.",
+    "Fixed interest rate is 13% p.a. from the loan balance. There will be no periodic interest payments, and the accrued interest is paid either at the end of the loan period or at a signing of apartments’ real right sales contracts. <br />The loan will be repaid from the apartment sales revenue. <br />Investors have previously funded the construction of project owner's Rattasepa 33 semi-detached house in Tartu. The cooperation went smoothly, construction and loan repayment took place on time."
   ],
   "analysis": {
-    "strengths": ["Strengths 1", "Strengths 2", "Strengths 3"],
-    "weaknesses": ["Weaknesses 1", "Weaknesses 2", "Weaknesses 3"],
-    "opportunities": ["Opportunities 1", "Opportunities 2", "Opportunities 3"],
-    "threats": ["Threats 1", "Threats 2", "Threats 3"]
+    "strengths": [
+      "Central location with easy access to transportation hubs.",
+      "Mix of office spaces, retail shops, and entertainment venues.",
+      "High footfall due to proximity to city landmarks.",
+      "Unique industrial aesthetic appeal.",
+      "Lower long-term maintenance costs due to sustainable materials"
+    ],
+    "weaknesses": [
+      "Higher upfront construction costs.",
+      "Potential buyer skepticism over \"green\" benefits.",
+      "Limited expertise in eco-friendly construction techniques.",
+      "Uncertainty about local market demand for lofts.",
+      "Dependence on a specific age group for sales."
+    ],
+    "opportunities": [
+      "Appeal to young professionals seeking unique urban living spaces.",
+      "Potential for commercial spaces (e.g., cafes, galleries) within the development.",
+      "Collaboration opportunities with environmental organizations.",
+      "Growing interest in sustainable living and homes.",
+      "Potential for future phases or expansions based on phase one success."
+    ],
+    "threats": [
+      "Economic downturn affecting the luxury real estate market.",
+      "Rising construction costs.",
+      "Challenges in sourcing sustainable materials.",
+      "Local opposition to gentrification and rising property prices.",
+      "Competition from newer, more modern commercial centers."
+    ]
   }
 }

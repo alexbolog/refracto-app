@@ -37,3 +37,8 @@ export const USDC_TOKEN_ID = 'RUSDC-70a54c';
 export const INTEREST_RATE_DENOMINATION = 1_000_000_000;
 export const ONE_DENOMINATED_USDC = 1_000_000;
 export const REFRACTO_LOAN_SHARE_TOKEN_ID = 'REFRACTO-86d900';
+
+// Demo only :)
+export const TEMP_ADMIN_WALLETS = [
+  'erd1j43ssgjr8x9m0s7zz0xhn7qdgssdetm86jc6a2dzsegs74fmyl5ssv44c4'
+];
