@@ -90,7 +90,10 @@
       "amount": 300000
     }
   ],
-  "financingDetails": ["fd 1"],
+  "financingDetails": [
+    "Start the sale process of the remaining 7 houses to end buyers.<br />By doing it this way, the cash flow needed for this project is extremely low; hence the Project Owner needs it only to conclude the allotment infrastructure works. The construction of each house is assumed by the end buyer and their own equity or a bank loan. This means a possible early exit for our investors, depending only on sales.<br />According to the attached appraisal, considering this tranche's value, the ratio of the project's short-term liabilities to the collateral value (LTV) is 41%. <br />The loan period is 12 months, with a Project Owner's option to extend it by 6 months with the obligation to increase the interest rate by 2% for the extended period.<br />The principal and interest payments will be made as a bullet payment at the end of the loan period. Or earlier if some of the plots are sold before the end of the loan period.<br />The source of loan repayment is  the sale of real estate plots, or off-plan twin houses, or with the Project Owner's own capital.",
+    "Fixed interest rate is 13% p.a. from the loan balance. There will be no periodic interest payments, and the accrued interest is paid either at the end of the loan period or at a signing of apartments’ real right sales contracts. <br />The loan will be repaid from the apartment sales revenue. <br />Investors have previously funded the construction of project owner's Rattasepa 33 semi-detached house in Tartu. The cooperation went smoothly, construction and loan repayment took place on time."
+  ],
   "analysis": {
     "strengths": [
       "Central location with easy access to transportation hubs.",
