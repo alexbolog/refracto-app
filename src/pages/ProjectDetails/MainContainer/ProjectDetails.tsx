@@ -10,7 +10,16 @@ export const ProjectDetails = ({
   return (
     <MobileCollapsibleSection
       header='Project Details'
-      body={<h6>{project.projectDetails}</h6>}
+      body={
+        <h6>
+          {project.projectDetails.split('<br />').map((str, i) => (
+            <>
+              {str}
+              <br />
+            </>
+          ))}
+        </h6>
+      }
     />
   );
 };
