@@ -13,7 +13,6 @@ const useGetProjectById = () => {
     if (isLoggedIn) {
     }
     return getFullProjectInfo(projectId);
-    // return getProjectInfo(projectId);
   };
 
   return getProjectById;

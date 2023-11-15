@@ -19,7 +19,6 @@ import { ReactComponent as NotificationsIcon } from '../../../assets/icons/refra
 import { ReactComponent as Logo } from './../../../assets/icons/refracto/logo.svg';
 import AccountInfo from './AccountInfo';
 import NotificationDropDownContent from './NotificationDropDownContent';
-// import { randomizeInsertProject } from 'db/projects';
 
 import './style.scss';
 
@@ -67,8 +66,6 @@ const Sidenav = () => {
           onClick={handleCloseNavbar}
         >
           <Link to={data.route} className='d-flex align-items-center'>
-            {/* <FontAwesomeIcon icon={data.icon} data-tip={data.display} /> */}
-            {/* {() => data.icon} */}
             <data.icon data-tip={data.display} style={{ padding: '0' }} />
             <span className='nav-text'>{data.display}</span>
           </Link>

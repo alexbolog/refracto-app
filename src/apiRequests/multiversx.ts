@@ -24,7 +24,6 @@ export const getLoanShareHoldersAmount = async (nonce: number) => {
   if (hexNonce.length % 2 === 1) {
     hexNonce = '0' + hexNonce;
   }
-  console.log('NONCE', nonce);
   const url = `https://devnet-api.multiversx.com/nfts/${REFRACTO_LOAN_SHARE_TOKEN_ID}-${hexNonce}/accounts/count`;
   const { data, status } = await axios.get(url);
   if (status !== 200) {

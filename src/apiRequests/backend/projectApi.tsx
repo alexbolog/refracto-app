@@ -1,7 +1,4 @@
 import React from 'react';
-import projectList from '../../dbNew/projectList.json';
-import projectInfo from '../../dbNew/projectPageNotConnected.json';
-import fullProjectInfo from '../../dbNew/fullProjectPageDetails.json';
 import secondaryMarketProjects from '../../dbNew/secondaryMarket.json';
 
 import {
@@ -17,7 +14,6 @@ import { getProjectList } from 'db/projects';
 import { supabase } from 'apiRequests/supabaseClient';
 
 export const getAvailableProjects = async (): Promise<ProjectListItem[]> => {
-  // return projectList.map((l: any) => l as ProjectListItem);
   return await getProjectList();
 };
 
@@ -64,10 +60,10 @@ const parseProjectInfo = (
     images: project.images,
     assetClass: project.assetclass,
     investmentType: project.investmenttype,
-    totalParticipantsCount: 0, // TO DO
+    totalParticipantsCount: 0, // TODO
     projectDeveloperId: project.projectdeveloperid,
-    projectDeveloperName: 'TODO', //project.projectDeveloperName,
-    amountReturnedSoFar: 0, //project.amountReturnedSoFar, // TO DO
+    projectDeveloperName: 'N/A', //project.projectDeveloperName, //TODO
+    amountReturnedSoFar: 0, //project.amountReturnedSoFar, // TODO
     shortDescription: project.shortdescription,
     executiveSummary: project.executivesummary,
     projectDetails: project.details,
@@ -76,7 +72,7 @@ const parseProjectInfo = (
     swotAnalysis: project.analysis,
     refractoRating: project.refractorating,
     capitalStructure: project.capitalstructure,
-    repaymentSchedule: [], // project.repaymentSchedule, // TO DO
+    repaymentSchedule: [], // project.repaymentSchedule, // TODO
     financingDetails: project.financingdetails,
     attachmentUrls: project.attachmenturls,
     questionsAndAnswers: [] // project.questionsAndAnswers //TODO

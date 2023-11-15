@@ -163,14 +163,3 @@ const parseProjectListResponse = (
     thumbnailSrc: r.thumbnailsrc
   }));
 };
-// export interface ProjectListItem {
-//   projectId: string;
-//   projectTitle: string;
-//   returnPercentage: number;
-//   riskRatingLevel: string;
-//   crowdfundingDeadline: string; // ISO format
-//   crowdfundingTarget: number;
-//   crowdfundedAmount: number;
-//   colorCodeHex: string;
-//   thumbnailSrc: string;
-// }
