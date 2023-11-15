@@ -12,40 +12,6 @@ import {
 } from 'apiRequests/multiversx';
 import BigNumber from 'bignumber.js';
 
-export const getAccountOverview = async (
-  address: string
-): Promise<AccountOverview> => {
-  // const response = accountOverview as any as AccountOverview;
-  // for (let i = 0; i < response.favoriteProjects.length; i++) {
-  //   response.favoriteProjects[i].projectTitle = projectDetails.filter(
-  //     (pd) => pd.projectId === response.favoriteProjects[i].projectId.toString()
-  //   )[0].projectTitle;
-  // }
-
-  // for (let i = 0; i < response.suggestedProjects.length; i++) {
-  //   response.suggestedProjects[i].projectTitle = projectDetails.filter(
-  //     (pd) =>
-  //       pd.projectId === response.suggestedProjects[i].projectId.toString()
-  //   )[0].projectTitle;
-  // }
-
-  const availableBalance = await getAccountEsdtBalance(address, USDC_TOKEN_ID);
-  return getAccountOverviewObsolete();
-  // return {
-  //   availableBalance
-  // };
-};
-
-// const getActiveInvestments = async (address: string): Promise<Investment[]> => {
-//   const accountShares = await getAccountSharesBalance(address);
-//   return accountShares.map((as: any) => ({
-//     nonce: as.nonce,
-//     balance: new BigNumber(as.balance).shiftedBy(-18).toNumber(),
-//     projectId: 
-//     pricePerShare
-//   }));
-// };
-
 export const getAccountOverviewObsolete = (): AccountOverview => {
   const response = accountOverview as any as AccountOverview;
   for (let i = 0; i < response.favoriteProjects.length; i++) {
@@ -61,15 +27,6 @@ export const getAccountOverviewObsolete = (): AccountOverview => {
     )[0].projectTitle;
   }
   return response;
-};
-
-export const getActiveProjectInvestments = (): ActiveProjectInvestment[] => {
-  return projectList.map((l: any) => {
-    const o = l as ActiveProjectInvestment;
-    o.amountInvested = 123456.789;
-    // o.thumbnailSrc = l.images[0];
-    return o;
-  });
 };
 
 export const getNewAuthToken = async () => {

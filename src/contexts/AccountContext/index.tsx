@@ -9,7 +9,6 @@ import useGetAccountOverview from './hooks/useGetAccountOverview';
 import React, { useEffect, useState } from 'react';
 import { AccountOverview } from 'types/accountTypes';
 import { ActiveProjectInvestment } from 'types/projectTypes';
-import useGetAccountActiveInvestments from './hooks/useGetAccountActiveInvestments';
 import { AVAILABLE_CURRENCIES } from 'enums';
 import { ProfileInfo } from './types/ProfileInfo';
 import useGetProfileInfo from './hooks/useGetAccountInfo';
@@ -24,7 +23,6 @@ import { USDC_DECIMALS_AMOUNT, denominatedAmountToAmount } from 'utils';
 export interface IAccountContext {
   isLoading: boolean;
   accountOverview?: AccountOverview;
-  activeProjectInvestments?: ActiveProjectInvestment[];
   address?: string;
   availableCashBalance: number;
   selectedCurrency: AVAILABLE_CURRENCIES;
@@ -83,7 +81,6 @@ export const AccountContextProvider = ({
   );
 
   const { accountOverview, refreshAccountOverview } = useGetAccountOverview();
-  const activeProjectInvestments = useGetAccountActiveInvestments();
   const profileInfo = useGetProfileInfo();
   const { hasPendingTransactions } = useGetPendingTransactions();
 
@@ -113,7 +110,6 @@ export const AccountContextProvider = ({
       value={{
         isLoading,
         accountOverview,
-        activeProjectInvestments,
         address,
         availableCashBalance,
         selectedCurrency,

@@ -1,5 +1,4 @@
 import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
-import { getAccountOverview as getAccountOverviewApiCall } from 'apiRequests/backend/accountApi';
 import {
   getAccountEsdtBalance,
   getAccountSharesBalance
@@ -36,13 +35,6 @@ const useGetAccountOverview = () => {
   }, [projectContext.availableProjects]);
 
   const getAccountOverview = async (): Promise<AccountOverview> => {
-    // const accountOverview = await getAccountOverviewApiCall(address);
-    // const favoriteProjects = await readFavoriteProjects(address);
-    // console.log('loaded favorite projects', favoriteProjects);
-    // //TODO: add favorite projects to accountOverview
-    // // accountOverview.favoriteProjects = favoriteProjects;
-    // return accountOverview;
-
     const cashBalance = denominatedAmountToAmount(
       await getAccountEsdtBalance(address, USDC_TOKEN_ID),
       6
