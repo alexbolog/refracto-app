@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import useGetProjectById from 'contexts/ProjectContext/hooks/useGetProjectById';
 import { ProjectPageDetails } from 'types/projectTypes';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { routeNames } from 'routes';
@@ -10,6 +10,7 @@ import { ProjectDetailsCard } from './ProjectDetailsCard';
 import { ProjectSpecs } from 'components/ProjectSpecs';
 import { InvestmentCard } from './InvestmentCard';
 import './style.css';
+import { ProjectContext } from 'contexts/ProjectContext';
 
 export const Invest = () => {
   const getProjectId = () => {
@@ -21,16 +22,26 @@ export const Invest = () => {
     return '';
   };
   const [projectId, _] = useState(getProjectId());
-  const getProjectById = useGetProjectById();
+
+  const { getProjectById, availableProjects } = useContext(ProjectContext);
+  const navigate = useNavigate();
+
   useEffect(() => {
-    getProjectById(projectId).then((res) => {
+    getProjectById(parseInt(projectId)).then((res) => {
+      if (res === undefined) {
+        // TODO: add redirect to 404 soon
+        // something went wrong
+        navigate(routeNames.home);
+      }
       setProjectDetails(res);
     });
-  }, [projectId]);
+  }, [projectId, availableProjects]);
 
   const [projectDetails, setProjectDetails] = useState<ProjectPageDetails>();
   // TODO: add loading
-  return projectDetails === undefined ? null : (
+  return projectDetails === undefined ? (
+    <h1>Loading..</h1>
+  ) : (
     <>
       <div className='row'>
         <div className='col'>

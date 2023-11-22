@@ -1,7 +1,7 @@
+import React from 'react';
 import SimpleCardWidget from 'components/CardWidgets/SimpleCardWidget';
 import { toLocaleStringOptions } from 'config';
 import { AccountContext } from 'contexts/AccountContext';
-import React from 'react';
 import './style.scss';
 
 const GeneralInvestmentStatistics = () => {
@@ -15,7 +15,7 @@ const GeneralInvestmentStatistics = () => {
             undefined,
             toLocaleStringOptions
           )}`}
-          infoMessage={'available balance tooltip message'}
+          infoMessage={'Stablecoins in your wallet which can be invested'}
         />
       </div>
       <div className='col-lg-4 col-md-12 col-sm-12 dashboard-stat-cards total-stat-card'>
@@ -25,7 +25,7 @@ const GeneralInvestmentStatistics = () => {
             undefined,
             toLocaleStringOptions
           )}`}
-          infoMessage={'Acc value tooltip message'}
+          infoMessage={'Total value of your investments on Refracto'}
         />
       </div>
       <div className='col-lg-4 col-md-12 col-sm-12 dashboard-stat-cards invested-stat-card'>
@@ -35,7 +35,7 @@ const GeneralInvestmentStatistics = () => {
             undefined,
             toLocaleStringOptions
           )}`}
-          infoMessage={'Committed funds tooltip message'}
+          infoMessage={'Funds currently invested in projects on Refracto'}
         />
       </div>
     </>

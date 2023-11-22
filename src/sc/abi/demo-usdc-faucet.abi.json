@@ -1,0 +1,52 @@
+{
+  "buildInfo": {
+    "rustc": {
+      "version": "1.71.0-nightly",
+      "commitHash": "5cdb7886a5ece816864fab177f0c266ad4dd5358",
+      "commitDate": "2023-04-15",
+      "channel": "Nightly",
+      "short": "rustc 1.71.0-nightly (5cdb7886a 2023-04-15)"
+    },
+    "contractCrate": {
+      "name": "demo-usdc-faucet",
+      "version": "0.0.0"
+    },
+    "framework": {
+      "name": "multiversx-sc",
+      "version": "0.43.5"
+    }
+  },
+  "name": "DemoUsdcFaucet",
+  "constructor": {
+    "inputs": [],
+    "outputs": []
+  },
+  "endpoints": [
+    {
+      "name": "mint",
+      "mutability": "mutable",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "issueToken",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "payableInTokens": ["EGLD"],
+      "inputs": [
+        {
+          "name": "token_name",
+          "type": "bytes"
+        },
+        {
+          "name": "token_ticker",
+          "type": "bytes"
+        }
+      ],
+      "outputs": []
+    }
+  ],
+  "events": [],
+  "hasCallback": true,
+  "types": {}
+}

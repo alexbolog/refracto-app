@@ -1,0 +1,81 @@
+CREATE OR REPLACE FUNCTION insert_project(
+  p_title text,
+  p_return_percentage real,
+  p_crowdfunding_deadline timestamp with time zone,
+  p_crowdfunding_target numeric,
+  p_crowdfunded_amount numeric,
+  p_color_code_hex text,
+  p_thumbnail_src text,
+  p_loan_deadline timestamp with time zone,
+  p_images text[],
+  p_project_developer_id bigint,
+  p_risk_rating_level public.riskratinglevel,
+  p_asset_class public.assetclass,
+  p_investment_type public.investmenttype,
+  p_short_description text,
+  p_executive_summary text,
+  p_details text,
+  p_location point,
+  p_sponsor_info text,
+  p_refracto_rating refracto_rating_item[],
+  p_capital_structure capital_structure_item[],
+  p_financing_details text,
+  p_attachment_urls text[],
+  p_analysis swot_analysis
+) RETURNS bigint AS $$
+DECLARE
+  project_id bigint;
+BEGIN
+  INSERT INTO public."Projects" (
+    title,
+    "returnPercentage",
+    "crowdfundingDeadline",
+    "crowdfundingTarget",
+    "crowdfundedAmount",
+    "colorCodeHex",
+    "thumbnailSrc",
+    "loanDeadline",
+    images,
+    "ProjectDeveloperId",
+    "RiskRatingLevel",
+    "assetClass",
+    "investmentType",
+    "shortDescription",
+    "executiveSummary",
+    details,
+    location,
+    "sponsorInfo",
+    analysis,
+    "refractoRating",
+    "capitalStructure",
+    "financingDetails",
+    "attachmentUrls"
+  ) VALUES (
+    p_title,
+    p_return_percentage,
+    p_crowdfunding_deadline,
+    p_crowdfunding_target,
+    p_crowdfunded_amount,
+    p_color_code_hex,
+    p_thumbnail_src,
+    p_loan_deadline,
+    p_images,
+    p_project_developer_id,
+    p_risk_rating_level,
+    p_asset_class,
+    p_investment_type,
+    p_short_description,
+    p_executive_summary,
+    p_details,
+    p_location,
+    p_sponsor_info,
+    p_analysis,
+    NULLIF(p_refracto_rating, '{}')::refracto_rating_item[],
+    NULLIF(p_capital_structure, '{}')::capital_structure_item[],
+    p_financing_details,
+    p_attachment_urls
+  ) RETURNING id INTO project_id;
+
+  RETURN project_id;
+END;
+$$ LANGUAGE plpgsql;

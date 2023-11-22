@@ -3,16 +3,24 @@ import { ArcElement, Chart } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
 import './style.scss';
-import ExpandFooter from '../ExpandFooter';
 import { toLocaleStringOptions } from '../../config';
+import { DonutChartType } from '../../enums';
+import { Investment } from '../../types/accountTypes';
+import ExpandFooter from '../ExpandFooter';
 import DonutChartOptions from './donutChartOptions';
 import DonutProjectList from './donutProjectList';
-import { AccountContext } from '../../contexts/AccountContext';
 
-const DonutChartStatisticsCard = () => {
+const DonutChartStatisticsCard = ({
+  investments,
+  title,
+  type
+}: {
+  investments: Investment[] | undefined;
+  title: string;
+  type: DonutChartType;
+}) => {
   const [isExpanded, setExpanded] = React.useState(false);
 
-  const { activeProjectInvestments } = useContext(AccountContext);
   Chart.register(ArcElement);
 
   const hexToRgb = (hex: string) => {
@@ -31,17 +39,55 @@ const DonutChartStatisticsCard = () => {
     return `rgb(${rgb?.r}, ${rgb?.g}, ${rgb?.b})` ?? 'rgb(0,0,0)';
   };
 
-  const totalInvested = activeProjectInvestments
-    ?.map((project) => project.amountInvested)
-    .reduce((partialSum, crtAmount) => partialSum + crtAmount, 0);
+  let bigNumber: number;
+  let bigNumberLabel: string;
+  let fnMapInvestmentToChartData: (investment: Investment) => number;
+  switch (type) {
+    case DonutChartType.INVESTED:
+      fnMapInvestmentToChartData = (investment: Investment) =>
+        investment.projectInfo.crowdfundedAmount;
+
+      bigNumber = investments!
+        .map(fnMapInvestmentToChartData)
+        .reduce((partialSum, crtAmount) => partialSum + crtAmount, 0);
+
+      bigNumberLabel =
+        '€' + bigNumber?.toLocaleString(undefined, toLocaleStringOptions);
+      break;
+    case DonutChartType.ROI:
+      fnMapInvestmentToChartData = (investment: Investment) =>
+        investment.projectInfo.returnPercentage *
+        investment.projectInfo.crowdfundedAmount;
+      bigNumber = investments!
+        .map(fnMapInvestmentToChartData)
+        .reduce((partialSum, crtAmount) => partialSum + crtAmount, 0);
+      bigNumberLabel =
+        '€' + bigNumber?.toLocaleString(undefined, toLocaleStringOptions);
+
+      break;
+    case DonutChartType.APR:
+      fnMapInvestmentToChartData = (investment: Investment) =>
+        investment.projectInfo.returnPercentage * 100;
+      bigNumber =
+        investments!
+          .map(fnMapInvestmentToChartData)
+          .reduce(
+            (partialProduct, crtAmount) => partialProduct + crtAmount,
+            1
+          ) / investments!.length;
+      bigNumberLabel =
+        bigNumber?.toLocaleString(undefined, toLocaleStringOptions) + '%';
+
+      break;
+  }
 
   const chartData = {
-    labels: activeProjectInvestments?.map((pl) => pl.projectTitle),
+    labels: investments?.map((pl) => pl?.projectInfo?.projectTitle),
     datasets: [
       {
-        data: activeProjectInvestments?.map((pl) => pl.amountInvested),
-        backgroundColor: activeProjectInvestments!.map((pl) =>
-          hexToRgbString(pl.colorCodeHex)
+        data: investments?.map(fnMapInvestmentToChartData),
+        backgroundColor: investments?.map((pl) =>
+          hexToRgbString(pl?.projectInfo?.colorCodeHex)
         )
       }
     ]
@@ -51,24 +97,22 @@ const DonutChartStatisticsCard = () => {
     <div className='card'>
       <div className='card-body row'>
         <h3>
-          <strong>Proportion of Investments</strong>
+          <strong>{title}</strong>
         </h3>
         <div className='donut-container d-flex justify-content-center'>
           <Doughnut data={chartData} options={DonutChartOptions} />
           <div className='donut-hole-text'>
-            <label>Total Investment</label>
-            <label className='fat-number'>
-              €{totalInvested?.toLocaleString(undefined, toLocaleStringOptions)}
-            </label>
+            <label>{type.toString()}</label>
+            <label className='fat-number'>{bigNumberLabel}</label>
           </div>
         </div>
-        <DonutProjectList
-          chartData={chartData}
-          activeProjectInvestments={activeProjectInvestments}
-          expanded={isExpanded}
-        />
+        {investments!.length > 0 && (
+          <DonutProjectList investments={investments} expanded={isExpanded} />
+        )}
       </div>
-      <ExpandFooter onExpandToggle={() => setExpanded(!isExpanded)} />
+      {investments!.length > 5 && (
+        <ExpandFooter onExpandToggle={() => setExpanded(!isExpanded)} />
+      )}
     </div>
   );
 };

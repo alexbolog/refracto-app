@@ -1,8 +1,5 @@
 import './style.scss';
 import * as React from 'react';
-import dashboardGraph from '../../../dbNew/investmentHistory.json';
-import { Line } from 'react-chartjs-2';
-import gradient from 'chartjs-plugin-gradient';
 import {
   CategoryScale,
   Chart,
@@ -17,11 +14,14 @@ import {
   Tooltip
 } from 'chart.js';
 import Annotation from 'chartjs-plugin-annotation';
+import gradient from 'chartjs-plugin-gradient';
 import Zoom from 'chartjs-plugin-zoom';
 import { DateTime } from 'luxon';
+import { Line } from 'react-chartjs-2';
 import 'chartjs-adapter-luxon';
 import { ReactComponent as ExpandIcon } from '../../../assets/icons/refracto/arrow_right_alt.svg';
 import DateRangePicker from '../../../components/DateRangePicker';
+import dashboardGraph from '../../../dbNew/investmentHistory.json';
 
 const GeneralStatisticsGraph = () => {
   const chartRef = React.useRef<any>(null);
@@ -270,9 +270,9 @@ const GeneralStatisticsGraph = () => {
 
   return (
     <div className='card w-100'>
-      <div className='card-header d-flex justify-content-between'>
-        <h3>General Overview Statistics</h3>
-        <div>
+      <div className='card-header d-flex flex-column flex-xl-row'>
+        <h3 className='align-self-start'>General Overview Statistics</h3>
+        <div className='align-self-end'>
           <button
             className='btn btn-outline-primary mr-2 active'
             onClick={resetZoom}

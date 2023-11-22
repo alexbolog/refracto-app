@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ProjectListItem } from 'types/projectTypes';
 import { ProjectInfo } from './ProjectInfo';
 import './style.css';
@@ -7,43 +7,52 @@ import { ReactComponent as FavoriteEnabled } from './../../../assets/icons/refra
 import { CFProgressBar } from './CFProgressBar';
 import { useNavigate } from 'react-router-dom';
 import { routeNames } from 'routes';
+import { AccountContext } from 'contexts/AccountContext';
+import {
+  createFavoriteProject,
+  deleteFavoriteProject
+} from 'db/favoriteProjects';
+import { useGetIsLoggedIn } from '@multiversx/sdk-dapp/hooks';
 
 export const MobileSizeProject = ({
-  project
+  project,
+  isFavoriteEnabled,
+  toggleFavorite
 }: {
   project: ProjectListItem;
+  isFavoriteEnabled: boolean;
+  toggleFavorite: () => void;
 }) => {
-  const [isFavoriteEnabled, setIsFavoriteEnabled] = React.useState(false);
-  const toggleFavorite = () => {
-    // onToggleFavorite(projectDetails.projectId, !isFavoriteEnabled);
-    setIsFavoriteEnabled(!isFavoriteEnabled);
-  };
-
+  const isLoggedIn = useGetIsLoggedIn();
   const navigate = useNavigate();
   const handleShowProjectDetails = () => {
-    navigate(`${routeNames.projectPage.replace(':id', project.projectId)}`);
+    navigate(
+      `${routeNames.projectPage.replace(':id', project.projectId.toString())}`
+    );
   };
 
   return (
     <div className='card project-wrapper mobile-size'>
       <div className='card-header p-0 border-0'>
         <img src={project.thumbnailSrc} />
-        <button className='btn btn-fav'>
-          {isFavoriteEnabled && (
-            <FavoriteEnabled
-              height={16}
-              width={16.8}
-              onClick={toggleFavorite}
-            />
-          )}
-          {!isFavoriteEnabled && (
-            <FavoriteDisabled
-              height={16}
-              width={16.8}
-              onClick={toggleFavorite}
-            />
-          )}
-        </button>
+        {isLoggedIn && (
+          <button className='btn btn-fav'>
+            {isFavoriteEnabled && (
+              <FavoriteEnabled
+                height={16}
+                width={16.8}
+                onClick={toggleFavorite}
+              />
+            )}
+            {!isFavoriteEnabled && (
+              <FavoriteDisabled
+                height={16}
+                width={16.8}
+                onClick={toggleFavorite}
+              />
+            )}
+          </button>
+        )}
       </div>
       <div className='card-body container-fluid p-0'>
         <div className='row w-100' style={{ padding: '0 20px' }}>

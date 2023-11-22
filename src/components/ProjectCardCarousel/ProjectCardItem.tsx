@@ -1,10 +1,17 @@
+import React, { useContext } from 'react';
+import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
+import { DateTime } from 'luxon';
 import { toLocaleStringOptions } from 'config';
-import React from 'react';
+import { AccountContext } from 'contexts/AccountContext';
+import {
+  deleteFavoriteProject,
+  createFavoriteProject
+} from 'db/favoriteProjects';
 import { SuggestedProject } from 'types/accountTypes';
+import { formatIso } from '../../utils';
 import { ReactComponent as FavoriteDisabled } from './../../assets/icons/refracto/favorite-empty.svg';
 import { ReactComponent as FavoriteEnabled } from './../../assets/icons/refracto/favorite-fill.svg';
-import { formatIso } from '../../utils';
-import { DateTime } from 'luxon';
+import './style.css';
 
 const ProjectCardItem = ({
   projectDetails,
@@ -19,12 +26,23 @@ const ProjectCardItem = ({
   isButtonOutline: boolean;
   buttonText: string;
 }) => {
+  const { address } = useGetAccountInfo();
+  const { accountOverview, refreshAccountOverview } =
+    useContext(AccountContext);
   const [isFavoriteEnabled, setIsFavoriteEnabled] = React.useState(
-    projectDetails.isFavorite
+    accountOverview?.favoriteProjects.find(
+      (p) => p.projectId === projectDetails.projectId
+    ) !== undefined
   );
-  const toggleFavorite = () => {
-    onToggleFavorite(projectDetails.projectId, !isFavoriteEnabled);
-    setIsFavoriteEnabled(!isFavoriteEnabled);
+
+  const toggleFavorite = async () => {
+    if (isFavoriteEnabled) {
+      await deleteFavoriteProject(address, projectDetails.projectId);
+    } else {
+      await createFavoriteProject(address, projectDetails.projectId);
+    }
+    await refreshAccountOverview();
+    setIsFavoriteEnabled((prev) => !prev);
   };
 
   return (

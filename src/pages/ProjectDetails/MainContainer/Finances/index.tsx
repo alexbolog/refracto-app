@@ -11,7 +11,14 @@ export const Finances = ({ project }: { project: FullProjectPageDetails }) => {
       header='Finances'
       body={
         <>
-          <h6>{project.financingDetails}</h6>
+          <h6>
+            {project.financingDetails.split('<br />').map((str) => (
+              <>
+                {str}
+                <br />
+              </>
+            ))}
+          </h6>
           <div className='example'>
             <strong>Example</strong>
             <br />
