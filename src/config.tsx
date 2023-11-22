@@ -3,7 +3,7 @@ import { EnvironmentsEnum } from '@multiversx/sdk-dapp/types';
 export const environment: EnvironmentsEnum = EnvironmentsEnum.devnet;
 
 export const contractAddress =
-  'erd1qqqqqqqqqqqqqpgqc4zs6lyfxutp4a0u293dsemne07xmgrv6ppszrjd48';
+  'erd1qqqqqqqqqqqqqpgqstmt3l73fyqt087p5cdhtvmc2yhyfsr0yl5sauaw4w';
 
 export const dAppName = 'Refracto';
 export const NUMBER_OF_SHARES_PER_PROJECT = 1_000_000;
@@ -31,12 +31,12 @@ export const supabaseConfig = {
 };
 
 export const DEMO_USDC_FAUCET_SC_ADDRESS =
-  'erd1qqqqqqqqqqqqqpgqc9uqjcp8q8v8lcxvtcuz6hr7zpf42tfk6ppsawfpn5';
+  'erd1qqqqqqqqqqqqqpgqxz445g0f6l6ryz7dkhlcpkc4752rvawmyl5s30psm0';
 
-export const USDC_TOKEN_ID = 'RUSDC-70a54c';
+export const USDC_TOKEN_ID = 'RUSDC-881827';
 export const INTEREST_RATE_DENOMINATION = 1_000_000_000;
 export const ONE_DENOMINATED_USDC = 1_000_000;
-export const REFRACTO_LOAN_SHARE_TOKEN_ID = 'REFRACTO-86d900';
+export const REFRACTO_LOAN_SHARE_TOKEN_ID = 'REFRACTO-b25fa1';
 
 // Demo only :)
 export const TEMP_ADMIN_WALLETS = [
