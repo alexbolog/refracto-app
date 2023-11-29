@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FiltersV2 } from 'components/FiltersV2';
 import { useContext } from 'react';
-import { columns } from './TransactionsTable';
+import { useTransactionsTableColumns } from './TransactionsTable';
 import { AccountContext } from 'contexts/AccountContext';
 import { ExportFooter } from './ExportFooter';
 import './style.css';
@@ -12,6 +12,7 @@ const Transactions = () => {
   const [filteredTransactions, setFilteredTransactions] = useState(
     investmentTransactions
   );
+  const columns = useTransactionsTableColumns();
   return (
     <div className='container-fluid p-0'>
       <div className='row'>
