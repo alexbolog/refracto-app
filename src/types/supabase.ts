@@ -85,6 +85,53 @@ export interface Database {
           }
         ]
       }
+      processed_transactions: {
+        Row: {
+          amount: number | null
+          created_at: string
+          function: string
+          id: number
+          project_id: number | null
+          sender: string
+          status: string
+          transfer_token: string | null
+          tx_hash: string
+          tx_timestamp: number
+        }
+        Insert: {
+          amount?: number | null
+          created_at?: string
+          function: string
+          id?: number
+          project_id?: number | null
+          sender: string
+          status: string
+          transfer_token?: string | null
+          tx_hash: string
+          tx_timestamp: number
+        }
+        Update: {
+          amount?: number | null
+          created_at?: string
+          function?: string
+          id?: number
+          project_id?: number | null
+          sender?: string
+          status?: string
+          transfer_token?: string | null
+          tx_hash?: string
+          tx_timestamp?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "processed_transactions_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "Projects"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       ProjectDevelopers: {
         Row: {
           id: number
@@ -299,6 +346,12 @@ export interface Database {
         }
         Returns: undefined
       }
+      add_processed_transactions: {
+        Args: {
+          transactions: Json
+        }
+        Returns: undefined
+      }
       check_nonce_string:
         | {
             Args: {
@@ -340,6 +393,10 @@ export interface Database {
           projecttitle: string
         }[]
       }
+      get_last_processed_tx_timestamp: {
+        Args: Record<PropertyKey, never>
+        Returns: string
+      }
       get_project_details_by_id: {
         Args: {
           p_id: number
@@ -370,6 +427,29 @@ export interface Database {
           financingdetails: string
           attachmenturls: string[]
           sharetokennonce: number
+        }[]
+      }
+      get_unprocessed_transaction_hashes: {
+        Args: {
+          tx_hashes: Json
+        }
+        Returns: {
+          tx_hash: string
+        }[]
+      }
+      get_user_transactions: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          amount: number | null
+          created_at: string
+          function: string
+          id: number
+          project_id: number | null
+          sender: string
+          status: string
+          transfer_token: string | null
+          tx_hash: string
+          tx_timestamp: number
         }[]
       }
       insert_project:
@@ -428,19 +508,43 @@ export interface Database {
             }
             Returns: number
           }
-      read_project_data: {
+      read_project_data:
+        | {
+            Args: Record<PropertyKey, never>
+            Returns: {
+              id: number
+              title: string
+              returnpercentage: number
+              riskratinglevel: Database["public"]["Enums"]["riskratinglevel"]
+              crowdfundingdeadline: string
+              crowdfundingtarget: number
+              crowdfundedamount: number
+              colorcodehex: string
+              thumbnailsrc: string
+              sharetokennonce: number
+            }[]
+          }
+        | {
+            Args: {
+              _include_invalid_nonce: boolean
+            }
+            Returns: {
+              id: number
+              title: string
+              returnpercentage: number
+              riskratinglevel: Database["public"]["Enums"]["riskratinglevel"]
+              crowdfundingdeadline: string
+              crowdfundingtarget: number
+              crowdfundedamount: number
+              colorcodehex: string
+              thumbnailsrc: string
+              sharetokennonce: number
+            }[]
+          }
+      read_update_project_data: {
         Args: Record<PropertyKey, never>
         Returns: {
           id: number
-          title: string
-          returnpercentage: number
-          riskratinglevel: Database["public"]["Enums"]["riskratinglevel"]
-          crowdfundingdeadline: string
-          crowdfundingtarget: number
-          crowdfundedamount: number
-          colorcodehex: string
-          thumbnailsrc: string
-          sharetokennonce: number
         }[]
       }
       remove_favorite_project: {
