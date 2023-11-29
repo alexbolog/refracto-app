@@ -31,13 +31,19 @@ const Transactions = () => {
       </div>
       <div className='row'>
         <div className='col-12 mt-4'>
-          {/* <TransactionsTable transactions={investmentTransactions} /> */}
           <Table columns={columns} data={filteredTransactions} />
         </div>
       </div>
       <div className='row'>
         <div className='col-12'>
-          <ExportFooter />
+          {/* TODO: fill total ROI here once it's being calculated for account overview page. */}
+          <ExportFooter
+            totalRoi={0}
+            totalInvestment={filteredTransactions.reduce(
+              (prev, crt) => (prev += crt.amount),
+              0
+            )}
+          />
         </div>
       </div>
     </div>

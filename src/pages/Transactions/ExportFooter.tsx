@@ -1,29 +1,21 @@
 import React from 'react';
 
-export const ExportFooter = () => {
+export const ExportFooter = ({
+  totalRoi,
+  totalInvestment
+}: {
+  totalRoi: number;
+  totalInvestment: number;
+}) => {
   return (
     <div className='card'>
       <div className='card-body footer-wrapper'>
-        {/* <div className='d-flex justify-content-start'>
-          <div>
-            <strong>Total ROI:</strong> 800 EUR
-          </div>
-          <div className='ml-3'>
-            <strong>Investment:</strong> 500 EUR
-          </div>
-        </div>
-        <div>
-          <button className='btn btn-outline-primary btn-export'>
-            Export CSV
-          </button>
-          <button className='btn btn-primary btn-export ml-3'>Export PDF</button>
-        </div> */}
         <div className='col-stats'>
           <div>
-            <strong>Total ROI:</strong> 800 EUR
+            <strong>Total ROI:</strong> {totalRoi.toLocaleString()} USD
           </div>
           <div>
-            <strong>Investment:</strong> 500 EUR
+            <strong>Investment:</strong> {totalInvestment.toLocaleString()} USD
           </div>
         </div>
         <div className='col-actions'>
