@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+lambda_fn/node_modules
+lambda_fn/.env
 
 # testing
 /coverage

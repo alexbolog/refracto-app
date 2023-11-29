@@ -1,4 +1,5 @@
 import { PaymentStatuses } from 'enums';
+import { ProjectListItem } from './projectTypes';
 
 export interface AccountOverview {
   availableBalance: number;
@@ -8,6 +9,7 @@ export interface AccountOverview {
   favoriteProjects: FavoriteProject[];
   suggestedProjects: SuggestedProject[];
   payments: Payment[];
+  investments: Investment[];
 }
 
 export interface ActiveInvestmentsStatistics {
@@ -20,7 +22,7 @@ export interface ActiveInvestmentsStatistics {
 }
 
 export interface FavoriteProject {
-  projectId: string;
+  projectId: number;
   returnPercentage: number;
   crowdfundingDeadline: string; // ISO format
   thumbnailSrc: string;
@@ -56,4 +58,10 @@ export enum InvestmentTransactionStatus {
   Pending,
   Finished,
   Cancelled
+}
+
+export interface Investment {
+  nonce: number;
+  balance: number;
+  projectInfo: ProjectListItem; // TODO: add type
 }

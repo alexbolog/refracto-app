@@ -1,5 +1,5 @@
 export interface ProjectListItem {
-  projectId: string;
+  projectId: number;
   projectTitle: string;
   returnPercentage: number;
   riskRatingLevel: string;
@@ -8,6 +8,7 @@ export interface ProjectListItem {
   crowdfundedAmount: number;
   colorCodeHex: string;
   thumbnailSrc: string;
+  tokenNonce: number;
 }
 
 export interface ActiveProjectInvestment extends ProjectListItem {
@@ -54,7 +55,7 @@ export interface SWOTAnalysis {
 
 export interface RefractoRatingItem {
   category: string;
-  assesments: string;
+  assessments: string;
 }
 
 export interface CapitalStructureItem {

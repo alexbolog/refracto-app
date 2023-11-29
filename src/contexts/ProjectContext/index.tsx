@@ -1,19 +1,27 @@
-import { useGetAccountInfo } from '@multiversx/sdk-dapp/hooks';
 import React from 'react';
-import { MarketplaceListing, ProjectListItem } from 'types/projectTypes';
+import {
+  FullProjectPageDetails,
+  MarketplaceListing,
+  ProjectListItem
+} from 'types/projectTypes';
 import useGetAvailableProjects from './hooks/useGetAvailableProjects';
 import useGetMarketplaceProjects from './hooks/useGetMarketplaceProjects';
+import { getFullProjectInfo } from 'apiRequests/backend';
 
 export interface IProjectContext {
-  isLoading: boolean;
   availableProjects: ProjectListItem[];
   marketplaceProjects: MarketplaceListing[];
+  getProjectById: (
+    projectId: number
+  ) => Promise<FullProjectPageDetails | undefined>;
+  getProjectByLoanShareNonce: (nonce: number) => ProjectListItem | undefined;
 }
 
 const defaultState: IProjectContext = {
-  isLoading: true,
   availableProjects: [],
-  marketplaceProjects: []
+  marketplaceProjects: [],
+  getProjectById: async (_) => undefined,
+  getProjectByLoanShareNonce: (_) => undefined
 };
 
 export const ProjectContext =
@@ -24,24 +32,28 @@ export const ProjectContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const {
-    account: { address }
-  } = useGetAccountInfo();
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  const availableProjects = useGetAvailableProjects();
+  const dbProjects = useGetAvailableProjects();
   const marketplaceProjects = useGetMarketplaceProjects();
 
-  React.useEffect(() => {
-    setIsLoading(false);
-  }, [address]);
+  const getProjectById = async (
+    projectId: number
+  ): Promise<FullProjectPageDetails | undefined> => {
+    return await getFullProjectInfo(projectId);
+  };
+
+  const getProjectByLoanShareNonce = (
+    nonce: number
+  ): ProjectListItem | undefined => {
+    return dbProjects.find((p) => p.tokenNonce === nonce);
+  };
 
   return (
     <ProjectContext.Provider
       value={{
-        isLoading,
-        availableProjects,
-        marketplaceProjects
+        availableProjects: dbProjects,
+        marketplaceProjects,
+        getProjectById,
+        getProjectByLoanShareNonce
       }}
     >
       {children}

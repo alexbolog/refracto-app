@@ -25,7 +25,7 @@ const RatingSelectFilter = ({
   }, [selectedRatings]);
 
   return (
-    <div className='rating-select'>
+    <div className='filter-btn rating-select'>
       <Dropdown
         options={options}
         onChange={setSelectedRatings}

@@ -1,36 +1,27 @@
-import {ActiveProjectInvestment} from '../../types/projectTypes';
-import {toLocaleStringOptions} from '../../config';
 import React from 'react';
+import { toLocaleStringOptions } from '../../config';
+import { Investment } from '../../types/accountTypes';
 
 const DonutProjectList = ({
-  chartData,
-  activeProjectInvestments,
+  investments,
   expanded
 }: {
-  chartData: {
-    datasets: {
-      backgroundColor: string[] | undefined;
-      data: number[] | undefined;
-    }[];
-    labels: string[] | undefined;
-  };
-  activeProjectInvestments: ActiveProjectInvestment[] | undefined;
+  investments: Investment[] | undefined;
   expanded: boolean;
 }) => {
   const getList = React.useCallback(() => {
-    const labels = expanded
-      ? chartData?.labels
-      : chartData?.labels?.slice(0, 5);
+    const allLabels = investments?.map((pl) => pl?.projectInfo?.projectTitle);
+    const labels = expanded ? allLabels : allLabels?.slice(0, 5);
     return labels?.map((label, idx) => {
-      const color = chartData?.datasets[0].backgroundColor?.[idx];
+      const color = investments![idx].projectInfo?.colorCodeHex;
       const roi =
-        activeProjectInvestments![idx].returnPercentage.toLocaleString(
+        (investments![idx].projectInfo.returnPercentage * 100).toLocaleString(
           undefined,
           toLocaleStringOptions
         ) + '%';
       const invested =
         '€' +
-        activeProjectInvestments![idx].amountInvested.toLocaleString(
+        investments![idx].projectInfo.crowdfundedAmount.toLocaleString(
           undefined,
           toLocaleStringOptions
         );

@@ -7,13 +7,12 @@ const useGetProjectById = () => {
   const { account: address } = useGetAccountInfo();
 
   const getProjectById = async (
-    projectId: string
+    projectId: number
   ): Promise<ProjectPageDetails | FullProjectPageDetails | undefined> => {
     const isLoggedIn = Boolean(address);
     if (isLoggedIn) {
-      return getFullProjectInfo(projectId);
     }
-    return getProjectInfo(projectId);
+    return getFullProjectInfo(projectId);
   };
 
   return getProjectById;

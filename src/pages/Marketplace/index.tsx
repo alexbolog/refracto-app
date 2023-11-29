@@ -11,11 +11,12 @@ import { getExpectedRemainingDaysFilter } from 'components/FiltersV2/Filters/Rem
 import { getPriceRangeFilter } from 'components/FiltersV2/Filters/PriceRangeFilter';
 
 const Marketplace = () => {
-  const { marketplaceProjects } = useContext(ProjectContext);
+  // const { marketplaceProjects } = useContext(ProjectContext);
 
+  const [marketplaceProjects, _] = React.useState<MarketplaceListing[]>([]);
   const [filteredProjects, setFilteredProjects] = React.useState<
     MarketplaceListing[]
-  >(marketplaceProjects);
+  >([]);
 
   const handleApplyFilters = (filteredItems: MarketplaceListing[]) => {
     setFilteredProjects(filteredItems);
@@ -67,7 +68,7 @@ const Marketplace = () => {
           marketplaceProjects.length === 0) && (
           <>
             <div className='col-12 text-center mb-5 mt-5'>
-              {marketplaceProjects.length > 0
+              {[marketplaceProjects].length > 0
                 ? 'Uh oh! Seems like no project is matching your filters'
                 : 'Ups! Please come back later. More projects coming soon.'}
             </div>

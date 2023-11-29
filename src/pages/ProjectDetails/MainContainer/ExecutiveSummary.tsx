@@ -10,7 +10,16 @@ export const ExecutiveSummary = ({
   return (
     <MobileCollapsibleSection
       header='Executive Summary'
-      body={<h6>{project.executiveSummary}</h6>}
+      body={
+        <h6>
+          {project.executiveSummary.split('<br />').map((str, i) => (
+            <>
+              {str}
+              <br />
+            </>
+          ))}
+        </h6>
+      }
     />
   );
 };

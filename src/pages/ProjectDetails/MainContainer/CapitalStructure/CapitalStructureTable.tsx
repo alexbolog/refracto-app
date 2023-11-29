@@ -27,11 +27,12 @@ export const CapitalStructureTable = ({
               <td>{row.type}</td>
               <td>{row.source}</td>
               <td>
-                {((row.amount / totalSum) * 100).toLocaleString(
-                  undefined,
-                  toLocaleStringOptions
-                )}
-                %
+                {row.amount > 0 &&
+                  ((row.amount / totalSum) * 100).toLocaleString(
+                    undefined,
+                    toLocaleStringOptions
+                  )}
+                {row.amount === 0 && '0'}%
               </td>
               <td>
                 {row.amount.toLocaleString(undefined, toLocaleStringOptions)}€
