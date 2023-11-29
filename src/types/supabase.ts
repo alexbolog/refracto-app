@@ -438,18 +438,21 @@ export interface Database {
         }[]
       }
       get_user_transactions: {
-        Args: Record<PropertyKey, never>
+        Args: {
+          function_filter: string
+        }
         Returns: {
-          amount: number | null
-          created_at: string
-          function: string
           id: number
-          project_id: number | null
-          sender: string
-          status: string
-          transfer_token: string | null
+          created_at: string
           tx_hash: string
+          sender: string
+          function: string
           tx_timestamp: number
+          amount: number
+          transfer_token: string
+          project_id: number
+          status: string
+          project_title: string
         }[]
       }
       insert_project:
