@@ -82,10 +82,13 @@ export const AccountContextProvider = ({
   const [connectionValidationStatus, setConnectionValidationStatus] = useState(
     ConnectionValidationStatus.NOT_STARTED
   );
+  const [investmentTransactions, setInvestmentTransactions] = useState<
+    InvestmentTransaction[]
+  >([]);
 
   const { accountOverview, refreshAccountOverview } = useGetAccountOverview();
   const profileInfo = useGetProfileInfo();
-  const investmentTransactions = useGetInvestmentTransactions();
+  const getInvestmentTransactions = useGetInvestmentTransactions();
   const { hasPendingTransactions } = useGetPendingTransactions();
 
   useEffect(() => {
@@ -106,6 +109,12 @@ export const AccountContextProvider = ({
     }
     getNewAuthToken().then((newToken) => {
       setAuthToken(newToken ?? '');
+    });
+  }, [address, isLoggedIn]);
+
+  useEffect(() => {
+    getInvestmentTransactions().then((data) => {
+      setInvestmentTransactions(data);
     });
   }, [address, isLoggedIn]);
 
