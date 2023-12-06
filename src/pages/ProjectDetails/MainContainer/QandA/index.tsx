@@ -23,7 +23,6 @@ export const QandA = ({ project }: { project: FullProjectPageDetails }) => {
       newObj.children = children;
       parsed.push(newObj);
     }
-    console.log(parsed);
     return parsed;
   };
   useEffect(() => {

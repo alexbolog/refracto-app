@@ -9,9 +9,7 @@ import { DateTime } from 'luxon';
 const PaymentStatusContainer = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { accountOverview } = useContext(AccountContext);
-  useEffect(() => {
-    console.log(accountOverview?.payments);
-  }, []);
+
   return (
     <div className='col-12'>
       <div className='card'>

@@ -10,7 +10,6 @@ const useGetAvailableProjects = () => {
   useSupabaseRealtime({
     channel: 'Projects',
     onAll: () => {
-      console.log('REALTIME TRIGGERED UPDATE PROJECTS');
       updateProjects();
     }
   });
