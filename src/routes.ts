@@ -26,7 +26,7 @@ export const routeNames = {
   marketplace: '/marketplace',
 
   // reports: '/reports',
-  // transactions: '/transactions',
+  transactions: '/transactions',
   // agreements: '/agreements',
   account: '/profile',
 
@@ -95,14 +95,14 @@ const routes: Array<any> = [
   //   displayInNavbar: true,
   //   icon: ReportsIcon
   // },
-  // {
-  //   path: routeNames.transactions,
-  //   title: 'Transactions',
-  //   component: Transactions,
-  //   authenticatedRoute: true,
-  //   displayInNavbar: true,
-  //   icon: TransactionsIcon
-  // },
+  {
+    path: routeNames.transactions,
+    title: 'Transactions',
+    component: Transactions,
+    authenticatedRoute: true,
+    displayInNavbar: true,
+    icon: TransactionsIcon
+  },
   // {
   //   path: routeNames.agreements,
   //   title: 'Agreements',

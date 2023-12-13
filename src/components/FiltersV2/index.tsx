@@ -82,6 +82,7 @@ export const FiltersV2 = ({
 
   const applyFiltersAndSearchBar = (newFilters: { [key: string]: any }) => {
     const filtered = applyFilters(newFilters);
+    console.log('filtered', filtered);
     return filtered.filter((f: any) =>
       f.projectTitle.includes(searchBarContent)
     );

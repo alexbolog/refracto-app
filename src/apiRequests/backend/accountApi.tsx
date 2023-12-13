@@ -1,4 +1,8 @@
-import { AccountOverview, Investment } from 'types/accountTypes';
+import {
+  AccountOverview,
+  Investment,
+  InvestmentTransaction
+} from 'types/accountTypes';
 import { ActiveProjectInvestment } from 'types/projectTypes';
 import accountOverview from '../../dbNew/accountOverview.json';
 import projectDetails from '../../dbNew/projectList.json';
@@ -11,6 +15,7 @@ import {
   getAccountSharesBalance
 } from 'apiRequests/multiversx';
 import BigNumber from 'bignumber.js';
+import transactionList from '../../dbNew/transactions.json';
 
 export const getAccountOverviewObsolete = (): AccountOverview => {
   const response = accountOverview as any as AccountOverview;
@@ -73,4 +78,12 @@ export const getSupabaseAuthHeaders = async (
     console.log('wallet auth err', err);
   }
   return false;
+};
+
+export const getInvestmentTransactions = (): InvestmentTransaction[] => {
+  return transactionList.map((tl) => {
+    const obj = tl as InvestmentTransaction;
+    obj.type = 'DEPOSIT';
+    return obj;
+  });
 };

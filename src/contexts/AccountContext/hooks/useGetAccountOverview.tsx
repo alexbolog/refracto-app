@@ -63,10 +63,8 @@ const useGetAccountOverview = () => {
   };
 
   const getAccountSharesData = async (sharesBalance: any[]) => {
-    console.log('All available project', projectContext.availableProjects);
     const investments: Investment[] = [];
     for (let i = 0; i < sharesBalance.length; i++) {
-      console.log('Share investment', sharesBalance[i]);
       const shareBalance = sharesBalance[i];
       const project = projectContext.getProjectByLoanShareNonce(
         shareBalance.nonce

@@ -7,11 +7,12 @@ import {
 } from '@multiversx/sdk-dapp/hooks';
 import useGetAccountOverview from './hooks/useGetAccountOverview';
 import React, { useEffect, useState } from 'react';
-import { AccountOverview } from 'types/accountTypes';
+import { AccountOverview, InvestmentTransaction } from 'types/accountTypes';
 import { ActiveProjectInvestment } from 'types/projectTypes';
 import { AVAILABLE_CURRENCIES } from 'enums';
 import { ProfileInfo } from './types/ProfileInfo';
 import useGetProfileInfo from './hooks/useGetAccountInfo';
+import useGetInvestmentTransactions from './hooks/useGetInvestmentTransactions';
 import { getNewAuthToken } from 'apiRequests/backend/accountApi';
 import { ConnectionValidationStatus } from 'pages/UnlockPage/components/AuthenticationModal';
 import { getAccountBalance } from '@multiversx/sdk-dapp/utils';
@@ -28,6 +29,7 @@ export interface IAccountContext {
   selectedCurrency: AVAILABLE_CURRENCIES;
   setSelectedCurrency: (newCurrency: AVAILABLE_CURRENCIES) => void;
   profileInfo: ProfileInfo;
+  investmentTransactions: InvestmentTransaction[];
   authToken: string;
   connectionValidationStatus: ConnectionValidationStatus;
   setConnectionValidationStatus: (
@@ -48,6 +50,7 @@ const defaultState: IAccountContext = {
     lastName: '',
     profilePictureSrc: ''
   },
+  investmentTransactions: [],
   authToken: '',
   connectionValidationStatus: ConnectionValidationStatus.NOT_STARTED,
   setConnectionValidationStatus: (_) => {
@@ -79,9 +82,13 @@ export const AccountContextProvider = ({
   const [connectionValidationStatus, setConnectionValidationStatus] = useState(
     ConnectionValidationStatus.NOT_STARTED
   );
+  const [investmentTransactions, setInvestmentTransactions] = useState<
+    InvestmentTransaction[]
+  >([]);
 
   const { accountOverview, refreshAccountOverview } = useGetAccountOverview();
   const profileInfo = useGetProfileInfo();
+  const getInvestmentTransactions = useGetInvestmentTransactions();
   const { hasPendingTransactions } = useGetPendingTransactions();
 
   useEffect(() => {
@@ -105,6 +112,12 @@ export const AccountContextProvider = ({
     });
   }, [address, isLoggedIn]);
 
+  useEffect(() => {
+    getInvestmentTransactions().then((data) => {
+      setInvestmentTransactions(data);
+    });
+  }, [address, isLoggedIn]);
+
   return (
     <AccountContext.Provider
       value={{
@@ -117,6 +130,7 @@ export const AccountContextProvider = ({
           setSelectedCurrency(newCurrency);
         },
         profileInfo,
+        investmentTransactions,
         authToken,
         connectionValidationStatus,
         setConnectionValidationStatus,
