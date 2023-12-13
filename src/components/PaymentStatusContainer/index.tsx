@@ -9,9 +9,7 @@ import { DateTime } from 'luxon';
 const PaymentStatusContainer = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { accountOverview } = useContext(AccountContext);
-  useEffect(() => {
-    console.log(accountOverview?.payments);
-  }, []);
+
   return (
     <div className='col-12'>
       <div className='card'>
@@ -47,7 +45,7 @@ const PaymentStatusContainer = () => {
               <PaymentStatusEntry
                 paymentStatus={p.paymentStatus}
                 amount={p.paymentAmount}
-                projectName={p.projectTitle}
+                projectTitle={p.projectTitle}
                 date={formatIso(p.date, DateTime.DATE_FULL)}
                 key={`payment-status-${p.projectId}-${i}`}
               />

@@ -15,7 +15,6 @@ import { ProjectContext } from 'contexts/ProjectContext';
 export const Invest = () => {
   const getProjectId = () => {
     const pathItems = document.location.pathname.split('/');
-    console.log(pathItems);
     if (pathItems.length === 3) {
       return pathItems[2];
     }

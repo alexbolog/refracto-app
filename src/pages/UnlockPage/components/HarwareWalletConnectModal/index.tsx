@@ -22,7 +22,6 @@ export const HarwareWalletConnectModal = ({
   );
 
   const handleSelectAddress = () => {
-    console.log('selected index', selectedIndex);
     if (selectedIndex >= 0) {
       onSelectAddress(selectedIndex);
       setShowConfirmationMessage(true);
@@ -44,7 +43,6 @@ export const HarwareWalletConnectModal = ({
   }, [errorMessage]);
 
   useEffect(() => {
-    console.log('addresses', addresses);
     if (addresses.length > 0) {
       setCurrentStatus(StatusTypes.SELECT_ADDRESS);
     }

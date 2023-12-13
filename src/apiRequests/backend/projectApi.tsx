@@ -30,14 +30,12 @@ export const getProjectInfo = async (
 export const getFullProjectInfo = async (
   projectId: number
 ): Promise<FullProjectPageDetails | undefined> => {
-  console.log('supabase auth session', await supabase.auth.getSession());
   const { data, error } = await supabase.rpc('get_project_details_by_id', {
     p_id: projectId
   });
   if (error) {
     console.log('Fetch project id error', error);
   }
-  console.log('Fetch project response', data);
   return parseProjectInfo(data);
 };
 
@@ -45,7 +43,6 @@ const parseProjectInfo = (
   projectResponse: any
 ): FullProjectPageDetails | undefined => {
   const project = projectResponse[0];
-  console.log('parseProjectInfo', project);
   const parsed = {
     projectId: project.id,
     projectTitle: project.title,
@@ -75,9 +72,9 @@ const parseProjectInfo = (
     repaymentSchedule: [], // project.repaymentSchedule, // TODO
     financingDetails: project.financingdetails,
     attachmentUrls: project.attachmenturls,
-    questionsAndAnswers: [] // project.questionsAndAnswers //TODO
+    questionsAndAnswers: [], // project.questionsAndAnswers //TODO
+    tokenNonce: project.sharetokennnoce
   };
-  console.log('Parsed project details', parsed);
   return parsed;
 };
 
