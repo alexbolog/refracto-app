@@ -75,7 +75,8 @@ const parseProjectInfo = (
     repaymentSchedule: [], // project.repaymentSchedule, // TODO
     financingDetails: project.financingdetails,
     attachmentUrls: project.attachmenturls,
-    questionsAndAnswers: [] // project.questionsAndAnswers //TODO
+    questionsAndAnswers: [], // project.questionsAndAnswers //TODO
+    tokenNonce: project.sharetokennnoce
   };
   console.log('Parsed project details', parsed);
   return parsed;

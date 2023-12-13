@@ -149,6 +149,7 @@ const parseProjectListResponse = (
     crowdfundedamount: number;
     colorcodehex: string;
     thumbnailsrc: string;
+    sharetokennonce: number;
   }[]
 ): ProjectListItem[] => {
   return response.map((r) => ({
@@ -160,6 +161,7 @@ const parseProjectListResponse = (
     crowdfundingTarget: r.crowdfundingtarget,
     crowdfundedAmount: r.crowdfundedamount,
     colorCodeHex: r.colorcodehex,
-    thumbnailSrc: r.thumbnailsrc
+    thumbnailSrc: r.thumbnailsrc,
+    tokenNonce: r.sharetokennonce
   }));
 };

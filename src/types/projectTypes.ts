@@ -8,6 +8,7 @@ export interface ProjectListItem {
   crowdfundedAmount: number;
   colorCodeHex: string;
   thumbnailSrc: string;
+  tokenNonce: number;
 }
 
 export interface ActiveProjectInvestment extends ProjectListItem {

@@ -47,6 +47,7 @@ export interface Database {
           {
             foreignKeyName: "FavoriteProjects_projectId_fkey"
             columns: ["projectId"]
+            isOneToOne: false
             referencedRelation: "Projects"
             referencedColumns: ["id"]
           }
@@ -78,6 +79,7 @@ export interface Database {
           {
             foreignKeyName: "MarketplaceListings_projectId_fkey"
             columns: ["projectId"]
+            isOneToOne: false
             referencedRelation: "Projects"
             referencedColumns: ["id"]
           }
@@ -116,6 +118,7 @@ export interface Database {
           details: string
           executiveSummary: string
           financingDetails: string
+          holders: number
           id: number
           images: string[]
           investmentType: Database["public"]["Enums"]["investmenttype"]
@@ -127,6 +130,7 @@ export interface Database {
             | null
           returnPercentage: number
           RiskRatingLevel: Database["public"]["Enums"]["riskratinglevel"]
+          shareTokenNonce: number
           shortDescription: string
           sponsorInfo: string
           thumbnailSrc: string
@@ -148,6 +152,7 @@ export interface Database {
           details: string
           executiveSummary: string
           financingDetails: string
+          holders?: number
           id?: number
           images: string[]
           investmentType: Database["public"]["Enums"]["investmenttype"]
@@ -159,6 +164,7 @@ export interface Database {
             | null
           returnPercentage: number
           RiskRatingLevel?: Database["public"]["Enums"]["riskratinglevel"]
+          shareTokenNonce?: number
           shortDescription: string
           sponsorInfo: string
           thumbnailSrc: string
@@ -180,6 +186,7 @@ export interface Database {
           details?: string
           executiveSummary?: string
           financingDetails?: string
+          holders?: number
           id?: number
           images?: string[]
           investmentType?: Database["public"]["Enums"]["investmenttype"]
@@ -191,6 +198,7 @@ export interface Database {
             | null
           returnPercentage?: number
           RiskRatingLevel?: Database["public"]["Enums"]["riskratinglevel"]
+          shareTokenNonce?: number
           shortDescription?: string
           sponsorInfo?: string
           thumbnailSrc?: string
@@ -200,6 +208,7 @@ export interface Database {
           {
             foreignKeyName: "Projects_ProjectDeveloperId_fkey"
             columns: ["ProjectDeveloperId"]
+            isOneToOne: false
             referencedRelation: "ProjectDevelopers"
             referencedColumns: ["id"]
           }
@@ -234,6 +243,7 @@ export interface Database {
           {
             foreignKeyName: "QandAs_parentId_fkey"
             columns: ["parentId"]
+            isOneToOne: false
             referencedRelation: "QandAs"
             referencedColumns: ["id"]
           }
@@ -271,6 +281,7 @@ export interface Database {
           {
             foreignKeyName: "repaymentSchedules_projectid_fkey"
             columns: ["projectid"]
+            isOneToOne: false
             referencedRelation: "Projects"
             referencedColumns: ["id"]
           }
@@ -291,14 +302,14 @@ export interface Database {
       check_nonce_string:
         | {
             Args: {
-              input_nonce: string
+              input_address: string
+              input_hashed_message: string
             }
             Returns: boolean
           }
         | {
             Args: {
-              input_address: string
-              input_hashed_message: string
+              input_nonce: string
             }
             Returns: boolean
           }
@@ -308,13 +319,13 @@ export interface Database {
       }
       generate_nonce_string:
         | {
-            Args: {
-              address: string
-            }
+            Args: Record<PropertyKey, never>
             Returns: string
           }
         | {
-            Args: Record<PropertyKey, never>
+            Args: {
+              address: string
+            }
             Returns: string
           }
       get_favorite_projects: {
@@ -358,6 +369,7 @@ export interface Database {
           capitalstructure: Database["public"]["CompositeTypes"]["capital_structure_item"][]
           financingdetails: string
           attachmenturls: string[]
+          sharetokennonce: number
         }[]
       }
       insert_project:
@@ -428,12 +440,22 @@ export interface Database {
           crowdfundedamount: number
           colorcodehex: string
           thumbnailsrc: string
+          sharetokennonce: number
         }[]
       }
       remove_favorite_project: {
         Args: {
           wallet: string
           proj_id: number
+        }
+        Returns: undefined
+      }
+      update_project_sc_data: {
+        Args: {
+          _projectid: number
+          _amount: number
+          _holderscount: number
+          _sharetokennonce: number
         }
         Returns: undefined
       }

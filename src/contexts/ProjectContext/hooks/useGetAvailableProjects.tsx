@@ -5,9 +5,18 @@ import { ProjectListItem } from 'types/projectTypes';
 const useGetAvailableProjects = () => {
   const [activeProjectInvestments, setActiveProjectInvestments] =
     React.useState<ProjectListItem[]>([]);
+
   useEffect(() => {
-    getAvailableProjects().then((res) => setActiveProjectInvestments(res));
+    updateProjects();
+    const interval = setInterval(() => {
+      updateProjects();
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
+
+  const updateProjects = () => {
+    getAvailableProjects().then((res) => setActiveProjectInvestments(res));
+  };
 
   return activeProjectInvestments;
 };
