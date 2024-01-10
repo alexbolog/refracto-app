@@ -4,7 +4,7 @@ import {
   MarketplaceListing,
   ProjectListItem
 } from 'types/projectTypes';
-import useGetAvailableProjects from './hooks/useGetAvailableProjects';
+import useGetProjects from './hooks/useGetProjects';
 import useGetMarketplaceProjects from './hooks/useGetMarketplaceProjects';
 import { getFullProjectInfo } from 'apiRequests/backend';
 
@@ -32,7 +32,7 @@ export const ProjectContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const dbProjects = useGetAvailableProjects();
+  const dbProjects = useGetProjects();
   const marketplaceProjects = useGetMarketplaceProjects();
 
   const getProjectById = async (

@@ -3,7 +3,7 @@ import { useSupabaseRealtime } from 'hooks/supabase/useSupabaseRealtime';
 import React, { useEffect } from 'react';
 import { ProjectListItem } from 'types/projectTypes';
 
-const useGetAvailableProjects = () => {
+const useGetProjects = () => {
   const [activeProjectInvestments, setActiveProjectInvestments] =
     React.useState<ProjectListItem[]>([]);
 
@@ -25,4 +25,4 @@ const useGetAvailableProjects = () => {
   return activeProjectInvestments;
 };
 
-export default useGetAvailableProjects;
+export default useGetProjects;
