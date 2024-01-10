@@ -9,7 +9,6 @@ import useGetMarketplaceProjects from './hooks/useGetMarketplaceProjects';
 import { getFullProjectInfo } from 'apiRequests/backend';
 
 export interface IProjectContext {
-  availableProjects: ProjectListItem[];
   marketplaceProjects: MarketplaceListing[];
   getProjectById: (
     projectId: number
@@ -18,7 +17,6 @@ export interface IProjectContext {
 }
 
 const defaultState: IProjectContext = {
-  availableProjects: [],
   marketplaceProjects: [],
   getProjectById: async (_) => undefined,
   getProjectByLoanShareNonce: (_) => undefined
@@ -50,7 +48,6 @@ export const ProjectContextProvider = ({
   return (
     <ProjectContext.Provider
       value={{
-        availableProjects: activeProjects,
         marketplaceProjects,
         getProjectById,
         getProjectByLoanShareNonce

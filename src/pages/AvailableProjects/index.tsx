@@ -5,33 +5,34 @@ import { Project } from './Project';
 import { ProjectListItem } from 'types/projectTypes';
 import { ReactComponent as EmptyPageScreen } from './../../assets/icons/refracto/empty-page-available-projects.svg';
 import { FiltersV2 } from 'components/FiltersV2';
+import useGetProjects from 'contexts/ProjectContext/hooks/useGetProjects';
 
 const AvailableProjects = () => {
-  const { availableProjects } = useContext(ProjectContext);
+  const { activeProjects } = useGetProjects();
 
   const [filteredProjects, setFilteredProjects] =
-    useState<ProjectListItem[]>(availableProjects);
+    useState<ProjectListItem[]>(activeProjects);
 
   const handleApplyFilters = (filteredItems: ProjectListItem[]) => {
     setFilteredProjects(filteredItems);
   };
 
   React.useEffect(() => {
-    setFilteredProjects(availableProjects);
-  }, [availableProjects]);
+    setFilteredProjects(activeProjects);
+  }, [activeProjects]);
 
   return (
     <div className='container-fluid w-100 p-0'>
       <div className='row'>
-        {availableProjects.length > 0 && (
+        {activeProjects.length > 0 && (
           <div className='col-12'>
             <FiltersV2
-              items={availableProjects}
+              items={activeProjects}
               onFilterChange={handleApplyFilters}
             />
           </div>
         )}
-        {availableProjects.length === 0 && (
+        {activeProjects.length === 0 && (
           <div className='col-12'>
             <h1>Available Projects</h1>
           </div>
@@ -46,15 +47,15 @@ const AvailableProjects = () => {
               <Project project={p} />
             </div>
           ))}
-        {(filteredProjects.length === 0 || availableProjects.length === 0) && (
+        {(filteredProjects.length === 0 || activeProjects.length === 0) && (
           <>
             <div className='col-12 text-center mb-5 mt-5'>
-              {availableProjects.length > 0
+              {activeProjects.length > 0
                 ? 'Uh oh! Seems like no project is matching your filters'
                 : 'Ups! Please come back later. More projects coming soon.'}
             </div>
             <div className='col-12 text-center'>
-              {availableProjects.length === 0 && (
+              {activeProjects.length === 0 && (
                 <h1 className='text-primary' role='button'>
                   Meanwhile, Check Our Demo!
                 </h1>

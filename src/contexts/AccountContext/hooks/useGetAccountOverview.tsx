@@ -19,10 +19,13 @@ import {
   getAccruedInterest,
   getExpectedReturnAmount
 } from 'utils';
+import useGetProjects from 'contexts/ProjectContext/hooks/useGetProjects';
 
 const useGetAccountOverview = () => {
   const [accountOverview, setAccountOverview] =
     React.useState<AccountOverview>();
+  const { allProjects } = useGetProjects();
+
   const { address } = useGetAccountInfo();
   useEffect(() => {
     getAccountOverview().then((data) => setAccountOverview(data));
@@ -32,7 +35,7 @@ const useGetAccountOverview = () => {
 
   useEffect(() => {
     refreshAccountOverview();
-  }, [projectContext.availableProjects]);
+  }, [allProjects]);
 
   const getAccountOverview = async (): Promise<AccountOverview> => {
     const cashBalance = denominatedAmountToAmount(

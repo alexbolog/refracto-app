@@ -11,6 +11,7 @@ import { ProjectSpecs } from 'components/ProjectSpecs';
 import { InvestmentCard } from './InvestmentCard';
 import './style.css';
 import { ProjectContext } from 'contexts/ProjectContext';
+import useGetProjects from 'contexts/ProjectContext/hooks/useGetProjects';
 
 export const Invest = () => {
   const getProjectId = () => {
@@ -22,8 +23,10 @@ export const Invest = () => {
   };
   const [projectId, _] = useState(getProjectId());
 
-  const { getProjectById, availableProjects } = useContext(ProjectContext);
+  const { getProjectById } = useContext(ProjectContext);
   const navigate = useNavigate();
+
+  const { allProjects } = useGetProjects();
 
   useEffect(() => {
     getProjectById(parseInt(projectId)).then((res) => {
@@ -34,7 +37,7 @@ export const Invest = () => {
       }
       setProjectDetails(res);
     });
-  }, [projectId, availableProjects]);
+  }, [projectId, allProjects]);
 
   const [projectDetails, setProjectDetails] = useState<ProjectPageDetails>();
   // TODO: add loading

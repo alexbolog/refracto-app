@@ -6,6 +6,7 @@ import './style.css';
 import { ProjectContext } from 'contexts/ProjectContext';
 import { useNavigate } from 'react-router-dom';
 import { routeNames } from 'routes';
+import useGetProjects from 'contexts/ProjectContext/hooks/useGetProjects';
 
 const ProjectDetails = () => {
   const getProjectId = () => {
@@ -17,8 +18,9 @@ const ProjectDetails = () => {
   };
 
   const [projectId, _] = useState(getProjectId());
-  const { getProjectById, availableProjects } = useContext(ProjectContext);
+  const { getProjectById } = useContext(ProjectContext);
   const navigate = useNavigate();
+  const { allProjects } = useGetProjects();
 
   useEffect(() => {
     getProjectById(parseInt(projectId)).then((res) => {
@@ -29,7 +31,7 @@ const ProjectDetails = () => {
       }
       setProjectDetails(res);
     });
-  }, [projectId, availableProjects]);
+  }, [projectId, allProjects]);
 
   const [projectDetails, setProjectDetails] = useState<ProjectPageDetails>();
 
