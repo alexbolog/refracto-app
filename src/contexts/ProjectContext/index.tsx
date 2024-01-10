@@ -30,7 +30,7 @@ export const ProjectContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const { activeProjects } = useGetProjects();
+  const { allProjects } = useGetProjects();
   const marketplaceProjects = useGetMarketplaceProjects();
 
   const getProjectById = async (
@@ -42,7 +42,7 @@ export const ProjectContextProvider = ({
   const getProjectByLoanShareNonce = (
     nonce: number
   ): ProjectListItem | undefined => {
-    return activeProjects.find((p) => p.tokenNonce === nonce);
+    return allProjects.find((p) => p.tokenNonce === nonce);
   };
 
   return (
