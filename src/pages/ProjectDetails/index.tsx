@@ -10,7 +10,6 @@ import { routeNames } from 'routes';
 const ProjectDetails = () => {
   const getProjectId = () => {
     const pathItems = document.location.pathname.split('/');
-    console.log(pathItems);
     if (pathItems.length === 3) {
       return pathItems[2];
     }
