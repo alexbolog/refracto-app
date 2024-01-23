@@ -3,13 +3,25 @@ import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ProjectPageDetails } from 'types/projectTypes';
 import { ImageGallery } from 'components/ImageGallery';
+import {
+  faArrowAltCircleLeft,
+  faArrowLeft,
+  faArrowRightArrowLeft
+} from '@fortawesome/free-solid-svg-icons';
 
 export const HeaderCard = ({ project }: { project: ProjectPageDetails }) => {
   return (
     <div className='card project-details-header-card'>
       <div className='card-header b-0'>
         <div className='main-card-header'>
-          <h1>{project.projectTitle}</h1>
+          <h1>
+            <FontAwesomeIcon
+              icon={faArrowLeft as any}
+              size='sm'
+              className='mr-2'
+            />
+            {project.projectTitle}
+          </h1>
           <h6>{project.shortDescription.substring(0, 150)}</h6>
           <button className='btn btn-social fb'>
             <FontAwesomeIcon icon={faFacebook as any} />
