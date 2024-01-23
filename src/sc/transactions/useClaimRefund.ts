@@ -5,13 +5,14 @@ import React from 'react';
 import { useGetSmartContract } from 'sc/helpers/hooks/useGetSmartContract';
 import { useSendTransactionWrapper } from 'sc/helpers/hooks/useSendTransactionWrapper';
 
-export const useClaim = () => {
+export const useClaimRefund = () => {
   const contract = useGetSmartContract();
   const sendTx = useSendTransactionWrapper();
   const { address } = useGetAccountInfo();
-  const invest = async (tokenNonce: number, amount: number) => {
+
+  const claim = async (tokenNonce: number, amount: number) => {
     const interaction = contract.methods
-      .claim([])
+      .claimRefund([])
       .withSingleESDTNFTTransfer(
         TokenPayment.metaEsdtFromAmount(
           REFRACTO_LOAN_SHARE_TOKEN_ID,
@@ -25,5 +26,5 @@ export const useClaim = () => {
     await sendTx(interaction);
   };
 
-  return invest;
+  return claim;
 };

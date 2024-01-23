@@ -2,7 +2,7 @@ import { DateTime } from 'luxon';
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { routeNames } from 'routes';
-import { useClaim } from 'sc/transactions/useClaim';
+import { useClaimRefund } from 'sc/transactions/useClaimRefund';
 import { Investment } from 'types/accountTypes';
 
 interface ISpecsActionButtonProps {
@@ -24,7 +24,7 @@ export const SpecsActionButton = ({
   isTargetReached,
   investments
 }: ISpecsActionButtonProps) => {
-  const claimFunds = useClaim();
+  const claimFunds = useClaimRefund();
 
   if (!isExpired && !isTargetReached) {
     return (
