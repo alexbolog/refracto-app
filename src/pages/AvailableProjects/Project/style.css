@@ -138,7 +138,7 @@
     .project-specs-wrapper {
         justify-content: center;
         flex-direction: column;
-        margin-top: 34px;
+        /* margin-top: 34px; */
     }
 
     .project-info-title {

@@ -144,7 +144,7 @@ button.btn-social {
 
 .proj-specs-container {
     position: sticky;
-    /* top: 13%; */
+    top: calc(4.375rem + 1.875rem);
     display: flex !important;
 }
 
