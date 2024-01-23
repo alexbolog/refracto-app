@@ -93,66 +93,6 @@ export const FiltersV2 = ({
   }, [searchBarContent]);
 
   return (
-    // <div className='container-fluid p-0'>
-    //   <div className='row'>
-    //     <div className='col-12'>
-    //       <div className='card w-100 filter-card-wrapper'>
-    //         <div className='card-body border-0 filter-box-wrapper row'>
-    //           <div className='filter-input-box col-11 col-xl-6'>
-    //             <div className='input-group search-bar-container'>
-    //               <span className='input-group-text search-icon'>
-    //                 <FontAwesomeIcon
-    //                   icon={faMagnifyingGlass}
-    //                   className='text-primary'
-    //                 />
-    //               </span>
-    //               <input
-    //                 type='text'
-    //                 className='form-control h-100 search-bar-input'
-    //                 placeholder='Search for a project'
-    //                 onChange={(e) => setSearchBarContent(e.target.value)}
-    //               />
-    //             </div>
-    //           </div>
-    //           <div className='d-flex justify-content-end filter-box-buttons col-1 col-xl-6'>
-    //             {enabledFilters.map((f, i) => (
-    //               <div key={`filter-box-item-${i}-${f.id}`}>
-    //                 {f.filterComponent(f.defaultState, updateFilterState(f.id))}
-    //               </div>
-    //             ))}
-    //             <div className='filter-box-settings-btn'>
-    //               <button
-    //                 className='btn btn-settings'
-    //                 onClick={() => setShowModal(true)}
-    //               >
-    //                 <SettingsIcon />
-    //               </button>
-    //             </div>
-    //             <FiltersModal
-    //               showModal={showModal}
-    //               onDismissModal={() => setShowModal(false)}
-    //               filters={enabledFilters}
-    //               filterState={filterState}
-    //               clearFilter={clearFilter}
-    //               updateFilterState={updateFilterState}
-    //             />
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <div className='col-12 applied-filters-container'>
-    //       {enabledFilters.map((f, idx) =>
-    //         filterState[f.id] === undefined
-    //           ? null
-    //           : f.appliedFilterComponent(
-    //               filterState[f.id],
-    //               () => clearFilter(f),
-    //               false
-    //             )
-    //       )}
-    //     </div>
-    //   </div>
-    // </div>
     <div className='container-fluid p-0'>
       <div className='row'>
         <div className='col-12'>
