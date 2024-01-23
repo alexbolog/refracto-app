@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 export const RiskBox = ({
   riskLevel,
-  sm
+  size
 }: {
   riskLevel: string;
-  sm?: boolean;
+  size?: 'sm' | 'lg';
 }) => {
   enum RiskLevel {
     None,
@@ -23,8 +23,11 @@ export const RiskBox = ({
   const [risk] = useState<RiskLevel>(parseRiskLevel());
   const riskBadgeStyling = () => {
     let css = 'badge badge-pill ';
-    if (sm) {
-        css += 'badge-sm ';
+    if (size === 'sm') {
+      css += 'badge-sm ';
+    }
+    if (size === 'lg') {
+      css += 'badge-lg ';
     }
     switch (risk) {
       case RiskLevel.None:
