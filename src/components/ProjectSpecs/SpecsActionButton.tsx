@@ -18,6 +18,12 @@ interface ISpecsActionButtonProps {
 // deny
 // - nothing - expired && !isInvested
 // - withdraw investment (cf failed, redirect to portfolio) - expired && !isTargetReached && isInvested
+
+// TODO: add status on project and use that instead of above booleans
+// We must treat the following cases:
+// - invest if possible
+// - withdraw investment if possible (cf failed - withdraw everything - or investment is in cool-off - withdraw only what's still in cool-off)
+// - nothing if not possible (expired && !isInvested)
 export const SpecsActionButton = ({
   projectId,
   isExpired,
@@ -48,17 +54,23 @@ export const SpecsActionButton = ({
     );
   }
 
+  if (investments.length && !isTargetReached) {
+    return (
+      <button
+        className='btn btn-primary btn-invest'
+        onClick={() =>
+          claimFunds(
+            investments[0].nonce,
+            investments.reduce((prev, crt) => (prev += crt.balance), 0)
+          )
+        }
+      >
+        Withdraw investment
+      </button>
+    );
+  }
+
   return (
-    <button
-      className='btn btn-primary btn-invest'
-      onClick={() =>
-        claimFunds(
-          investments[0].nonce,
-          investments.reduce((prev, crt) => (prev += crt.balance), 0)
-        )
-      }
-    >
-      Withdraw investment
-    </button>
+    <button className='btn btn-primary btn-invest disabled'>Invest</button>
   );
 };
