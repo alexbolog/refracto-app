@@ -180,6 +180,7 @@ export interface Database {
           shareTokenNonce: number
           shortDescription: string
           sponsorInfo: string
+          status: number
           thumbnailSrc: string
           title: string
         }
@@ -214,6 +215,7 @@ export interface Database {
           shareTokenNonce?: number
           shortDescription: string
           sponsorInfo: string
+          status?: number
           thumbnailSrc: string
           title: string
         }
@@ -248,6 +250,7 @@ export interface Database {
           shareTokenNonce?: number
           shortDescription?: string
           sponsorInfo?: string
+          status?: number
           thumbnailSrc?: string
           title?: string
         }
@@ -526,6 +529,7 @@ export interface Database {
               thumbnailsrc: string
               sharetokennonce: number
               holders: number
+              status: number
             }[]
           }
         | {
@@ -558,15 +562,26 @@ export interface Database {
         }
         Returns: undefined
       }
-      update_project_sc_data: {
-        Args: {
-          _projectid: number
-          _amount: number
-          _holderscount: number
-          _sharetokennonce: number
-        }
-        Returns: undefined
-      }
+      update_project_sc_data:
+        | {
+            Args: {
+              _projectid: number
+              _amount: number
+              _holderscount: number
+              _sharetokennonce: number
+            }
+            Returns: undefined
+          }
+        | {
+            Args: {
+              _projectid: number
+              _amount: number
+              _holderscount: number
+              _sharetokennonce: number
+              _status: number
+            }
+            Returns: undefined
+          }
     }
     Enums: {
       assetclass: "Residential" | "Industrial" | "Commercial"
