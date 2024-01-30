@@ -30,7 +30,7 @@ const Overview = () => {
       document.referrer.startsWith(window.location.origin) &&
       isLastUrlSegmentEqualTo('unlock');
     if (fromLogin) {
-      console.log('User successfully logged in');
+      // console.log('User successfully logged in');
       ReactGA.event({
         category: 'engagement',
         action: 'login_2',

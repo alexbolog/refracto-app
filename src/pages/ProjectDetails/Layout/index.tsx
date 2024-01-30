@@ -14,7 +14,7 @@ export const ProjectDetailsLayout = ({
 }) => {
   return (
     <div className='row'>
-      <div className='col-lg-12'>
+      {/* <div className='col-lg-12'>
         <h3 className='breadcrumbs'>
           <Link to={routeNames.home} className='main'>
             All Projects
@@ -22,7 +22,7 @@ export const ProjectDetailsLayout = ({
           <FontAwesomeIcon icon={faChevronRight} className='sepz' />
           {project.projectTitle}
         </h3>
-      </div>
+      </div> */}
       <div className='col-lg-8 col-md-12 col-sm-12'>
         <MainContainer project={project} />
       </div>

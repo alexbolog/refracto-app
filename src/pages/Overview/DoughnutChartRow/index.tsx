@@ -6,8 +6,6 @@ import { DonutChartType } from '../../../enums';
 const DoughnutChartRow = () => {
   const { accountOverview, isLoading } = useContext(AccountContext);
 
-  console.log('Investments on this account', accountOverview?.investments);
-
   return (
     <>
       {accountOverview?.investments && (
