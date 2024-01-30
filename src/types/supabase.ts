@@ -430,6 +430,7 @@ export interface Database {
           financingdetails: string
           attachmenturls: string[]
           sharetokennonce: number
+          status: number
         }[]
       }
       get_unprocessed_transaction_hashes: {

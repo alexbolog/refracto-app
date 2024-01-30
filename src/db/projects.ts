@@ -1,5 +1,5 @@
 import { supabase } from 'apiRequests/supabaseClient';
-import { ProjectListItem } from 'types/projectTypes';
+import { ProjectFundingStatus, ProjectListItem } from 'types/projectTypes';
 import { Database } from 'types/supabase';
 
 export async function insertProject(
@@ -150,6 +150,7 @@ const parseProjectListResponse = (
     colorcodehex: string;
     thumbnailsrc: string;
     sharetokennonce: number;
+    status?: number;
   }[]
 ): ProjectListItem[] => {
   return response.map((r) => ({
@@ -162,6 +163,7 @@ const parseProjectListResponse = (
     crowdfundedAmount: r.crowdfundedamount,
     colorCodeHex: r.colorcodehex,
     thumbnailSrc: r.thumbnailsrc,
-    tokenNonce: r.sharetokennonce
+    tokenNonce: r.sharetokennonce,
+    status: (r.status ?? 0) as ProjectFundingStatus
   }));
 };

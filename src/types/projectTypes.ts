@@ -9,6 +9,7 @@ export interface ProjectListItem {
   colorCodeHex: string;
   thumbnailSrc: string;
   tokenNonce: number;
+  status: ProjectFundingStatus;
 }
 
 export interface ActiveProjectInvestment extends ProjectListItem {
@@ -97,4 +98,16 @@ export interface MarketplaceListing {
   daysLeft: number;
 }
 
-
+export enum ProjectFundingStatus {
+  Invalid = 0,
+  Pending = 1,
+  CFActive = 2,
+  CFWaitingCooloff = 3,
+  CFSuccessful = 4,
+  CFFailed = 5,
+  CFCancelled = 6,
+  LoanActive = 7,
+  LoanRepaymentRunningLate = 8,
+  LoanRepaidNotComplete = 9,
+  Completed = 10
+}

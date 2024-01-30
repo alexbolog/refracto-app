@@ -5,6 +5,7 @@ import {
   Coordinates,
   FullProjectPageDetails,
   MarketplaceListing,
+  ProjectFundingStatus,
   ProjectListItem,
   ProjectPageDetails,
   RefractoRatingItem
@@ -73,8 +74,10 @@ const parseProjectInfo = (
     financingDetails: project.financingdetails,
     attachmentUrls: project.attachmenturls,
     questionsAndAnswers: [], // project.questionsAndAnswers //TODO
-    tokenNonce: project.sharetokennnoce
+    tokenNonce: project.sharetokennnoce,
+    status: project.status as ProjectFundingStatus
   };
+
   return parsed;
 };
 

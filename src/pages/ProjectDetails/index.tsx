@@ -29,6 +29,7 @@ const ProjectDetails = () => {
         // something went wrong
         navigate(routeNames.home);
       }
+      console.log(res);
       setProjectDetails(res);
     });
   }, [projectId, allProjects]);
