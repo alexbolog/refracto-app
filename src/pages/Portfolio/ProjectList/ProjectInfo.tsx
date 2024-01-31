@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { DateTime } from 'luxon';
 import { useNavigate } from 'react-router-dom';
 import { RiskBox } from 'components/RiskBox';
@@ -6,6 +6,7 @@ import { toLocaleStringOptions } from 'config';
 import { routeNames } from 'routes';
 import { Investment } from 'types/accountTypes';
 import { formatIso } from 'utils';
+// import './style.css';
 
 const ProjectInfo = ({
   investmentData,
@@ -41,7 +42,7 @@ const ProjectInfo = ({
               <div
                 className='square'
                 style={{
-                  backgroundColor: `#${investmentData.projectInfo.colorCodeHex}`
+                  backgroundColor: `${investmentData.projectInfo.colorCodeHex}`
                 }}
               ></div>
               <span className='ml-2'>
@@ -79,9 +80,12 @@ const ProjectInfo = ({
                 )}
               </strong>
             </div>
-            <div className='col mb-1'>
-              Risk Rating{' '}
-              <RiskBox riskLevel={investmentData.projectInfo.riskRatingLevel} />
+            <div className='col mb-1 text-center'>
+              {/* Risk Rating{' '} */}
+              <RiskBox
+                riskLevel={investmentData.projectInfo.riskRatingLevel}
+                size='lg'
+              />
             </div>
             <div className='col mb-1'>
               <button

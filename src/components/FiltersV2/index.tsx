@@ -97,8 +97,8 @@ export const FiltersV2 = ({
       <div className='row'>
         <div className='col-12'>
           <div className='card w-100 filter-card-wrapper'>
-            <div className='card-body border-0 filter-box-wrapper row'>
-              <div className='filter-input-box col-11 col-xl-6'>
+            <div className='card-body border-0 filter-box-wrapper'>
+              <div className='filter-input-box col-10 col-xl-6'>
                 <div className='input-group search-bar-container'>
                   <span className='input-group-text search-icon'>
                     <FontAwesomeIcon

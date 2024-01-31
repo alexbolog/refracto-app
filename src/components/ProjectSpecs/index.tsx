@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   faArrowTrendUp,
   faCalendar,
@@ -19,6 +19,8 @@ import { FullProjectPageDetails, ProjectPageDetails } from 'types/projectTypes';
 import { formatIso, fromIso } from 'utils';
 import { SpecRow } from './SpecRow';
 import './style.css';
+import { SpecsActionButton } from './SpecsActionButton';
+import { AccountContext } from 'contexts/AccountContext';
 
 export const ProjectSpecs = ({
   project,
@@ -29,6 +31,8 @@ export const ProjectSpecs = ({
   sm?: boolean;
   sticky?: boolean;
 }) => {
+  const { accountOverview } = useContext(AccountContext);
+
   const components = [
     {
       icon: faHourglassEmpty,
@@ -163,7 +167,7 @@ export const ProjectSpecs = ({
           </div>
           {!sm && (
             <div className='card-footer'>
-              <Link
+              {/* <Link
                 to={`${routeNames.invest.replace(
                   ':id',
                   project.projectId.toString()
@@ -171,7 +175,22 @@ export const ProjectSpecs = ({
                 className='btn btn-primary btn-invest'
               >
                 Invest
-              </Link>
+              </Link> */}
+              <SpecsActionButton
+                projectId={project.projectId}
+                isExpired={
+                  DateTime.fromISO(project.crowdfundingDeadline).diffNow()
+                    .milliseconds < 0
+                }
+                isTargetReached={
+                  project.crowdfundedAmount >= project.crowdfundingTarget
+                }
+                investments={
+                  accountOverview?.investments.filter(
+                    (i) => i.projectInfo.projectId === project.projectId
+                  ) ?? []
+                }
+              />
             </div>
           )}
         </div>

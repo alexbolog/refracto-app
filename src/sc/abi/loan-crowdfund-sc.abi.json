@@ -1,11 +1,11 @@
 {
   "buildInfo": {
     "rustc": {
-      "version": "1.71.0-nightly",
-      "commitHash": "5cdb7886a5ece816864fab177f0c266ad4dd5358",
-      "commitDate": "2023-04-15",
+      "version": "1.76.0-nightly",
+      "commitHash": "d86d65bbc19b928387f68427fcc3a0da498d8a19",
+      "commitDate": "2023-12-10",
       "channel": "Nightly",
-      "short": "rustc 1.71.0-nightly (5cdb7886a 2023-04-15)"
+      "short": "rustc 1.76.0-nightly (d86d65bbc 2023-12-10)"
     },
     "contractCrate": {
       "name": "loan-crowdfund-sc",
@@ -13,20 +13,32 @@
     },
     "framework": {
       "name": "multiversx-sc",
-      "version": "0.43.4"
+      "version": "0.46.1"
     }
   },
   "name": "LoanCrowdfundScContract",
   "constructor": {
     "inputs": [
       {
-        "name": "source_loan_repayment_sc_address",
+        "name": "template_loan_repayment_sc_address",
         "type": "Address"
       }
     ],
     "outputs": []
   },
   "endpoints": [
+    {
+      "name": "upgrade",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "_template_loan_repayment_sc_address",
+          "type": "Address"
+        }
+      ],
+      "outputs": []
+    },
     {
       "name": "invest",
       "mutability": "mutable",
@@ -51,6 +63,13 @@
     },
     {
       "name": "withdraw",
+      "mutability": "mutable",
+      "payableInTokens": ["*"],
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "claimRefund",
       "mutability": "mutable",
       "payableInTokens": ["*"],
       "inputs": [],
@@ -207,21 +226,6 @@
       ]
     },
     {
-      "name": "getRepaymentRate",
-      "mutability": "readonly",
-      "inputs": [
-        {
-          "name": "project_id",
-          "type": "u64"
-        }
-      ],
-      "outputs": [
-        {
-          "type": "BigUint"
-        }
-      ]
-    },
-    {
       "name": "getIsKycCompliant",
       "mutability": "readonly",
       "inputs": [
@@ -365,6 +369,18 @@
       "outputs": []
     },
     {
+      "name": "upgradeRepaymentSc",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "project_id",
+          "type": "u64"
+        }
+      ],
+      "outputs": []
+    },
+    {
       "name": "claimLoanFunds",
       "mutability": "mutable",
       "inputs": [
@@ -449,9 +465,24 @@
           "type": "BigUint"
         }
       ]
+    },
+    {
+      "name": "getRepaymentRate",
+      "mutability": "readonly",
+      "inputs": [
+        {
+          "name": "project_id",
+          "type": "u64"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "BigUint"
+        }
+      ]
     }
   ],
-  "events": [],
+  "esdtAttributes": [],
   "hasCallback": true,
   "types": {
     "CrowdfundingStateContext": {
@@ -571,8 +602,16 @@
           "discriminant": 7
         },
         {
-          "name": "Completed",
+          "name": "LoanRepaymentRunningLate",
           "discriminant": 8
+        },
+        {
+          "name": "LoanRepaidNotComplete",
+          "discriminant": 9
+        },
+        {
+          "name": "Completed",
+          "discriminant": 10
         }
       ]
     }
